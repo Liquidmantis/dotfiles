@@ -54,6 +54,10 @@ function yabaiMsg( scope, param )
 	os.execute(string.format("%s -m %s --%s", yabaiPath, scope, param))
 end
 
+-- ****************************************
+-- Hyper hotkeys
+-- ****************************************
+
 hs.hotkey.bind({}, 'F17', enterHyper, exitHyper )
 hs.hotkey.bind({}, 'F18', enterHyper2, exitHyper2 )
 
