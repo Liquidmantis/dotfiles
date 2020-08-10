@@ -32,6 +32,8 @@ function exitHyper()
 end
 
 -- Mode wrapper functions
+-- Hammerspoon wants a function passed and you can't seem to pass 'hyper:exit',
+-- for example.  These are deadwood wrappers so you can pass a function reference.
 function enterHyper2() hyper2:enter() end
 function exitHyper2() hyper2:exit() end
 function enterHyperWindow() hyperWindow:enter() end
@@ -104,7 +106,12 @@ hyper:bind('alt', 'k', function() yabaiMsg( 'window', 'warp north' ) end)
 
 hyper:bind('', 'm', function() yabaiMsg( 'window', 'toggle zoom-parent' ) end)
 hyper:bind('cmd', 'm', function() yabaiMsg( 'window', 'toggle zoom-fullscreen' ) end)
-hyper:bind('shift', 'm', function() yabaiMsg( 'window', 'toggle native-fullscreen' ) end)
+hyper:bind('shift', 'm', function()
+	-- this causes a refocus on the original space for some reason.
+	-- switching to OS commands.
+	-- yabaiMsg( 'window', 'toggle native-fullscreen' )
+	hs.eventtap.keyStroke({'ctrl', 'cmd'}, 'f')
+end)
 	
 hyper:bind('alt', 'n', function() yabaiMsg( 'space', 'focus next' ) end)
 hyper:bind('alt', 'p', function() yabaiMsg( 'space', 'focus prev' ) end)
@@ -142,6 +149,9 @@ hyperWindow:bind('', '/', function()
 	hyperWindow:exit()
 end)
 
+hyperWindow:bind('', 'f', function() yabaiMsg( 'window', 'toggle float' ) hyperWindow:exit() end)
+hyperWindow:bind('', 's', function() yabaiMsg( 'window', 'toggle sticky' ) hyperWindow:exit() end)
+
 hyperWindow:bind('', '=', function() yabaiMsg( 'window', 'ratio rel:0.05' ) end)
 hyperWindow:bind('', '-', function() yabaiMsg( 'window', 'ratio rel:-0.05' ) end)
 hyperWindow:bind('', 'h', function() yabaiMsg( 'window', 'ratio abs:0.30' ) hyperWindow:exit() end)
@@ -155,6 +165,10 @@ hyperWindow:bind('', '-', function() yabaiMsg( 'space', 'mirror x-axis' ) hyperW
 
 hyperWindowResize:bind('', 'Escape', exitHyperWindowResize)
 
+-- Yabai window resizing targets an edge that is adjacent to other windows
+-- Using the OR operator allows thinking in terms of the division
+-- and letting "error handling" conduct the logical operation regardless of 
+-- window focus and adjacent edge.
 hyperWindowResize:bind('', 'h', function()
 	local planA = string.format( "%s -m window --resize right:-30:0", yabaiPath )
 	local planB = string.format( "%s -m window --resize left:-30:0", yabaiPath )
@@ -198,5 +212,11 @@ hyperWindowOpen:bind('', 'k', function() yabaiMsg( 'window', 'insert north' ) hy
 
 hyperSpace:bind('', 'escape', exitHyperSpace)
 
-hyperSpace:bind('', 'h', function() yabaiMsg( 'space', 'focus prev' ) end)
-hyperSpace:bind('', 'l', function() yabaiMsg( 'space', 'focus next' ) end)
+hyperSpace:bind('', 'h', function() yabaiMsg( 'space', 'focus prev' ) hyperSpace:exit() end)
+hyperSpace:bind('', 'l', function() yabaiMsg( 'space', 'focus next' ) hyperSpace:exit() end)
+hyperSpace:bind('', 'p', function() yabaiMsg( 'space', 'focus prev' ) hyperSpace:exit() end)
+hyperSpace:bind('', 'n', function() yabaiMsg( 'space', 'focus next' ) hyperSpace:exit() end)
+hyperSpace:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) hyperSpace:exit() end)
+hyperSpace:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) hyperSpace:exit() end)
+hyperSpace:bind('', '3', function() yabaiMsg( 'space', 'focus 3' ) hyperSpace:exit() end)
+hyperSpace:bind('', '4', function() yabaiMsg( 'space', 'focus 4' ) hyperSpace:exit() end)
