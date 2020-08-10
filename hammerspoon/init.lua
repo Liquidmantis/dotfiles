@@ -1,5 +1,5 @@
--- The basics of this hyper mode are inspired by
--- https://kalis.me/setup-hyper-key-hammerspoon-macos/
+-- Environmental goodies
+yabaiPath = "/usr/local/bin/yabai"
 
 -- Here there be modes.
 -- Hyper and Hyper2 are left and right keys for two immediate modes.
@@ -46,7 +46,9 @@ function enterHyperWindowResize()
 end
 function exitHyperWindowResize() hyperWindowResize:exit() end
 
-yabaiPath = "/usr/local/bin/yabai"
+-- ****************************************
+-- Helper Functions
+-- ****************************************
 
 function yabaiMsg( scope, param )
 	os.execute(string.format("%s -m %s --%s", yabaiPath, scope, param))
@@ -55,22 +57,19 @@ end
 hs.hotkey.bind({}, 'F17', enterHyper, exitHyper )
 hs.hotkey.bind({}, 'F18', enterHyper2, exitHyper2 )
 
-hs.hotkey.bind({'alt'}, 'space', function()
-	hs.eventtap.keyStroke({'shift','ctrl','alt','cmd'}, 'space')
-end)
+-- ****************************************
+-- Generic hotkeys
+-- ****************************************
+
+-- TODO
 
 -- ****************************************
 -- Mode: Hyper Meta and Modal control bindings
 -- ****************************************
 
-hyper:bind('', 'escape', function()
-  hyper:exit()
-end)
+hyper:bind('', 'escape', exitHyper)
 
-hyper:bind('', 'r', function()
-	hs.alert('Hammerspoon reloaded')
-	hs.reload()
-end)
+hyper:bind('', 'r', hs.reload)
 
 hyper:bind('', 'w', enterHyperWindow)
 hyper:bind('', 's', enterHyperSpace)
@@ -79,102 +78,44 @@ hyper:bind('', 's', enterHyperSpace)
 -- Mode: Hyper Keybindings
 -- ****************************************
 
-hyper:bind('', 'h', function() 
-	yabaiMsg( 'window', 'focus west' )
-end)
-
-hyper:bind('', 'l', function()
-	yabaiMsg( 'window', 'focus east' )
-end)
-
-hyper:bind('', 'j', function()
-	yabaiMsg( 'window', 'focus south' )
-end)
-
-hyper:bind('', 'k', function()
-	yabaiMsg( 'window', 'focus north' )
-end)
+hyper:bind('', 'h', function() yabaiMsg( 'window', 'focus west' ) end)
+hyper:bind('', 'l', function() yabaiMsg( 'window', 'focus east' ) end)
+hyper:bind('', 'j', function() yabaiMsg( 'window', 'focus south' ) end)
+hyper:bind('', 'k', function() yabaiMsg( 'window', 'focus north' ) end)
 
 hyper:bind('', 'x', function()
 	yabaiMsg( 'window', 'close' )
 	yabaiMsg( 'window', 'focus last' )
 end)
 
-hyper:bind('shift', 'h', function()
-	yabaiMsg( 'window', 'swap west' )
-end)
+hyper:bind('shift', 'h', function() yabaiMsg( 'window', 'swap west' ) end)
+hyper:bind('shift', 'l', function() yabaiMsg( 'window', 'swap east' ) end)
+hyper:bind('shift', 'j', function() yabaiMsg( 'window', 'swap south' ) end)
+hyper:bind('shift', 'k', function() yabaiMsg( 'window', 'swap north' ) end)
 
-hyper:bind('shift', 'l', function()
-	yabaiMsg( 'window', 'swap east' )
-end)
+hyper:bind('alt', 'h', function() yabaiMsg( 'window', 'warp west' ) end)
+hyper:bind('alt', 'l', function() yabaiMsg( 'window', 'warp east' ) end)
+hyper:bind('alt', 'j', function() yabaiMsg( 'window', 'warp south' ) end)
+hyper:bind('alt', 'k', function() yabaiMsg( 'window', 'warp north' ) end)
 
-hyper:bind('shift', 'j', function()
-	yabaiMsg( 'window', 'swap south' )
-end)
-
-hyper:bind('shift', 'k', function()
-	yabaiMsg( 'window', 'swap north' )
-end)
-
-hyper:bind('alt', 'h', function()
-	yabaiMsg( 'window', 'warp west' )
-end)
-
-hyper:bind('alt', 'l', function()
-	yabaiMsg( 'window', 'warp east' )
-end)
-
-hyper:bind('alt', 'j', function()
-	yabaiMsg( 'window', 'warp south' )
-end)
-
-hyper:bind('alt', 'k', function()
-	yabaiMsg( 'window', 'warp north' )
-end)
-
-hyper:bind('', 'm', function()
-	yabaiMsg( 'window', 'toggle zoom-parent' )
-end)
-
-hyper:bind('cmd', 'm', function()
-	yabaiMsg( 'window', 'toggle zoom-fullscreen' )
-end)
-
-hyper:bind('shift', 'm', function()
-	yabaiMsg( 'window', 'toggle native-fullscreen' )
-end)
+hyper:bind('', 'm', function() yabaiMsg( 'window', 'toggle zoom-parent' ) end)
+hyper:bind('cmd', 'm', function() yabaiMsg( 'window', 'toggle zoom-fullscreen' ) end)
+hyper:bind('shift', 'm', function() yabaiMsg( 'window', 'toggle native-fullscreen' ) end)
 	
-hyper:bind('alt', 'n', function()
-  os.execute("/usr/local/bin/yabai -m space --focus next")
-end)
-
-hyper:bind('alt', 'p', function()
-  os.execute("/usr/local/bin/yabai -m space --focus prev")
-end)
+hyper:bind('alt', 'n', function() yabaiMsg( 'space', 'focus next' ) end)
+hyper:bind('alt', 'p', function() yabaiMsg( 'space', 'focus prev' ) end)
 
 -- ****************************************
 -- Mode: Hyper2 Keybindings
 -- ****************************************
 
-hyper2:bind('', '1', function()
-  os.execute("/usr/local/bin/yabai -m space --focus 1")
-end)
+hyper2:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) end)
+hyper2:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) end)
 
-hyper2:bind('', '2', function()
-  os.execute("/usr/local/bin/yabai -m space --focus 2")
-end)
+hyper2:bind('', 'c', function() yabaiMsg( 'space', 'create' ) end)
 
-hyper2:bind('', 'c', function()
-  os.execute("/usr/local/bin/yabai -m space --create")
-end)
-
-hyper2:bind('shift', '1', function()
-  os.execute("/usr/local/bin/yabai -m window --space 1")
-end)
-
-hyper2:bind('shift', '2', function()
-  os.execute("/usr/local/bin/yabai -m window --space 2")
-end)
+hyper2:bind('shift', '1', function() yabaiMsg( 'window', 'space 1' ) end)
+hyper2:bind('shift', '2', function() yabaiMsg( 'window', 'space 2' ) end)
 
 -- ****************************************
 -- Mode: HyperWindow Keybindings
@@ -187,45 +128,24 @@ hyperWindow:bind('', 'o', function()
 	hyperWindow:exit()
 end)
 
-hyperWindow:bind('', 'r', enterHyperWindowResize)
+hyperWindow:bind('', 'r', function()
+	hyperWindowResize:enter()
+	hyperWindow:exit()
+end)
 
 hyperWindow:bind('', '/', function()
 	yabaiMsg( 'window', 'toggle split' )
 	hyperWindow:exit()
 end)
 
-hyperWindow:bind('', '=', function()
-	yabaiMsg( 'window', 'ratio rel:0.05' )
-end)
+hyperWindow:bind('', '=', function() yabaiMsg( 'window', 'ratio rel:0.05' ) end)
+hyperWindow:bind('', '-', function() yabaiMsg( 'window', 'ratio rel:-0.05' ) end)
+hyperWindow:bind('', 'h', function() yabaiMsg( 'window', 'ratio abs:0.30' ) hyperWindow:exit() end)
+hyperWindow:bind('', 'l', function() yabaiMsg( 'window', 'ratio abs:0.70' ) hyperWindow:exit() end)
+hyperWindow:bind('', '0', function() yabaiMsg( 'space', 'balance' ) hyperWindow:exit() end)
 
-hyperWindow:bind('', '-', function()
-	yabaiMsg( 'window', 'ratio rel:-0.05' )
-end)
-
-hyperWindow:bind('', 'h', function()
-	yabaiMsg( 'window', 'ratio abs:0.30' )
-  hyperWindow:exit()
-end)
-
-hyperWindow:bind('', 'l', function()
-	yabaiMsg( 'window', 'ratio abs:0.70' )
-  hyperWindow:exit()
-end)
-
-hyperWindow:bind('', '0', function()
-  yabaiMsg( 'space', 'balance' )
-  hyperWindow:exit()
-end)
-
-hyperWindow:bind('', '\\', function()
-  yabaiMsg( 'space', 'mirror y-axis' )
-  hyperWindow:exit()
-end)
-
-hyperWindow:bind('', '-', function()
-  yabaiMsg( 'space', 'mirror x-axis' )
-  hyperWindow:exit()
-end)
+hyperWindow:bind('', '\\', function() yabaiMsg( 'space', 'mirror y-axis' ) hyperWindow:exit() end)
+hyperWindow:bind('', '-', function() yabaiMsg( 'space', 'mirror x-axis' ) hyperWindow:exit() end)
 
 -- SubMode: HyperWindowResize Keybindings
 
@@ -261,40 +181,18 @@ end)
 
 -- SubMode: HyperWindowOpen Keybindings
 
-hyperWindowOpen:bind('', 'Escape', function()
-	hyperWindowOpen:exit()
-end)
+hyperWindowOpen:bind('', 'Escape', exitHyperWindowOpen)
 
-hyperWindowOpen:bind('', 'h', function()
-	yabaiMsg( 'window', 'insert west' )
-	hyperWindowOpen:exit()
-end)
-
-hyperWindowOpen:bind('', 'l', function()
-	yabaiMsg( 'window', 'insert east' )
-	hyperWindowOpen:exit()
-end)
-
-hyperWindowOpen:bind('', 'j', function()
-	yabaiMsg( 'window', 'insert south' )
-	hyperWindowOpen:exit()
-end)
-
-hyperWindowOpen:bind('', 'k', function()
-	yabaiMsg( 'window', 'insert north' )
-	hyperWindowOpen:exit()
-end)
+hyperWindowOpen:bind('', 'h', function() yabaiMsg( 'window', 'insert west' ) hyperWindowOpen:exit() end)
+hyperWindowOpen:bind('', 'l', function() yabaiMsg( 'window', 'insert east' ) hyperWindowOpen:exit() end)
+hyperWindowOpen:bind('', 'j', function() yabaiMsg( 'window', 'insert south' ) hyperWindowOpen:exit() end)
+hyperWindowOpen:bind('', 'k', function() yabaiMsg( 'window', 'insert north' ) hyperWindowOpen:exit() end)
 
 -- ****************************************
 -- Mode: HyperSpace Keybindings
 -- ****************************************
 
-hyperSpace:bind('', 'h', function()
-	os.execute("/usr/local/bin/yabai -m space --focus prev")
-end)
-hyperSpace:bind('', 'l', function()
-	os.execute("/usr/local/bin/yabai -m space --focus next")
-end)
-hyperSpace:bind('', 'escape', function()
-  hyperSpace:exit()
-end)
+hyperSpace:bind('', 'escape', exitHyperSpace)
+
+hyperSpace:bind('', 'h', function() yabaiMsg( 'space', 'focus prev' ) end)
+hyperSpace:bind('', 'l', function() yabaiMsg( 'space', 'focus next' ) end)
