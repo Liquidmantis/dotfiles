@@ -1,0 +1,67 @@
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+export HISTORY_SUBSTRING_SEARCH_FUZZY=true
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+function proxy() {
+    if [ "$1" = "on" ]; then
+        # export http_proxy=http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80;
+        export http_proxy=http://PITC-Zscaler-Americas-Alpharetta3PR.proxy.corporate.ge.com:80;
+        export https_proxy=$http_proxy; 
+        export no_proxy=.ge.com;
+    elif [ "$1" = "off" ]; then
+        unset http_proxy;
+        unset https_proxy;
+        unset no_proxy;
+    elif [ "$1" = "show" ]; then
+        echo "HTTP: $http_proxy";
+        echo "HTTPS: $https_proxy";
+        echo "No_proxy: $no_proxy";
+    fi
+}
+
+
+source /usr/local/etc/profile.d/z.sh
+source ~/.config/zsh/aliases
+
+# add vim keybindings
+# now using spaceship prompt's vim
+# bindkey -v
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+# Set Spaceship ZSH as a prompt
+# run "conda config --set changeps1 false" to remove lame conda env tag.
+autoload -U promptinit; promptinit
+prompt spaceship
+spaceship_vi_mode_enable
+
+# This is a fix for the white highlight of white text in Hyper
+unset zle_bracketed_paste
+# remove esc delay
+KEYTIMEOUT=1
+
+export PATH="/usr/local/sbin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+conda config --set changeps1 false
