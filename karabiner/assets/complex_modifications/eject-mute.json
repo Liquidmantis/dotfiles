@@ -1,0 +1,61 @@
+{
+  "title": "Teams Mute Tool",
+  "rules": [
+    {
+      "description": "Pressing the Eject button toggles Teams mute.  Holding Eject is PTT (toggles mute while held)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "consumer_key_code": "eject",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "parameters": {
+            "basic.to_if_held_down_threshold_milliseconds": 150
+          },
+          "to_if_alone": [
+            {
+              "key_code": "m",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ],
+              "halt": true
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "m",
+              "modifiers": [
+                  "left_shift",
+                  "left_command"
+                ],
+              "repeat": false
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "key_code": "m",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.teams$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
