@@ -5,6 +5,8 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -65,3 +67,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 conda config --set changeps1 false
+
