@@ -4,6 +4,8 @@ yabaiPath = "/usr/local/bin/yabai"
 -- Here there be modes.
 -- Hyper and Hyper2 are left and right keys for two immediate modes.
 -- Hyper and Hyper2 are ephemeral, only active while pressed.
+-- Using Karabiner Elements, L-Ctrl and R-Opt are remampped to F17 and F18 respectively
+-- these f-keys are bound to the initial hyper triggers so that they can be layered with mod keys
 hyper = hs.hotkey.modal.new()
 hyper2 = hs.hotkey.modal.new()
 
@@ -22,9 +24,9 @@ hyperWindowResize = hs.hotkey.modal.new()
 function enterHyper()
 	hyper:enter() 
 	hyper2:exit()
+	hyperDisplay:exit()
 	hyperSpace:exit()
 	hyperWindow:exit()
-	hyperWindowOpen:exit()
 	hyperWindowResize:exit()
 end
 
@@ -55,8 +57,16 @@ function exitHyperWindowResize() hyperWindowResize:exit() end
 -- Helper Functions
 -- ****************************************
 
-function yabaiMsg( scope, param )
-	os.execute(string.format("%s -m %s --%s", yabaiPath, scope, param))
+function yabaiMsg( scope, param, fallbackParam)
+    local planA = string.format("%s -m %s --%s", yabaiPath, scope, param)
+	if fallbackParam then
+		local planB = string.format("%s -m %s --%s", yabaiPath, scope, fallbackParam) 
+		cmd = string.format("%s || %s", planA, planB)
+	else 
+		local cmd = planA
+	end
+		
+	os.execute(cmd)
 end
 
 -- ****************************************
@@ -124,14 +134,19 @@ end)
 
 hyper2:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) end)
 hyper2:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) end)
+hyper2:bind('', '3', function() yabaiMsg( 'space', 'focus 3' ) end)
+hyper2:bind('', '4', function() yabaiMsg( 'space', 'focus 4' ) end)
 
 hyper2:bind('', 'c', function() yabaiMsg( 'space', 'create' ) end)
 
 hyper2:bind('shift', '1', function() yabaiMsg( 'window', 'space 1' ) end)
 hyper2:bind('shift', '2', function() yabaiMsg( 'window', 'space 2' ) end)
+hyper2:bind('shift', '3', function() yabaiMsg( 'window', 'space 3' ) end)
+hyper2:bind('shift', '4', function() yabaiMsg( 'window', 'space 4' ) end)
 
 -- ****************************************
 -- Mode: HyperDisplay Keybindings
+--   this configuration is experimental and not working well
 -- ****************************************
 
 hyperDisplay:bind('', 'Escape', exitHyperDisplay)
@@ -140,6 +155,8 @@ hyperDisplay:bind('', 'h', function() yabaiMsg( 'display', 'focus prev' ) hyperD
 hyperDisplay:bind('', 'l', function() yabaiMsg( 'display', 'focus next' ) hyperDisplay:exit() end)
 hyperDisplay:bind('', 'p', function() yabaiMsg( 'display', 'focus prev' ) hyperDisplay:exit() end)
 hyperDisplay:bind('', 'n', function() yabaiMsg( 'display', 'focus next' ) hyperDisplay:exit() end)
+hyperDisplay:bind('shift', '1', function() yabaiMsg( 'space', 'display 1' ) hyperDisplay:exit() end)
+hyperDisplay:bind('shift', '2', function() yabaiMsg( 'space', 'display 2' ) hyperDisplay:exit() end)
 
 -- ****************************************
 -- Mode: HyperWindow Keybindings
@@ -151,6 +168,7 @@ hyperWindow:bind('alt', 'o', function()
 	hyperWindowOpen:enter()
 	hyperWindow:exit()
 end)
+
 
 hyperWindow:bind('', 'r', function()
 	hyperWindowResize:enter()
@@ -168,7 +186,7 @@ hyperWindow:bind('', 's', function() yabaiMsg( 'window', 'toggle sticky' ) hyper
 hyperWindow:bind('', '=', function() yabaiMsg( 'window', 'ratio rel:0.05' ) end)
 hyperWindow:bind('', '-', function() yabaiMsg( 'window', 'ratio rel:-0.05' ) end)
 hyperWindow:bind('', 'h', function() yabaiMsg( 'window', 'ratio abs:0.30' ) hyperWindow:exit() end)
-hyperWindow:bind('', 'l', function() yabaiMsg( 'window', 'ratio abs:0.70' ) hyperWindow:exit() end)
+
 hyperWindow:bind('', '0', function() yabaiMsg( 'space', 'balance' ) hyperWindow:exit() end)
 
 hyperWindow:bind('', '\\', function() yabaiMsg( 'space', 'mirror y-axis' ) hyperWindow:exit() end)
@@ -178,39 +196,16 @@ hyperWindow:bind('shift', 'o', function() yabaiMsg( 'space', 'rotate 270' ) hype
 
 -- SubMode: HyperWindowResize Keybindings
 
-hyperWindowResize:bind('', 'Escape', exitHyperWindowResize)
+hyperWindowResize:bind('', 'escape', exitHyperWindowResize)
 
 -- Yabai window resizing targets an edge that is adjacent to other windows
 -- Using the OR operator allows thinking in terms of the division
 -- and letting "error handling" conduct the logical operation regardless of 
 -- window focus and adjacent edge.
-hyperWindowResize:bind('', 'h', function()
-	local planA = string.format( "%s -m window --resize right:-30:0", yabaiPath )
-	local planB = string.format( "%s -m window --resize left:-30:0", yabaiPath )
-	local cmd   = string.format( "%s || %s", planA, planB )
-	os.execute(cmd) 
-end)
-
-hyperWindowResize:bind('', 'l', function()
-	local planA = string.format( "%s -m window --resize right:30:0", yabaiPath )
-	local planB = string.format( "%s -m window --resize left:30:0", yabaiPath )
-	local cmd   = string.format( "%s || %s", planA, planB )
-	os.execute(cmd) 
-end)
-
-hyperWindowResize:bind('', 'j', function()
-	local planA = string.format( "%s -m window --resize top:0:30", yabaiPath )
-	local planB = string.format( "%s -m window --resize bottom:0:30", yabaiPath )
-	local cmd   = string.format( "%s || %s", planA, planB )
-	os.execute(cmd) 
-end)
-
-hyperWindowResize:bind('', 'k', function()
-	local planA = string.format( "%s -m window --resize top:0:-30", yabaiPath )
-	local planB = string.format( "%s -m window --resize bottom:0:-30", yabaiPath )
-	local cmd   = string.format( "%s || %s", planA, planB )
-	os.execute(cmd) 
-end)
+hyperWindowResize:bind('', 'h', function() yabaiMsg( 'window', 'resize right:-30:0', 'resize left:30:0' ) end)
+hyperWindowResize:bind('', 'l', function() yabaiMsg( 'window', 'resize left:-30:0', 'resize right:30:0' ) end)
+hyperWindowResize:bind('', 'j', function() yabaiMsg( 'window', 'resize top:-30:0', 'resize botton:30:0' ) end)
+hyperWindowResize:bind('', 'k', function() yabaiMsg( 'window', 'resize top:30:0', 'resize botton:-30:0' ) end)
 
 -- SubMode: HyperWindowOpen Keybindings
 
