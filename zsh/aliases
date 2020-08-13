@@ -1,30 +1,33 @@
 # app aliases
 alias ci='code-insiders'
-alias vi="nvim"
-alias vim="nvim"
+alias vi='nvim'
+alias vim='nvim'
 alias edit='nvim'
-alias tf="terraform"
+alias tf='terraform'
 
 # git aliases
 alias gc='git commit'
 alias gs='git status'
 alias gcm='git commit -am'
 alias gp='git push'
+alias gpull='git pull'
+alias gch='git checkout'
+alias gcb='git checkout -b'
  
 # dotfile edit aliases
-alias viv="edit ~/.config/nvim/init.vim"
-alias viz="edit ~/.zshrc"
-alias vit="edit ~/.tmux.conf"
-alias vih="edit ~/.hammerspoon/init.lua"
+alias viv='edit ~/.config/nvim/init.vim'
+alias viz='edit ~/.zshrc'
+alias vit='edit ~/.tmux.conf'
+alias vih='edit ~/.hammerspoon/init.lua'
 alias via='edit ~/.config/alacritty/alacritty.yml'
 alias vialias='edit ~/.config/zsh/aliases'
 
 # terminal mojo aliases
-alias soz="source ~/.zshrc"
+alias soz='source ~/.zshrc'
 alias soa='source ~/.config/zsh/aliases'
 
 # command aliases
-alias brewup="brew update; brew upgrade; brew cask upgrade; brew cleanup"
-alias yabrestart="brew services stop yabai && brew services start yabai"
+alias brewup='brew update; brew upgrade; brew cask upgrade; brew cleanup'
+alias yabrestart='brew services stop yabai && brew services start yabai'
 
 # any aliases below here were added via echo append and need sorting
