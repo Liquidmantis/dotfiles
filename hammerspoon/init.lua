@@ -10,6 +10,7 @@ hyper2 = hs.hotkey.modal.new()
 -- Mode layers
 -- These modes are layered and toggled from Hyper.
 -- They "lock" and have exit triggers based on submodes and hotkey triggers.
+hyperDisplay= hs.hotkey.modal.new()
 hyperSpace = hs.hotkey.modal.new()
 hyperWindow = hs.hotkey.modal.new()
 hyperWindowOpen = hs.hotkey.modal.new()
@@ -36,6 +37,8 @@ end
 -- for example.  These are deadwood wrappers so you can pass a function reference.
 function enterHyper2() hyper2:enter() end
 function exitHyper2() hyper2:exit() end
+function enterHyperDisplay() hyperDisplay:enter() end
+function exitHyperDisplay() hyperDisplay:exit() end
 function enterHyperWindow() hyperWindow:enter() end
 function exitHyperWindow() hyperWindow:exit() end
 function enterHyperWindowOpen() hyperWindowOpen:enter() end
@@ -79,11 +82,13 @@ hyper:bind('', 'r', hs.reload)
 
 hyper:bind('', 'w', enterHyperWindow)
 hyper:bind('', 's', enterHyperSpace)
+hyper:bind('', 'd', enterHyperDisplay)
 
 -- ****************************************
 -- Mode: Hyper Keybindings
 -- ****************************************
 
+hyper:bind('', 'o', function() yabaiMsg( 'window', 'focus recent' ) end)
 hyper:bind('', 'h', function() yabaiMsg( 'window', 'focus west' ) end)
 hyper:bind('', 'l', function() yabaiMsg( 'window', 'focus east' ) end)
 hyper:bind('', 'j', function() yabaiMsg( 'window', 'focus south' ) end)
@@ -113,9 +118,6 @@ hyper:bind('shift', 'm', function()
 	hs.eventtap.keyStroke({'ctrl', 'cmd'}, 'f')
 end)
 	
-hyper:bind('alt', 'n', function() yabaiMsg( 'space', 'focus next' ) end)
-hyper:bind('alt', 'p', function() yabaiMsg( 'space', 'focus prev' ) end)
-
 -- ****************************************
 -- Mode: Hyper2 Keybindings
 -- ****************************************
@@ -129,12 +131,23 @@ hyper2:bind('shift', '1', function() yabaiMsg( 'window', 'space 1' ) end)
 hyper2:bind('shift', '2', function() yabaiMsg( 'window', 'space 2' ) end)
 
 -- ****************************************
+-- Mode: HyperDisplay Keybindings
+-- ****************************************
+
+hyperDisplay:bind('', 'Escape', exitHyperDisplay)
+
+hyperDisplay:bind('', 'h', function() yabaiMsg( 'display', 'focus prev' ) hyperDisplay:exit() end)
+hyperDisplay:bind('', 'l', function() yabaiMsg( 'display', 'focus next' ) hyperDisplay:exit() end)
+hyperDisplay:bind('', 'p', function() yabaiMsg( 'display', 'focus prev' ) hyperDisplay:exit() end)
+hyperDisplay:bind('', 'n', function() yabaiMsg( 'display', 'focus next' ) hyperDisplay:exit() end)
+
+-- ****************************************
 -- Mode: HyperWindow Keybindings
 -- ****************************************
 
 hyperWindow:bind('', 'Escape', exitHyperWindow)
 
-hyperWindow:bind('', 'o', function()
+hyperWindow:bind('alt', 'o', function()
 	hyperWindowOpen:enter()
 	hyperWindow:exit()
 end)
@@ -160,6 +173,8 @@ hyperWindow:bind('', '0', function() yabaiMsg( 'space', 'balance' ) hyperWindow:
 
 hyperWindow:bind('', '\\', function() yabaiMsg( 'space', 'mirror y-axis' ) hyperWindow:exit() end)
 hyperWindow:bind('', '-', function() yabaiMsg( 'space', 'mirror x-axis' ) hyperWindow:exit() end)
+hyperWindow:bind('', 'o', function() yabaiMsg( 'space', 'rotate 90' ) hyperWindow:exit() end)
+hyperWindow:bind('shift', 'o', function() yabaiMsg( 'space', 'rotate 270' ) hyperWindow:exit() end)
 
 -- SubMode: HyperWindowResize Keybindings
 
@@ -212,10 +227,14 @@ hyperWindowOpen:bind('', 'k', function() yabaiMsg( 'window', 'insert north' ) hy
 
 hyperSpace:bind('', 'escape', exitHyperSpace)
 
+hyperSpace:bind('', 'c', function() yabaiMsg( 'space', 'create' ) hyperSpace:exit() end)
+hyperSpace:bind('', 'x', function() yabaiMsg( 'space', 'destroy' ) hyperSpace:exit() end)
+hyperSpace:bind('', 'o', function() yabaiMsg( 'space', 'focus recent' ) hyperSpace:exit() end)
 hyperSpace:bind('', 'h', function() yabaiMsg( 'space', 'focus prev' ) hyperSpace:exit() end)
 hyperSpace:bind('', 'l', function() yabaiMsg( 'space', 'focus next' ) hyperSpace:exit() end)
 hyperSpace:bind('', 'p', function() yabaiMsg( 'space', 'focus prev' ) hyperSpace:exit() end)
 hyperSpace:bind('', 'n', function() yabaiMsg( 'space', 'focus next' ) hyperSpace:exit() end)
+hyperSpace:bind('', 'w', function() yabaiMsg( 'space', 'toggle mission-control' ) hyperSpace:exit() end)
 hyperSpace:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) hyperSpace:exit() end)
 hyperSpace:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) hyperSpace:exit() end)
 hyperSpace:bind('', '3', function() yabaiMsg( 'space', 'focus 3' ) hyperSpace:exit() end)
