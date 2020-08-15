@@ -6,6 +6,7 @@ Plug 'PProvost/vim-ps1'
 Plug 'justinmk/vim-sneak'
 Plug 'rizzatti/dash.vim'
 Plug 'chaoren/vim-wordmotion'
+Plug 'vimwiki/vimwiki'
 
 " vscode-neovim exclusive plugins
 if exists('g:vscode')
@@ -22,33 +23,39 @@ if !exists('g:vscode')
 	Plug 'jremmen/vim-ripgrep'
 	Plug 'tpope/vim-fugitive'
 	Plug 'vim-utils/vim-man'
-	Plug 'kien/ctrlp.vim'
+	Plug 'junegunn/fzf.vim'
+	" Plug 'kien/ctrlp.vim'
 	" Plug 'ycm-core/YouCompleteMe'
 	Plug 'mbbill/undotree'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'mhinz/vim-startify'
+	Plug 'hashivim/vim-terraform'
 endif
 call plug#end()
 
 " neovim settings
 if !exists('g:vscode')
+	let mapleader=" "
     set number relativenumber
     set tabstop=4 softtabstop=4
     set shiftwidth=4
     set smartindent
 	set incsearch
-	nnoremap <leader>h :wincmd h<CR>
-	nnoremap <leader>l :wincmd l<CR>
-	nnoremap <leader>j :wincmd j<CR>
-	nnoremap <leader>k :wincmd k<CR>
-	nnoremap <leader>- :split<CR>
-	nnoremap <leader>\ :vsplit<CR>
-	nnoremap <leader>! :wincmd _<CR>:wincmd \|<CR>
-	nnoremap <leader>= :wincmd =<CR>
-	nnoremap <leader>e :CocCommand explorer<CR>
-	noremap <leader>f :CocCommand explorer --preset floating<CR>
-	nnoremap <leader>viv :tabedit $MYVIMRC<CR>
-	nnoremap <leader>sov :source $MYVIMRC<CR>
+	set nocompatible
+	syntax on
+	
+	nnoremap <silent> <leader>h :wincmd h<CR>
+	nnoremap <silent> <leader>l :wincmd l<CR>
+	nnoremap <silent> <leader>j :wincmd j<CR>
+	nnoremap <silent> <leader>k :wincmd k<CR>
+	nnoremap <silent> <leader>- :split<CR>
+	nnoremap <silent> <leader>\ :vsplit<CR>
+	nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR>
+	nnoremap <silent> <leader>= :wincmd =<CR>
+	nnoremap <silent> <leader>e :CocCommand explorer<CR>
+	nnoremap <silent> <leader>f :CocCommand explorer --preset floating<CR>
+	nnoremap <silent> <leader>viv :tabedit $MYVIMRC<CR>
+	nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim config.'
 	autocmd VimResized * :wincmd =
 endif
 
@@ -64,4 +71,3 @@ autocmd FileType tf setlocal commentstring=#\ %s
 
 colorscheme gruvbox
 set background=dark
-let mapleader=" "

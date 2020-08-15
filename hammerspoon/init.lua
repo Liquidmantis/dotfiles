@@ -1,4 +1,5 @@
 require("functions")
+require("hs.ipc")
 
 -- Environmental goodies
 yabaiPath = "/usr/local/bin/yabai" 
@@ -41,6 +42,10 @@ hyper:bind('', 'd', enterHyperDisplay)
 -- Mode: Hyper Keybindings
 -- ****************************************
 
+-- root layer app shortcuts
+hyper:bind('', 'return', function() hs.application.launchOrFocus('Alacritty') end)
+
+-- window navigation movements
 hyper:bind('', 'o', function() yabaiMsg( 'window', 'focus recent' ) end)
 hyper:bind('', 'h', function() yabaiMsg( 'window', 'focus west' ) end)
 hyper:bind('', 'l', function() yabaiMsg( 'window', 'focus east') end)
