@@ -52,11 +52,12 @@ if !exists('g:vscode')
 	nnoremap <silent> <leader>\ :vsplit<CR>
 	nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR>
 	nnoremap <silent> <leader>= :wincmd =<CR>
-	nnoremap <silent> <leader>e :CocCommand explorer<CR>
-	nnoremap <silent> <leader>f :CocCommand explorer --preset floating<CR>
+	nnoremap <silent> <leader>ee :CocCommand explorer<CR>
+	nnoremap <silent> <leader>ef :CocCommand explorer --preset floating<CR>
 	nnoremap <silent> <leader>viv :tabedit $MYVIMRC<CR>
 	nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim config.'
 	autocmd VimResized * :wincmd =
+	source $HOME/.config/nvim/coc-explorer.vim
 endif
 
 " global settings
