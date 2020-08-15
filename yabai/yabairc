@@ -22,6 +22,7 @@ yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 
 # app ignores
+yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="Preferences$" manage=off
 yabai -m rule --add app="^Activity Monitor" manage=off

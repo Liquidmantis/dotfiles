@@ -46,7 +46,9 @@ if !exists('g:vscode')
 	nnoremap <leader>! :wincmd _<CR>:wincmd \|<CR>
 	nnoremap <leader>= :wincmd =<CR>
 	nnoremap <leader>e :CocCommand explorer<CR>
-	nnoremap <leader>f :CocCommand explorer --preset floating<CR>
+	noremap <leader>f :CocCommand explorer --preset floating<CR>
+	nnoremap <leader>viv :tabedit $MYVIMRC<CR>
+	nnoremap <leader>sov :source $MYVIMRC<CR>
 	autocmd VimResized * :wincmd =
 endif
 
