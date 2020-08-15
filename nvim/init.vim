@@ -6,7 +6,6 @@ Plug 'PProvost/vim-ps1'
 Plug 'justinmk/vim-sneak'
 Plug 'rizzatti/dash.vim'
 Plug 'chaoren/vim-wordmotion'
-Plug 'christoomey/vim-tmux-navigator'
 
 " vscode-neovim exclusive plugins
 if exists('g:vscode')
@@ -26,6 +25,8 @@ if !exists('g:vscode')
 	Plug 'kien/ctrlp.vim'
 	" Plug 'ycm-core/YouCompleteMe'
 	Plug 'mbbill/undotree'
+	Plug 'christoomey/vim-tmux-navigator'
+	Plug 'mhinz/vim-startify'
 endif
 call plug#end()
 
@@ -40,10 +41,12 @@ if !exists('g:vscode')
 	nnoremap <leader>l :wincmd l<CR>
 	nnoremap <leader>j :wincmd j<CR>
 	nnoremap <leader>k :wincmd k<CR>
-	nnoremap <leader>- :split-window<CR>
-	nnoremap <leader>\ :vsplit-window<CR>
+	nnoremap <leader>- :split<CR>
+	nnoremap <leader>\ :vsplit<CR>
 	nnoremap <leader>! :wincmd _<CR>:wincmd \|<CR>
 	nnoremap <leader>= :wincmd =<CR>
+	nnoremap <leader>e :CocCommand explorer<CR>
+	nnoremap <leader>f :CocCommand explorer --preset floating<CR>
 	autocmd VimResized * :wincmd =
 endif
 
