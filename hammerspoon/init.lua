@@ -25,8 +25,8 @@ hyperWindowResize = hs.hotkey.modal.new()
 -- Hyper Keybindings
 -- ****************************************
 
-hs.hotkey.bind({}, 'F17', enterHyper, exitHyper )
-hs.hotkey.bind({}, 'F18', enterHyper2, exitHyper2 )
+hs.hotkey.bind({}, 'F17', enterHyper, exitHyper)
+hs.hotkey.bind({}, 'F18', enterHyper2, exitHyper2)
 
 -- ****************************************
 -- Mode: Hyper Meta and Modal Trigger Keybindings
