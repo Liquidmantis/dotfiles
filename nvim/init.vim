@@ -57,6 +57,8 @@ if !exists('g:vscode')
 	nnoremap <silent> <leader>viv :tabedit $MYVIMRC<CR>
 	nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim config.'
 	nnoremap <silent> <leader>hl :noh<CR> " clear last search highlight
+
+	nnoremap <silent> <leader>u :UndotreeToggle<CR>
 	autocmd VimResized * :wincmd =
 	source $HOME/.config/nvim/coc-explorer.vim
 endif
