@@ -24,8 +24,6 @@ if !exists('g:vscode')
 	Plug 'tpope/vim-fugitive'
 	Plug 'vim-utils/vim-man'
 	Plug 'junegunn/fzf.vim'
-	" Plug 'kien/ctrlp.vim'
-	" Plug 'ycm-core/YouCompleteMe'
 	Plug 'mbbill/undotree'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'mhinz/vim-startify'
@@ -44,6 +42,7 @@ if !exists('g:vscode')
 	set nocompatible
 	syntax on
 	
+	" TODO: organize these into something sensible
 	nnoremap <silent> <leader>h :wincmd h<CR>
 	nnoremap <silent> <leader>l :wincmd l<CR>
 	nnoremap <silent> <leader>j :wincmd j<CR>
