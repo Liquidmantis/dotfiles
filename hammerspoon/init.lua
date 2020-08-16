@@ -1,5 +1,7 @@
 require("functions")
 
+hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
+
 -- Environmental goodies
 yabaiPath = "/usr/local/bin/yabai" 
 -- Here there be modes.
