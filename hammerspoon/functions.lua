@@ -25,7 +25,9 @@ end
 -- for example.  These are deadwood wrappers so you can pass a function reference.
 function enterHyper2()
 	print('[Mode] Hyper2 enabled')
-	hyper2:enter() end
+	exitHyper()
+	hyper2:enter()
+end
 function exitHyper2()
 	print('[Mode] Hyper2 disabled')
 	hyper2:exit()
@@ -33,6 +35,7 @@ end
 
 function enterHyperDisplay() 
 	print('[Mode] HyperDisplay enabled')
+	exitHyper()
 	hyperDisplay:enter()
 end
 function exitHyperDisplay() 
@@ -42,6 +45,7 @@ end
 
 function enterHyperWindow()
 	print('[Mode] HyperWindow enabled')
+	exitHyper()
 	hyperWindow:enter()
 end
 function exitHyperWindow()
@@ -51,6 +55,7 @@ end
 
 function enterHyperWindowOpen()
 	print('[Mode] HyperWindowOpen enabled')
+	exitHyperWindow()
 	hyperWindowOpen:enter()
 end
 function exitHyperWindowOpen()
@@ -60,6 +65,7 @@ end
 
 function enterHyperSpace()
 	print('[Mode] HyperWindowSpace enabled')
+	exitHyper()
 	hyperSpace:enter()
 end
 function exitHyperSpace()
@@ -69,6 +75,7 @@ end
 
 function enterHyperWindowResize()
 	print('[Mode] HyperWindowResize enabled')
+	exitHyperWindow()
 	hyperWindowResize:enter()
 end
 function exitHyperWindowResize()

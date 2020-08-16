@@ -7,6 +7,7 @@ yabaiPath = "/usr/local/bin/yabai"
 -- Here there be modes.
 -- Hyper and Hyper2 are left and right keys for two immediate modes.
 -- Hyper and Hyper2 are ephemeral, only active while pressed.
+-- [UPDATE] Hyper is currently sticky
 -- Using Karabiner Elements, L-Ctrl and R-Opt are remampped to F17 and F18 respectively
 -- these f-keys are bound to the initial hyper triggers so that they can be layered with mod keys
 hyper = hs.hotkey.modal.new()
@@ -25,7 +26,7 @@ hyperWindowResize = hs.hotkey.modal.new()
 -- Hyper Keybindings
 -- ****************************************
 
-hs.hotkey.bind({}, 'F17', enterHyper, exitHyper)
+hs.hotkey.bind({}, 'F17', enterHyper)
 hs.hotkey.bind({}, 'F18', enterHyper2, exitHyper2)
 
 -- ****************************************
@@ -33,6 +34,7 @@ hs.hotkey.bind({}, 'F18', enterHyper2, exitHyper2)
 -- ****************************************
 
 hyper:bind('', 'escape', exitHyper)
+hyper:bind('', 'F17', exitHyper)
 hyper:bind('', 'r', hs.reload) -- reload Hammerspoon config
 
 hyper:bind('', 'w', enterHyperWindow)
@@ -43,33 +45,33 @@ hyper:bind('', 'd', enterHyperDisplay)
 -- Mode: Hyper Keybindings
 -- ****************************************
 
-hyper:bind('', 'o', function() yabaiMsg( 'window', 'focus recent' ) end)
-hyper:bind('', 'h', function() yabaiMsg( 'window', 'focus west' ) end)
-hyper:bind('', 'l', function() yabaiMsg( 'window', 'focus east' ) end)
-hyper:bind('', 'j', function() yabaiMsg( 'window', 'focus south' ) end)
-hyper:bind('', 'k', function() yabaiMsg( 'window', 'focus north' ) end)
+hyper:bind('', 'c', function() yabaiMsg( 'space', 'create' ) exitHyper() end)
+hyper:bind('', 'o', function() yabaiMsg( 'window', 'focus recent' ) exitHyper() end)
+hyper:bind('', 'h', function() yabaiMsg( 'window', 'focus west' ) exitHyper() end)
+hyper:bind('', 'l', function() yabaiMsg( 'window', 'focus east' ) exitHyper() end)
+hyper:bind('', 'j', function() yabaiMsg( 'window', 'focus south' ) exitHyper() end)
+hyper:bind('', 'k', function() yabaiMsg( 'window', 'focus north' ) exitHyper() end)
 
 hyper:bind('', 'x', function()
 	yabaiMsg( 'window', 'close' )
 	yabaiMsg( 'window', 'focus last' )
+	exitHyper() 
 end)
 
-hyper:bind('shift', 'h', function() yabaiMsg( 'window', 'swap west' ) end)
-hyper:bind('shift', 'l', function() yabaiMsg( 'window', 'swap east' ) end)
-hyper:bind('shift', 'j', function() yabaiMsg( 'window', 'swap south' ) end)
-hyper:bind('shift', 'k', function() yabaiMsg( 'window', 'swap north' ) end)
+hyper:bind('shift', 'h', function() yabaiMsg( 'window', 'swap west' ) exitHyper() end)
+hyper:bind('shift', 'l', function() yabaiMsg( 'window', 'swap east' ) exitHyper() end)
+hyper:bind('shift', 'j', function() yabaiMsg( 'window', 'swap south' ) exitHyper() end)
+hyper:bind('shift', 'k', function() yabaiMsg( 'window', 'swap north' ) exitHyper() end)
 
-hyper:bind('alt', 'h', function() yabaiMsg( 'window', 'warp west' ) end)
-hyper:bind('alt', 'l', function() yabaiMsg( 'window', 'warp east' ) end)
-hyper:bind('alt', 'j', function() yabaiMsg( 'window', 'warp south' ) end)
-hyper:bind('alt', 'k', function() yabaiMsg( 'window', 'warp north' ) end)
+hyper:bind('alt', 'h', function() yabaiMsg( 'window', 'warp west' ) exitHyper() end)
+hyper:bind('alt', 'l', function() yabaiMsg( 'window', 'warp east' ) exitHyper() end)
+hyper:bind('alt', 'j', function() yabaiMsg( 'window', 'warp south' ) exitHyper() end)
+hyper:bind('alt', 'k', function() yabaiMsg( 'window', 'warp north' ) exitHyper() end)
 
-hyper:bind('', 'm', function() yabaiMsg( 'window', 'toggle zoom-parent' ) end)
-hyper:bind('cmd', 'm', function() yabaiMsg( 'window', 'toggle zoom-fullscreen' ) end)
+hyper:bind('', 'm', function() yabaiMsg( 'window', 'toggle zoom-parent' ) exitHyper() end)
+hyper:bind('cmd', 'm', function() yabaiMsg( 'window', 'toggle zoom-fullscreen' ) exitHyper() end)
 hyper:bind('shift', 'm', function()
-	-- this causes a refocus on the original space for some reason.
-	-- switching to OS commands.
-	-- yabaiMsg( 'window', 'toggle native-fullscreen' )
+	-- native fullscreen
 	hs.eventtap.keyStroke({'ctrl', 'cmd'}, 'f')
 end)
 	
