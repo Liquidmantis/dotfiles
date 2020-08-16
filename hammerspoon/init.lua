@@ -1,5 +1,4 @@
 require("functions")
-require("hs.ipc")
 
 -- Environmental goodies
 yabaiPath = "/usr/local/bin/yabai" 
@@ -42,13 +41,9 @@ hyper:bind('', 'd', enterHyperDisplay)
 -- Mode: Hyper Keybindings
 -- ****************************************
 
--- root layer app shortcuts
-hyper:bind('', 'return', function() hs.application.launchOrFocus('Alacritty') end)
-
--- window navigation movements
 hyper:bind('', 'o', function() yabaiMsg( 'window', 'focus recent' ) end)
 hyper:bind('', 'h', function() yabaiMsg( 'window', 'focus west' ) end)
-hyper:bind('', 'l', function() yabaiMsg( 'window', 'focus east') end)
+hyper:bind('', 'l', function() yabaiMsg( 'window', 'focus east' ) end)
 hyper:bind('', 'j', function() yabaiMsg( 'window', 'focus south' ) end)
 hyper:bind('', 'k', function() yabaiMsg( 'window', 'focus north' ) end)
 
@@ -86,6 +81,11 @@ hyper2:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) end)
 hyper2:bind('', '3', function() yabaiMsg( 'space', 'focus 3' ) end)
 hyper2:bind('', '4', function() yabaiMsg( 'space', 'focus 4' ) end)
 
+hyper2:bind('', 'c', function() yabaiMsg( 'space', 'create' ) end)
+
+hyper2:bind('shift', '1', function() yabaiMsg( 'window', 'space 1' ) end)
+hyper2:bind('shift', '2', function() yabaiMsg( 'window', 'space 2' ) end)
+hyper2:bind('shift', '3', function() yabaiMsg( 'window', 'space 3' ) end)
 hyper2:bind('', 'c', function() yabaiMsg( 'space', 'create' ) end)
 
 hyper2:bind('shift', '1', function() yabaiMsg( 'window', 'space 1' ) end)
@@ -164,20 +164,15 @@ hyperWindowOpen:bind('', 'h', function() yabaiMsg( 'window', 'insert west' ) exi
 hyperWindowOpen:bind('', 'l', function() yabaiMsg( 'window', 'insert east' ) exitHyperWindowOpen() end)
 hyperWindowOpen:bind('', 'j', function() yabaiMsg( 'window', 'insert south' ) exitHyperWindowOpen() end)
 hyperWindowOpen:bind('', 'k', function() yabaiMsg( 'window', 'insert north' ) exitHyperWindowOpen() end)
-
--- ****************************************
--- Mode: HyperSpace Keybindings
--- ****************************************
-
 hyperSpace:bind('', 'escape', exitHyperSpace)
 
 hyperSpace:bind('', 'c', function() yabaiMsg( 'space', 'create' ) exitHyperSpace() end)
 hyperSpace:bind('', 'x', function() yabaiMsg( 'space', 'destroy' ) exitHyperSpace() end)
 hyperSpace:bind('', 'o', function() yabaiMsg( 'space', 'focus recent' ) exitHyperSpace() end)
-hyperSpace:bind('', 'h', function() yabaiMsg( 'space', 'focus prev', 'focus last' ) exitHyperSpace() end)
-hyperSpace:bind('', 'l', function() yabaiMsg( 'space', 'focus next', 'focus first' ) exitHyperSpace() end)
-hyperSpace:bind('', 'p', function() yabaiMsg( 'space', 'focus prev' ) exitHyperSpace() end)
-hyperSpace:bind('', 'n', function() yabaiMsg( 'space', 'focus next' ) exitHyperSpace() end)
+hyperSpace:bind('', 'h', function() yabaiMsg( 'space', 'focus prev' ) exitHyperSpace() end)
+hyperSpace:bind('', 'l', function() yabaiMsg( 'space', 'focus next' ) exitHyperSpace() end)
+hyperSpace:bind('', 'p', function() yabaiMsg( 'space', 'focus prev', 'focus last' ) exitHyperSpace() end)
+hyperSpace:bind('', 'n', function() yabaiMsg( 'space', 'focus next', 'focus first' ) exitHyperSpace() end)
 hyperSpace:bind('', 'w', function() yabaiMsg( 'space', 'toggle mission-control' ) exitHyperSpace() end)
 hyperSpace:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) exitHyperSpace() end)
 hyperSpace:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) exitHyperSpace() end)
