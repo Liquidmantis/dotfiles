@@ -61,6 +61,7 @@ if !exists('g:vscode')
 	nnoremap <silent> <leader>u :UndotreeToggle<CR>
 	autocmd VimResized * :wincmd =
 	source $HOME/.config/nvim/coc-explorer.vim
+	source $HOME/.config/nvim/vimwiki.vim
 endif
 
 " global settings
