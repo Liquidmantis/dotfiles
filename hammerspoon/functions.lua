@@ -9,6 +9,7 @@ function enterHyper()
 	print('[Mode] Hyper enabled')
 	hyper:enter() 
 	hyper2:exit()
+	hyperApp:exit()
 	hyperDisplay:exit()
 	hyperSpace:exit()
 	hyperWindow:exit()
@@ -31,6 +32,16 @@ end
 function exitHyper2()
 	print('[Mode] Hyper2 disabled')
 	hyper2:exit()
+end
+
+function enterHyperApp()
+	print('[Mode] HyperApp enabled')
+	exitHyper()
+	hyperApp:enter()
+end
+function exitHyperApp()
+	print('[Mode] HyperApp disabled')
+	hyperApp:exit()
 end
 
 function enterHyperDisplay() 

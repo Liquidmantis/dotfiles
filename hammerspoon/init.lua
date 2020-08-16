@@ -16,7 +16,8 @@ hyper2 = hs.hotkey.modal.new()
 -- Mode layers
 -- These modes are layered and toggled from Hyper.
 -- They "lock" and have exit triggers based on submodes and hotkey triggers.
-hyperDisplay= hs.hotkey.modal.new()
+hyperApp = hs.hotkey.modal.new()
+hyperDisplay = hs.hotkey.modal.new()
 hyperSpace = hs.hotkey.modal.new()
 hyperWindow = hs.hotkey.modal.new()
 hyperWindowOpen = hs.hotkey.modal.new()
@@ -35,8 +36,8 @@ hs.hotkey.bind({}, 'F18', enterHyper2, exitHyper2)
 
 hyper:bind('', 'escape', exitHyper)
 hyper:bind('', 'F17', exitHyper)
-hyper:bind('', 'r', hs.reload) -- reload Hammerspoon config
 
+hyper:bind('', 'a', enterHyperApp)
 hyper:bind('', 'w', enterHyperWindow)
 hyper:bind('', 's', enterHyperSpace)
 hyper:bind('', 'd', enterHyperDisplay)
@@ -74,11 +75,21 @@ hyper:bind('shift', 'm', function()
 	-- native fullscreen
 	hs.eventtap.keyStroke({'ctrl', 'cmd'}, 'f')
 end)
+
+hyper:bind('', 'return', function()
+	yabaiMsg( 'space', 'focus 1' )
+	hs.application.launchOrFocus('alacritty')
+	exitHyper() 
+end)
 	
 -- ****************************************
 -- Mode: Hyper2 Keybindings
 -- ****************************************
 
+
+hyper2:bind('', 'tab', function()
+	hs.eventtap.keyStroke({'shift', 'ctrl', 'alt', 'cmd'}, 'space')
+end)
 
 hyper2:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) end)
 hyper2:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) end)
@@ -96,6 +107,18 @@ hyper2:bind('shift', '1', function() yabaiMsg( 'window', 'space 1' ) end)
 hyper2:bind('shift', '2', function() yabaiMsg( 'window', 'space 2' ) end)
 hyper2:bind('shift', '3', function() yabaiMsg( 'window', 'space 3' ) end)
 hyper2:bind('shift', '4', function() yabaiMsg( 'window', 'space 4' ) end)
+
+-- ****************************************
+-- Mode: HyperApp Keybindings
+-- ****************************************
+
+hyperApp:bind('', 'escape', exitHyperApp)
+hyperApp:bind('', 'r', hs.reload) -- reload Hammerspoon config
+hyperApp:bind('', 'space', function()
+	hs.eventtap.keyStroke({ 'cmd'}, 'tab')
+	hs.eventtap.keyStroke({'shift', 'ctrl', 'alt', 'cmd'}, 'space')
+	exitHyperApp()
+end)
 
 -- ****************************************
 -- Mode: HyperDisplay Keybindings
