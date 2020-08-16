@@ -35,7 +35,7 @@ call plug#end()
 
 " neovim settings
 if !exists('g:vscode')
-	let mapleader=" "
+	let mapleader="\<space>"
     set number relativenumber
     set tabstop=4 softtabstop=4
     set shiftwidth=4
@@ -50,12 +50,13 @@ if !exists('g:vscode')
 	nnoremap <silent> <leader>k :wincmd k<CR>
 	nnoremap <silent> <leader>- :split<CR>
 	nnoremap <silent> <leader>\ :vsplit<CR>
-	nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR>
+	nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR> " break buffer to new window
 	nnoremap <silent> <leader>= :wincmd =<CR>
-	nnoremap <silent> <leader>ee :CocCommand explorer<CR>
+	nnoremap <silent> <leader>ej :CocCommand explorer<CR> " trying a faster mapping - 'j' for left side
 	nnoremap <silent> <leader>ef :CocCommand explorer --preset floating<CR>
 	nnoremap <silent> <leader>viv :tabedit $MYVIMRC<CR>
 	nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim config.'
+	nnoremap <silent> <leader>hl :noh<CR> " clear last search highlight
 	autocmd VimResized * :wincmd =
 	source $HOME/.config/nvim/coc-explorer.vim
 endif
