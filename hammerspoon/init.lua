@@ -86,11 +86,6 @@ end)
 -- Mode: Hyper2 Keybindings
 -- ****************************************
 
-
-hyper2:bind('', 'tab', function()
-	hs.eventtap.keyStroke({'shift', 'ctrl', 'alt', 'cmd'}, 'space')
-end)
-
 hyper2:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) end)
 hyper2:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) end)
 hyper2:bind('', '3', function() yabaiMsg( 'space', 'focus 3' ) end)
@@ -114,11 +109,6 @@ hyper2:bind('shift', '4', function() yabaiMsg( 'window', 'space 4' ) end)
 
 hyperApp:bind('', 'escape', exitHyperApp)
 hyperApp:bind('', 'r', hs.reload) -- reload Hammerspoon config
-hyperApp:bind('', 'space', function()
-	hs.eventtap.keyStroke({ 'cmd'}, 'tab')
-	hs.eventtap.keyStroke({'shift', 'ctrl', 'alt', 'cmd'}, 'space')
-	exitHyperApp()
-end)
 
 -- ****************************************
 -- Mode: HyperDisplay Keybindings
