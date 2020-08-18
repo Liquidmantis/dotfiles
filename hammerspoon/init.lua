@@ -114,6 +114,7 @@ hyperApp:bind('', 'r', function()
 	hs.reload()
 end)
 hyperApp:bind('', 'm', function()
+	exitHyperApp()
 	hs.eventtap.keyStroke('ctrl', 'F2') -- toggle menu bar
 end) 
 
