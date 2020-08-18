@@ -1,4 +1,5 @@
 require("functions")
+require("hs.ipc")
 
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
 
@@ -108,7 +109,13 @@ hyper2:bind('shift', '4', function() yabaiMsg( 'window', 'space 4' ) end)
 -- ****************************************
 
 hyperApp:bind('', 'escape', exitHyperApp)
-hyperApp:bind('', 'r', hs.reload) -- reload Hammerspoon config
+hyperApp:bind('', 'r', function()
+	exitHyperApp() -- not strictly needed since HS is reloading
+	hs.reload()
+end)
+hyperApp:bind('', 'm', function()
+	hs.eventtap.keyStroke('ctrl', 'F2') -- toggle menu bar
+end) 
 
 -- ****************************************
 -- Mode: HyperDisplay Keybindings
