@@ -42,6 +42,7 @@ if !exists('g:vscode')
 	set incsearch
 	set nocompatible
 	set hidden
+	set termguicolors
 	syntax on
 	
 	" TODO: organize these into something sensible
