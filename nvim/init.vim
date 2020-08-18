@@ -41,6 +41,7 @@ if !exists('g:vscode')
     set smartindent
 	set incsearch
 	set nocompatible
+	set hidden
 	syntax on
 	
 	" TODO: organize these into something sensible
