@@ -53,6 +53,9 @@ if !exists('g:vscode')
 	nnoremap <silent> <leader>\ :vsplit<CR>
 	nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR> " break buffer to new window
 	nnoremap <silent> <leader>= :wincmd =<CR>
+	nnoremap <leader>bb :ls<cr>:b<space>
+	nnoremap <leader>bv :ls<cr>:vert sb<space>
+	nnoremap <leader>bs :ls<cr>:sb<space>
 	nnoremap <silent> <leader>ej :CocCommand explorer<CR> " trying a faster mapping - 'j' for left side
 	nnoremap <silent> <leader>ef :CocCommand explorer --preset floating<CR>
 	nnoremap <silent> <leader>viv :tabedit $MYVIMRC<CR>
