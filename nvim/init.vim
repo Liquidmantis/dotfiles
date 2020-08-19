@@ -28,12 +28,13 @@ if !exists('g:vscode')
 	Plug 'mbbill/undotree'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'mhinz/vim-startify'
-	Plug 'hashivim/vim-terraform'
+	" Plug 'hashivim/vim-terraform'
 endif
 call plug#end()
 
 " neovim settings
 if !exists('g:vscode')
+	source $HOME/.config/nvim/plug-config/coc.vim
 	let mapleader="\<space>"
     set number relativenumber
     set tabstop=4 softtabstop=4
