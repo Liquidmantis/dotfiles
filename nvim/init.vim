@@ -25,6 +25,7 @@ if !exists('g:vscode')
 	Plug 'vim-utils/vim-man'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+	Plug 'airblade/vim-rooter'
 	Plug 'mbbill/undotree'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'mhinz/vim-startify'
@@ -36,6 +37,7 @@ call plug#end()
 " neovim settings
 if !exists('g:vscode')
 	source $HOME/.config/nvim/plug-config/coc.vim
+	source $HOME/.config/nvim/plug-config/fzf.vim
 	let mapleader="\<space>"
     set number relativenumber
     set tabstop=4 softtabstop=4
