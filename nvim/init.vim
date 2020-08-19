@@ -29,6 +29,7 @@ if !exists('g:vscode')
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'mhinz/vim-startify'
 	" Plug 'hashivim/vim-terraform'
+	Plug 'voldikss/vim-floaterm'
 endif
 call plug#end()
 
