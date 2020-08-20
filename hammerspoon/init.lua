@@ -70,9 +70,9 @@ hyper:bind('alt', 'l', function() yabaiMsg( 'window', 'warp east' ) exitHyper() 
 hyper:bind('alt', 'j', function() yabaiMsg( 'window', 'warp south' ) exitHyper() end)
 hyper:bind('alt', 'k', function() yabaiMsg( 'window', 'warp north' ) exitHyper() end)
 
-hyper:bind('', 'm', function() yabaiMsg( 'window', 'toggle zoom-parent' ) exitHyper() end)
-hyper:bind('cmd', 'm', function() yabaiMsg( 'window', 'toggle zoom-fullscreen' ) exitHyper() end)
-hyper:bind('shift', 'm', function()
+hyper:bind('', 'z', function() yabaiMsg( 'window', 'toggle zoom-parent' ) exitHyper() end)
+hyper:bind('shift', 'z', function() yabaiMsg( 'window', 'toggle zoom-fullscreen' ) exitHyper() end)
+hyper:bind('alt', 'z', function()
 	-- native fullscreen
 	hs.eventtap.keyStroke({'ctrl', 'cmd'}, 'f')
 end)
