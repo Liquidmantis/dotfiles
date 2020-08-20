@@ -3,7 +3,13 @@ alias ci='code-insiders'
 alias vi='nvim'
 alias vim='nvim'
 alias edit='nvim'
+
+# terraform aliases
 alias tf='terraform'
+alias tfi='terraform init'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfaa='terraform apply -auto-approve'
 
 # git aliases
 alias gc='git commit'
