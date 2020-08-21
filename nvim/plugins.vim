@@ -29,7 +29,7 @@ if !exists('g:vscode')
 	Plug 'mbbill/undotree'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'mhinz/vim-startify'
-	" Plug 'hashivim/vim-terraform'
+	Plug 'hashivim/vim-terraform'
 	Plug 'voldikss/vim-floaterm'
 	Plug 'vim-airline/vim-airline'
 endif
