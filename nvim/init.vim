@@ -10,4 +10,3 @@ if !exists('g:vscode')
 	source $HOME/.config/nvim/plug-config/vimwiki.vim
 	source $HOME/.config/nvim/keybindings.vim
 endif
-
