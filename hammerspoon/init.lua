@@ -80,7 +80,7 @@ end)
 hyper:bind('', 'return', function()
 	yabaiMsg( 'space', 'focus 1' )
 	hs.application.launchOrFocus('alacritty')
-	exitHyper() 
+	exitHyper()
 end)
 
 -- ****************************************
@@ -116,7 +116,7 @@ end)
 hyperApp:bind('', 'm', function()
 	exitHyperApp()
 	hs.eventtap.keyStroke('ctrl', 'F2') -- toggle menu bar
-end) 
+end)
 
 -- ****************************************
 -- Mode: HyperDisplay Keybindings
@@ -168,18 +168,19 @@ hyperWindow:bind('', '-', function() yabaiMsg( 'space', 'mirror x-axis' ) exitHy
 hyperWindow:bind('', 'o', function() yabaiMsg( 'space', 'rotate 90' ) exitHyperWindow() end)
 hyperWindow:bind('shift', 'o', function() yabaiMsg( 'space', 'rotate 270' ) exitHyperWindow() end)
 
+
 -- SubMode: HyperWindowResize Keybindings
 
 hyperWindowResize:bind('', 'escape', exitHyperWindowResize)
 
 -- Yabai window resizing targets an edge that is adjacent to other windows
 -- Using the OR operator allows thinking in terms of the window division
--- and letting "error handling" conduct the logical operation regardless of 
+-- and letting "error handling" conduct the logical operation regardless of
 -- window focus and relative internal edge.
-hyperWindowResize:bind('', 'h', function() yabaiMsg( 'window', 'resize right:-30:0', 'resize left:30:0' ) end)
-hyperWindowResize:bind('', 'l', function() yabaiMsg( 'window', 'resize left:-30:0', 'resize right:30:0' ) end)
-hyperWindowResize:bind('', 'j', function() yabaiMsg( 'window', 'resize top:-30:0', 'resize botton:30:0' ) end)
-hyperWindowResize:bind('', 'k', function() yabaiMsg( 'window', 'resize top:30:0', 'resize botton:-30:0' ) end)
+hyperWindowResize:bind('', 'h', function() yabaiMsg( 'window', 'resize right:-30:0', 'resize left:-30:0' ) end)
+hyperWindowResize:bind('', 'l', function() yabaiMsg( 'window', 'resize right:30:0', 'resize left:30:0' ) end)
+hyperWindowResize:bind('', 'j', function() yabaiMsg( 'window', 'resize top:30:0', 'resize botton:30:0' ) end)
+hyperWindowResize:bind('', 'k', function() yabaiMsg( 'window', 'resize top:-30:0', 'resize botton:-30:0' ) end)
 
 -- SubMode: HyperWindowOpen Keybindings
 

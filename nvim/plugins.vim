@@ -15,6 +15,8 @@ endif
 
 " neovim exclusive plugins
 if !exists('g:vscode')
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nathanaelkane/vim-indent-guides'
     Plug 'preservim/nerdtree'
     Plug 'neoclide/coc.nvim'
     Plug 'yatli/coc-powershell'
