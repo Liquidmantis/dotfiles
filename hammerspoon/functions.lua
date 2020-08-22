@@ -5,20 +5,33 @@
 -- When entering Hyper, clear all other modes.
 -- This is done when entering so that leaving Hyper
 -- after enabling another mode layer doesn't immediately leave that layer.
+alertStyle = {
+	textSize = 25,
+	atScreenEdge=2, 
+	radius = 0, 
+	fillColor = {white = 0.0, alpha = 0.50},
+	strokeColor = {white = 0.0, alpha = 0.50},
+	strokeWidth = 5,
+	fadeInDuration = 0.0,
+	fadeOutDuration = 0.0
+}
+
 function enterHyper()
 	print('[Mode] Hyper enabled')
 	hyper:enter() 
-	hyper2:exit()
-	hyperApp:exit()
-	hyperDisplay:exit()
-	hyperSpace:exit()
-	hyperWindow:exit()
-	hyperWindowResize:exit()
+	exitHyper2()
+	exitHyperApp()
+	exitHyperDisplay()
+	exitHyperSpace()
+	exitHyperWindow()
+	exitHyperWindowResize()
+	hyperAlert = hs.alert('  Hyper', alertStyle, 'sticky')
 end
 
 function exitHyper() 
 	print('[Mode] Hyper disabled')
 	hyper:exit()
+	hs.alert.closeSpecific(hyperAlert)
 end
 
 -- Mode wrapper functions
@@ -38,60 +51,72 @@ function enterHyperApp()
 	print('[Mode] HyperApp enabled')
 	exitHyper()
 	hyperApp:enter()
+	hyperAppAlert = hs.alert('  HyperApp', alertStyle, 'sticky')
 end
 function exitHyperApp()
 	print('[Mode] HyperApp disabled')
 	hyperApp:exit()
+	hs.alert.closeSpecific(hyperAppAlert)
 end
 
 function enterHyperDisplay() 
 	print('[Mode] HyperDisplay enabled')
 	exitHyper()
 	hyperDisplay:enter()
+	hyperDisplayAlert = hs.alert('  HyperDisplay', alertStyle, 'sticky')
 end
 function exitHyperDisplay() 
 	print('[Mode] HyperDisplay disabled')
 	hyperDisplay:exit() 
+	hs.alert.closeSpecific(hyperDisplayAlert)
 end
 
 function enterHyperWindow()
 	print('[Mode] HyperWindow enabled')
 	exitHyper()
 	hyperWindow:enter()
+	hyperWindowAlert = hs.alert('  HyperWindow', alertStyle, 'sticky')
 end
 function exitHyperWindow()
 	print('[Mode] HyperWindow disabled')
 	hyperWindow:exit()
+	hs.alert.closeSpecific(hyperWindowAlert)
 end
 
 function enterHyperWindowOpen()
 	print('[Mode] HyperWindowOpen enabled')
 	exitHyperWindow()
 	hyperWindowOpen:enter()
+	hyperWindowOpenAlert = hs.alert('  HyperWindowOpen', alertStyle, 'sticky')
 end
 function exitHyperWindowOpen()
 	print('[Mode] HyperWindowOpen disabled')
 	hyperWindowOpen:exit()
+	hs.alert.closeSpecific(hyperWindowOpenAlert)
 end
 
 function enterHyperSpace()
 	print('[Mode] HyperWindowSpace enabled')
 	exitHyper()
 	hyperSpace:enter()
+	hyperSpaceAlert = hs.alert('  HyperSpace', alertStyle, 'sticky')
 end
 function exitHyperSpace()
 	print('[Mode] HyperWindowSpace disabled')
 	hyperSpace:exit()
+	hs.alert.closeSpecific(hyperSpaceAlert)
 end
 
 function enterHyperWindowResize()
 	print('[Mode] HyperWindowResize enabled')
 	exitHyperWindow()
 	hyperWindowResize:enter()
+	hyperWindowResizeAlert = hs.alert('  HyperWindowResize', alertStyle, 'sticky')
 end
 function exitHyperWindowResize()
 	print('[Mode] HyperWindowResize disabled')
 	hyperWindowResize:exit()
+	hs.alert.closeSpecific(hyperWindowResizeAlert)
 end
 
 -- ****************************************

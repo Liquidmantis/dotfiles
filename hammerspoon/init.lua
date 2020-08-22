@@ -4,7 +4,7 @@ require("hs.ipc")
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
 
 -- Environmental goodies
-yabaiPath = "/usr/local/bin/yabai" 
+yabaiPath = "/usr/local/bin/yabai"
 -- Here there be modes.
 -- Hyper and Hyper2 are left and right keys for two immediate modes.
 -- Hyper and Hyper2 are ephemeral, only active while pressed.
@@ -23,7 +23,7 @@ hyperSpace = hs.hotkey.modal.new()
 hyperWindow = hs.hotkey.modal.new()
 hyperWindowOpen = hs.hotkey.modal.new()
 hyperWindowResize = hs.hotkey.modal.new()
- 
+
 -- ****************************************
 -- Hyper Keybindings
 -- ****************************************
@@ -57,7 +57,7 @@ hyper:bind('', 'k', function() yabaiMsg( 'window', 'focus north' ) exitHyper() e
 hyper:bind('', 'x', function()
 	yabaiMsg( 'window', 'close' )
 	yabaiMsg( 'window', 'focus last' )
-	exitHyper() 
+	exitHyper()
 end)
 
 hyper:bind('shift', 'h', function() yabaiMsg( 'window', 'swap west' ) exitHyper() end)
@@ -82,7 +82,7 @@ hyper:bind('', 'return', function()
 	hs.application.launchOrFocus('alacritty')
 	exitHyper() 
 end)
-	
+
 -- ****************************************
 -- Mode: Hyper2 Keybindings
 -- ****************************************
