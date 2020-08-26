@@ -1,4 +1,3 @@
-" TODO: organize these into something sensible
 nnoremap <silent> <leader>h :wincmd h<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>j :wincmd j<CR>
@@ -15,10 +14,10 @@ nnoremap <silent> <leader>ef :CocCommand explorer --preset floating<CR>
 nnoremap <silent> <leader>viv :tabedit $MYVIMRC<CR>
 nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim config.'
 nnoremap <silent> <leader>hl :noh<CR> " clear last search highlight
-nnoremap <tab> gt
-nnoremap <S-tab> gT
-nnoremap <silent> <leader><tab> :bn<CR>
-nnoremap <silent> <leader><S-tab> :bp<CR>
+nnoremap <silent> <tab> :bn<CR>
+nnoremap <silent> <S-tab> :bp<CR>
+nnoremap <silent> <leader><tab> gt
+nnoremap <silent> <leader><S-tab> gT
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " fzf bindings

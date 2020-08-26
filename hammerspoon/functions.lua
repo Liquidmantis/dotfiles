@@ -96,7 +96,7 @@ function exitHyperWindowOpen()
 end
 
 function enterHyperSpace()
-    print('[Mode] HyperWindowSpace enabled')
+    print('[Mode] HyperSpace enabled')
     exitHyper()
     hyperSpace:enter()
     -- hyperSpaceAlert = hs.alert('  HyperSpace', alertStyle, 'sticky')

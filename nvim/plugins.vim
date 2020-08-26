@@ -1,11 +1,11 @@
 call plug#begin('~/.vim/plugged')
 " global plugins
+Plug 'chaoren/vim-wordmotion'
+Plug 'justinmk/vim-sneak'
+Plug 'PProvost/vim-ps1'
+Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'PProvost/vim-ps1'
-Plug 'justinmk/vim-sneak'
-Plug 'rizzatti/dash.vim'
-Plug 'chaoren/vim-wordmotion'
 Plug 'vimwiki/vimwiki'
 
 " vscode-neovim exclusive plugins
@@ -15,26 +15,28 @@ endif
 
 " neovim exclusive plugins
 if !exists('g:vscode')
-    Plug 'sheerun/vim-polyglot'
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'preservim/nerdtree'
-    Plug 'neoclide/coc.nvim'
-    Plug 'yatli/coc-powershell'
+    Plug 'airblade/vim-rooter'
+    Plug 'christoomey/vim-tmux-navigator'
     Plug 'easymotion/vim-easymotion', { 'dir' : '~/.vim/plugged/neovim/vim-easymotion' }
-    Plug 'morhetz/gruvbox'
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+    Plug 'hashivim/vim-terraform'
     Plug 'jremmen/vim-ripgrep'
-    Plug 'tpope/vim-fugitive'
-    Plug 'vim-utils/vim-man'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-rooter'
+    Plug 'junegunn/gv.vim'
     Plug 'mbbill/undotree'
-    Plug 'christoomey/vim-tmux-navigator'
     Plug 'mhinz/vim-startify'
-    Plug 'hashivim/vim-terraform'
+    Plug 'mhinz/vim-signify'
+    Plug 'morhetz/gruvbox'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'neoclide/coc.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'preservim/nerdtree'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'tpope/vim-fugitive'
     Plug 'voldikss/vim-floaterm'
     Plug 'vim-airline/vim-airline'
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+    Plug 'vim-utils/vim-man'
+    Plug 'yatli/coc-powershell'
 endif
 call plug#end()

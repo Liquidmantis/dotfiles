@@ -192,6 +192,8 @@ hyperWindowOpen:bind('', 'j', function() yabaiMsg( 'window', 'insert south' ) ex
 hyperWindowOpen:bind('', 'k', function() yabaiMsg( 'window', 'insert north' ) exitHyperWindowOpen() end)
 hyperSpace:bind('', 'escape', exitHyperSpace)
 
+hyperSpace:bind('', 'b', function() yabaiMsg( 'space', 'layout bsp' ) exitHyperSpace() end)
+hyperSpace:bind('', 's', function() yabaiMsg( 'space', 'layout stack' ) exitHyperSpace() end)
 hyperSpace:bind('', 'c', function() yabaiMsg( 'space', 'create' ) exitHyperSpace() end)
 hyperSpace:bind('', 'x', function() yabaiMsg( 'space', 'destroy' ) exitHyperSpace() end)
 hyperSpace:bind('', 'o', function() yabaiMsg( 'space', 'focus recent' ) exitHyperSpace() end)
@@ -204,3 +206,5 @@ hyperSpace:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) exitHyperSpac
 hyperSpace:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) exitHyperSpace() end)
 hyperSpace:bind('', '3', function() yabaiMsg( 'space', 'focus 3' ) exitHyperSpace() end)
 hyperSpace:bind('', '4', function() yabaiMsg( 'space', 'focus 4' ) exitHyperSpace() end)
+hyperSpace:bind('', 'j', function() yabaiMsg( 'window', 'focus stack.next' ) end)
+hyperSpace:bind('', 'k', function() yabaiMsg( 'window', 'focus stack.prev' ) end)
