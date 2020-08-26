@@ -8,10 +8,10 @@ hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration 
 yabaiPath = '/usr/local/bin/yabai'
 
 -- source the keybinding files
-require('basic-bindings')
-require('hyper-bindings')
-require('hyper2-bindings')
-require('hyperapp-bindings')
-require('hyperdisplay-bindings')
-require('hyperspace-bindings')
-require('hyperwindow-bindings')
+require('bindings/basic')
+require('bindings/hyper')
+require('bindings/hyper2')
+require('bindings/hyperapp')
+require('bindings/hyperdisplay')
+require('bindings/hyperspace')
+require('bindings/hyperwindow')
