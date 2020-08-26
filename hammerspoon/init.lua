@@ -39,9 +39,9 @@ hyper:bind('', 'escape', exitHyper)
 hyper:bind('', 'F17', exitHyper)
 
 hyper:bind('', 'a', enterHyperApp)
-hyper:bind('', 'w', enterHyperWindow)
-hyper:bind('', 's', enterHyperSpace)
 hyper:bind('', 'd', enterHyperDisplay)
+hyper:bind('', 's', enterHyperSpace)
+hyper:bind('', 'w', enterHyperWindow)
 
 -- source the keybinding files
 require('hyper-bindings')
