@@ -16,13 +16,14 @@ nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim confi
 nnoremap <silent> <leader>hl :noh<CR> " clear last search highlight
 nnoremap <silent> <tab> :bn<CR>
 nnoremap <silent> <S-tab> :bp<CR>
+nnoremap <silent> <leader>bd :bd<CR>
 nnoremap <silent> <leader><tab> gt
 nnoremap <silent> <leader><S-tab> gT
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " fzf bindings
 map <C-f> :Files<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader><leader>b :Buffers<CR>
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
