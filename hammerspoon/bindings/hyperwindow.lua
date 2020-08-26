@@ -34,6 +34,11 @@ hyperWindow:bind('', '-', function() yabaiMsg( 'space', 'mirror x-axis' ) exitHy
 hyperWindow:bind('', 'o', function() yabaiMsg( 'space', 'rotate 90' ) exitHyperWindow() end)
 hyperWindow:bind('shift', 'o', function() yabaiMsg( 'space', 'rotate 270' ) exitHyperWindow() end)
 
+hyperWindow:bind('shift', 'h', function() yabaiMsg( 'window', 'stack west' ) exitHyperWindow() end)
+hyperWindow:bind('shift', 'l', function() yabaiMsg( 'window', 'stack east' ) exitHyperWindow() end)
+hyperWindow:bind('shift', 'j', function() yabaiMsg( 'window', 'stack south' ) exitHyperWindow() end)
+hyperWindow:bind('shift', 'k', function() yabaiMsg( 'window', 'stack north' ) exitHyperWindow() end)
+
 -- SubMode: HyperWindowResize Keybindings
 
 hyperWindowResize:bind('', 'escape', exitHyperWindowResize)
