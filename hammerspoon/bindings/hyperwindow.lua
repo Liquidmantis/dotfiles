@@ -26,6 +26,7 @@ hyperWindow:bind('', 's', function() yabaiMsg( 'window', 'toggle sticky' ) exitH
 hyperWindow:bind('', '=', function() yabaiMsg( 'window', 'ratio rel:0.05' ) end)
 hyperWindow:bind('', '-', function() yabaiMsg( 'window', 'ratio rel:-0.05' ) end)
 hyperWindow:bind('', 'h', function() yabaiMsg( 'window', 'ratio abs:0.30' ) exitHyperWindow() end)
+hyperWindow:bind('', 'l', function() yabaiMsg( 'window', 'ratio abs:0.70' ) exitHyperWindow() end)
 
 hyperWindow:bind('', '0', function() yabaiMsg( 'space', 'balance' ) exitHyperWindow() end)
 
