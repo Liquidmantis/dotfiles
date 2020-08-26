@@ -1,4 +1,16 @@
 -- ****************************************
+-- Mode: Hyper Meta and Modal Trigger Keybindings
+-- ****************************************
+
+hyper:bind('', 'escape', exitHyper)
+hyper:bind('', 'F17', exitHyper)
+
+hyper:bind('', 'a', enterHyperApp)
+hyper:bind('', 'd', enterHyperDisplay)
+hyper:bind('', 's', enterHyperSpace)
+hyper:bind('', 'w', enterHyperWindow)
+
+-- ****************************************
 -- Mode: Hyper Keybindings
 -- ****************************************
 
