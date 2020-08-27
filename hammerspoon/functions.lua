@@ -136,3 +136,16 @@ function yabaiMsg( scope, param, fallbackParam)
     os.execute(cmd)
 end
 
+function setPadding( value )
+  pad = value * 20
+  -- sides = { "top", "bottom", "left", "right" }
+  -- for _, side in next, sides do
+  --   os.execute( string.format("%s -m config %s_padding %i", yabaiPath, side, pad))
+  -- end
+    -- os.execute( string.format("%s -m config window_gap %i", yabaiPath, pad))
+    -- os.execute( string.format("%s -m space window_gap %i", yabaiPath, pad))
+    padding = string.format('padding abs:%i:%i:%i:%i', pad, pad, pad, pad)
+    gap = string.format('gap abs:%i', pad)
+    yabaiMsg( 'space', padding )
+    yabaiMsg( 'space', gap )
+end

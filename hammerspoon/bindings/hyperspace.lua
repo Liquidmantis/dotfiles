@@ -26,3 +26,14 @@ hyperSpace:bind('', 'w', function() yabaiMsg( 'space', 'toggle mission-control' 
 
 hyperSpace:bind('', 'j', function() yabaiMsg( 'window', 'focus stack.next', 'focus stack.prev' ) end)
 hyperSpace:bind('', 'k', function() yabaiMsg( 'window', 'focus stack.prev', 'focus stack.next' ) end)
+
+hyperSpace:bind('alt', '1', function() setPadding(1) exitHyperSpace() end)
+hyperSpace:bind('alt', '2', function() setPadding(2) exitHyperSpace() end)
+hyperSpace:bind('alt', '3', function() setPadding(3) exitHyperSpace() end)
+hyperSpace:bind('alt', '4', function() setPadding(4) exitHyperSpace() end)
+hyperSpace:bind('alt', '5', function() setPadding(5) exitHyperSpace() end)
+hyperSpace:bind('alt', '6', function() setPadding(6) exitHyperSpace() end)
+hyperSpace:bind('alt', '7', function() setPadding(7) exitHyperSpace() end)
+hyperSpace:bind('alt', '8', function() setPadding(8) exitHyperSpace() end)
+hyperSpace:bind('alt', '9', function() setPadding(9) exitHyperSpace() end)
+hyperSpace:bind('alt', '0', function() setPadding(0) exitHyperSpace() end)
