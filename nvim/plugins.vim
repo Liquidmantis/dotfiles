@@ -33,6 +33,7 @@ if !exists('g:vscode')
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'preservim/nerdtree'
     Plug 'sheerun/vim-polyglot'
+    Plug 'tmsvg/pear-tree'
     Plug 'tpope/vim-fugitive'
     Plug 'voldikss/vim-floaterm'
     Plug 'vim-airline/vim-airline'
