@@ -32,6 +32,7 @@ alias viy='edit ~/.yabairc'
 alias viz='edit ~/.zshrc'
 
 # terminal mojo aliases
+alias ll='exa -al'
 alias soal='source ~/.config/zsh/aliases'
 alias soz='source ~/.zshrc'
 
