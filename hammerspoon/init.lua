@@ -3,7 +3,12 @@ require('hs.ipc')
 require('modes')
 stackline = require('stackline.stackline.stackline')
 
-stackline.manager:toggleIcons()
+hs.timer.waitUntil(function()
+  return stackline.manager
+end, function() 
+  stackline.manager:toggleIcons()
+end, 0.1)
+
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
 
 -- Environmental goodies
