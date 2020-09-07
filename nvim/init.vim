@@ -1,8 +1,9 @@
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/settings.vim
 
-" neovim settings
-if !exists('g:vscode')
+if exists('g:vscode')
+    source $HOME/.config/nvim/settings-vscode.vim
+else
     source $HOME/.config/nvim/plug-config/coc.vim
     source $HOME/.config/nvim/plug-config/fzf.vim
     source $HOME/.config/nvim/plug-config/airline.vim
