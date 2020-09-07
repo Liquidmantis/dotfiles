@@ -2,7 +2,7 @@
 set undodir=~/.vim/undodir
 set undofile
 
-filetype on
+filetype plugin indent on
 
 let mapleader="\<space>"
 
