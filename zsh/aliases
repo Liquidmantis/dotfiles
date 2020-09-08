@@ -37,7 +37,7 @@ alias soal='source ~/.config/zsh/aliases'
 alias soz='source ~/.zshrc'
 
 # command aliases
-alias brewup='brew update; brew upgrade; brew cask upgrade; brew cleanup'
+alias brewup='brew update; brew upgrade; brew upgrade --cask; brew cleanup'
 alias yabres='brew services stop yabai && brew services start yabai'
 alias yabrestart='brew services stop yabai && brew services start yabai'
 
