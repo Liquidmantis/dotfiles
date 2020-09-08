@@ -16,6 +16,12 @@ hyperSpace:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) exitHyperSpac
 hyperSpace:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) exitHyperSpace() end)
 hyperSpace:bind('', '3', function() yabaiMsg( 'space', 'focus 3' ) exitHyperSpace() end)
 hyperSpace:bind('', '4', function() yabaiMsg( 'space', 'focus 4' ) exitHyperSpace() end)
+
+hyperSpace:bind('shift', '1', function() yabaiMsg( 'window', 'space 1' ) exitHyperSpace() end)
+hyperSpace:bind('shift', '2', function() yabaiMsg( 'window', 'space 2' ) exitHyperSpace() end)
+hyperSpace:bind('shift', '3', function() yabaiMsg( 'window', 'space 3' ) exitHyperSpace() end)
+hyperSpace:bind('shift', '4', function() yabaiMsg( 'window', 'space 4' ) exitHyperSpace() end)
+
 hyperSpace:bind('', 'o', function() yabaiMsg( 'space', 'focus recent' ) exitHyperSpace() end)
 hyperSpace:bind('', 'h', function() yabaiMsg( 'space', 'focus prev' ) exitHyperSpace() end)
 hyperSpace:bind('', 'l', function() yabaiMsg( 'space', 'focus next' ) exitHyperSpace() end)
