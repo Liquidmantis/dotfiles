@@ -9,6 +9,13 @@ source ~/.config/zsh/aliases
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh/site-functions$fpath)
+
+autoload -Uz compinit && compinit -i
+# az-cli uses bash completion, this loads it in zsh
+autoload -U +X bashcompinit && bashcompinit
+source /usr/local/etc/bash_completion.d/az
+
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
