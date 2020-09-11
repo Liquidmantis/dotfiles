@@ -30,8 +30,8 @@ hyperSpace:bind('', 'n', function() yabaiMsg( 'space', 'focus next', 'focus firs
 
 hyperSpace:bind('', 'w', function() yabaiMsg( 'space', 'toggle mission-control' ) exitHyperSpace() end)
 
-hyperSpace:bind('', 'j', function() yabaiMsg( 'window', 'focus stack.next', 'focus stack.first' ) end)
-hyperSpace:bind('', 'k', function() yabaiMsg( 'window', 'focus stack.prev', 'focus stack.last' ) end)
+hyperSpace:bind('', 'j', function() yabaiMsg( 'window', 'focus stack.next', 'focus stack.first' ) exitHyperSpace() end)
+hyperSpace:bind('', 'k', function() yabaiMsg( 'window', 'focus stack.prev', 'focus stack.last' ) exitHyperSpace() end)
 
 hyperSpace:bind('alt', '1', function() setPadding(1) exitHyperSpace() end)
 hyperSpace:bind('alt', '2', function() setPadding(2) exitHyperSpace() end)
