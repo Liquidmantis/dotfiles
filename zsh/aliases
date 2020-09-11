@@ -11,6 +11,11 @@ alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias tfaa='terraform apply -auto-approve'
 
+# docker aliases
+alias doc='docker'
+alias docc='docker container'
+alias doci='docker image'
+
 # git aliases
 alias gc='git commit'
 alias gd='git diff'
