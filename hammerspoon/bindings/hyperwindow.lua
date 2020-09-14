@@ -50,8 +50,8 @@ hyperWindowResize:bind('', 'escape', exitHyperWindowResize)
 -- window focus and relative internal edge.
 hyperWindowResize:bind('', 'h', function() yabaiMsg( 'window', 'resize right:-30:0', 'resize left:-30:0' ) end)
 hyperWindowResize:bind('', 'l', function() yabaiMsg( 'window', 'resize right:30:0', 'resize left:30:0' ) end)
-hyperWindowResize:bind('', 'j', function() yabaiMsg( 'window', 'resize top:30:0', 'resize botton:30:0' ) end)
-hyperWindowResize:bind('', 'k', function() yabaiMsg( 'window', 'resize top:-30:0', 'resize botton:-30:0' ) end)
+hyperWindowResize:bind('', 'j', function() yabaiMsg( 'window', 'resize top:0:30', 'resize bottom:0:30' ) end)
+hyperWindowResize:bind('', 'k', function() yabaiMsg( 'window', 'resize top:0:-30', 'resize bottom:0:-30' ) end)
 
 -- SubMode: HyperWindowOpen Keybindings
 
