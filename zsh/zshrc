@@ -6,8 +6,6 @@ source /usr/local/share/zsh-history-substring-search/zsh-history-substring-searc
 source /usr/local/etc/profile.d/z.sh
 source ~/.config/zsh/aliases
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(/usr/local/share/zsh/site-functions$fpath)
 
@@ -29,3 +27,5 @@ KEYTIMEOUT=1
 
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 export PATH="/usr/local/sbin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

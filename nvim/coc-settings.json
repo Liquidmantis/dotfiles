@@ -28,7 +28,8 @@
         "tf",
         "terraform"
       ],
-      "initializationOptions": {}
+      "initializationOptions": {},
+      "settings": {}
     }
   },
   "python.autoComplete.extraPaths": [

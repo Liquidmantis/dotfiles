@@ -35,6 +35,7 @@ if !exists('g:vscode')
     Plug 'sheerun/vim-polyglot'
     Plug 'tmsvg/pear-tree'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-abolish'
     Plug 'voldikss/vim-floaterm'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-utils/vim-man'
