@@ -6,10 +6,11 @@ alias edit='nvim'
 
 # terraform aliases
 alias tf='terraform'
-alias tfi='terraform init'
-alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias tfaa='terraform apply -auto-approve'
+alias tfg='tf graph | dot -Tpng > tfgraph.png && open tfgraph.png'
+alias tfi='terraform init'
+alias tfp='terraform plan'
 
 # docker aliases
 alias doc='docker'

@@ -18,6 +18,8 @@
 # 		|| yabai -m window --focus mouse 
 # } > /dev/null 2>&1
 
+sudo yabai --load-sa
+
 # global settings
 yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          off

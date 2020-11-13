@@ -18,7 +18,6 @@ if !exists('g:vscode')
     Plug 'airblade/vim-rooter'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'easymotion/vim-easymotion', { 'dir' : '~/.vim/plugged/neovim/vim-easymotion' }
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     Plug 'hashivim/vim-terraform'
     Plug 'jremmen/vim-ripgrep'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -30,6 +29,8 @@ if !exists('g:vscode')
     Plug 'morhetz/gruvbox'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'neoclide/coc.nvim'
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'liquidmantis/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'preservim/nerdtree'
     Plug 'sheerun/vim-polyglot'
