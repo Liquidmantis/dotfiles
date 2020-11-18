@@ -16,7 +16,12 @@
       "expand",
       "open"
     ],
-    "v": "open:vsplit"
+    "v": "open:vsplit",
+    "o": [
+      "expanded?",
+      "collapse",
+      "expand"
+    ]
   },
   "languageserver": {
     "terraform": {

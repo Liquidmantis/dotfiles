@@ -1,4 +1,4 @@
-	let g:coc_explorer_global_presets = {
+let g:coc_explorer_global_presets = {
 \   '.vim': {
 \     'root-uri': '~/.vim',
 \   },
