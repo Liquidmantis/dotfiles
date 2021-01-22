@@ -11,6 +11,10 @@ nnoremap <silent> <leader>= :wincmd =<CR>
 " nnoremap <leader>bs :ls<cr>:sb<space>
 nnoremap <silent> <leader>ej :CocCommand explorer<CR> " trying a faster mapping - 'j' for left side
 nnoremap <silent> <leader>ef :CocCommand explorer --preset floating<CR>
+nnoremap <silent> <leader>pst :CocCommand powershell.toggleTerminal<CR>
+nnoremap <silent> <leader>psl :CocCommand powershell.evaluateLine<CR>
+nnoremap <silent> <leader>pss :CocCommand powershell.evaluateSelection<CR>
+nnoremap <silent> <leader>pse :CocCommand powershell.execute<CR>
 nnoremap <silent> <leader>viv :tabedit $MYVIMRC<CR>
 nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim config.'
 nnoremap <silent> <leader>hl :noh<CR> " clear last search highlight

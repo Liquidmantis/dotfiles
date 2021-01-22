@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
       Plug 'morhetz/gruvbox'
       Plug 'nathanaelkane/vim-indent-guides'
       Plug 'neoclide/coc.nvim'
+      Plug 'ncm2/ncm2'                      " nvim completion manager
       " Plug 'neovim/nvim-lspconfig'
       " Plug 'liquidmantis/nvim-lspconfig'
       Plug 'nvim-treesitter/nvim-treesitter'
