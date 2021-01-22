@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "templates/journal/daily.md",
+            "file": "azure-image-builder.md",
             "mode": "source"
           }
         }
@@ -96,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "templates/journal/daily.md",
+                "file": "azure-image-builder.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "templates/journal/daily.md"
+                "file": "azure-image-builder.md"
               }
             }
           }
@@ -132,10 +132,10 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "azure-image-builder.md",
     "templates/journal/daily.md",
     "journal/2021-01-22.md",
     "journal/2021-01-21.md",
-    "azure-image-builder.md",
     "ScaleSet.md",
     "TryHackMe - Nmap.md",
     "Untitled 2.md",

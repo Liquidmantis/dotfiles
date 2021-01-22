@@ -1,13 +1,15 @@
 require('functions')
-require('hs.ipc')
+-- require('hs.ipc')
 require('modes')
 stackline = require('stackline.stackline.stackline')
+stackline:init()
+stackline.config:toggle("appearance.showIcons")
 
-hs.timer.waitUntil(function()
-  return stackline.manager
-end, function()
- stackline.manager:toggleIcons()
-end, 0.1)
+-- hs.timer.waitUntil(function()
+--   return stackline.manager
+-- end, function()
+--  stackline.manager:toggleIcons()
+-- end, 0.1)
 
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
 
