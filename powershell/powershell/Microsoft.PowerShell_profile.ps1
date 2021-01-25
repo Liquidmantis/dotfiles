@@ -1,0 +1,1 @@
+/Users/liquid/git-home/dotfiles/powershell/Microsoft.PowerShell_profile.ps1
