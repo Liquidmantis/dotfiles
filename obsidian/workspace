@@ -4,15 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1ee9045b8032e707",
+        "id": "691a8e08206417ee",
         "type": "leaf",
         "active": true,
+        "pinned": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "azure-image-builder.md",
+            "file": "Azure Image Builder.md",
             "mode": "source"
-          }
+          },
+          "pinned": true
         }
       }
     ],
@@ -80,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "2cf3fe61490ca63e",
@@ -96,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "azure-image-builder.md",
+                "file": "Azure Image Builder.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +112,7 @@
             "id": "6468348097fb4f7a",
             "type": "leaf",
             "state": {
-              "type": "calendar",
+              "type": "empty",
               "state": {}
             }
           },
@@ -119,12 +122,20 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "azure-image-builder.md"
+                "file": "Azure Image Builder.md"
               }
+            }
+          },
+          {
+            "id": "38d47a6f6c5fd09b",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -132,15 +143,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "Azure Image Builder.md",
+    "vim.md",
     "azure-image-builder.md",
-    "templates/journal/daily.md",
-    "journal/2021-01-22.md",
-    "journal/2021-01-21.md",
-    "ScaleSet.md",
-    "TryHackMe - Nmap.md",
-    "Untitled 2.md",
+    "Untitled.md",
+    "HTTP.md",
+    "TryHackMe - Web Fundamentals.md",
     "Untitled 1.md",
-    "Linux.md",
-    "Untitled.md"
+    "Over the Wire.md",
+    "Hacking Resources.md",
+    "Under the Wire.md"
   ]
 }

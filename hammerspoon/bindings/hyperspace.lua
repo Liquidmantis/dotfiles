@@ -9,6 +9,8 @@ hyperSpace:bind('', 'b', function() yabaiMsg( 'space', 'layout bsp' ) exitHyperS
 hyperSpace:bind('', 'f', function() yabaiMsg( 'space', 'layout float' ) exitHyperSpace() end)
 hyperSpace:bind('', 's', function() yabaiMsg( 'space', 'layout stack' ) exitHyperSpace() end)
 
+hyperSpace:bind('', '0', function() yabaiMsg( 'space', 'balance' ) exitHyperSpace() end)
+
 hyperSpace:bind('', 'c', function() yabaiMsg( 'space', 'create' ) exitHyperSpace() end)
 hyperSpace:bind('', 'x', function() yabaiMsg( 'space', 'destroy' ) exitHyperSpace() end)
 
