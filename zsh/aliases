@@ -48,3 +48,4 @@ alias yabres='brew services stop yabai && brew services start yabai'
 alias yabrestart='brew services stop yabai && brew services start yabai'
 
 # any aliases below here were added via echo append and need sorting
+alias h=history

@@ -6,7 +6,6 @@
       {
         "id": "691a8e08206417ee",
         "type": "leaf",
-        "active": true,
         "pinned": true,
         "state": {
           "type": "markdown",
@@ -15,6 +14,18 @@
             "mode": "source"
           },
           "pinned": true
+        }
+      },
+      {
+        "id": "c05771049fa11546",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "fzf.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -99,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Azure Image Builder.md",
+                "file": "fzf.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Azure Image Builder.md"
+                "file": "fzf.md"
               }
             }
           },
@@ -143,15 +154,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "fzf.md",
+    "grafana.md",
     "Azure Image Builder.md",
+    "Untitled.md",
     "vim.md",
     "azure-image-builder.md",
-    "Untitled.md",
     "HTTP.md",
     "TryHackMe - Web Fundamentals.md",
     "Untitled 1.md",
-    "Over the Wire.md",
-    "Hacking Resources.md",
-    "Under the Wire.md"
+    "Over the Wire.md"
   ]
 }
