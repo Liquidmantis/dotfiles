@@ -18,6 +18,7 @@ alias docc='docker container'
 alias doci='docker image'
 
 # git aliases
+alias gl='git log --oneline --graph'
 alias gc='git commit'
 alias gd='git diff'
 alias gs='git status'
@@ -38,6 +39,7 @@ alias viy='edit ~/.yabairc'
 alias viz='edit ~/.zshrc'
 
 # terminal mojo aliases
+alias h=history
 alias ll='exa -al'
 alias soal='source ~/.config/zsh/aliases'
 alias soz='source ~/.zshrc'
@@ -48,4 +50,3 @@ alias yabres='brew services stop yabai && brew services start yabai'
 alias yabrestart='brew services stop yabai && brew services start yabai'
 
 # any aliases below here were added via echo append and need sorting
-alias h=history
