@@ -15,8 +15,8 @@ call plug#begin('~/.vim/plugged')
 
   " neovim exclusive plugins
     if !exists('g:vscode')
-      Plug 'airblade/vim-rooter'
-        Plug 'christoomey/vim-tmux-navigator'
+      Plug 'airblade/vim-rooter' " makes fzf search from the git project root rather than local dir.  Honors .gitignore
+      Plug 'christoomey/vim-tmux-navigator'
       Plug 'easymotion/vim-easymotion', { 'dir' : '~/.vim/plugged/neovim/vim-easymotion' }
       Plug 'hashivim/vim-terraform'
       Plug 'jremmen/vim-ripgrep'

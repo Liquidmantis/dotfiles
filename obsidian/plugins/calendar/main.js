@@ -1996,83 +1996,6 @@ class MetadataResolver extends SvelteComponent$1 {
 	}
 }
 
-const langToMomentLocale = {
-    en: "en-gb",
-    zh: "zh-cn",
-    "zh-TW": "zh-tw",
-    ru: "ru",
-    ko: "ko",
-    it: "it",
-    id: "id",
-    ro: "ro",
-    "pt-BR": "pt-br",
-    cz: "cs",
-    de: "de",
-    es: "es",
-    fr: "fr",
-    no: "nn",
-    pl: "pl",
-    pt: "pt",
-    tr: "tr",
-    hi: "hi",
-    nl: "nl",
-    ar: "ar",
-    ja: "ja",
-};
-const weekdays$1 = [
-    "sunday",
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-];
-/**
- * Sets the locale used by the calendar. This allows the calendar to
- * default to the user's locale (e.g. Start Week on Sunday/Monday/Friday)
- *
- * @param localeOverride locale string (e.g. "en-US")
- */
-function configureMomentLocale(localeOverride = "system-default") {
-    var _a;
-    const obsidianLang = localStorage.getItem("language") || "en";
-    const systemLang = (_a = navigator.language) === null || _a === void 0 ? void 0 : _a.toLowerCase();
-    let momentLocale = langToMomentLocale[obsidianLang];
-    if (localeOverride !== "system-default") {
-        momentLocale = localeOverride;
-    }
-    else if (systemLang.startsWith(obsidianLang)) {
-        // If the system locale is more specific (en-gb vs en), use the system locale.
-        momentLocale = systemLang;
-    }
-    const currentLocale = window.moment.locale(momentLocale);
-    console.debug(`[Calendar] Trying to switch Moment.js global locale to ${momentLocale}, got ${currentLocale}`);
-    return currentLocale;
-}
-function overrideMomentWeekStart(weekStart) {
-    const { moment } = window;
-    const currentLocale = moment.locale();
-    // Save the initial locale weekspec so that we can restore
-    // it when toggling between the different options in settings.
-    if (!window._bundledLocaleWeekSpec) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        window._bundledLocaleWeekSpec = moment.localeData()._week;
-    }
-    if (weekStart === "locale") {
-        moment.updateLocale(currentLocale, {
-            week: window._bundledLocaleWeekSpec,
-        });
-    }
-    else {
-        moment.updateLocale(currentLocale, {
-            week: {
-                dow: weekdays$1.indexOf(weekStart) || 0,
-            },
-        });
-    }
-}
-
 function isMacOS() {
     return os.platform() === "darwin";
 }
@@ -2092,12 +2015,8 @@ function getStartOfWeek(days) {
  * Generate a 2D array of daily information to power
  * the calendar view.
  */
-function getMonth(displayedMonth, weekStart, localeOverride) {
-    // These functions mutate the global window.moment object.
-    // Call them here to make sure the calendar view stays in
-    // sync with settings.
-    const locale = configureMomentLocale(localeOverride);
-    overrideMomentWeekStart(weekStart);
+function getMonth(displayedMonth, ..._args) {
+    const locale = window.moment().locale();
     const month = [];
     let week;
     const startOfMonth = displayedMonth.clone().locale(locale).date(1);
@@ -3040,29 +2959,29 @@ function add_css$5() {
 
 function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[18] = list[i];
+	child_ctx[17] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[21] = list[i];
+	child_ctx[20] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[24] = list[i];
+	child_ctx[23] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_3(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[27] = list[i];
+	child_ctx[26] = list[i];
 	return child_ctx;
 }
 
-// (55:6) {#if showWeekNums}
+// (53:6) {#if showWeekNums}
 function create_if_block_2(ctx) {
 	let col;
 
@@ -3079,7 +2998,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (58:6) {#each month[1].days as date}
+// (56:6) {#each month[1].days as date}
 function create_each_block_3(ctx) {
 	let col;
 
@@ -3087,14 +3006,14 @@ function create_each_block_3(ctx) {
 		c() {
 			col = element("col");
 			attr(col, "class", "svelte-km7ymq");
-			toggle_class(col, "weekend", isWeekend(/*date*/ ctx[27]));
+			toggle_class(col, "weekend", isWeekend(/*date*/ ctx[26]));
 		},
 		m(target, anchor) {
 			insert(target, col, anchor);
 		},
 		p(ctx, dirty) {
 			if (dirty & /*isWeekend, month*/ 16384) {
-				toggle_class(col, "weekend", isWeekend(/*date*/ ctx[27]));
+				toggle_class(col, "weekend", isWeekend(/*date*/ ctx[26]));
 			}
 		},
 		d(detaching) {
@@ -3103,7 +3022,7 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (64:8) {#if showWeekNums}
+// (62:8) {#if showWeekNums}
 function create_if_block_1(ctx) {
 	let th;
 
@@ -3122,10 +3041,10 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (67:8) {#each daysOfWeek as dayOfWeek}
+// (65:8) {#each daysOfWeek as dayOfWeek}
 function create_each_block_2(ctx) {
 	let th;
-	let t_value = /*dayOfWeek*/ ctx[24] + "";
+	let t_value = /*dayOfWeek*/ ctx[23] + "";
 	let t;
 
 	return {
@@ -3139,7 +3058,7 @@ function create_each_block_2(ctx) {
 			append(th, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*daysOfWeek*/ 32768 && t_value !== (t_value = /*dayOfWeek*/ ctx[24] + "")) set_data(t, t_value);
+			if (dirty & /*daysOfWeek*/ 32768 && t_value !== (t_value = /*dayOfWeek*/ ctx[23] + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach$1(th);
@@ -3147,15 +3066,15 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (75:10) {#if showWeekNums}
+// (73:10) {#if showWeekNums}
 function create_if_block$2(ctx) {
 	let weeknum;
 	let current;
 
 	const weeknum_spread_levels = [
-		/*week*/ ctx[18],
+		/*week*/ ctx[17],
 		{
-			metadata: getWeeklyMetadata(/*sources*/ ctx[8], /*week*/ ctx[18].days[0], /*today*/ ctx[10])
+			metadata: getWeeklyMetadata(/*sources*/ ctx[8], /*week*/ ctx[17].days[0], /*today*/ ctx[10])
 		},
 		{ onClick: /*onClickWeek*/ ctx[7] },
 		{
@@ -3184,9 +3103,9 @@ function create_if_block$2(ctx) {
 		p(ctx, dirty) {
 			const weeknum_changes = (dirty & /*month, getWeeklyMetadata, sources, today, onClickWeek, onContextMenuWeek, onHoverWeek, selectedId*/ 18344)
 			? get_spread_update(weeknum_spread_levels, [
-					dirty & /*month*/ 16384 && get_spread_object(/*week*/ ctx[18]),
+					dirty & /*month*/ 16384 && get_spread_object(/*week*/ ctx[17]),
 					dirty & /*getWeeklyMetadata, sources, month, today*/ 17664 && {
-						metadata: getWeeklyMetadata(/*sources*/ ctx[8], /*week*/ ctx[18].days[0], /*today*/ ctx[10])
+						metadata: getWeeklyMetadata(/*sources*/ ctx[8], /*week*/ ctx[17].days[0], /*today*/ ctx[10])
 					},
 					dirty & /*onClickWeek*/ 128 && { onClick: /*onClickWeek*/ ctx[7] },
 					dirty & /*onContextMenuWeek*/ 32 && {
@@ -3214,7 +3133,7 @@ function create_if_block$2(ctx) {
 	};
 }
 
-// (85:10) {#each week.days as day (day.format())}
+// (83:10) {#each week.days as day (day.format())}
 function create_each_block_1(key_1, ctx) {
 	let first;
 	let day;
@@ -3222,13 +3141,13 @@ function create_each_block_1(key_1, ctx) {
 
 	day = new Day({
 			props: {
-				date: /*day*/ ctx[21],
+				date: /*day*/ ctx[20],
 				today: /*today*/ ctx[10],
 				displayedMonth: /*displayedMonth*/ ctx[0],
 				onClick: /*onClickDay*/ ctx[6],
 				onContextMenu: /*onContextMenuDay*/ ctx[4],
 				onHover: /*onHoverDay*/ ctx[2],
-				metadata: getDailyMetadata(/*sources*/ ctx[8], /*day*/ ctx[21], /*today*/ ctx[10]),
+				metadata: getDailyMetadata(/*sources*/ ctx[8], /*day*/ ctx[20], /*today*/ ctx[10]),
 				selectedId: /*selectedId*/ ctx[9]
 			}
 		});
@@ -3248,13 +3167,13 @@ function create_each_block_1(key_1, ctx) {
 		},
 		p(ctx, dirty) {
 			const day_changes = {};
-			if (dirty & /*month*/ 16384) day_changes.date = /*day*/ ctx[21];
+			if (dirty & /*month*/ 16384) day_changes.date = /*day*/ ctx[20];
 			if (dirty & /*today*/ 1024) day_changes.today = /*today*/ ctx[10];
 			if (dirty & /*displayedMonth*/ 1) day_changes.displayedMonth = /*displayedMonth*/ ctx[0];
 			if (dirty & /*onClickDay*/ 64) day_changes.onClick = /*onClickDay*/ ctx[6];
 			if (dirty & /*onContextMenuDay*/ 16) day_changes.onContextMenu = /*onContextMenuDay*/ ctx[4];
 			if (dirty & /*onHoverDay*/ 4) day_changes.onHover = /*onHoverDay*/ ctx[2];
-			if (dirty & /*sources, month, today*/ 17664) day_changes.metadata = getDailyMetadata(/*sources*/ ctx[8], /*day*/ ctx[21], /*today*/ ctx[10]);
+			if (dirty & /*sources, month, today*/ 17664) day_changes.metadata = getDailyMetadata(/*sources*/ ctx[8], /*day*/ ctx[20], /*today*/ ctx[10]);
 			if (dirty & /*selectedId*/ 512) day_changes.selectedId = /*selectedId*/ ctx[9];
 			day.$set(day_changes);
 		},
@@ -3274,7 +3193,7 @@ function create_each_block_1(key_1, ctx) {
 	};
 }
 
-// (73:6) {#each month as week (week.weekNum)}
+// (71:6) {#each month as week (week.weekNum)}
 function create_each_block$2(key_1, ctx) {
 	let tr;
 	let t0;
@@ -3283,8 +3202,8 @@ function create_each_block$2(key_1, ctx) {
 	let t1;
 	let current;
 	let if_block = /*showWeekNums*/ ctx[1] && create_if_block$2(ctx);
-	let each_value_1 = /*week*/ ctx[18].days;
-	const get_key = ctx => /*day*/ ctx[21].format();
+	let each_value_1 = /*week*/ ctx[17].days;
+	const get_key = ctx => /*day*/ ctx[20].format();
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
 		let child_ctx = get_each_context_1(ctx, each_value_1, i);
@@ -3344,7 +3263,7 @@ function create_each_block$2(key_1, ctx) {
 			}
 
 			if (dirty & /*month, today, displayedMonth, onClickDay, onContextMenuDay, onHoverDay, getDailyMetadata, sources, selectedId*/ 18261) {
-				const each_value_1 = /*week*/ ctx[18].days;
+				const each_value_1 = /*week*/ ctx[17].days;
 				group_outros();
 				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_1, each_1_lookup, tr, outro_and_destroy_block, create_each_block_1, t1, get_each_context_1);
 				check_outros();
@@ -3424,7 +3343,7 @@ function create_fragment$6(ctx) {
 	}
 
 	let each_value = /*month*/ ctx[14];
-	const get_key = ctx => /*week*/ ctx[18].weekNum;
+	const get_key = ctx => /*week*/ ctx[17].weekNum;
 
 	for (let i = 0; i < each_value.length; i += 1) {
 		let child_ctx = get_each_context$2(ctx, each_value, i);
@@ -3617,9 +3536,7 @@ function create_fragment$6(ctx) {
 function instance$6($$self, $$props, $$invalidate) {
 	
 	
-	
-	let { weekStart = "locale" } = $$props;
-	let { localeOverride } = $$props;
+	let { localeData } = $$props;
 	let { showWeekNums = false } = $$props;
 	let { onHoverDay } = $$props;
 	let { onHoverWeek } = $$props;
@@ -3647,8 +3564,7 @@ function instance$6($$self, $$props, $$invalidate) {
 	}
 
 	$$self.$$set = $$props => {
-		if ("weekStart" in $$props) $$invalidate(16, weekStart = $$props.weekStart);
-		if ("localeOverride" in $$props) $$invalidate(17, localeOverride = $$props.localeOverride);
+		if ("localeData" in $$props) $$invalidate(16, localeData = $$props.localeData);
 		if ("showWeekNums" in $$props) $$invalidate(1, showWeekNums = $$props.showWeekNums);
 		if ("onHoverDay" in $$props) $$invalidate(2, onHoverDay = $$props.onHoverDay);
 		if ("onHoverWeek" in $$props) $$invalidate(3, onHoverWeek = $$props.onHoverWeek);
@@ -3663,12 +3579,12 @@ function instance$6($$self, $$props, $$invalidate) {
 	};
 
 	$$self.$$.update = () => {
-		if ($$self.$$.dirty & /*displayedMonth, weekStart, localeOverride*/ 196609) {
-			 $$invalidate(14, month = getMonth(displayedMonth, weekStart, localeOverride));
+		if ($$self.$$.dirty & /*displayedMonth, localeData*/ 65537) {
+			 $$invalidate(14, month = getMonth(displayedMonth, localeData));
 		}
 
-		if ($$self.$$.dirty & /*today, localeOverride*/ 132096) {
-			 $$invalidate(15, daysOfWeek = getDaysOfWeek$1(today, localeOverride));
+		if ($$self.$$.dirty & /*today, localeData*/ 66560) {
+			 $$invalidate(15, daysOfWeek = getDaysOfWeek$1(today, localeData));
 		}
 	};
 
@@ -3689,8 +3605,7 @@ function instance$6($$self, $$props, $$invalidate) {
 		resetDisplayedMonth,
 		month,
 		daysOfWeek,
-		weekStart,
-		localeOverride
+		localeData
 	];
 }
 
@@ -3700,8 +3615,7 @@ class Calendar extends SvelteComponent$1 {
 		if (!document.getElementById("svelte-km7ymq-style")) add_css$5();
 
 		init$1(this, options, instance$6, create_fragment$6, not_equal$1, {
-			weekStart: 16,
-			localeOverride: 17,
+			localeData: 16,
 			showWeekNums: 1,
 			onHoverDay: 2,
 			onHoverWeek: 3,
@@ -3732,6 +3646,85 @@ class Calendar extends SvelteComponent$1 {
 	}
 }
 
+const langToMomentLocale = {
+    en: "en-gb",
+    zh: "zh-cn",
+    "zh-TW": "zh-tw",
+    ru: "ru",
+    ko: "ko",
+    it: "it",
+    id: "id",
+    ro: "ro",
+    "pt-BR": "pt-br",
+    cz: "cs",
+    da: "da",
+    de: "de",
+    es: "es",
+    fr: "fr",
+    no: "nn",
+    pl: "pl",
+    pt: "pt",
+    tr: "tr",
+    hi: "hi",
+    nl: "nl",
+    ar: "ar",
+    ja: "ja",
+};
+const weekdays$1 = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+];
+function overrideGlobalMomentWeekStart(weekStart) {
+    const { moment } = window;
+    const currentLocale = moment.locale();
+    // Save the initial locale weekspec so that we can restore
+    // it when toggling between the different options in settings.
+    if (!window._bundledLocaleWeekSpec) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        window._bundledLocaleWeekSpec = moment.localeData()._week;
+    }
+    if (weekStart === "locale") {
+        moment.updateLocale(currentLocale, {
+            week: window._bundledLocaleWeekSpec,
+        });
+    }
+    else {
+        moment.updateLocale(currentLocale, {
+            week: {
+                dow: weekdays$1.indexOf(weekStart) || 0,
+            },
+        });
+    }
+}
+/**
+ * Sets the locale used by the calendar. This allows the calendar to
+ * default to the user's locale (e.g. Start Week on Sunday/Monday/Friday)
+ *
+ * @param localeOverride locale string (e.g. "en-US")
+ */
+function configureGlobalMomentLocale(localeOverride = "system-default", weekStart = "locale") {
+    var _a;
+    const obsidianLang = localStorage.getItem("language") || "en";
+    const systemLang = (_a = navigator.language) === null || _a === void 0 ? void 0 : _a.toLowerCase();
+    let momentLocale = langToMomentLocale[obsidianLang];
+    if (localeOverride !== "system-default") {
+        momentLocale = localeOverride;
+    }
+    else if (systemLang.startsWith(obsidianLang)) {
+        // If the system locale is more specific (en-gb vs en), use the system locale.
+        momentLocale = systemLang;
+    }
+    const currentLocale = window.moment.locale(momentLocale);
+    console.debug(`[Calendar] Trying to switch Moment.js global locale to ${momentLocale}, got ${currentLocale}`);
+    overrideGlobalMomentWeekStart(weekStart);
+    return currentLocale;
+}
+
 /* src/ui/Calendar.svelte generated by Svelte v3.31.0 */
 
 function create_fragment$7(ctx) {
@@ -3744,18 +3737,17 @@ function create_fragment$7(ctx) {
 	}
 
 	let calendarbase_props = {
-		localeOverride: /*$settings*/ ctx[9].localeOverride,
-		weekStart: /*$settings*/ ctx[9].weekStart,
 		sources: /*sources*/ ctx[1],
-		today: /*today*/ ctx[8],
+		today: /*today*/ ctx[9],
 		onHoverDay: /*onHoverDay*/ ctx[2],
 		onHoverWeek: /*onHoverWeek*/ ctx[3],
 		onContextMenuDay: /*onContextMenuDay*/ ctx[6],
 		onContextMenuWeek: /*onContextMenuWeek*/ ctx[7],
 		onClickDay: /*onClickDay*/ ctx[4],
 		onClickWeek: /*onClickWeek*/ ctx[5],
+		localeData: /*today*/ ctx[9].localeData(),
 		selectedId: /*$activeFile*/ ctx[10],
-		showWeekNums: /*$settings*/ ctx[9].showWeeklyNote
+		showWeekNums: /*$settings*/ ctx[8].showWeeklyNote
 	};
 
 	if (/*displayedMonth*/ ctx[0] !== void 0) {
@@ -3775,18 +3767,17 @@ function create_fragment$7(ctx) {
 		},
 		p(ctx, [dirty]) {
 			const calendarbase_changes = {};
-			if (dirty & /*$settings*/ 512) calendarbase_changes.localeOverride = /*$settings*/ ctx[9].localeOverride;
-			if (dirty & /*$settings*/ 512) calendarbase_changes.weekStart = /*$settings*/ ctx[9].weekStart;
 			if (dirty & /*sources*/ 2) calendarbase_changes.sources = /*sources*/ ctx[1];
-			if (dirty & /*today*/ 256) calendarbase_changes.today = /*today*/ ctx[8];
+			if (dirty & /*today*/ 512) calendarbase_changes.today = /*today*/ ctx[9];
 			if (dirty & /*onHoverDay*/ 4) calendarbase_changes.onHoverDay = /*onHoverDay*/ ctx[2];
 			if (dirty & /*onHoverWeek*/ 8) calendarbase_changes.onHoverWeek = /*onHoverWeek*/ ctx[3];
 			if (dirty & /*onContextMenuDay*/ 64) calendarbase_changes.onContextMenuDay = /*onContextMenuDay*/ ctx[6];
 			if (dirty & /*onContextMenuWeek*/ 128) calendarbase_changes.onContextMenuWeek = /*onContextMenuWeek*/ ctx[7];
 			if (dirty & /*onClickDay*/ 16) calendarbase_changes.onClickDay = /*onClickDay*/ ctx[4];
 			if (dirty & /*onClickWeek*/ 32) calendarbase_changes.onClickWeek = /*onClickWeek*/ ctx[5];
+			if (dirty & /*today*/ 512) calendarbase_changes.localeData = /*today*/ ctx[9].localeData();
 			if (dirty & /*$activeFile*/ 1024) calendarbase_changes.selectedId = /*$activeFile*/ ctx[10];
-			if (dirty & /*$settings*/ 512) calendarbase_changes.showWeekNums = /*$settings*/ ctx[9].showWeeklyNote;
+			if (dirty & /*$settings*/ 256) calendarbase_changes.showWeekNums = /*$settings*/ ctx[8].showWeeklyNote;
 
 			if (!updating_displayedMonth && dirty & /*displayedMonth*/ 1) {
 				updating_displayedMonth = true;
@@ -3814,11 +3805,11 @@ function create_fragment$7(ctx) {
 function instance$7($$self, $$props, $$invalidate) {
 	let $settings;
 	let $activeFile;
-	component_subscribe($$self, settings, $$value => $$invalidate(9, $settings = $$value));
+	component_subscribe($$self, settings, $$value => $$invalidate(8, $settings = $$value));
 	component_subscribe($$self, activeFile, $$value => $$invalidate(10, $activeFile = $$value));
 	
-	const moment = window.moment;
-	let today = moment();
+	
+	let today;
 	let { displayedMonth = today } = $$props;
 	let { sources } = $$props;
 	let { onHoverDay } = $$props;
@@ -3829,7 +3820,13 @@ function instance$7($$self, $$props, $$invalidate) {
 	let { onContextMenuWeek } = $$props;
 
 	function tick() {
-		$$invalidate(8, today = moment());
+		$$invalidate(9, today = window.moment());
+	}
+
+	function getToday(settings) {
+		configureGlobalMomentLocale(settings.localeOverride, settings.weekStart);
+		dailyNotes.reindex();
+		return window.moment();
 	}
 
 	// 1 minute heartbeat to keep `today` reflecting the current day
@@ -3867,6 +3864,12 @@ function instance$7($$self, $$props, $$invalidate) {
 		if ("onContextMenuWeek" in $$props) $$invalidate(7, onContextMenuWeek = $$props.onContextMenuWeek);
 	};
 
+	$$self.$$.update = () => {
+		if ($$self.$$.dirty & /*$settings*/ 256) {
+			 $$invalidate(9, today = getToday($settings));
+		}
+	};
+
 	return [
 		displayedMonth,
 		sources,
@@ -3876,8 +3879,8 @@ function instance$7($$self, $$props, $$invalidate) {
 		onClickWeek,
 		onContextMenuDay,
 		onContextMenuWeek,
-		today,
 		$settings,
+		today,
 		$activeFile,
 		tick,
 		calendarbase_displayedMonth_binding
@@ -4118,7 +4121,6 @@ class CalendarView extends obsidian.ItemView {
             tasksSource,
         ];
         this.app.workspace.trigger(TRIGGER_ON_OPEN, sources);
-        dailyNotes.reindex();
         this.calendar = new Calendar$1({
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             target: this.contentEl,

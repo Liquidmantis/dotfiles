@@ -37,6 +37,11 @@ hyper:bind('alt', 'l', function() yabaiMsg( 'window', 'warp east' ) exitHyper() 
 hyper:bind('alt', 'j', function() yabaiMsg( 'window', 'warp south' ) exitHyper() end)
 hyper:bind('alt', 'k', function() yabaiMsg( 'window', 'warp north' ) exitHyper() end)
 
+hyper:bind('ctrl', 'h', function() yabaiMsg( 'window', 'stack west' ) exitHyper() end)
+hyper:bind('ctrl', 'l', function() yabaiMsg( 'window', 'stack east' ) exitHyper() end)
+hyper:bind('ctrl', 'j', function() yabaiMsg( 'window', 'stack south' ) exitHyper() end)
+hyper:bind('ctrl', 'k', function() yabaiMsg( 'window', 'stack north' ) exitHyper() end)
+
 hyper:bind('', 'z', function() yabaiMsg( 'window', 'toggle zoom-parent' ) exitHyper() end)
 hyper:bind('shift', 'z', function() yabaiMsg( 'window', 'toggle zoom-fullscreen' ) exitHyper() end)
 hyper:bind('alt', 'z', function()

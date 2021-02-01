@@ -4,26 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "691a8e08206417ee",
-        "type": "leaf",
-        "pinned": true,
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Azure Image Builder.md",
-            "mode": "source"
-          },
-          "pinned": true
-        }
-      },
-      {
-        "id": "c05771049fa11546",
+        "id": "e8b7c37f15ae8afb",
         "type": "leaf",
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "fzf.md",
+            "file": "yabai.md",
             "mode": "source"
           }
         }
@@ -70,6 +57,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "ee69ed8f04c1ab2b",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
           }
         ]
       },
@@ -110,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "fzf.md",
+                "file": "yabai.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "fzf.md"
+                "file": "yabai.md"
               }
             }
           },
@@ -144,9 +139,17 @@
               "type": "calendar",
               "state": {}
             }
+          },
+          {
+            "id": "c32d49fc5bd8b483",
+            "type": "leaf",
+            "state": {
+              "type": "dangling-links",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -154,15 +157,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "fzf.md",
-    "grafana.md",
-    "Azure Image Builder.md",
-    "Untitled.md",
-    "vim.md",
-    "azure-image-builder.md",
-    "HTTP.md",
-    "TryHackMe - Web Fundamentals.md",
+    "yabai.md",
+    "30 Days of Banjo.md",
+    "Parallels.md",
+    "Guitar.md",
+    "Guitar Practice - 20210128.md",
     "Untitled 1.md",
-    "Over the Wire.md"
+    "burpsuite.md",
+    "curl.md",
+    "HTTP.md",
+    "Windows.md"
   ]
 }
