@@ -119,6 +119,17 @@ function exitHyperWindowResize()
     -- hs.alert.closeSpecific(hyperWindowResizeAlert)
 end
 
+function enterHyperWindowTransparency()
+    print('[Mode] HyperWindowTransparency enabled')
+    exitHyperWindow()
+    hyperWindowTransparency:enter()
+    -- hyperWindowTransparencyAlert = hs.alert('  HyperWindowTransparency', alertStyle, 'sticky')
+end
+function exitHyperWindowTransparency()
+    print('[Mode] HyperWindowTransparency disabled')
+    hyperWindowTransparency:exit()
+    -- hs.alert.closeSpecific(hyperWindowTransparencyAlert)
+end
 -- **************************************
 -- Helper Functions
 -- **************************************

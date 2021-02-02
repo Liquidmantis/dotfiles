@@ -14,3 +14,5 @@ Set-Alias ci code-insiders
 function Get-PSReadlineHistory () {
   Get-Content (Get-PSReadlineOption).HistorySavePath
 } 
+
+Set-Alias h Get-PSReadlineHistory

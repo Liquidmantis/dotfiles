@@ -15,6 +15,11 @@ hyperWindow:bind('', 'r', function()
 	exitHyperWindow()
 end)
 
+hyperWindow:bind('', 't', function()
+	enterHyperWindowTransparency()
+	exitHyperWindow()
+end)
+
 hyperWindow:bind('', '/', function()
 	yabaiMsg( 'window', 'toggle split' )
 	exitHyperWindow()
@@ -31,7 +36,7 @@ hyperWindow:bind('', 'l', function() yabaiMsg( 'window', 'ratio abs:0.70' ) exit
 hyperWindow:bind('', '0', function() yabaiMsg( 'space', 'balance' ) exitHyperWindow() end)
 
 hyperWindow:bind('', '\\', function() yabaiMsg( 'space', 'mirror y-axis' ) exitHyperWindow() end)
-hyperWindow:bind('', '-', function() yabaiMsg( 'space', 'mirror x-axis' ) exitHyperWindow() end)
+hyperWindow:bind('shift', '-', function() yabaiMsg( 'space', 'mirror x-axis' ) exitHyperWindow() end)
 hyperWindow:bind('', 'o', function() yabaiMsg( 'space', 'rotate 90' ) exitHyperWindow() end)
 hyperWindow:bind('shift', 'o', function() yabaiMsg( 'space', 'rotate 270' ) exitHyperWindow() end)
 
@@ -61,3 +66,16 @@ hyperWindowOpen:bind('', 'h', function() yabaiMsg( 'window', 'insert west' ) exi
 hyperWindowOpen:bind('', 'l', function() yabaiMsg( 'window', 'insert east' ) exitHyperWindowOpen() end)
 hyperWindowOpen:bind('', 'j', function() yabaiMsg( 'window', 'insert south' ) exitHyperWindowOpen() end)
 hyperWindowOpen:bind('', 'k', function() yabaiMsg( 'window', 'insert north' ) exitHyperWindowOpen() end)
+
+-- SubMode: HyperWindowTransparency Keybindings
+
+hyperWindowTransparency:bind('', 'escape', exitHyperWindowTransparency)
+
+hyperWindowTransparency:bind('', '0', function() yabaiMsg( 'window', 'opacity 1.0') exitHyperWindowTransparency() end)
+hyperWindowTransparency:bind('', '9', function() yabaiMsg( 'window', 'opacity 0.9') exitHyperWindowTransparency() end)
+hyperWindowTransparency:bind('', '8', function() yabaiMsg( 'window', 'opacity 0.8') exitHyperWindowTransparency() end)
+hyperWindowTransparency:bind('', '7', function() yabaiMsg( 'window', 'opacity 0.7') exitHyperWindowTransparency() end)
+hyperWindowTransparency:bind('', '6', function() yabaiMsg( 'window', 'opacity 0.6') exitHyperWindowTransparency() end)
+hyperWindowTransparency:bind('', '5', function() yabaiMsg( 'window', 'opacity 0.5') exitHyperWindowTransparency() end)
+hyperWindowTransparency:bind('', '4', function() yabaiMsg( 'window', 'opacity 0.4') exitHyperWindowTransparency() end)
+hyperWindowTransparency:bind('', '=', function() yabaiMsg( 'window', 'opacity 0.0') exitHyperWindowTransparency() end)
