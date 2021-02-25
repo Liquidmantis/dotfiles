@@ -32,7 +32,7 @@ nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " Floaterm bindings
 nnoremap <silent> <leader>tt :FloatermToggle<CR>
-tnoremap <silent> <leader>tt :FloatermToggle<CR>
+tnoremap <silent> <leader>tt <C-\><C-n>:FloatermToggle<CR>
 
 " fzf bindings
 map <C-f> :Files<CR>
