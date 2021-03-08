@@ -8,7 +8,6 @@ else
     source $HOME/.config/nvim/plug-config/coc.vim
     source $HOME/.config/nvim/plug-config/coc-explorer.vim
     source $HOME/.config/nvim/plug-config/fzf.vim
-    " source $HOME/.config/nvim/plug-config/nvim-lspconfig.vim
     source $HOME/.config/nvim/plug-config/vimwiki.vim
 
     source $HOME/.config/nvim/keybindings.vim

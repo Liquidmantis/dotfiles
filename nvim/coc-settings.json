@@ -36,12 +36,12 @@
       "initializationOptions": {},
       "settings": {}
     }
-  },
-  "python.autoComplete.extraPaths": [
-    "${env:SPARK_HOME}/python",
-    "${env:SPARK_HOME}/python/pyspark"
-  ],
-  "python.jediEnabled": false,
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true
+  }
+  /* "python.autoComplete.extraPaths": [ */
+  /*   "${env:SPARK_HOME}/python", */
+  /*   "${env:SPARK_HOME}/python/pyspark" */
+  /* ], */
+  /* "python.jediEnabled": false, */
+  /* "python.linting.enabled": true, */
+  /* "python.linting.pylintEnabled": true */
 }

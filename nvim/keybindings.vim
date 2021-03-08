@@ -9,8 +9,24 @@ nnoremap <silent> <leader>= :wincmd =<CR>
 " nnoremap <leader>bb :ls<cr>:b<space>
 " nnoremap <leader>bv :ls<cr>:vert sb<space>
 " nnoremap <leader>bs :ls<cr>:sb<space>
-nnoremap <silent> <leader>ej :CocCommand explorer<CR> " trying a faster mapping - 'j' for left side
-nnoremap <silent> <leader>ef :CocCommand explorer --preset floating<CR>
+nnoremap <leader>ej <cmd>CocCommand explorer<CR> " trying a faster mapping - 'j' for left side
+nnoremap <leader>ef <cmd>CocCommand explorer --preset floating<CR>
+
+" Telescope mappings
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>fs <cmd>Telescope live_grep<CR>
+nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>fh <cmd>Telescope help_tags<CR>
+nnoremap <leader>fc <cmd>Telescope commands<CR>
+nnoremap <leader>f: <cmd>Telescope command_history<CR>
+nnoremap <leader>fm <cmd>Telescope marks<CR>
+nnoremap <leader>fk <cmd>Telescope keymaps<CR>
+nnoremap <leader>fr <cmd>Telescope registers<CR>
+
+nnoremap <leader>fgc <cmd>Telescope git_commits<CR>
+nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
+nnoremap <leader>fgt <cmd>Telescope git_bcommits<CR>
+nnoremap <leader>fgs <cmd>Telescope git_status<CR>
 
 " PowerShell mappings
 nnoremap <silent> <leader>pst :CocCommand powershell.toggleTerminal<CR>
