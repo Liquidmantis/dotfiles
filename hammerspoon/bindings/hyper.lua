@@ -55,3 +55,9 @@ hyper:bind('', 'return', function()
 	exitHyper()
 end)
 
+-- Trigger KeyMou
+hyper:bind('', 'm', function()
+	hs.eventtap.keyStroke({'shift', 'ctrl'}, 'tab')
+	exitHyper()
+end)
+

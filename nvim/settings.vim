@@ -40,6 +40,7 @@ if !exists('g:vscode')
     set shiftwidth=2
     set expandtab
 
+    set cursorline                " highlight active line
     set foldmethod=indent         " default manual fold is painful
     set foldlevelstart=1          " autofold on open to reinforce fold usage
     set smartindent
