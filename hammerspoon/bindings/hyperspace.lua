@@ -7,7 +7,7 @@ hyperSpace:bind('', 'escape', exitHyperSpace)
 -- change space layouts
 hyperSpace:bind('', 'b', function() yabaiMsg( 'space', 'layout bsp' ) exitHyperSpace() end)
 hyperSpace:bind('', 'f', function() yabaiMsg( 'space', 'layout float' ) exitHyperSpace() end)
-hyperSpace:bind('', 's', function() yabaiMsg( 'space', 'layout stack' ) exitHyperSpace() end)
+hyperSpace:bind('', 't', function() yabaiMsg( 'space', 'layout stack' ) exitHyperSpace() end)
 
 hyperSpace:bind('', '0', function() yabaiMsg( 'space', 'balance' ) exitHyperSpace() end)
 
@@ -30,10 +30,8 @@ hyperSpace:bind('', 'l', function() yabaiMsg( 'space', 'focus next' ) exitHyperS
 hyperSpace:bind('', 'p', function() yabaiMsg( 'space', 'focus prev', 'focus last' ) exitHyperSpace() end)
 hyperSpace:bind('', 'n', function() yabaiMsg( 'space', 'focus next', 'focus first' ) exitHyperSpace() end)
 
-hyperSpace:bind('', 'w', function() yabaiMsg( 'space', 'toggle mission-control' ) exitHyperSpace() end)
+hyperSpace:bind('', 's', function() yabaiMsg( 'space', 'toggle mission-control' ) exitHyperSpace() end)
 
-hyperSpace:bind('', 'j', function() yabaiMsg( 'window', 'focus stack.next', 'focus stack.first' ) exitHyperSpace() end)
-hyperSpace:bind('', 'k', function() yabaiMsg( 'window', 'focus stack.prev', 'focus stack.last' ) exitHyperSpace() end)
 
 hyperSpace:bind('alt', '1', function() setPadding(1) exitHyperSpace() end)
 hyperSpace:bind('alt', '2', function() setPadding(2) exitHyperSpace() end)

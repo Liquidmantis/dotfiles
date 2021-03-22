@@ -75,61 +75,62 @@ function enterHyperWindow()
     print('[Mode] HyperWindow enabled')
     exitHyper()
     hyperWindow:enter()
-    -- hyperWindowAlert = hs.alert('  HyperWindow', alertStyle, 'sticky')
 end
 function exitHyperWindow()
     print('[Mode] HyperWindow disabled')
     hyperWindow:exit()
-    -- hs.alert.closeSpecific(hyperWindowAlert)
 end
 
 function enterHyperWindowOpen()
     print('[Mode] HyperWindowOpen enabled')
     exitHyperWindow()
     hyperWindowOpen:enter()
-    -- hyperWindowOpenAlert = hs.alert('  HyperWindowOpen', alertStyle, 'sticky')
 end
 function exitHyperWindowOpen()
     print('[Mode] HyperWindowOpen disabled')
     hyperWindowOpen:exit()
-    -- hs.alert.closeSpecific(hyperWindowOpenAlert)
 end
 
 function enterHyperSpace()
     print('[Mode] HyperSpace enabled')
     exitHyper()
     hyperSpace:enter()
-    -- hyperSpaceAlert = hs.alert('  HyperSpace', alertStyle, 'sticky')
 end
 function exitHyperSpace()
-    print('[Mode] HyperWindowSpace disabled')
+    print('[Mode] HyperSpace disabled')
     hyperSpace:exit()
-    -- hs.alert.closeSpecific(hyperSpaceAlert)
+end
+
+function enterHyperStack()
+    print('[Mode] HyperStack enabled')
+    exitHyper()
+    hyperStack:enter()
+end
+function exitHyperStack()
+    print('[Mode] HyperStack disabled')
+    hyperStack:exit()
 end
 
 function enterHyperWindowResize()
     print('[Mode] HyperWindowResize enabled')
     exitHyperWindow()
     hyperWindowResize:enter()
-    -- hyperWindowResizeAlert = hs.alert('  HyperWindowResize', alertStyle, 'sticky')
 end
 function exitHyperWindowResize()
     print('[Mode] HyperWindowResize disabled')
     hyperWindowResize:exit()
-    -- hs.alert.closeSpecific(hyperWindowResizeAlert)
 end
 
 function enterHyperWindowTransparency()
     print('[Mode] HyperWindowTransparency enabled')
     exitHyperWindow()
     hyperWindowTransparency:enter()
-    -- hyperWindowTransparencyAlert = hs.alert('  HyperWindowTransparency', alertStyle, 'sticky')
 end
 function exitHyperWindowTransparency()
     print('[Mode] HyperWindowTransparency disabled')
     hyperWindowTransparency:exit()
-    -- hs.alert.closeSpecific(hyperWindowTransparencyAlert)
 end
+
 -- **************************************
 -- Helper Functions
 -- **************************************

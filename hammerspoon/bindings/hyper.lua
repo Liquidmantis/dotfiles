@@ -8,6 +8,7 @@ hyper:bind('', 'F17', exitHyper)
 hyper:bind('', 'a', enterHyperApp)
 hyper:bind('', 'd', enterHyperDisplay)
 hyper:bind('', 's', enterHyperSpace)
+hyper:bind('', 't', enterHyperStack)
 hyper:bind('', 'w', enterHyperWindow)
 
 -- ****************************************
