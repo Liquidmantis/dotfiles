@@ -999,6 +999,51 @@
                         ]
                     },
                     {
+                        "description": "Pressing 'a' works as normal.  Holding 'a' sends Ctrl-Space to open Alfred.",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.to_if_alone_threshold_milliseconds": 300,
+                                    "basic.to_if_held_down_threshold_milliseconds": 230
+                                },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [
+                                        {
+                                            "halt": true,
+                                            "key_code": "a"
+                                        }
+                                    ]
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "a",
+                                        "repeat": false
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_option"
+                                        ],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Map volume controls to fine volume controls (Option + Shift + Volume)",
                         "manipulators": [
                             {
@@ -1085,19 +1130,6 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 6505,
-                        "vendor_id": 12951
-                    },
-                    "ignore": true,
-                    "manipulate_caps_lock_led": false,
                     "simple_modifications": []
                 }
             ],

@@ -16,6 +16,79 @@
                 },
                 "rules": [
                     {
+                        "description": "Map volume controls to fine volume controls (Option + Shift + Volume)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f11"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "volume_decrement",
+                                        "modifiers": [
+                                            "left_shift",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f11",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f11",
+                                        "modifiers": [
+                                            "fn"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f12"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "volume_increment",
+                                        "modifiers": [
+                                            "left_shift",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f12",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f12",
+                                        "modifiers": [
+                                            "fn"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
                         "manipulators": [
                             {
@@ -997,79 +1070,6 @@
                                 "type": "basic"
                             }
                         ]
-                    },
-                    {
-                        "description": "Map volume controls to fine volume controls (Option + Shift + Volume)",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "f11"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "volume_decrement",
-                                        "modifiers": [
-                                            "left_shift",
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "f11",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f11",
-                                        "modifiers": [
-                                            "fn"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "f12"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "volume_increment",
-                                        "modifiers": [
-                                            "left_shift",
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "f12",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f12",
-                                        "modifiers": [
-                                            "fn"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
                     }
                 ]
             },
@@ -1085,19 +1085,6 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 6505,
-                        "vendor_id": 12951
-                    },
-                    "ignore": true,
-                    "manipulate_caps_lock_led": false,
                     "simple_modifications": []
                 }
             ],

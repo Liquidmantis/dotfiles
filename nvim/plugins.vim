@@ -19,7 +19,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    
+
+    " Git utilities
+    Plug 'rhysd/git-messenger.vim' 
+    Plug 'tpope/vim-fugitive'
+    Plug 'mhinz/vim-signify'
+
     " makes fzf search from the git project root rather than local dir.  Honors .gitignore
     Plug 'airblade/vim-rooter' 
     Plug 'christoomey/vim-tmux-navigator'
@@ -31,7 +36,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/gv.vim'
     Plug 'mbbill/undotree'
     Plug 'mhinz/vim-startify'
-    Plug 'mhinz/vim-signify'
     Plug 'morhetz/gruvbox'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'neoclide/coc.nvim'
@@ -41,7 +45,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'sheerun/vim-polyglot'
     Plug 'tmsvg/pear-tree'
-    Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-abolish'
     Plug 'voldikss/vim-floaterm'
     Plug 'vim-airline/vim-airline'

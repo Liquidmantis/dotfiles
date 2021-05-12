@@ -11,6 +11,9 @@ alias tfaa='terraform apply -auto-approve'
 alias tfg='tf graph | dot -Tpng > tfgraph.png && open tfgraph.png'
 alias tfi='terraform init'
 alias tfp='terraform plan'
+alias tfw='terraform workspace'
+alias tfws='terraform workspace select'
+alias tfwl='terraform workspace list'
 
 # docker aliases
 alias doc='docker'

@@ -42,7 +42,7 @@ if !exists('g:vscode')
 
     set cursorline                " highlight active line
     set foldmethod=indent         " default manual fold is painful
-    set foldlevelstart=1          " autofold on open to reinforce fold usage
+    set foldlevel=3
     set smartindent
     set showmatch
     set incsearch

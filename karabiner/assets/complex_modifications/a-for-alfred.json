@@ -1,0 +1,50 @@
+{
+  "title": "A for Alfred",
+  "rules": [
+    {
+      "description": "Pressing 'a' works as normal.  Holding 'a' sends Ctrl-Space to open Alfred.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "parameters": {
+            "basic.to_if_held_down_threshold_milliseconds": 230,
+            "basic.to_if_alone_threshold_milliseconds": 300
+          },
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "a",
+                "halt": true
+              }
+            ]
+          },
+          "to_if_alone": [
+            {
+              "key_code": "a",
+              "halt": true,
+              "repeat": false
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_option"
+              ],
+              "halt": true,
+              "repeat": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
