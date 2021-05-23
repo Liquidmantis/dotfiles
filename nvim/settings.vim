@@ -24,10 +24,11 @@ if !exists('g:vscode')
 
     set cmdheight=2
 
+    set completeopt=menuone,longest
     " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
     " delays and poor user experience.
-    set updatetime=300
-    set shortmess+=c " Don't pass messages to |ins-completion-menu|.
+    set updatetime=50
+    " set shortmess+=c " Don't pass messages to |ins-completion-menu|.
     " ###############################
 
     autocmd VimResized * :wincmd =

@@ -11,4 +11,8 @@ else
     source $HOME/.config/nvim/plug-config/vimwiki.vim
 
     source $HOME/.config/nvim/keybindings.vim
+
+    lua require('compe-config')
+    lua require('nvim-lspconfig')
+    lua require('telescope-config')
 endif

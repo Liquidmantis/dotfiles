@@ -22,20 +22,6 @@
       "collapse",
       "expand"
     ]
-  },
-  "languageserver": {
-    "terraform": {
-      "command": "terraform-ls",
-      "args": [
-        "serve"
-      ],
-      "filetypes": [
-        "tf",
-        "terraform"
-      ],
-      "initializationOptions": {},
-      "settings": {}
-    }
   }
   /* "python.autoComplete.extraPaths": [ */
   /*   "${env:SPARK_HOME}/python", */

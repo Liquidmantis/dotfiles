@@ -5,7 +5,7 @@ disabled = true
 disabled = true
 
 [lua]
-disabled = true
+# disabled = true
 
 [shell]
 powershell_indicator = "\uf489"

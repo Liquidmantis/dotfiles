@@ -19,6 +19,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+    " Plug 'codota/tabnine-vim'
 
     " Git utilities
     Plug 'rhysd/git-messenger.vim' 
@@ -37,13 +40,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'mbbill/undotree'
     Plug 'mhinz/vim-startify'
     Plug 'morhetz/gruvbox'
-    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'hrsh7th/nvim-compe'
+    " Plug 'nathanaelkane/vim-indent-guides'
     Plug 'neoclide/coc.nvim'
     Plug 'ncm2/ncm2'                      " nvim completion manager
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'preservim/nerdtree'
-    Plug 'sheerun/vim-polyglot'
+    " Plug 'sheerun/vim-polyglot'
     Plug 'tmsvg/pear-tree'
     Plug 'tpope/vim-abolish'
     Plug 'voldikss/vim-floaterm'

@@ -3,7 +3,7 @@
 -- ****************************************
 
 hyper:bind('', 'escape', exitHyper)
-hyper:bind('', 'F17', exitHyper)
+-- hyper:bind('', 'F17', exitHyper)
 
 hyper:bind('', 'a', enterHyperApp)
 hyper:bind('', 'd', enterHyperDisplay)
@@ -15,36 +15,35 @@ hyper:bind('', 'w', enterHyperWindow)
 -- Mode: Hyper Keybindings
 -- ****************************************
 
-hyper:bind('', 'c', function() yabaiMsg( 'space', 'create' ) exitHyper() end)
-hyper:bind('', 'o', function() yabaiMsg( 'window', 'focus recent' ) exitHyper() end)
-hyper:bind('', 'h', function() yabaiMsg( 'window', 'focus west' ) exitHyper() end)
-hyper:bind('', 'l', function() yabaiMsg( 'window', 'focus east' ) exitHyper() end)
-hyper:bind('', 'j', function() yabaiMsg( 'window', 'focus south' ) exitHyper() end)
-hyper:bind('', 'k', function() yabaiMsg( 'window', 'focus north' ) exitHyper() end)
+hyper:bind('', 'c', function() yabaiMsg( 'space', 'create' ) end)
+hyper:bind('', 'o', function() yabaiMsg( 'window', 'focus recent' ) end)
+hyper:bind('', 'h', function() yabaiMsg( 'window', 'focus west' ) end)
+hyper:bind('', 'l', function() yabaiMsg( 'window', 'focus east' ) end)
+hyper:bind('', 'j', function() yabaiMsg( 'window', 'focus south' ) end)
+hyper:bind('', 'k', function() yabaiMsg( 'window', 'focus north' ) end)
 
-hyper:bind('', 'x', function()
+hyper:bind('shift', 'x', function()
 	yabaiMsg( 'window', 'close' )
 	yabaiMsg( 'window', 'focus last' )
-	exitHyper()
 end)
 
-hyper:bind('shift', 'h', function() yabaiMsg( 'window', 'swap west' ) exitHyper() end)
-hyper:bind('shift', 'l', function() yabaiMsg( 'window', 'swap east' ) exitHyper() end)
-hyper:bind('shift', 'j', function() yabaiMsg( 'window', 'swap south' ) exitHyper() end)
-hyper:bind('shift', 'k', function() yabaiMsg( 'window', 'swap north' ) exitHyper() end)
+hyper:bind('shift', 'h', function() yabaiMsg( 'window', 'swap west' ) end)
+hyper:bind('shift', 'l', function() yabaiMsg( 'window', 'swap east' ) end)
+hyper:bind('shift', 'j', function() yabaiMsg( 'window', 'swap south' ) end)
+hyper:bind('shift', 'k', function() yabaiMsg( 'window', 'swap north' ) end)
 
-hyper:bind('alt', 'h', function() yabaiMsg( 'window', 'warp west' ) exitHyper() end)
-hyper:bind('alt', 'l', function() yabaiMsg( 'window', 'warp east' ) exitHyper() end)
-hyper:bind('alt', 'j', function() yabaiMsg( 'window', 'warp south' ) exitHyper() end)
-hyper:bind('alt', 'k', function() yabaiMsg( 'window', 'warp north' ) exitHyper() end)
+hyper:bind('alt', 'h', function() yabaiMsg( 'window', 'warp west' ) end)
+hyper:bind('alt', 'l', function() yabaiMsg( 'window', 'warp east' ) end)
+hyper:bind('alt', 'j', function() yabaiMsg( 'window', 'warp south' ) end)
+hyper:bind('alt', 'k', function() yabaiMsg( 'window', 'warp north' ) end)
 
-hyper:bind('ctrl', 'h', function() yabaiMsg( 'window', 'stack west' ) exitHyper() end)
-hyper:bind('ctrl', 'l', function() yabaiMsg( 'window', 'stack east' ) exitHyper() end)
-hyper:bind('ctrl', 'j', function() yabaiMsg( 'window', 'stack south' ) exitHyper() end)
-hyper:bind('ctrl', 'k', function() yabaiMsg( 'window', 'stack north' ) exitHyper() end)
+hyper:bind('ctrl', 'h', function() yabaiMsg( 'window', 'stack west' ) end)
+hyper:bind('ctrl', 'l', function() yabaiMsg( 'window', 'stack east' ) end)
+hyper:bind('ctrl', 'j', function() yabaiMsg( 'window', 'stack south' ) end)
+hyper:bind('ctrl', 'k', function() yabaiMsg( 'window', 'stack north' ) end)
 
-hyper:bind('', 'z', function() yabaiMsg( 'window', 'toggle zoom-parent' ) exitHyper() end)
-hyper:bind('shift', 'z', function() yabaiMsg( 'window', 'toggle zoom-fullscreen' ) exitHyper() end)
+hyper:bind('', 'z', function() yabaiMsg( 'window', 'toggle zoom-parent' ) end)
+hyper:bind('shift', 'z', function() yabaiMsg( 'window', 'toggle zoom-fullscreen' ) end)
 hyper:bind('alt', 'z', function()
 	-- native fullscreen
 	hs.eventtap.keyStroke({'ctrl', 'cmd'}, 'f')

@@ -3,6 +3,8 @@ alias ci='code-insiders'
 alias vi='nvim'
 alias vim='nvim'
 alias edit='nvim'
+alias pp='pwsh-preview -nologo'
+alias pwshp='pwsh-preview -nologo'
 
 # terraform aliases
 alias tf='terraform'
