@@ -1,5 +1,5 @@
 .DS_Store
 */.DS_Store
-automatic_backups/*
+*/automatic_backups/*
 hammerspoon/stackline
 .netrwhist
