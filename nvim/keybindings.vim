@@ -1,3 +1,4 @@
+" window control movement commands
 nnoremap <silent> <leader>h :wincmd h<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>j :wincmd j<CR>
@@ -9,8 +10,12 @@ nnoremap <silent> <leader>= :wincmd =<CR>
 " nnoremap <leader>bb :ls<cr>:b<space>
 " nnoremap <leader>bv :ls<cr>:vert sb<space>
 " nnoremap <leader>bs :ls<cr>:sb<space>
-nnoremap <leader>ej <cmd>CocCommand explorer<CR> " trying a faster mapping - 'j' for left side
+
+" nnoremap <leader>ej <cmd>CocCommand explorer<CR> " trying a faster mapping - 'j' for left side
 nnoremap <leader>ef <cmd>CocCommand explorer --preset floating<CR>
+
+" Fern mappings
+nnoremap <leader>ej <cmd>Fern .<CR>
 
 " Telescope mappings
 nnoremap <leader>ff <cmd>Telescope find_files<CR>

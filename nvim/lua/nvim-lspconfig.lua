@@ -27,3 +27,4 @@ require'lspconfig'.pyright.setup{}
 --       }
 --     }
      
+require'lspconfig'.denols.setup{}

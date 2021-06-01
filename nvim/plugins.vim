@@ -21,13 +21,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-    " Plug 'codota/tabnine-vim'
-
     " Git utilities
     Plug 'rhysd/git-messenger.vim' 
     Plug 'tpope/vim-fugitive'
     Plug 'mhinz/vim-signify'
 
+    Plug 'lambdalisue/fern.vim'
     " makes fzf search from the git project root rather than local dir.  Honors .gitignore
     Plug 'airblade/vim-rooter' 
     Plug 'christoomey/vim-tmux-navigator'
@@ -37,22 +36,18 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/gv.vim'
+    Plug 'kmonad/kmonad-vim'
     Plug 'mbbill/undotree'
     Plug 'mhinz/vim-startify'
-    Plug 'morhetz/gruvbox'
+    Plug 'gruvbox-community/gruvbox'
     Plug 'hrsh7th/nvim-compe'
-    " Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'neoclide/coc.nvim'
-    Plug 'ncm2/ncm2'                      " nvim completion manager
     Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'preservim/nerdtree'
-    " Plug 'sheerun/vim-polyglot'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
     Plug 'tmsvg/pear-tree'
     Plug 'tpope/vim-abolish'
     Plug 'voldikss/vim-floaterm'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-utils/vim-man'
-    Plug 'yatli/coc-powershell'
   endif
 call plug#end()
