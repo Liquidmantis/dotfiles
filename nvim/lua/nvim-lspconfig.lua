@@ -1,5 +1,5 @@
 require'lspconfig'.terraformls.setup{
-  cmd = { "terraform-lsp" };
+  cmd = { "terraform-ls", "serve" };
   filetypes =  { "terraform", "tf" };
 }    
 --     root_dir = root_pattern(".terraform", ".git")
