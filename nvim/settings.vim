@@ -7,6 +7,13 @@ set noswapfile
 set nobackup
 set nowritebackup
 
+let g:fern#renderer = "nerdfont"
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+
 
 filetype plugin indent on
 let mapleader="\<space>"
@@ -37,6 +44,7 @@ if !exists('g:vscode')
     set cursorline                " highlight active line
     set colorcolumn=80
     highlight ColorColumn ctermbg=0 guibg=Green
+    set signcolumn=yes
 
     set tabstop=2 softtabstop=2
     set shiftwidth=2

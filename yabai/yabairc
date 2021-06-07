@@ -50,6 +50,8 @@ yabai -m rule --add app="^Quicken" manage=off
 yabai -m rule --add title="Preferences$" manage=off
 yabai -m rule --add title="^Tyme" manage=off
 yabai -m rule --add title="^Hammerspoon" manage=off
+yabai -m rule --add title="^Wally" manage=off
+yabai -m rule --add title="^Options" manage=off
 
 # app special handlers
 yabai -m rule --add title="Picture in Picture" manage=off

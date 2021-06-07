@@ -27,6 +27,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-signify'
 
     Plug 'lambdalisue/fern.vim'
+    Plug 'lambdalisue/fern-git-status.vim'
+    Plug 'lambdalisue/nerdfont.vim'
+    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+    Plug 'lambdalisue/glyph-palette.vim'
+
     " makes fzf search from the git project root rather than local dir.  Honors .gitignore
     Plug 'airblade/vim-rooter' 
     Plug 'christoomey/vim-tmux-navigator'
@@ -36,15 +41,18 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/gv.vim'
+
     Plug 'kmonad/kmonad-vim'
+
     Plug 'mbbill/undotree'
     Plug 'mhinz/vim-startify'
     Plug 'gruvbox-community/gruvbox'
+
     Plug 'hrsh7th/nvim-compe'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'glepnir/lspsaga.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-    Plug 'tmsvg/pear-tree'
     Plug 'tpope/vim-abolish'
     Plug 'voldikss/vim-floaterm'
     Plug 'vim-airline/vim-airline'

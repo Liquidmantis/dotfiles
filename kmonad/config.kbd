@@ -27,23 +27,23 @@
 
 (defalias
 ;; qwerty homerow mods
-  act (tap-hold-next-release 130 a lctl)
-  sal (tap-hold-next-release 130 s lalt)
-  dcm (tap-hold-next-release 130 d lmet)
-  fsh (tap-hold-next-release 130 f lsft)
-  jsh (tap-hold-next-release 130 j rsft)
-  kcm (tap-hold-next-release 130 k rmet)
-  lal (tap-hold-next-release 130 l ralt)
-  ;ct (tap-hold-next-release 130 ; rctl)
+  act (tap-hold-next-release 200 a lctl)
+  sal (tap-hold-next-release 200 s lalt)
+  dcm (tap-hold-next-release 200 d lmet)
+  fsh (tap-hold-next-release 200 f lsft)
+  jsh (tap-hold-next-release 200 j rsft)
+  kcm (tap-hold-next-release 200 k rmet)
+  lal (tap-hold-next-release 200 l ralt)
+  ;ct (tap-hold-next-release 200 ; rctl)
 
 ;; layer toggles
-  arr (tap-hold-next-release 130 x (layer-toggle arrows))
-  num (tap-hold-next-release 130 v (layer-toggle numbers))
-  syz (tap-hold-next-release 130 z (layer-toggle symbols))
-  sys (tap-hold-next-release 130 / (layer-toggle symbols))
+  arr (tap-hold-next-release 200 x (layer-toggle arrows))
+  num (tap-hold-next-release 200 v (layer-toggle numbers))
+  syz (tap-hold-next-release 200 z (layer-toggle symbols))
+  sys (tap-hold-next-release 200 / (layer-toggle symbols))
 
 ;; esc/hyper on caps
-  ehy (tap-hold-next-release 130 esc f17)
+  ehy (tap-hold-next-release 200 esc f17)
 )
 
 (deflayer symbols

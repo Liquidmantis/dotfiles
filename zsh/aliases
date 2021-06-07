@@ -1,3 +1,8 @@
+# navigation aliases
+alias zgh='cd ~/git-home'
+alias zgw='cd ~/git-work'
+alias zdf='cd ~/git-home/dotfiles'
+
 # app aliases
 alias ci='code-insiders'
 alias vi='nvim'
