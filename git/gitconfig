@@ -1,1 +1,27 @@
-/Users/liquid/Dropbox/Mackup/.gitconfig
+[user]
+  name = Liquidmantis
+  email = liquidmantis@gmail.com
+
+[includeIf "gitdir:~/git-work/"]
+  path = ~/.gitconfig-work
+
+[color]
+  ui = auto
+[push]
+  default = simple
+[alias]
+  pu = push
+  s = status
+  cm = commit -am
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[diff]
+	tool = bc3
+[difftool "bc3"]
+	trustExitCode = true
+[merge]
+	tool = bc3
+[mergetool "bc3"]
+	trustExitCode = true
