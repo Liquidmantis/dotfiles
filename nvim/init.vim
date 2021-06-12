@@ -1,6 +1,6 @@
 lua require('plugins')
-
-source $HOME/.config/nvim/settings.vim
+lua require('settings')
+" source $HOME/.config/nvim/settings.vim
 
 source $HOME/.config/nvim/plug-config/airline.vim
 " source $HOME/.config/nvim/plug-config/coc.vim
