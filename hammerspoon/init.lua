@@ -2,7 +2,7 @@ require('functions')
 require('modes')
 require('hs.ipc')
 
-stackline = require('stackline.stackline.stackline')
+stackline = require('stackline')
 stackline:init()
 stackline.config:toggle("appearance.showIcons")
 
