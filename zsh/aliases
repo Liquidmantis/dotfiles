@@ -10,6 +10,7 @@ alias vim='nvim'
 alias edit='nvim'
 alias pp='pwsh-preview -nologo'
 alias pwshp='pwsh-preview -nologo'
+alias nn='~/nvim/bin/nvim'
 
 # terraform aliases
 alias tf='terraform'
