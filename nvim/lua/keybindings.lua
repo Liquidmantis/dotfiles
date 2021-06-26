@@ -1,3 +1,4 @@
+vim.cmd([[
 " window control movement commands
 nnoremap <silent> <leader>h :wincmd h<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
@@ -12,14 +13,43 @@ nnoremap <silent> <leader>q :q<CR>
 " nnoremap <leader>bv :ls<cr>:vert sb<space>
 " nnoremap <leader>bs :ls<cr>:sb<space>
 
+nnoremap <silent> <leader>viv :tabedit $MYVIMRC<CR>
+nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim config.'
+nnoremap <silent> <leader>hl :noh<CR> " clear last search highlight
+nnoremap <silent> <tab> :bn<CR>         " buffer next
+nnoremap <silent> <S-tab> :bp<CR>       " buffer prev
+nnoremap <silent> <leader>bd :bd<CR>    " buffer destroy
+nnoremap <silent> <leader>bn :bn<CR>    " buffer next
+nnoremap <silent> <leader>bp :bp<CR>    " buffer prev
+nnoremap <silent> <leader><tab> gt
+nnoremap <silent> <leader><S-tab> gT
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
+
+
+" Nvim Tree mappings
+nnoremap <silent> <leader>ej :NvimTreeToggle<CR>
+
+
 " Fern mappings
 nnoremap <leader>ee <cmd>Fern .<CR>
 noremap <silent> <Leader>d :Fern . -drawer -width=35 -toggle<CR><C-w>=
 noremap <silent> <Leader>ef :Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
-noremap <silent> <Leader>. :Fern %:h -drawer -width=35 -toggle<CR><C-w>=
+" noremap <silent> <Leader>. :Fern %:h -drawer -width=35 -toggle<CR><C-w>=
+noremap <silent> <Leader>. :NvimTreeToggle<CR><C-w>=
+
 
 " Lspsaga bindings
 nnoremap <silent> <Leader>gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
+" show hover doc
+nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+" scroll down hover doc or scroll in definition preview
+nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
+" scroll up hover doc
+nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+
+
 
 " Telescope mappings
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
@@ -43,27 +73,18 @@ nnoremap <leader>fgs <cmd>Telescope git_status<CR>
 nnoremap <leader>ns <cmd>lua require('telescope-config').find_notes()<CR>
 nnoremap <leader>ng <cmd>lua require('telescope-config').grep_notes()<CR>
 
+
 " PowerShell mappings
 nnoremap <silent> <leader>pst :CocCommand powershell.toggleTerminal<CR>
 nnoremap <silent> <leader>psl :CocCommand powershell.evaluateLine<CR>
 nnoremap <silent> <leader>pss :CocCommand powershell.evaluateSelection<CR>
 nnoremap <silent> <leader>pse :CocCommand powershell.execute<CR>
 
-nnoremap <silent> <leader>viv :tabedit $MYVIMRC<CR>
-nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim config.'
-nnoremap <silent> <leader>hl :noh<CR> " clear last search highlight
-nnoremap <silent> <tab> :bn<CR>         " buffer next
-nnoremap <silent> <S-tab> :bp<CR>       " buffer prev
-nnoremap <silent> <leader>bd :bd<CR>    " buffer destroy
-nnoremap <silent> <leader>bn :bn<CR>    " buffer next
-nnoremap <silent> <leader>bp :bp<CR>    " buffer prev
-nnoremap <silent> <leader><tab> gt
-nnoremap <silent> <leader><S-tab> gT
-nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " Floaterm bindings
 nnoremap <silent> <C-T> :FloatermToggle<CR>
 tnoremap <silent> <C-T> <C-\><C-n>:FloatermToggle<CR>
+
 
 " fzf bindings
 map <C-f> :Files<CR>
@@ -71,3 +92,4 @@ nnoremap <leader><leader>b :Buffers<CR>
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
+]])

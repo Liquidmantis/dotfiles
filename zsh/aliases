@@ -45,7 +45,7 @@ alias vial='edit ~/.config/zsh/aliases'
 alias vialias='edit ~/.config/zsh/aliases'
 alias vih='edit ~/.hammerspoon/init.lua'
 alias vit='edit ~/.tmux.conf'
-alias viv='edit ~/.config/nvim/init.vim'
+alias viv='edit ~/.config/nvim/init.lua'
 alias viy='edit ~/.yabairc'
 alias viz='edit ~/.zshrc'
 
