@@ -31,7 +31,7 @@ vim.g.mapleader = " "
 
 vim.o.cmdheight = 2
 
--- vim.o.completeopt = menuone,longest
+vim.o.completeopt = 'menuone,longest'
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 --  delays and poor user experience.
 vim.o.updatetime=50
@@ -56,6 +56,9 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 
 vim.g.foldmethod = indent                  -- default manual fold is painful
+-- leaving the below fold settings, but it's not working yet.
+-- vim.g.foldmethod = 'expr'
+-- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 9
 -- vim.o.showmatch = true                     -- flash matching brackets
 -- vim.o.incsearch = true                 

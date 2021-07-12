@@ -4,10 +4,20 @@ live_config_reload: true
 
 window:
   padding:
-   x: 2
-   y: 2
+    x: 2
+    y: 2
   dynamic_padding: true
-
+    
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #     - transparent: Title bar, transparent background and title bar buttons
+  #     - buttonless: Title bar, transparent background and no title bar buttons
+  #decorations: full
   decorations: full
 
 font:
@@ -19,13 +29,13 @@ font:
     family: FiraCode Nerd Font
     style: Bold
 
-  italic:
-    family: FiraCode Nerd Font
-    style: Italic
+    italic:
+      family: FiraCode Nerd Font
+      style: Italic
 
-  bold_italic:
-    family: FiraCode Nerd Font
-    style: Bold Italic
+    bold_italic:
+      family: FiraCode Nerd Font
+      style: Bold Italic
 
   size: 14.0
 

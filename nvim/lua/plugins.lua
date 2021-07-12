@@ -18,6 +18,7 @@ return require('packer').startup(function()
 
   -- use 'neoclide/coc.nvim'
   
+  use 'JayDoubleu/vim-pwsh-formatter'
   -- Git utilities
   use 'rhysd/git-messenger.vim' 
   use 'tpope/vim-fugitive'

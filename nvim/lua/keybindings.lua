@@ -1,11 +1,14 @@
+local remap = vim.api.nvim_set_keymap
+
+remap('n', '<leader>h',  ':wincmd h<CR>', {noremap = true, silent = true})
+remap('n', '<leader>l',  ':wincmd l<CR>', {noremap = true, silent = true})
+remap('n', '<leader>j',  ':wincmd j<CR>', {noremap = true, silent = true})
+remap('n', '<leader>k',  ':wincmd k<CR>', {noremap = true, silent = true})
+remap('n', '<leader>-',  ':split<CR>',    {noremap = true, silent = true})
+remap('n', '<leader>\\', ':vsplit<CR>',   {noremap = true, silent = true})
+
 vim.cmd([[
 " window control movement commands
-nnoremap <silent> <leader>h :wincmd h<CR>
-nnoremap <silent> <leader>l :wincmd l<CR>
-nnoremap <silent> <leader>j :wincmd j<CR>
-nnoremap <silent> <leader>k :wincmd k<CR>
-nnoremap <silent> <leader>- :split<CR>
-nnoremap <silent> <leader>\ :vsplit<CR>
 nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR> " break buffer to new window
 nnoremap <silent> <leader>= :wincmd =<CR>
 nnoremap <silent> <leader>q :q<CR>
@@ -93,3 +96,12 @@ nnoremap <leader>g :Rg<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
 ]])
+
+-- stolen from https://github.com/ibhagwan/nvim-lua/blob/main/lua/keymaps.lua
+-- Map <leader>o & <leader>O to newline without insert mode
+remap('n', '<leader>o',
+    ':<C-u>call append(line("."), repeat([""], v:count1))<CR>',
+    { noremap = true, silent = true })
+remap('n', '<leader>O',
+    ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>',
+    { noremap = true, silent = true })

@@ -17,3 +17,5 @@ Set-Alias vi nvim
 Set-Alias tf terraform
 
 Invoke-Expression (&starship init powershell)
+
+$f   = 'foo'
