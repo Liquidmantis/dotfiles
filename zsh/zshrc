@@ -1,9 +1,17 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/local/etc/profile.d/z.sh
+if [[ $(uname) == "Linux" ]] then
+  brewshare="$HOME/.linuxbrew/share"
+  brewetc="$HOME/.linuxbrew/etc"
+else 
+  brewshare="$HOME/share"
+  brewetc="$HOME/etc"
+fi
+
+source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $brewetc/profile.d/z.sh
 source ~/.config/zsh/aliases
 
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -12,7 +20,7 @@ fpath=(/usr/local/share/zsh/site-functions$fpath)
 autoload -Uz compinit && compinit -i
 # az-cli uses bash completion, this loads it in zsh
 autoload -U +X bashcompinit && bashcompinit
-source /usr/local/etc/bash_completion.d/az
+source $brewetc/bash_completion.d/az
 
 
 bindkey -M vicmd 'k' history-substring-search-up
