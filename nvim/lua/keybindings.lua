@@ -6,6 +6,7 @@ remap('n', '<leader>j',  ':wincmd j<CR>', {noremap = true, silent = true})
 remap('n', '<leader>k',  ':wincmd k<CR>', {noremap = true, silent = true})
 remap('n', '<leader>-',  ':split<CR>',    {noremap = true, silent = true})
 remap('n', '<leader>\\', ':vsplit<CR>',   {noremap = true, silent = true})
+remap('n', '<leader>sh', ':vsplit<CR>',   {noremap = true, silent = true})
 
 vim.cmd([[
 " window control movement commands

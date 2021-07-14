@@ -1,13 +1,9 @@
 -- global settings
 vim.o.splitright = true
 vim.o.splitbelow = true
--- vim.o.undodir = '~/.vim/undodir'
 vim.o.undofile = true
--- vim.g.noswapfile = true
 vim.g.nobackup = true
 vim.g.nowritebackup = true
-
--- vim.:.fern.renderer = "nerdfont"
 
 -- vim.api.nvim_command([[
 -- augroup my-glyph-palette
@@ -25,29 +21,21 @@ vim.g.mapleader = " "
 -- vim.api.nvim_command([[ autocmd FileType Powershell setlocal commentstring=#\ %s ]])
 -- vim.api.nvim_command([[ autocmd FileType tf setlocal commentstring=#\ %s ]])
 
--- --  Airline Settings
--- vim.o.showtabline = 2
--- vim.o.noshowmode = true                   -- remove default mode indicators
-
 vim.o.cmdheight = 2
 
 vim.o.completeopt = 'menuone,longest'
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
---  delays and poor user experience.
+-- delays and poor user experience.
 vim.o.updatetime=50
--- -- set shortmess+=c " Don't pass messages to |ins-completion-menu|.
-
-vim.g.colorscheme = gruvbox
-vim.o.background = 'dark'
-vim.cmd([[ colorscheme gruvbox ]])
+-- set shortmess+=c " Don't pass messages to |ins-completion-menu|.
 
 vim.api.nvim_command([[ autocmd VimResized * :wincmd = ]])
 vim.o.relativenumber = true
 vim.o.number = true
-vim.o.cursorline = true                         -- highlight active line
-vim.o.colorcolumn = '80'
--- vim.cmd('set Highlight ColorColumn ctermbg=-1 guibg=Green')
-vim.o.signcolumn = 'yes'
+vim.o.cursorline = true                        -- highlight active line
+vim.o.colorcolumn = '80'                       -- set EOL indicator
+vim.o.signcolumn = 'yes'                       -- make gutter persistent
+vim.o.showmode = false                         -- replaced with status line
 
 vim.o.tabstop = 2 
 vim.o.softtabstop = 2
@@ -55,15 +43,12 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.smartindent = true
 
-vim.g.foldmethod = indent                  -- default manual fold is painful
+vim.g.foldmethod = indent                      -- default manual fold is painful
 -- leaving the below fold settings, but it's not working yet.
 -- vim.g.foldmethod = 'expr'
 -- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 9
 -- vim.o.showmatch = true                     -- flash matching brackets
--- vim.o.incsearch = true                 
 vim.o.hidden = true
 vim.o.termguicolors = true
 vim.o.scrolloff = 8
-
--- vim.o.syntax = on
