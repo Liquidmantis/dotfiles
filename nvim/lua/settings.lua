@@ -23,7 +23,7 @@ vim.g.mapleader = " "
 
 vim.o.cmdheight = 2
 
-vim.o.completeopt = 'menuone,longest'
+vim.o.completeopt = 'menuone,noinsert'
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 vim.o.updatetime=50
