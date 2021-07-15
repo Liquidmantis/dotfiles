@@ -4,8 +4,8 @@ if [[ $(uname) == "Linux" ]] then
   brewshare="$HOME/.linuxbrew/share"
   brewetc="$HOME/.linuxbrew/etc"
 else 
-  brewshare="$HOME/share"
-  brewetc="$HOME/etc"
+  brewshare="/usr/local/share"
+  brewetc="/usr/local/etc"
 fi
 
 source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
