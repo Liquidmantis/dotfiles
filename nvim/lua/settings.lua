@@ -16,6 +16,7 @@ vim.g.nowritebackup = true
 
 -- filetype plugin indent on
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- -- adjust vim-commentary standard comment style
 -- vim.api.nvim_command([[ autocmd FileType Powershell setlocal commentstring=#\ %s ]])

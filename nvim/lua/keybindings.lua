@@ -8,6 +8,14 @@ remap('n', '<leader>-',  ':split<CR>',    {noremap = true, silent = true})
 remap('n', '<leader>\\', ':vsplit<CR>',   {noremap = true, silent = true})
 remap('n', '<leader>sh', ':vsplit<CR>',   {noremap = true, silent = true})
 
+remap('n', '<leader><leader>w', ':HopWord<CR>', {noremap = true, silent = true})
+remap('n', '<leader><leader>j', ':HopLine<CR>', {noremap = true, silent = true})
+remap('n', '<localleader>w',    ':HopWord<CR>', {noremap = true, silent = true})
+remap('n', '<localleader>j',    ':HopLine<CR>', {noremap = true, silent = true})
+
+remap('n', '<leader>tt', ':set relativenumber!<CR>', {noremap = true, silent = true})
+remap('n', '<leader>tw', ':set list!<CR>',           {noremap = true, silent = true})
+
 vim.cmd([[
 " window control movement commands
 nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR> " break buffer to new window
@@ -32,14 +40,6 @@ nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " Nvim Tree mappings
 nnoremap <silent> <leader>ej :NvimTreeToggle<CR>
-
-
-" Fern mappings
-nnoremap <leader>ee <cmd>Fern .<CR>
-noremap <silent> <Leader>d :Fern . -drawer -width=35 -toggle<CR><C-w>=
-noremap <silent> <Leader>ef :Fern . -drawer -reveal=% -width=35 -toggle<CR><C-w>=
-" noremap <silent> <Leader>. :Fern %:h -drawer -width=35 -toggle<CR><C-w>=
-noremap <silent> <Leader>. :NvimTreeToggle<CR><C-w>=
 
 
 " Lspsaga bindings
