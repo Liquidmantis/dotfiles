@@ -6,13 +6,20 @@ remap('n', '<leader>j',  ':wincmd j<CR>', {noremap = true, silent = true})
 remap('n', '<leader>k',  ':wincmd k<CR>', {noremap = true, silent = true})
 remap('n', '<leader>-',  ':split<CR>',    {noremap = true, silent = true})
 remap('n', '<leader>\\', ':vsplit<CR>',   {noremap = true, silent = true})
-remap('n', '<leader>sh', ':vsplit<CR>',   {noremap = true, silent = true})
+remap('n', '<leader>sh', ':split<CR>',    {noremap = true, silent = true})
+remap('n', '<leader>sv', ':vsplit<CR>',   {noremap = true, silent = true})
 
-remap('n', '<leader><leader>w', ':HopWord<CR>', {noremap = true, silent = true})
-remap('n', '<leader><leader>j', ':HopLine<CR>', {noremap = true, silent = true})
-remap('n', '<localleader>w',    ':HopWord<CR>', {noremap = true, silent = true})
-remap('n', '<localleader>j',    ':HopLine<CR>', {noremap = true, silent = true})
+-- hop motions
+remap('n', '<leader><leader>w', ':HopWord<CR>',  {noremap = true, silent = true})
+remap('n', '<leader><leader>j', ':HopLine<CR>',  {noremap = true, silent = true})
+remap('n', '<localleader>w',    ':HopWord<CR>',  {noremap = true, silent = true})
+remap('n', '<localleader>j',    ':HopLine<CR>',  {noremap = true, silent = true})
+remap('n', '<localleader>c',    ':HopChar1<CR>', {noremap = true, silent = true})
+remap('n', '<localleader>s',    ':HopChar2<CR>', {noremap = true, silent = true})
+remap('n', '<localleader><localleader>', ':HopPattern<CR>', {noremap = true, silent = true})
 
+
+-- toggles
 remap('n', '<leader>tt', ':set relativenumber!<CR>', {noremap = true, silent = true})
 remap('n', '<leader>tw', ':set list!<CR>',           {noremap = true, silent = true})
 

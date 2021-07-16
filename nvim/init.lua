@@ -20,8 +20,7 @@ vim.cmd('source $HOME/.config/nvim/plug-config/vimwiki.vim')
 
 require('keybindings')
 require('compe-config')
--- require('galaxyline-config')
--- require('fern')
+-- require('galaxyline-config') -- trying lualine instead
 require('nvim-tree-config')
 require('nvim-lspconfig')
 require('telescope-config')
