@@ -23,6 +23,11 @@ remap('n', '<localleader><localleader>', ':HopPattern<CR>', {noremap = true, sil
 remap('n', '<leader>tt', ':set relativenumber!<CR>', {noremap = true, silent = true})
 remap('n', '<leader>tw', ':set list!<CR>',           {noremap = true, silent = true})
 
+-- Nvim Tree mappings
+remap('n', '<leader>ej', ':NvimTreeToggle<CR>',   {noremap = true, silent = true})
+remap('n', '<leader>.',  ':NvimTreeFindFile<CR>', {noremap = true, silent = true})
+
+
 vim.cmd([[
 " window control movement commands
 nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR> " break buffer to new window
@@ -43,10 +48,6 @@ nnoremap <silent> <leader>bp :bp<CR>    " buffer prev
 nnoremap <silent> <leader><tab> gt
 nnoremap <silent> <leader><S-tab> gT
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
-
-
-" Nvim Tree mappings
-nnoremap <silent> <leader>ej :NvimTreeToggle<CR>
 
 
 " Lspsaga bindings
