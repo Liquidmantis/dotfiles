@@ -10,9 +10,17 @@
 [push]
   default = simple
 [alias]
-  pu = push
+  b = branch -a
+  ch = checkout
+  cb = checkout -b
+  d = diff
+  dt = difftool
+  p = push
+  pl = pull
   s = status
+  c = commit
   cm = commit -am
+  l = log --oneline --graph
 [pull]
 	rebase = true
 [init]
