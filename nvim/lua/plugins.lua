@@ -56,7 +56,7 @@ return require('packer').startup(function()
 
 
   use 'mbbill/undotree'
-  use 'mhinz/vim-startify'
+  -- use 'mhinz/vim-startify'
   -- use 'gruvbox-community/gruvbox'
   use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}} 
 

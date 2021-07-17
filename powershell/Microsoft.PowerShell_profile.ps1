@@ -1,5 +1,7 @@
 Import-Module PSReadLine
 Import-Module az.tools.predictor
+. $(Join-Path $PSScriptRoot functions.ps1)
+. $(Join-Path $PSScriptRoot aliases.ps1)
 
 Set-PSReadlineOption -EditMode vi
 Set-PSReadlineOption -ViModeIndicator cursor
@@ -10,11 +12,6 @@ function Get-PSReadlineHistory () {
   Get-Content (Get-PSReadlineOption).HistorySavePath
 } 
 
-Set-Alias h Get-PSReadlineHistory
-
-Set-Alias ci code-insiders
-Set-Alias vi nvim
-Set-Alias tf terraform
 
 Invoke-Expression (&starship init powershell)
 

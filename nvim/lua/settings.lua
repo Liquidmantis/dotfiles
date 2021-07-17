@@ -13,6 +13,7 @@ vim.g.nowritebackup = true
 -- augroup END
 -- ]])
 
+vim.g.nvim_tree_auto_open = 1
 
 -- filetype plugin indent on
 vim.g.mapleader = " "
