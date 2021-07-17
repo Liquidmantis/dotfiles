@@ -4,7 +4,15 @@ return require('packer').startup(function()
   use 'tjdevries/nlua.nvim'
   use 'chaoren/vim-wordmotion'
   use 'justinmk/vim-sneak'
-  use 'easymotion/vim-easymotion' --, dir = '~/.vim/plugged/neovim/vim-easymotion' }
+  use {
+    'phaazon/hop.nvim',
+    as = 'hop',
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
+
   use 'rizzatti/dash.vim'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
@@ -48,7 +56,7 @@ return require('packer').startup(function()
 
 
   use 'mbbill/undotree'
-  use 'mhinz/vim-startify'
+  -- use 'mhinz/vim-startify'
   -- use 'gruvbox-community/gruvbox'
   use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}} 
 

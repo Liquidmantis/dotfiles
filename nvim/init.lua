@@ -1,13 +1,4 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
-
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  execute 'packadd packer.nvim'
-end
-
+require('packer-config')
 require('plugins')
 require('settings')
 
@@ -20,8 +11,7 @@ vim.cmd('source $HOME/.config/nvim/plug-config/vimwiki.vim')
 
 require('keybindings')
 require('compe-config')
--- require('galaxyline-config')
--- require('fern')
+-- require('galaxyline-config') -- trying lualine instead
 require('nvim-tree-config')
 require('nvim-lspconfig')
 require('telescope-config')
