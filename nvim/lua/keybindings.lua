@@ -18,14 +18,20 @@ remap('n', '<localleader>c',    ':HopChar1<CR>', {noremap = true, silent = true}
 remap('n', '<localleader>s',    ':HopChar2<CR>', {noremap = true, silent = true})
 remap('n', '<localleader><localleader>', ':HopPattern<CR>', {noremap = true, silent = true})
 
+-- cwikfix commands
+remap('n', '<leader>co', ':copen<CR>',  {noremap = true, silent = true})
+remap('n', '<leader>cc', ':cclose<CR>', {noremap = true, silent = true})
+remap('n', '<leader>cn', ':cnext<CR>',  {noremap = true, silent = true})
+remap('n', '<leader>cp', ':cprev<CR>',  {noremap = true, silent = true})
+remap('n', '<leader>cf', ':cfdo ',      {noremap = true, silent = true})
 
 -- toggles
 remap('n', '<leader>tt', ':set relativenumber!<CR>', {noremap = true, silent = true})
 remap('n', '<leader>tw', ':set list!<CR>',           {noremap = true, silent = true})
 
 -- Nvim Tree mappings
-remap('n', '<leader>ej', ':NvimTreeToggle<CR>',   {noremap = true, silent = true})
-remap('n', '<leader>.',  ':NvimTreeFindFile<CR>', {noremap = true, silent = true})
+remap('n', '<leader>.', ':NvimTreeToggle<CR>',   {noremap = true, silent = true})
+-- remap('n', '<leader>ej',  ':NvimTreeFindFile<CR>', {noremap = true, silent = true})
 
 
 vim.cmd([[

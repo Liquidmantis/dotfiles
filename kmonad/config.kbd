@@ -1,5 +1,6 @@
 (defcfg
   input  (iokit-name "Apple Internal Keyboard / Trackpad")
+  ;; input  (iokit-name "Karabiner DriverKit VirtualHIDKeyboard 1.3.0")
   output (kext)
 
   ;; Comment this is you want unhandled events not to be emitted
@@ -21,8 +22,8 @@
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @ehy @act @sal @dcm @fsh g    h    @jsh @kcm @lal @;ct '    ret
-  lsft @syz @arr c    @num b    n    m    ,    .    @sys rsft
-  f17  lmet lalt           spc            ralt rmet cmp  rctl
+  lsft @syz x    c    @num b    n    m    ,    .    @sys rsft
+  f17  lmet lalt           @arr            ralt rmet cmp  rctl
 )
 
 (defalias
@@ -37,7 +38,7 @@
   ;ct (tap-hold-next-release 200 ; rctl)
 
 ;; layer toggles
-  arr (tap-hold-next-release 200 x (layer-toggle arrows))
+  arr (tap-hold-next-release 200 spc (layer-toggle arrows))
   num (tap-hold-next-release 200 v (layer-toggle numbers))
   syz (tap-hold-next-release 200 z (layer-toggle symbols))
   sys (tap-hold-next-release 200 / (layer-toggle symbols))
@@ -50,7 +51,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    ~    &    @    !    _    _    {    }    _    _    _    _    _
   _    `    #    $    -    <    >    \(   \)   _    _    _    _
-  _    %    ^    |    _    _    _    [    ]    _    _    _
+  _    %    ^    |    \_   _    _    [    ]    _    _    _
   _    _    _              _              _    _    _    _
 )
 
@@ -64,8 +65,8 @@
 
 (deflayer arrows
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    XX   home up   end  _    _    _    _
-  _    _    _    _    _    _    XX   lft  down rght _    _    _
+  _    _    _    _    _    _    XX   home XX   end  _    _    _    _
+  _    _    _    _    _    _    lft  down up   rght _    _    _
   _    _    _    _    _    _    XX   pgup del  pgdn _    _
   _    _    _              _              _    _    _    _
 )
