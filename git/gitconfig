@@ -27,6 +27,7 @@
 	defaultBranch = main
 [diff]
 	tool = bc3
+	mnemonicPrefix = true
 [difftool "bc3"]
 	trustExitCode = true
 [merge]
