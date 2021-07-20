@@ -41,6 +41,7 @@ return require('packer').startup(function()
   use 'mbbill/undotree'
   use 'hoob3rt/lualine.nvim'
   use 'vim-utils/vim-man'
+  use 'szw/vim-maximizer'
 
   -- Telescope and prereqs
   use 'nvim-lua/popup.nvim'
