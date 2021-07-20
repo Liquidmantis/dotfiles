@@ -175,13 +175,15 @@ function setPadding( x_val, y_val )
   yabaiMsg( 'space', gap_change )
 end
 
-zen_mode = false
+local zen_mode = false
 function toggleZenMode() 
   if zen_mode then
   setPadding('=','=')
+  yabaiMsg( 'space', 'layout bsp' )
   zen_mode = false
   else
   setPadding('25','3')
+  yabaiMsg( 'space', 'layout stack' )
   zen_mode = true
   end
 end
