@@ -3,7 +3,7 @@
   email = liquidmantis@gmail.com
 
 [includeIf "gitdir:~/git-work/"]
-  path = ~/.gitconfig-work
+  path = ~/git-home/dotfiles/git/gitconfig-work
 
 [color]
   ui = auto
