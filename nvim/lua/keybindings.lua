@@ -20,10 +20,14 @@ remap('n', '<leader><leader>w', ':HopWordAC<CR>',  {noremap = true, silent = tru
 remap('n', '<leader><leader>b', ':HopWordBC<CR>',  {noremap = true, silent = true})
 remap('n', '<leader><leader>j', ':HopLineAC<CR>',  {noremap = true, silent = true})
 remap('n', '<leader><leader>k', ':HopLineBC<CR>',  {noremap = true, silent = true})
-remap('n', '<localleader>w',    ':HopWord<CR>',  {noremap = true, silent = true})
-remap('n', '<localleader>j',    ':HopLine<CR>',  {noremap = true, silent = true})
-remap('n', '<localleader>c',    ':HopChar1<CR>', {noremap = true, silent = true})
-remap('n', '<localleader>s',    ':HopChar2<CR>', {noremap = true, silent = true})
+remap('n', '<localleader>w',    ':HopWordAC<CR>',  {noremap = true, silent = true})
+remap('n', '<localleader>b',    ':HopWordBC<CR>',  {noremap = true, silent = true})
+remap('n', '<localleader>j',    ':HopLineAC<CR>',  {noremap = true, silent = true})
+remap('n', '<localleader>k',    ':HopLineBC<CR>',  {noremap = true, silent = true})
+remap('n', '<localleader>f',    ':HopChar1AC<CR>', {noremap = true, silent = true})
+remap('n', '<localleader>F',    ':HopChar1BC<CR>', {noremap = true, silent = true})
+remap('n', '<localleader>s',    ':HopChar2AC<CR>', {noremap = true, silent = true})
+remap('n', '<localleader>S',    ':HopChar2BC<CR>', {noremap = true, silent = true})
 remap('n', '<localleader><localleader>', ':HopPattern<CR>', {noremap = true, silent = true})
 
 -- cwikfix commands

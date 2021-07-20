@@ -5,7 +5,6 @@ return require('packer').startup(function()
 
   -- Extra movements and objects
   use 'chaoren/vim-wordmotion'
-  use 'justinmk/vim-sneak'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use {
@@ -28,6 +27,7 @@ return require('packer').startup(function()
   -- use 'glepnir/galaxyline.nvim' -- replacing with lualine
   -- use 'tpope/vim-abolish' -- never used
   -- use 'voldikss/vim-floaterm' -- replacing with toggleterm
+  -- use 'justinmk/vim-sneak'  -- replacing with hop
 
   -- Vim features add-ons
   use 'kyazdani42/nvim-tree.lua'
