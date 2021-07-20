@@ -1,8 +1,9 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 if [[ $(uname) == "Linux" ]] then
-  brewshare="$HOME/.linuxbrew/share"
-  brewetc="$HOME/.linuxbrew/etc"
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  brewshare="/home/linuxbrew/.linuxbrew/share"
+  brewetc="/home/linuxbrew/.linuxbrew/etc"
 else 
   brewshare="/usr/local/share"
   brewetc="/usr/local/etc"
