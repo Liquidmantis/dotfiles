@@ -1,16 +1,15 @@
-function rebuild
-{
+function rebuild {
+
     [CmdletBinding()]
-    param
-    (
+
+    param (
         [Parameter()]
         [string] $ModuleDir = "."
     )
 
     $ModuleDir = Resolve-Path $ModuleDir
 
-    if( ! (Test-Path "$ModuleDir\Source\build.psd1") )
-    {
+    if ( !(Test-Path "$ModuleDir\Source\build.psd1") ) {
         throw "$ModuleDir doesn't look like a Powershell module root directory"
     }
 
@@ -21,8 +20,7 @@ function rebuild
     Build-Module
     Pop-Location
 
-    if( Get-Module $moduleName )
-    {
+    if( Get-Module $moduleName ) {
         Remove-Module $moduleName
     }
 

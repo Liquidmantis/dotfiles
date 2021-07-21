@@ -12,7 +12,4 @@ function Get-PSReadlineHistory () {
   Get-Content (Get-PSReadlineOption).HistorySavePath
 } 
 
-
 Invoke-Expression (&starship init powershell)
-
-$f   = 'foo'

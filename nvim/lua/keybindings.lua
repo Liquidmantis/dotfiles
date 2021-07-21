@@ -1,9 +1,9 @@
 local remap = vim.api.nvim_set_keymap
 
-remap('n', '<leader>-',  ':split<CR>',    {noremap = true, silent = true})
-remap('n', '<leader>\\', ':vsplit<CR>',   {noremap = true, silent = true})
-remap('n', '<leader>sh', ':split<CR>',    {noremap = true, silent = true})
-remap('n', '<leader>sv', ':vsplit<CR>',   {noremap = true, silent = true})
+remap('n', '<leader>-',  ':split<CR>',  {noremap = true, silent = true})
+remap('n', '<leader>\\', ':vsplit<CR>', {noremap = true, silent = true})
+remap('n', '<leader>sh', ':split<CR>',  {noremap = true, silent = true})
+remap('n', '<leader>sv', ':vsplit<CR>', {noremap = true, silent = true})
 remap('t', '<C-h>',  '<C-\\><C-n>:wincmd h<CR>', {noremap = true, silent = true})
 remap('t', '<C-l>',  '<C-\\><C-n>:wincmd l<CR>', {noremap = true, silent = true})
 remap('t', '<C-j>',  '<C-\\><C-n>:wincmd j<CR>', {noremap = true, silent = true})
@@ -13,7 +13,7 @@ remap('n', '<C-T>', ':ToggleTerm<CR>',            {noremap = true, silent = true
 remap('t', '<C-T>', '<C-\\><C-n>:ToggleTerm<CR>', {noremap = true, silent = true})
 
 remap('n', '<leader>m', ':MaximizerToggle<CR>', {noremap = true, silent = true})
-remap('t', '<leader>m', '<C-\\><C-n>:MaximizerToggle<CR>', {noremap = true, silent = true})
+remap('t', '<C-e>',     '<C-\\><C-n>',          {noremap = true, silent = true})
 
 -- hop motions
 remap('n', '<leader><leader>w', ':HopWordAC<CR>',  {noremap = true, silent = true})
@@ -30,7 +30,7 @@ remap('n', '<localleader>s',    ':HopChar2AC<CR>', {noremap = true, silent = tru
 remap('n', '<localleader>S',    ':HopChar2BC<CR>', {noremap = true, silent = true})
 remap('n', '<localleader><localleader>', ':HopPattern<CR>', {noremap = true, silent = true})
 
--- cwikfix commands
+-- [c]uickfix commands
 remap('n', '<leader>co', ':copen<CR>',  {noremap = true, silent = true})
 remap('n', '<leader>cc', ':cclose<CR>', {noremap = true, silent = true})
 remap('n', '<leader>cn', ':cnext<CR>',  {noremap = true, silent = true})
@@ -58,7 +58,7 @@ nnoremap <silent> <leader>sov :source $MYVIMRC<CR> | echo 'Reloaded neovim confi
 nnoremap <silent> <leader>hl :noh<CR> " clear last search highlight
 nnoremap <silent> <tab> :bn<CR>         " buffer next
 nnoremap <silent> <S-tab> :bp<CR>       " buffer prev
-nnoremap <silent> <leader>bd :bd<CR>    " buffer destroy
+nnoremap <silent> <leader>bc :Bdelete<CR>    " buffer close using BufDelete plugin
 nnoremap <silent> <leader>bn :bn<CR>    " buffer next
 nnoremap <silent> <leader>bp :bp<CR>    " buffer prev
 nnoremap <silent> <leader><tab> gt
@@ -76,7 +76,6 @@ nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
 " scroll up hover doc
 nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-
 
 
 " Telescope mappings
@@ -108,8 +107,6 @@ nnoremap <silent> <leader>pst :CocCommand powershell.toggleTerminal<CR>
 nnoremap <silent> <leader>psl :CocCommand powershell.evaluateLine<CR>
 nnoremap <silent> <leader>pss :CocCommand powershell.evaluateSelection<CR>
 nnoremap <silent> <leader>pse :CocCommand powershell.execute<CR>
-
-
 
 ]])
 

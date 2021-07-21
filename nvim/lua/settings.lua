@@ -45,10 +45,10 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.smartindent = true
 
-vim.g.foldmethod = indent                      -- default manual fold is painful
+-- vim.o.foldmethod = indent                      -- default manual fold is painful
 -- leaving the below fold settings, but it's not working yet.
--- vim.g.foldmethod = 'expr'
--- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 9
 -- vim.o.showmatch = true                     -- flash matching brackets
 vim.o.hidden = true
