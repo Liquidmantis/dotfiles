@@ -38,3 +38,9 @@ export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 export PATH="/usr/local/sbin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# "inspired" from https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt INC_APPEND_HISTORY_TIME
