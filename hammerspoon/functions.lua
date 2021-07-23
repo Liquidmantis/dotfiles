@@ -101,6 +101,16 @@ function exitHyperSpace()
   hyperSpace:exit()
 end
 
+function enterHyperSpaceZen()
+  print('[Mode] HyperSpaceZen enabled')
+  exitHyper()
+  hyperSpaceZen:enter()
+end
+function exitHyperSpaceZen()
+  print('[Mode] HyperSpaceZen disabled')
+  hyperSpaceZen:exit()
+end
+
 function enterHyperStack()
   print('[Mode] HyperStack enabled')
   exitHyper()
@@ -175,16 +185,30 @@ function setPadding( x_val, y_val )
   yabaiMsg( 'space', gap_change )
 end
 
-local zen_mode = false
-function toggleZenMode() 
-  if zen_mode then
-  setPadding('=','=')
-  yabaiMsg( 'space', 'layout bsp' )
-  zen_mode = false
+-- this whole function is due for an idiomatic Lua refactor.  
+-- TODO: figure out how to better handle state in Lua to maintain proper functional 
+-- programming practices (i.e. pass a state object rather than violating the function
+-- boundary by using outer scope variables.
+local current_mode = "no_zen"
+function toggleZenMode( mode ) 
+  local zen_pad = {}
+  if mode == current_mode then
+    setPadding('=','=')
+    yabaiMsg( 'space', 'layout bsp' )
+    current_mode = "no_zen"
   else
-  setPadding('25','3')
-  yabaiMsg( 'space', 'layout stack' )
-  zen_mode = true
+    if mode == 'zen' then
+      zen_pad.x = 25
+      zen_pad.y = 3 
+    elseif mode == 'wide' then
+      zen_pad = { x = 15, y = 3 }
+    elseif mode == 'narrow' then
+      zen_pad = { x = 35, y = 3 }
+    end 
+
+    setPadding(zen_pad.x, zen_pad.y)
+    yabaiMsg( 'space', 'layout stack' )
+    current_mode = mode
   end
 end
 

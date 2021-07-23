@@ -22,6 +22,7 @@ remap('n', '<localleader>gs',':G<CR>',        {noremap = true, silent = true})
 remap('n', '<localleader>gc',':G commit<CR>', {noremap = true, silent = true})
 remap('n', '<localleader>gp',':G push<CR>',   {noremap = true, silent = true})
 remap('n', '<localleader>gl',':G log<CR>',    {noremap = true, silent = true})
+remap('n', '<localleader>gd',':G diff<CR>',    {noremap = true, silent = true})
 
 -- hop motions
 remap('n', '<leader><leader>w', ':HopWordAC<CR>',  {noremap = true, silent = true})
@@ -51,6 +52,8 @@ remap('n', '<leader>tw', ':set list!<CR>',           {noremap = true, silent = t
 
 -- Nvim Tree mappings
 remap('n', '<leader>.', ':NvimTreeToggle<CR>',  {noremap = true, silent = true})
+
+remap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files({ hidden = true })<CR>', {noremap = true, silent = true})
 
 vim.cmd([[
 " window control movement commands
@@ -88,7 +91,6 @@ nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_sag
 
 " Telescope mappings
 " defaults: https://github.com/nvim-telescope/telescope.nvim/blob/618e0e6075b4215e43c6a848daa37ef4e354b5dc/lua/telescope/mappings.lua
-nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>ft <cmd>Telescope file_browser<CR>
 nnoremap <leader>ts <cmd>Telescope treesitter<CR>
 nnoremap <leader>fs <cmd>Telescope live_grep<CR>

@@ -3,6 +3,7 @@ require('telescope').setup{
     fzy_native = {
       override_generic_sorter = true,
       override_file_sorter = true,
+      hidden = true,
     }
   }
 }
