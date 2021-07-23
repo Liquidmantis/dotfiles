@@ -43,6 +43,7 @@ return require('packer').startup(function()
   use 'vim-utils/vim-man'
   use 'szw/vim-maximizer'
   use 'famiu/bufdelete.nvim'
+  use 'wfxr/minimap.vim'
 
   -- Telescope and prereqs
   use 'nvim-lua/popup.nvim'

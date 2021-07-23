@@ -15,6 +15,14 @@ remap('t', '<C-T>', '<C-\\><C-n>:ToggleTerm<CR>', {noremap = true, silent = true
 remap('n', '<leader>m', ':MaximizerToggle<CR>', {noremap = true, silent = true})
 remap('t', '<C-e>',     '<C-\\><C-n>',          {noremap = true, silent = true})
 
+remap('n', '<leader><leader>m', ':MinimapToggle<CR>', {noremap = true, silent = true})
+
+-- fugitive commands
+remap('n', '<localleader>gs',':G<CR>',        {noremap = true, silent = true})
+remap('n', '<localleader>gc',':G commit<CR>', {noremap = true, silent = true})
+remap('n', '<localleader>gp',':G push<CR>',   {noremap = true, silent = true})
+remap('n', '<localleader>gl',':G log<CR>',    {noremap = true, silent = true})
+
 -- hop motions
 remap('n', '<leader><leader>w', ':HopWordAC<CR>',  {noremap = true, silent = true})
 remap('n', '<leader><leader>b', ':HopWordBC<CR>',  {noremap = true, silent = true})

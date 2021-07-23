@@ -11,16 +11,19 @@
   default = simple
 [alias]
   b = branch -a
-  ch = checkout
+  co = checkout
   cb = checkout -b
   d = diff
   dt = difftool
   p = push
+  pu = push -u
+  f = fetch
   pl = pull
   s = status
   c = commit
   cm = commit -am
   l = log --oneline --graph
+  ll = log --graph --pretty=format:\"%C(auto)%h%d%Creset %C(cyan)(%cr)%Creset %C(green)%cn <%ce>%Creset %s\"
 [pull]
 	rebase = true
 [init]
