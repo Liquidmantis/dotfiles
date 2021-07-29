@@ -44,3 +44,5 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt INC_APPEND_HISTORY_TIME
+
+alias luamake=/Users/liquid/.config/nvim/lua-language-server/3rd/luamake/compile/luamake

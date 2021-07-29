@@ -5,6 +5,18 @@ require('telescope').setup{
       override_file_sorter = true,
       hidden = true,
     }
+  },
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '-u' -- thats the new thing
+    },
   }
 }
 require('telescope').load_extension('fzy_native')

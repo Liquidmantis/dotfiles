@@ -21,7 +21,7 @@ return require('packer').startup(function()
   use 'akinsho/nvim-toggleterm.lua'
 
   -- Chopping block plugins
-  use 'rizzatti/dash.vim'
+  -- use 'rizzatti/dash.vim' -- never really used, easier to work from Alfred
   -- use 'mhinz/vim-startify' -- never really used, but could be useful with setup.
   -- use 'gruvbox-community/gruvbox' -- replacing with a lua version
   -- use 'glepnir/galaxyline.nvim' -- replacing with lualine
@@ -44,6 +44,7 @@ return require('packer').startup(function()
   use 'szw/vim-maximizer'
   use 'famiu/bufdelete.nvim'
   use 'wfxr/minimap.vim'
+  use 'Pocco81/TrueZen.nvim'
 
   -- Telescope and prereqs
   use 'nvim-lua/popup.nvim'
@@ -61,6 +62,7 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'glepnir/lspsaga.nvim'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use 'folke/lua-dev.nvim'
 
   -- Git utilities
   use 'rhysd/git-messenger.vim' 

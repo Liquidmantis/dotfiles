@@ -4,6 +4,8 @@
 
 hyperStack:bind('', 'escape', exitHyperStack)
 
+hyperStack:bind('', 't', function() stackline.config:toggle("appearance.showIcons") exitHyperStack() end)
+
 hyperStack:bind('', 'h', function() yabaiMsg( 'window', 'stack west' ) exitHyperStack() end)
 hyperStack:bind('', 'l', function() yabaiMsg( 'window', 'stack east' ) exitHyperStack() end)
 hyperStack:bind('', 'j', function() yabaiMsg( 'window', 'stack south' ) exitHyperStack() end)

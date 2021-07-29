@@ -53,8 +53,11 @@ remap('n', '<leader>tw', ':set list!<CR>',           {noremap = true, silent = t
 -- Nvim Tree mappings
 remap('n', '<leader>.', ':NvimTreeToggle<CR>',  {noremap = true, silent = true})
 
+-- Telescope mappings
 remap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files({ hidden = true })<CR>', {noremap = true, silent = true})
+remap('n', '<leader>fs', '<cmd>lua require("telescope.builtin").live_grep()<CR>',  {noremap = true, silent = true})
 
+-- TODO: GET THESE CONVERTED
 vim.cmd([[
 " window control movement commands
 nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR> " break buffer to new window
@@ -93,7 +96,6 @@ nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_sag
 " defaults: https://github.com/nvim-telescope/telescope.nvim/blob/618e0e6075b4215e43c6a848daa37ef4e354b5dc/lua/telescope/mappings.lua
 nnoremap <leader>ft <cmd>Telescope file_browser<CR>
 nnoremap <leader>ts <cmd>Telescope treesitter<CR>
-nnoremap <leader>fs <cmd>Telescope live_grep<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>fq <cmd>Telescope quickfix<CR>
 nnoremap <leader>fh <cmd>Telescope help_tags<CR>
