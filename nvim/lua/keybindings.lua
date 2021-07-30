@@ -1,68 +1,103 @@
 local remap = vim.api.nvim_set_keymap
+local opts =  {noremap = true, silent = true}
+local eopts = {noremap = true, silent = true, expr = true}
 
-remap('n', '<leader>-',  ':split<CR>',  {noremap = true, silent = true})
-remap('n', '<leader>\\', ':vsplit<CR>', {noremap = true, silent = true})
-remap('n', '<leader>sh', ':split<CR>',  {noremap = true, silent = true})
-remap('n', '<leader>sv', ':vsplit<CR>', {noremap = true, silent = true})
-remap('t', '<C-h>',  '<C-\\><C-n>:wincmd h<CR>', {noremap = true, silent = true})
-remap('t', '<C-l>',  '<C-\\><C-n>:wincmd l<CR>', {noremap = true, silent = true})
-remap('t', '<C-j>',  '<C-\\><C-n>:wincmd j<CR>', {noremap = true, silent = true})
-remap('t', '<C-k>',  '<C-\\><C-n>:wincmd k<CR>', {noremap = true, silent = true})
+-- QoL mappings
+remap('n', 'Y', 'y$',  opts)
+remap('n', 'n', 'nzz', opts)
+remap('n', 'N', 'Nzz', opts)
+-- extend undo checkpoints
+remap('i', ',', ',<C-g>u', opts)
+remap('i', '.', '.<C-g>u', opts)
+remap('i', '!', '!<C-g>u', opts)
+remap('i', '?', '?<C-g>u', opts)
+-- extend jumplist add triggers
+remap('n', 'k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', eopts)
+remap('n', 'j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', eopts)
 
-remap('n', '<C-T>', ':ToggleTerm<CR>',            {noremap = true, silent = true})
-remap('t', '<C-T>', '<C-\\><C-n>:ToggleTerm<CR>', {noremap = true, silent = true})
 
-remap('n', '<leader>m', ':MaximizerToggle<CR>', {noremap = true, silent = true})
-remap('t', '<C-e>',     '<C-\\><C-n>',          {noremap = true, silent = true})
+-- window control commands
+remap('n', '<leader>!',  ':wincmd |<CR>', opts)
+remap('n', '<leader>=',  ':wincmd =<CR>', opts)
+remap('n', '<leader>q',  ':q<CR>',        opts)
+remap('n', '<leader>-',  ':split<CR>',    opts)
+remap('n', '<leader>\\', ':vsplit<CR>',   opts)
+remap('n', '<leader>sh', ':split<CR>',    opts)
+remap('n', '<leader>sv', ':vsplit<CR>',   opts)
 
-remap('n', '<leader><leader>m', ':MinimapToggle<CR>', {noremap = true, silent = true})
+-- window movement commands
+remap('t', '<C-h>',  '<C-\\><C-n>:wincmd h<CR>', opts)
+remap('t', '<C-l>',  '<C-\\><C-n>:wincmd l<CR>', opts)
+remap('t', '<C-j>',  '<C-\\><C-n>:wincmd j<CR>', opts)
+remap('t', '<C-k>',  '<C-\\><C-n>:wincmd k<CR>', opts)
+
+remap('n', '<C-T>', ':ToggleTerm<CR>',            opts)
+remap('t', '<C-T>', '<C-\\><C-n>:ToggleTerm<CR>', opts)
+
+remap('n', '<leader>m', ':MaximizerToggle<CR>', opts)
+remap('t', '<C-e>',     '<C-\\><C-n>',          opts)
+
+remap('n', '<leader><leader>m', ':MinimapToggle<CR>', opts)
 
 -- fugitive commands
-remap('n', '<localleader>gs',':G<CR>',        {noremap = true, silent = true})
-remap('n', '<localleader>gc',':G commit<CR>', {noremap = true, silent = true})
-remap('n', '<localleader>gp',':G push<CR>',   {noremap = true, silent = true})
-remap('n', '<localleader>gl',':G log<CR>',    {noremap = true, silent = true})
-remap('n', '<localleader>gd',':G diff<CR>',    {noremap = true, silent = true})
+remap('n', '<localleader>gs', ':G<CR>',        opts)
+remap('n', '<localleader>gc', ':G commit<CR>', opts)
+remap('n', '<localleader>gp', ':G push<CR>',   opts)
+remap('n', '<localleader>gl', ':G log<CR>',    opts)
+remap('n', '<localleader>gd', ':G diff<CR>',   opts)
+remap('n', '<localleader>gb', ':G blame<CR>',  opts)
 
 -- hop motions
-remap('n', '<leader><leader>w', ':HopWordAC<CR>',  {noremap = true, silent = true})
-remap('n', '<leader><leader>b', ':HopWordBC<CR>',  {noremap = true, silent = true})
-remap('n', '<leader><leader>j', ':HopLineAC<CR>',  {noremap = true, silent = true})
-remap('n', '<leader><leader>k', ':HopLineBC<CR>',  {noremap = true, silent = true})
-remap('n', '<localleader>w',    ':HopWordAC<CR>',  {noremap = true, silent = true})
-remap('n', '<localleader>b',    ':HopWordBC<CR>',  {noremap = true, silent = true})
-remap('n', '<localleader>j',    ':HopLineAC<CR>',  {noremap = true, silent = true})
-remap('n', '<localleader>k',    ':HopLineBC<CR>',  {noremap = true, silent = true})
-remap('n', '<localleader>f',    ':HopChar1AC<CR>', {noremap = true, silent = true})
-remap('n', '<localleader>F',    ':HopChar1BC<CR>', {noremap = true, silent = true})
-remap('n', '<localleader>s',    ':HopChar2AC<CR>', {noremap = true, silent = true})
-remap('n', '<localleader>S',    ':HopChar2BC<CR>', {noremap = true, silent = true})
-remap('n', '<localleader><localleader>', ':HopPattern<CR>', {noremap = true, silent = true})
+remap('n', '<leader><leader>w', ':HopWordAC<CR>',  opts)
+remap('n', '<leader><leader>b', ':HopWordBC<CR>',  opts)
+remap('n', '<leader><leader>j', ':HopLineAC<CR>',  opts)
+remap('n', '<leader><leader>k', ':HopLineBC<CR>',  opts)
+remap('n', '<localleader>w',    ':HopWordAC<CR>',  opts)
+remap('n', '<localleader>b',    ':HopWordBC<CR>',  opts)
+remap('n', '<localleader>j',    ':HopLineAC<CR>',  opts)
+remap('n', '<localleader>k',    ':HopLineBC<CR>',  opts)
+remap('n', '<localleader>f',    ':HopChar1AC<CR>', opts)
+remap('n', '<localleader>F',    ':HopChar1BC<CR>', opts)
+remap('n', '<localleader>s',    ':HopChar2AC<CR>', opts)
+remap('n', '<localleader>S',    ':HopChar2BC<CR>', opts)
+remap('n', '<localleader><localleader>', ':HopPattern<CR>', opts)
+
+-- lspsaga commands
+remap('n', 'gh', '<cmd>lua require("lspsaga.provider").lsp_finder()<CR>',                 opts)
+remap('n', 'gr', '<cmd>lua require("lspsaga.rename").rename()<CR>',                       opts)
+remap('n', 'gd', '<cmd>lua require("lspsaga.provider").preview_definition()<CR>',         opts)
+remap('n', 'gs', '<cmd>lua require("lspsaga.signaturehelp").signature_help()<CR>',        opts)
+remap('n', 'cd', '<cmd>lua require("lspsaga.diagnostic").show_line_diagnostics()<CR>',    opts)
+remap('n', 'cc', '<cmd>lua require("lspsaga.diagnostic").show_cursor_diagnostics()<CR>',  opts)
+remap('n', '[e', '<cmd>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_prev()<CR>', opts)
+remap('n', ']e', '<cmd>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_next()<CR>', opts)
+remap('n', '<leader>ca', '<cmd>lua require("lspsaga.codeaction").code_action()<CR>',      opts)
+remap('n', '<leader>k',  '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>',      opts)
+
+-- vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
+remap('n', '<C-f>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>',  opts)
+remap('n', '<C-b>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', opts)
 
 -- [c]uickfix commands
-remap('n', '<leader>co', ':copen<CR>',  {noremap = true, silent = true})
-remap('n', '<leader>cc', ':cclose<CR>', {noremap = true, silent = true})
-remap('n', '<leader>cn', ':cnext<CR>',  {noremap = true, silent = true})
-remap('n', '<leader>cp', ':cprev<CR>',  {noremap = true, silent = true})
-remap('n', '<leader>cf', ':cfdo ',      {noremap = true, silent = true})
+remap('n', '<leader>co', ':copen<CR>',  opts)
+remap('n', '<leader>cc', ':cclose<CR>', opts)
+remap('n', '<leader>cn', ':cnext<CR>',  opts)
+remap('n', '<leader>cp', ':cprev<CR>',  opts)
+remap('n', '<leader>cf', ':cfdo ',      opts)
 
 -- toggles
-remap('n', '<leader>tt', ':set relativenumber!<CR>', {noremap = true, silent = true})
-remap('n', '<leader>tw', ':set list!<CR>',           {noremap = true, silent = true})
+remap('n', '<leader>tt', ':set relativenumber!<CR>', opts)
+remap('n', '<leader>tw', ':set list!<CR>',           opts)
 
 -- Nvim Tree mappings
-remap('n', '<leader>.', ':NvimTreeToggle<CR>',  {noremap = true, silent = true})
+remap('n', '<leader>.', ':NvimTreeToggle<CR>',  opts)
 
 -- Telescope mappings
-remap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files({ hidden = true })<CR>', {noremap = true, silent = true})
-remap('n', '<leader>fs', '<cmd>lua require("telescope.builtin").live_grep()<CR>',  {noremap = true, silent = true})
+remap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files({ hidden = true })<CR>', opts)
+remap('n', '<leader>fs', '<cmd>lua require("telescope.builtin").live_grep()<CR>',  opts)
 
 -- TODO: GET THESE CONVERTED
 vim.cmd([[
-" window control movement commands
-nnoremap <silent> <leader>! :wincmd _<CR>:wincmd \|<CR> " break buffer to new window
-nnoremap <silent> <leader>= :wincmd =<CR>
-nnoremap <silent> <leader>q :q<CR>
 " nnoremap <leader>bb :ls<cr>:b<space>
 " nnoremap <leader>bv :ls<cr>:vert sb<space>
 " nnoremap <leader>bs :ls<cr>:sb<space>
@@ -78,19 +113,6 @@ nnoremap <silent> <leader>bp :bp<CR>    " buffer prev
 nnoremap <silent> <leader><tab> gt
 nnoremap <silent> <leader><S-tab> gT
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
-
-
-" Lspsaga bindings
-nnoremap <silent> <Leader>gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
-nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
-vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
-" show hover doc
-nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-" scroll down hover doc or scroll in definition preview
-nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-" scroll up hover doc
-nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-
 
 " Telescope mappings
 " defaults: https://github.com/nvim-telescope/telescope.nvim/blob/618e0e6075b4215e43c6a848daa37ef4e354b5dc/lua/telescope/mappings.lua

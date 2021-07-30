@@ -190,9 +190,9 @@ end
 -- programming practices (i.e. pass a state object rather than violating the function
 -- boundary by using outer scope variables.
 local current_mode = "no_zen"
-function toggleZenMode( mode ) 
+function toggleZenMode( mode )
   local zen_pad = {}
-  if mode == current_mode then
+  if mode == current_mode or mode == 'exit' then
     setPadding('=','=')
     yabaiMsg( 'space', 'layout bsp' )
     current_mode = "no_zen"

@@ -27,7 +27,7 @@ yabai -m config window_placement             second_child
 yabai -m config window_topmost               off
 yabai -m config window_shadow                on
 yabai -m config window_opacity               on
-yabai -m config window_opacity_duration		 0.0
+yabai -m config window_opacity_duration		   0.0
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.95
 yabai -m config window_border                off
@@ -53,6 +53,7 @@ yabai -m rule --add title="^Tyme" manage=off
 yabai -m rule --add title="^Hammerspoon" manage=off
 yabai -m rule --add title="^Wally" manage=off
 yabai -m rule --add title="^Options" manage=off
+yabai -m rule --add title="^Settings$" manage=off
 
 # app special handlers
 yabai -m rule --add title="Picture in Picture" manage=off
