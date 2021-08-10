@@ -2,7 +2,7 @@ local remap = vim.api.nvim_set_keymap
 local opts =  {noremap = true, silent = true}
 local eopts = {noremap = true, silent = true, expr = true}
 
--- QoL mappings
+-- quality of live mappings
 remap('n', 'Y', 'y$',  opts)
 remap('n', 'n', 'nzz', opts)
 remap('n', 'N', 'Nzz', opts)
@@ -14,7 +14,13 @@ remap('i', '?', '?<C-g>u', opts)
 -- extend jumplist add triggers
 remap('n', 'k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', eopts)
 remap('n', 'j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', eopts)
-
+-- move lines up and down
+remap('v', 'J',     ':m \'>+1<CR>gv=gv', opts)
+remap('v', 'K',     ':m \'<-2<CR>gv=gv', opts)
+remap('i', '<C-j>', '<esc>:m .+1<CR>==', opts)
+remap('i', '<C-k>', '<esc>:m .+2<CR>==', opts)
+remap('n', '<leader>j', ':m .+1<CR>==',  opts)
+remap('n', '<leader>k', ':m .-2<CR>==',  opts)
 
 -- window control commands
 remap('n', '<leader>!',  ':wincmd |<CR>', opts)
@@ -62,6 +68,13 @@ remap('n', '<localleader>s',    ':HopChar2AC<CR>', opts)
 remap('n', '<localleader>S',    ':HopChar2BC<CR>', opts)
 remap('n', '<localleader><localleader>', ':HopPattern<CR>', opts)
 
+-- gitsigns commands
+-- prefix logic is "[g]it [g]utter [c]ommand to use 'gg' namespace and not add
+-- delay to the gs command.  Revisit if lspsaga sig binding changes.
+remap('n', '<leader>ggl', ':Gitsigns toggle_current_line_blame<CR>', opts)
+remap('n', '<leader>ggw', ':Gitsigns toggle_current_word_diff<CR>', opts)
+
+
 -- lspsaga commands
 remap('n', 'gh', '<cmd>lua require("lspsaga.provider").lsp_finder()<CR>',                 opts)
 remap('n', 'gr', '<cmd>lua require("lspsaga.rename").rename()<CR>',                       opts)
@@ -94,7 +107,24 @@ remap('n', '<leader>.', ':NvimTreeToggle<CR>',  opts)
 
 -- Telescope mappings
 remap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files({ hidden = true })<CR>', opts)
-remap('n', '<leader>fs', '<cmd>lua require("telescope.builtin").live_grep()<CR>',  opts)
+remap('n', '<leader>fs', '<cmd>Telescope live_grep<CR>',    opts)
+remap('n', '<leader>ft', '<cmd>Telescope file_browser<CR>', opts)
+vim.cmd([[
+nnoremap <leader>ts <cmd>Telescope treesitter<CR>
+nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>fq <cmd>Telescope quickfix<CR>
+nnoremap <leader>fh <cmd>Telescope help_tags<CR>
+nnoremap <leader>fc <cmd>Telescope commands<CR>
+nnoremap <leader>f: <cmd>Telescope command_history<CR>
+nnoremap <leader>fm <cmd>Telescope marks<CR>
+nnoremap <leader>fk <cmd>Telescope keymaps<CR>
+nnoremap <leader>fr <cmd>Telescope registers<CR>
+
+nnoremap <leader>fgc <cmd>Telescope git_commits<CR>
+nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
+nnoremap <leader>fgt <cmd>Telescope git_bcommits<CR>
+nnoremap <leader>fgs <cmd>Telescope git_status<CR>
+]])
 
 -- TODO: GET THESE CONVERTED
 vim.cmd([[
@@ -116,21 +146,6 @@ nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " Telescope mappings
 " defaults: https://github.com/nvim-telescope/telescope.nvim/blob/618e0e6075b4215e43c6a848daa37ef4e354b5dc/lua/telescope/mappings.lua
-nnoremap <leader>ft <cmd>Telescope file_browser<CR>
-nnoremap <leader>ts <cmd>Telescope treesitter<CR>
-nnoremap <leader>fb <cmd>Telescope buffers<CR>
-nnoremap <leader>fq <cmd>Telescope quickfix<CR>
-nnoremap <leader>fh <cmd>Telescope help_tags<CR>
-nnoremap <leader>fc <cmd>Telescope commands<CR>
-nnoremap <leader>f: <cmd>Telescope command_history<CR>
-nnoremap <leader>fm <cmd>Telescope marks<CR>
-nnoremap <leader>fk <cmd>Telescope keymaps<CR>
-nnoremap <leader>fr <cmd>Telescope registers<CR>
-
-nnoremap <leader>fgc <cmd>Telescope git_commits<CR>
-nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
-nnoremap <leader>fgt <cmd>Telescope git_bcommits<CR>
-nnoremap <leader>fgs <cmd>Telescope git_status<CR>
 
 nnoremap <leader>ns <cmd>lua require('telescope-config').find_notes()<CR>
 nnoremap <leader>ng <cmd>lua require('telescope-config').grep_notes()<CR>

@@ -44,7 +44,8 @@ return require('packer').startup(function()
   use 'szw/vim-maximizer'
   use 'famiu/bufdelete.nvim'
   use 'wfxr/minimap.vim'
-  use 'Pocco81/TrueZen.nvim'
+  -- use 'Pocco81/TrueZen.nvim'
+  use "folke/zen-mode.nvim"
 
   -- Telescope and prereqs
   use 'nvim-lua/popup.nvim'
@@ -67,7 +68,8 @@ return require('packer').startup(function()
   -- Git utilities
   use 'rhysd/git-messenger.vim' 
   use 'tpope/vim-fugitive'
-  use 'mhinz/vim-signify'
+  -- use 'mhinz/vim-signify'
+  use 'lewis6991/gitsigns.nvim'
   use 'airblade/vim-rooter' -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
 
   -- Themes

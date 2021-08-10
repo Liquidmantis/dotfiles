@@ -10,7 +10,7 @@ true_zen.setup({
       cmdheight = 1,
     },
     top = {
-      showtabline = 0,
+      showtabline = 2,
     },
     left = {
       number = false,
@@ -38,21 +38,21 @@ true_zen.setup({
     },
   },
   integrations = {
-    vim_gitgutter = true,
+    vim_gitgutter = false,
     galaxyline = false,
     tmux = true,
-    gitsigns = false,
+    gitsigns = true,
     nvim_bufferline = false,
     limelight = false,
     vim_airline = false,
     vim_powerline = false,
-    vim_signify = true,
+    vim_signify = false,
     express_line = false,
     lualine = true,
   },
   misc = {
-    on_off_commands = false,
-    ui_elements_commands = false,
+    on_off_commands = true,
+    ui_elements_commands = true,
     cursor_by_mode = false,
   }
 })

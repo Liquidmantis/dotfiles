@@ -18,7 +18,7 @@ window:
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
   #decorations: full
-  decorations: full
+  decorations: none
 
 font:
   normal:
