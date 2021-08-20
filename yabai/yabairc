@@ -54,6 +54,8 @@ yabai -m rule --add title="^Hammerspoon" manage=off
 yabai -m rule --add title="^Wally" manage=off
 yabai -m rule --add title="^Options" manage=off
 yabai -m rule --add title="^Settings$" manage=off
+yabai -m rule --add title="Tabs Outliner" manage=off
+yabai -m rule --add title="Tabli" manage=off
 yabai -m rule --add title="FloatShell" manage=off layer=above
 
 # app special handlers

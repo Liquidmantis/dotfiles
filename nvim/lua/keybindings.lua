@@ -109,6 +109,7 @@ remap('n', '<leader>.', ':NvimTreeToggle<CR>',  opts)
 remap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files({ hidden = true })<CR>', opts)
 remap('n', '<leader>fs', '<cmd>Telescope live_grep<CR>',    opts)
 remap('n', '<leader>ft', '<cmd>Telescope file_browser<CR>', opts)
+remap('n', '<leader>fp', '<cmd>Telescope projects<CR>', opts)
 vim.cmd([[
 nnoremap <leader>ts <cmd>Telescope treesitter<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
@@ -124,6 +125,12 @@ nnoremap <leader>fgc <cmd>Telescope git_commits<CR>
 nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
 nnoremap <leader>fgt <cmd>Telescope git_bcommits<CR>
 nnoremap <leader>fgs <cmd>Telescope git_status<CR>
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 ]])
 
 -- TODO: GET THESE CONVERTED

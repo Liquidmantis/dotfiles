@@ -14,6 +14,11 @@ vim.g.nowritebackup = true
 -- ]])
 
 vim.g.nvim_tree_auto_open = 1
+-- settings for project.nvim integration
+vim.g.nvim_tree_update_cwd = 1
+vim.g.nvim_tree_respect_buf_cwd = 1
+-- end project.nvim
+
 
 -- filetype plugin indent on
 vim.g.mapleader = " "

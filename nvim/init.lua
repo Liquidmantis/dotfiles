@@ -15,7 +15,7 @@ require('telescope-config')
 require('treesitter-config')
 require('lspsaga-config')
 -- require('truezen-config')
-require('lua-lsp')
+-- require('lua-lsp') -- commented out because nlua config replaces this (?)
 require('theme')
 require('zenmode-config')
 

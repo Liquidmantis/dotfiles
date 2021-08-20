@@ -70,7 +70,9 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   -- use 'mhinz/vim-signify'
   use 'lewis6991/gitsigns.nvim'
-  use 'airblade/vim-rooter' -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
+  -- use 'airblade/vim-rooter' -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
+  use { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end }
+  require('telescope').load_extension('projects')
 
   -- Themes
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}} 
