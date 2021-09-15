@@ -45,7 +45,10 @@ return require('packer').startup(function()
   use 'famiu/bufdelete.nvim'
   use 'wfxr/minimap.vim'
   -- use 'Pocco81/TrueZen.nvim'
-  use "folke/zen-mode.nvim"
+  use 'folke/zen-mode.nvim'
+  use 'folke/trouble.nvim'
+  use 'folke/todo-comments.nvim'
+  use 'lukas-reineke/indent-blankline.nvim'
 
   -- Telescope and prereqs
   use 'nvim-lua/popup.nvim'
@@ -64,6 +67,7 @@ return require('packer').startup(function()
   use 'glepnir/lspsaga.nvim'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'folke/lua-dev.nvim'
+  use 'lepture/vim-jinja'
 
   -- Git utilities
   use 'rhysd/git-messenger.vim' 

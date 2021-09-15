@@ -99,8 +99,9 @@ remap('n', '<leader>cp', ':cprev<CR>',  opts)
 remap('n', '<leader>cf', ':cfdo ',      opts)
 
 -- toggles
-remap('n', '<leader>tt', ':set relativenumber!<CR>', opts)
-remap('n', '<leader>tw', ':set list!<CR>',           opts)
+remap('n', '<leader>tt', ':set relativenumber!<CR>',   opts)
+remap('n', '<leader>tw', ':set list!<CR>',             opts)
+remap('n', '<leader>ti', ':IndentBlanklineToggle<CR>', opts)
 
 -- Nvim Tree mappings
 remap('n', '<leader>.', ':NvimTreeToggle<CR>',  opts)

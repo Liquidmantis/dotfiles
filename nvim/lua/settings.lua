@@ -30,7 +30,8 @@ vim.g.maplocalleader = "\\"
 
 vim.o.cmdheight = 2
 
-vim.o.completeopt = 'menuone,noinsert'
+vim.o.completeopt = 'menuone,noselect'
+
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 vim.o.updatetime=50

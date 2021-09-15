@@ -42,6 +42,7 @@ yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 
 # app ignores
+yabai -m rule --add app="^Contexts$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="Preferences$" manage=off
@@ -68,5 +69,15 @@ yabai -m config bottom_padding               12
 yabai -m config left_padding                 12
 yabai -m config right_padding                12
 yabai -m config window_gap                   12
+
+# events
+# Contexts' sidebar and the Teams notification process seem to jump to the top of the list when their
+# respective apps are running.  Exclude them from focus targets.
+# focus window after active space changes
+yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq '. | map(select(.title != \"Sidebar\" and .title != \"Microsoft Teams Notification\")) | .[0].id' )"
+
+# focus window after active display changes
+yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq '. | map(select(.title != \"Sidebar\" and .title != \"Microsoft Teams Notification\")) | .[0].id' )"
+
 
 echo "yabai configuration loaded.."
