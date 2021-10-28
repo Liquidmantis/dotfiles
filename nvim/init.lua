@@ -6,9 +6,10 @@ vim.cmd('source $HOME/.config/nvim/plug-config/vim-terraform.vim')
 vim.cmd('source $HOME/.config/nvim/plug-config/vimwiki.vim')
 
 require('keybindings')
-require('compe-config')
+require('cmp-config')
 -- require('galaxyline-config') -- trying lualine instead
 require('nvimtree-config')
+require('colorizer-config')
 require('nvim-lspconfig')
 require('gitsigns-config')
 require('indent-config')

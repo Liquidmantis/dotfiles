@@ -127,11 +127,6 @@ nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
 nnoremap <leader>fgt <cmd>Telescope git_bcommits<CR>
 nnoremap <leader>fgs <cmd>Telescope git_status<CR>
 
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 ]])
 
 -- TODO: GET THESE CONVERTED

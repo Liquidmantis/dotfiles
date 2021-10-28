@@ -7,6 +7,8 @@ disabled = true
 [lua]
 disabled = true
 
+[character]
+
 [shell]
 powershell_indicator = "\uf489"
 zsh_indicator = "\uf5a6"

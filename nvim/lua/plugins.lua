@@ -30,6 +30,7 @@ return require('packer').startup(function()
   -- use 'justinmk/vim-sneak'  -- replacing with hop
 
   -- Vim features add-ons
+  use 'norcalli/nvim-colorizer.lua'
   use 'kyazdani42/nvim-tree.lua'
   use 'kyazdani42/nvim-web-devicons'
   use 'vimwiki/vimwiki'
@@ -39,11 +40,13 @@ return require('packer').startup(function()
   use 'junegunn/fzf.vim'
   use 'junegunn/gv.vim'
   use 'mbbill/undotree'
-  use 'hoob3rt/lualine.nvim'
+  use 'nvim-lualine/lualine.nvim'
   use 'vim-utils/vim-man'
   use 'szw/vim-maximizer'
   use 'famiu/bufdelete.nvim'
   use 'wfxr/minimap.vim'
+  use 'luukvbaal/stabilize.nvim'
+  require("stabilize").setup()
   -- use 'Pocco81/TrueZen.nvim'
   use 'folke/zen-mode.nvim'
   use 'folke/trouble.nvim'
@@ -62,9 +65,13 @@ return require('packer').startup(function()
   use 'hashivim/vim-terraform'
   use 'kmonad/kmonad-vim' -- lisp, really, I guess
   use 'tjdevries/nlua.nvim'
-  use 'hrsh7th/nvim-compe'
   use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-nvim-lua'
   use 'glepnir/lspsaga.nvim'
+  use 'L3MON4D3/LuaSnip'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'folke/lua-dev.nvim'
   use 'lepture/vim-jinja'

@@ -50,7 +50,9 @@ schemes:
       background: '#2b3339'
       foreground: '#d3c6aa'
     normal:
-      black:   '#4b565c'
+      # black:   '#4b565c'
+      # black:   '#d3f6ff'
+      black:   '#4c5866'
       red:     '#e67e80'
       green:   '#a7c080'
       yellow:  '#dbbc7f'
@@ -59,7 +61,11 @@ schemes:
       cyan:    '#83c092'
       white:   '#d3c6aa'
     bright:
-      black:   '#4b565c'
+      # black:   '#4b565c' # original value creates tokens that are
+      # too dark in Powershell
+      # black:   '#00a600'
+      black:   '#a7f0a0'
+      # black:   '#ae8fc1'
       red:     '#e67e80'
       green:   '#a7c080'
       yellow:  '#dbbc7f'

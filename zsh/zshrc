@@ -12,6 +12,7 @@ fi
 source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh 
 source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/local/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $brewetc/profile.d/z.sh
 source ~/.config/zsh/aliases
 
