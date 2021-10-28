@@ -1,5 +1,5 @@
 local saga = require 'lspsaga'
-saga.init_lsp_saga()
+saga.init_lsp_saga {
 
 -- add your config value here
 -- default value
@@ -9,6 +9,7 @@ saga.init_lsp_saga()
 -- hint_sign = '',
 -- infor_sign = '',
 -- dianostic_header_icon = '   ',
+code_action_icon =  'X ',
 -- code_action_icon = ' ',
 -- code_action_prompt = {
 --   enable = true,
@@ -37,9 +38,4 @@ saga.init_lsp_saga()
 -- like server_filetype_map = {metals = {'sbt', 'scala'}}
 -- server_filetype_map = {}
 
--- saga.init_lsp_saga {
---   your custom option here
--- }
-
--- or --use default config
--- saga.init_lsp_saga()
+}
