@@ -35,7 +35,7 @@ return require('packer').startup(function()
   use 'nvim-lualine/lualine.nvim'
   use 'vim-utils/vim-man'
   use 'szw/vim-maximizer'
-  use 'famiu/bufdelete.nvim'
+  use 'famiu/bufdelete.nvim' -- close buffer without messing up windows
   use 'wfxr/minimap.vim'
   use 'luukvbaal/stabilize.nvim'
   require("stabilize").setup()
