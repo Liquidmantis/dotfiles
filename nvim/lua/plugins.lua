@@ -15,19 +15,11 @@ return require('packer').startup(function()
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
+  use 'ggandor/lightspeed.nvim'
 
   -- Testing/Learning plugins
   use 'sindrets/diffview.nvim'
   use 'akinsho/nvim-toggleterm.lua'
-
-  -- Chopping block plugins
-  -- use 'rizzatti/dash.vim' -- never really used, easier to work from Alfred
-  -- use 'mhinz/vim-startify' -- never really used, but could be useful with setup.
-  -- use 'gruvbox-community/gruvbox' -- replacing with a lua version
-  -- use 'glepnir/galaxyline.nvim' -- replacing with lualine
-  -- use 'tpope/vim-abolish' -- never used
-  -- use 'voldikss/vim-floaterm' -- replacing with toggleterm
-  -- use 'justinmk/vim-sneak'  -- replacing with hop
 
   -- Vim features add-ons
   use 'norcalli/nvim-colorizer.lua'
@@ -52,6 +44,7 @@ return require('packer').startup(function()
   use 'folke/trouble.nvim'
   use 'folke/todo-comments.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
+  use 'ThePrimeagen/harpoon'
 
   -- Telescope and prereqs
   use 'nvim-lua/popup.nvim'
@@ -70,7 +63,8 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-nvim-lua'
-  use 'glepnir/lspsaga.nvim'
+  -- use 'glepnir/lspsaga.nvim'
+  use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use 'L3MON4D3/LuaSnip'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'folke/lua-dev.nvim'

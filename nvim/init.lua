@@ -1,6 +1,7 @@
 -- require('packer-config')
 require('plugins')
 require('settings')
+
 require('theme')
 
 -- vim.cmd('source $HOME/.config/nvim/plugin/vim-terraform.vim')

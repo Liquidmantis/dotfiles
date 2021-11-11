@@ -158,17 +158,43 @@ function yabaiMsg( scope, param, fallbackParam)
   os.execute(cmd)
 end
 
-last_x_pad = 12
-last_y_pad = 12
-last_gap = 6
+function showHideOrFocus( window )
+  local targetWindow = hs.window.find( window )
+  print('showHideOrFocus on window ' .. window )
+
+  if targetWindow == nil then
+    print('did not find match for ' .. window )
+    return nil
+  end
+  if targetWindow == hs.window.focusedWindow() then
+    print('minimizing ' .. window )
+    targetWindow:minimize()
+  else
+    print('focusing ' .. window )
+    targetWindow:focus()
+
+  end
+end
+
+
+local init_x_pad = 12
+local init_y_pad = 12
+local init_gap = 6
+local x_pad = init_x_pad
+local y_pad = init_y_pad
+local gap = init_gap
+-- local last_x_pad = x_pad
+local last_y_pad = y_pad
+-- local last_gap = gap
+
 function setPadding( x_val, y_val )
   if x_val == "=" then
-    x_pad = 12
-    y_pad = 12
-    gap = 6
+    x_pad = init_x_pad
+    y_pad = init_y_pad
+    gap = init_gap
   else
     x_pad = x_val * 20
-    last_x_pad = x_pad
+    -- last_x_pad = x_pad
 
     if y_val == nil then
       y_pad = last_y_pad
@@ -179,8 +205,8 @@ function setPadding( x_val, y_val )
     gap = x_pad
   end
 
-  pad_change = string.format('padding abs:%i:%i:%i:%i', y_pad, y_pad, x_pad, x_pad)
-  gap_change = string.format('gap abs:%i', gap)
+  local pad_change = string.format('padding abs:%i:%i:%i:%i', y_pad, y_pad, x_pad, x_pad)
+  local gap_change = string.format('gap abs:%i', gap)
   yabaiMsg( 'space', pad_change )
   yabaiMsg( 'space', gap_change )
 end

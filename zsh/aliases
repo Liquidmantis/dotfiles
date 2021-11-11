@@ -5,6 +5,7 @@ alias zdf='cd ~/git-home/dotfiles'
 
 # app aliases
 alias ci='code-insiders'
+alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias edit='nvim'
@@ -43,7 +44,9 @@ alias viz='edit ~/.zshrc'
 
 # terminal mojo aliases
 alias h=history
+alias ls='exa'
 alias ll='exa -al'
+alias ld='exa -al --sort newest'
 alias soal='source ~/.config/zsh/aliases'
 alias soz='source ~/.zshrc'
 
