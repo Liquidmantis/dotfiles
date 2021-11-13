@@ -25,7 +25,6 @@ nnoremap( '<leader>sov', ':source $MYVIMRC<CR> | echo "Reloaded neovim config."'
 nnoremap( 'Y', 'y$'  ) -- make Y act like other capital, rest of line ops.
 nnoremap( 'n', 'nzz' ) -- find next and recenter
 nnoremap( 'N', 'Nzz' ) -- find prev and recenter
-nnoremap( '<C-Tab>', 'C-^' ) -- flip to last active buffer
 -- stolen from https://github.com/ibhagwan/nvim-lua/blob/main/lua/keymaps.lua
 -- Map <leader>o & <leader>O to newline without insert mode
 nnoremap( '<leader>o', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>' )
@@ -35,7 +34,7 @@ nnoremap( '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<C
 inoremap( ',', ',<C-g>u' )
 inoremap( '.', '.<C-g>u' )
 inoremap( ';', '.<C-g>u' )
-inoremap( ':', '.<C-g>u' )
+inoremap( ':', ':<C-g>u' )
 inoremap( '!', '!<C-g>u' )
 inoremap( '?', '?<C-g>u' )
 -- extend jumplist add triggers
@@ -50,16 +49,17 @@ nnoremap( '<leader>j', ':m .+1<CR>=='  )
 nnoremap( '<leader>k', ':m .-2<CR>=='  )
 
 -- buffer and tab commands
-nnoremap( '<tab>', ':bn<CR>' )           -- buffer next
+nnoremap( '<C-tab>', ':buf #<CR>' ) -- flip to alternate file
+nnoremap( '<localleader><tab>', ':bn<CR>' )           -- buffer next
 nnoremap( '<S-tab>', ':bp<CR>' )         -- buffer prev
-nnoremap( '<leader>bc', ':Bdelete<CR>' ) -- buffer close using BufDelete plugin
+nnoremap( '<localleader>q', ':Bdelete<CR>' ) -- buffer close using BufDelete plugin
 nnoremap( '<leader><tab>', 'gt' )
 nnoremap( '<leader><S-tab>', 'gT' )
 
 -- window control commands
-nnoremap( '<leader>!',  ':wincmd |<CR>' )
-nnoremap( '<leader>=',  ':wincmd =<CR>' )
-nnoremap( '<leader>q',  ':q<CR>'        )
+nnoremap( '<leader>!',  ':wincmd |<CR>' )  -- make a window as large as possible
+nnoremap( '<leader>=',  ':wincmd =<CR>' )  -- rebalance windows
+nnoremap( '<leader>q',  ':q<CR>'        )  -- close window
 nnoremap( '<leader>-',  ':split<CR>'    )
 nnoremap( '<leader>\\', ':vsplit<CR>'   )
 nnoremap( '<leader>sh', ':split<CR>'    )

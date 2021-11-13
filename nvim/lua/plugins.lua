@@ -63,6 +63,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-nvim-lua'
+  use 'hrsh7th/cmp-path'
   -- use 'glepnir/lspsaga.nvim'
   use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use 'L3MON4D3/LuaSnip'
