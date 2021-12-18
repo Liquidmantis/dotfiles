@@ -20,4 +20,3 @@ require('theme')
 -- require('lspsaga-config')
 -- require('truezen-config')
 -- require('zenmode-config')
-

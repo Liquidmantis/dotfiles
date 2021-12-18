@@ -1,0 +1,11 @@
+function notes() {
+  pushd ~/notes > /dev/null
+  vi
+  popd > /dev/null
+}
+
+function wiki() {
+  pushd ~/notes > /dev/null
+  vi index.md
+  popd > /dev/null
+}

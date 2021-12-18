@@ -9,10 +9,10 @@ require('nvim-tree').setup {
   update_focused_file = {
     enable      = true,
     update_cwd  = true,
-    ingore_list = {}
+    ingore_list = {},
+    gitignore = true
   },
 }
-vim.g.nvim_tree_gitignore = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_create_in_closed_folder = 1
 

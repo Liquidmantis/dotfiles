@@ -30,10 +30,11 @@ nnoremap( 'N', 'Nzz' ) -- find prev and recenter
 nnoremap( '<leader>o', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>' )
 nnoremap( '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>' )
 
+-- nnoremap( 'gs', ':lua vim.lsp.buf.signature_help()' )
 -- extend undo checkpoints
 inoremap( ',', ',<C-g>u' )
 inoremap( '.', '.<C-g>u' )
-inoremap( ';', '.<C-g>u' )
+inoremap( ';', ';<C-g>u' )
 inoremap( ':', ':<C-g>u' )
 inoremap( '!', '!<C-g>u' )
 inoremap( '?', '?<C-g>u' )
@@ -73,6 +74,26 @@ nnoremap( '<leader>ha', ':lua require("harpoon.ui").nav_file(1)<CR>'  )
 nnoremap( '<leader>hs', ':lua require("harpoon.ui").nav_file(2)<CR>'  )
 nnoremap( '<leader>hd', ':lua require("harpoon.ui").nav_file(3)<CR>'  )
 nnoremap( '<leader>hf', ':lua require("harpoon.ui").nav_file(4)<CR>'  )
+
+-- telekasten mappings
+nnoremap( '<leader>zz', ':lua require("telekasten").follow_link()<CR>' )
+nnoremap( '<leader>zf', ':lua require("telekasten").find_notes()<CR>' )
+nnoremap( '<leader>zd', ':lua require("telekasten").find_daily_notes()<CR>' )
+nnoremap( '<leader>zw', ':lua require("telekasten").find_weekly_notes()<CR>' )
+nnoremap( '<leader>zg', ':lua require("telekasten").search_notes()<CR>' )
+nnoremap( '<leader>zT', ':lua require("telekasten").goto_today()<CR>' )
+nnoremap( '<leader>zW', ':lua require("telekasten").goto_thisweek()<CR>' )
+nnoremap( '<leader>zn', ':lua require("telekasten").new_note()<CR>' )
+nnoremap( '<leader>zN', ':lua require("telekasten").new_templated_note()<CR>' )
+nnoremap( '<leader>zy', ':lua require("telekasten").yank_notelink()<CR>' )
+nnoremap( '<leader>zc', ':lua require("telekasten").show_calendar()<CR>' )
+nnoremap( '<leader>zC', ':CalendarT<CR>' )
+nnoremap( '<leader>zt', ':lua require("telekasten").toggle_todo()<CR>' )
+nnoremap( '<leader>zb', ':lua require("telekasten").show_backlinks()<CR>' )
+nnoremap( '<leader>zF', ':lua require("telekasten").find_friends()<CR>' )
+nnoremap( '<leader>za', ':lua require("telekasten").show_tags()<CR>' )
+-- on hesitation, bring up the panel
+nnoremap( '<leader>z', ':lua require("telekasten").panel()<CR>' )
 
 -- window movement commands
 tnoremap( '<C-h>',  '<C-\\><C-n>:wincmd h<CR>' )
@@ -117,16 +138,16 @@ nnoremap( '<leader>ggh', ':Gitsigns toggle_hunk<CR>'  )
 
 
 -- lspsaga commands
--- remap('n', 'gh', ':lua require("lspsaga.provider").lsp_finder()<CR>',                 opts)
--- remap('n', 'gr', ':lua require("lspsaga.rename").rename()<CR>',                       opts)
--- remap('n', 'gd', ':lua require("lspsaga.provider").preview_definition()<CR>',         opts)
--- remap('n', 'gs', ':lua require("lspsaga.signaturehelp").signature_help()<CR>',        opts)
--- remap('n', 'cd', ':lua require("lspsaga.diagnostic").show_line_diagnostics()<CR>',    opts)
--- remap('n', 'cc', ':lua require("lspsaga.diagnostic").show_cursor_diagnostics()<CR>',  opts)
--- remap('n', '[e', ':lua require("lspsaga.diagnostic").lsp_jump_diagnostic_prev()<CR>', opts)
--- remap('n', ']e', ':lua require("lspsaga.diagnostic").lsp_jump_diagnostic_next()<CR>', opts)
--- remap('n', '<leader>ca', ':lua require("lspsaga.codeaction").code_action()<CR>',      opts)
--- remap('n', '<leader>k',  ':lua require("lspsaga.hover").render_hover_doc()<CR>',      opts)
+remap('n', 'gh', ':lua require("lspsaga.provider").lsp_finder()<CR>',                 opts)
+remap('n', 'gr', ':lua require("lspsaga.rename").rename()<CR>',                       opts)
+remap('n', 'gd', ':lua require("lspsaga.provider").preview_definition()<CR>',         opts)
+remap('n', 'gs', ':lua require("lspsaga.signaturehelp").signature_help()<CR>',        opts)
+remap('n', 'cd', ':lua require("lspsaga.diagnostic").show_line_diagnostics()<CR>',    opts)
+remap('n', 'cc', ':lua require("lspsaga.diagnostic").show_cursor_diagnostics()<CR>',  opts)
+remap('n', '[e', ':lua require("lspsaga.diagnostic").lsp_jump_diagnostic_prev()<CR>', opts)
+remap('n', ']e', ':lua require("lspsaga.diagnostic").lsp_jump_diagnostic_next()<CR>', opts)
+remap('n', '<leader>ca', ':lua require("lspsaga.codeaction").code_action()<CR>',      opts)
+remap('n', '<leader>k',  ':lua require("lspsaga.hover").render_hover_doc()<CR>',      opts)
 
 -- vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
 -- remap('n', '<C-f>', ':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>',  opts)
@@ -149,6 +170,9 @@ nnoremap( '<leader>hl', ':noh<CR>' ) -- clear last search highlight
 -- Nvim Tree mappings
 nnoremap( '<leader>.', ':NvimTreeToggle<CR>' )
 nnoremap( '<leader>u', ':UndotreeToggle<CR>')
+
+-- Treesitter Mappings
+nnoremap( '<leader>tp', ':TSPlaygroundToggle<CR>')
 
 -- Telescope mappings
 -- defaults: https://github.com/nvim-telescope/telescope.nvim/blob/618e0e6075b4215e43c6a848daa37ef4e354b5dc/lua/telescope/mappings.lua
@@ -180,6 +204,6 @@ nnoremap( '<leader>fgb', ':Telescope git_branches<CR>' )
 nnoremap( '<leader>fgt', ':Telescope git_bcommits<CR>' )
 nnoremap( '<leader>fgs', ':Telescope git_status<CR>' )
 -- Telescope notes custom
-nnoremap( '<leader>nf', ":lua require('telescope-config').find_notes()<CR>" )
-nnoremap( '<leader>ns', ":lua require('telescope-config').grep_notes()<CR>" )
+nnoremap( '<leader>nf', ":lua require('telescope-functions').find_notes()<CR>" )
+nnoremap( '<leader>ns', ":lua require('telescope-functions').grep_notes()<CR>" )
 

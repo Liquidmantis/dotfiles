@@ -5,8 +5,9 @@ return require('packer').startup(function()
 
   -- Extra movements and objects
   use 'chaoren/vim-wordmotion'
-  use 'tpope/vim-commentary'
+  use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
+  use 'ggandor/lightspeed.nvim'
   use {
     'phaazon/hop.nvim',
     as = 'hop',
@@ -15,42 +16,44 @@ return require('packer').startup(function()
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
-  use 'ggandor/lightspeed.nvim'
 
   -- Testing/Learning plugins
   use 'sindrets/diffview.nvim'
   use 'akinsho/nvim-toggleterm.lua'
 
   -- Vim features add-ons
-  use 'norcalli/nvim-colorizer.lua'
-  use 'kyazdani42/nvim-tree.lua'
+  use 'norcalli/nvim-colorizer.lua'  -- highlight color references with the color
+  use 'kyazdani42/nvim-tree.lua'     -- file explorer
   use 'kyazdani42/nvim-web-devicons'
-  use 'vimwiki/vimwiki'
+  -- use 'renerocksai/telekasten.nvim'
+  use '~/git-home/telekasten.nvim'
+  use 'renerocksai/calendar-vim'
   use 'christoomey/vim-tmux-navigator'
   use 'jremmen/vim-ripgrep'
   use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use 'junegunn/fzf.vim'
   use 'junegunn/gv.vim'
-  use 'mbbill/undotree'
-  use 'nvim-lualine/lualine.nvim'
+  use 'mbbill/undotree'            -- the awesome undo history explorer
+  use 'nvim-lualine/lualine.nvim'  -- statusbar
   use 'vim-utils/vim-man'
-  use 'szw/vim-maximizer'
+  use 'szw/vim-maximizer'    -- zoom/maximize current pane
   use 'famiu/bufdelete.nvim' -- close buffer without messing up windows
   use 'wfxr/minimap.vim'
   use 'luukvbaal/stabilize.nvim'
   require("stabilize").setup()
-  -- use 'Pocco81/TrueZen.nvim'
   use 'folke/zen-mode.nvim'
   use 'folke/trouble.nvim'
   use 'folke/todo-comments.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'ThePrimeagen/harpoon'
+  use 'nvim-neorg/neorg'
+  use 'nvim-neorg/neorg-telescope'
 
   -- Telescope and prereqs
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-fzy-native.nvim'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Language add-ons
   use 'PProvost/vim-ps1'
@@ -64,12 +67,14 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-path'
-  -- use 'glepnir/lspsaga.nvim'
-  use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+  use { 'tami5/lspsaga.nvim' }
+  -- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use 'L3MON4D3/LuaSnip'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'nvim-treesitter/playground'}
   use 'folke/lua-dev.nvim'
   use 'lepture/vim-jinja'
+  use 'ckipp01/stylua-nvim'
 
   -- Git utilities
   use 'rhysd/git-messenger.vim' 

@@ -53,3 +53,4 @@ vim.o.foldlevel = 9
 vim.o.hidden = true
 vim.o.termguicolors = true
 vim.o.scrolloff = 8
+

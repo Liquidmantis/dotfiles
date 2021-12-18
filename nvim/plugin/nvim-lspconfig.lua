@@ -26,8 +26,17 @@ require'lspconfig'.powershell_es.setup{
 }
 
 require('nlua.lsp.nvim').setup(require('lspconfig'), {
+  bin_location = "/opt/homebrew/bin/lua-language-server",
   globals = {
     "hs",
     "use"
-  }
+  },
+  commands = {
+    Format = {
+      function()
+        require("stylua-nvim").format_file()
+      end,
+    },
+  },
 })
+

@@ -1,20 +1,26 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="/opt/homebrew/bin:$PATH"
 
 if [[ $(uname) == "Linux" ]] then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   brewshare="/home/linuxbrew/.linuxbrew/share"
   brewetc="/home/linuxbrew/.linuxbrew/etc"
 else 
-  brewshare="/usr/local/share"
-  brewetc="/usr/local/etc"
+  brewshare="/opt/homebrew/share"
+  brewetc="/opt/homebrew/etc"
 fi
+
+
+# Prevent zsh-vi-mode.plugin from lazy-loading as it overwrites fzf's C-r binding
+ZVM_INIT_MODE=sourcing
 
 source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh 
 source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/local/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-# source $brewetc/profile.d/z.sh
+source $brewshare/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/.config/zsh/aliases
+source ~/.config/zsh/functions
+
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(/usr/local/share/zsh/site-functions$fpath)
@@ -25,9 +31,9 @@ autoload -U +X bashcompinit && bashcompinit
 source $brewetc/bash_completion.d/az
 
 
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-bindkey -v
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
+# bindkey -v
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
@@ -38,16 +44,14 @@ KEYTIMEOUT=1
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 export PATH="/usr/local/sbin:$PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # "inspired" from https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt INC_APPEND_HISTORY_TIME
 
-alias luamake=/Users/liquid/.config/nvim/lua-language-server/3rd/luamake/compile/luamake
-
 export PATH="$HOME/bin:$PATH"
 
 eval "$(zoxide init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

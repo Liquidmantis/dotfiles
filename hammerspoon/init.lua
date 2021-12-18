@@ -9,7 +9,7 @@ stackline.config:toggle("appearance.showIcons")
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
 
 -- Environmental goodies
-yabaiPath = '/usr/local/bin/yabai'
+yabaiPath = '/opt/homebrew/bin/yabai'
 
 -- source the keybinding files
 require('bindings/basic')
