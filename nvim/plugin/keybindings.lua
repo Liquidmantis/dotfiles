@@ -18,6 +18,9 @@ local function tnoremap( lhs, rhs )
   remap('t', lhs, rhs, opts)
 end
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 nnoremap( '<leader>viv', ':tabedit $MYVIMRC<CR>' )
 -- TODO. make this work with lua-based config
 nnoremap( '<leader>sov', ':source $MYVIMRC<CR> | echo "Reloaded neovim config."' )
@@ -42,17 +45,17 @@ inoremap( '?', '?<C-g>u' )
 remap('n', 'k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', eopts)
 remap('n', 'j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', eopts)
 -- move lines up and down
-vnoremap( 'J',     ':m \'>+1<CR>gv=gv' )
-vnoremap( 'K',     ':m \'<-2<CR>gv=gv' )
-inoremap( '<C-j>', '<esc>:m .+1<CR>==' )
-inoremap( '<C-k>', '<esc>:m .+2<CR>==' )
-nnoremap( '<leader>j', ':m .+1<CR>=='  )
-nnoremap( '<leader>k', ':m .-2<CR>=='  )
+vnoremap( 'J', ':m \'>+1<CR>gv=gv' )
+vnoremap( 'K', ':m \'<-2<CR>gv=gv' )
+inoremap( '∆', '<esc>:m .+1<CR>==i' )           -- map Alt-J to move line down
+inoremap( '˚', '<esc>:m .-2<CR>==i' )           -- map Alt-K to move line up
+nnoremap( '∆', ':m .+1<CR>=='  )                -- map Alt-J to move line down
+nnoremap( '˚', ':m .-2<CR>=='  )                -- map Alt-K to move line up
 
 -- buffer and tab commands
-nnoremap( '<C-tab>', ':buf #<CR>' ) -- flip to alternate file
-nnoremap( '<localleader><tab>', ':bn<CR>' )           -- buffer next
-nnoremap( '<S-tab>', ':bp<CR>' )         -- buffer prev
+nnoremap( '<tab>', ':buf #<CR>' ) -- flip to alternate file
+nnoremap( '<M-tab>', ':bn<CR>' )           -- buffer next
+nnoremap( '<M-S-tab>', ':bp<CR>' )         -- buffer prev
 nnoremap( '<localleader>q', ':Bdelete<CR>' ) -- buffer close using BufDelete plugin
 nnoremap( '<leader><tab>', 'gt' )
 nnoremap( '<leader><S-tab>', 'gT' )
@@ -134,7 +137,7 @@ nnoremap( '<localleader><localleader>', ':HopPattern<CR>' )
 -- delay to the gs command.  Revisit if lspsaga sig binding changes.
 nnoremap( '<leader>ggl', ':Gitsigns toggle_current_line_blame<CR>' )
 nnoremap( '<leader>ggw', ':Gitsigns toggle_current_word_diff<CR>'  )
-nnoremap( '<leader>ggh', ':Gitsigns toggle_hunk<CR>'  )
+nnoremap( '<leader>ggh', ':Gitsigns preview_hunk<CR>'  )
 
 
 -- lspsaga commands
@@ -182,8 +185,8 @@ nnoremap( '<leader>ft', ':Telescope file_browser<CR>' )
 nnoremap( '<leader>fp', ':Telescope projects<CR>'     )
 nnoremap( '<leader>fu', ':Telescope lsp_references<CR>'  )
 nnoremap( '<leader>gd', ':Telescope lsp_definitions<CR>' )
-nnoremap( '<leader>dd', ':Telescope lsp_document_diagnostics<CR>' )
-nnoremap( '<leader>dD', ':Telescope lsp_workspace_diagnostics<CR>' )
+nnoremap( '<leader>dd', ':Telescope diagnostics bufnr=0<CR>' )
+nnoremap( '<leader>dD', ':Telescope diagnostics<CR>' )
 nnoremap( '<leader>xx', ':Telescope lsp_code_actions<CR>' )
 nnoremap( '<leader>xd', ':Telescope lsp_range_code_actions<CR>' )
 nnoremap( '<leader>rn', ':lua vim.lsp.buf.rename()<CR>'  )

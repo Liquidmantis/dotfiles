@@ -22,11 +22,14 @@ return require('packer').startup(function()
   use 'akinsho/nvim-toggleterm.lua'
 
   -- Vim features add-ons
+  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+  use 'stevearc/dressing.nvim'
+  use 'rcarriga/nvim-notify'
   use 'norcalli/nvim-colorizer.lua'  -- highlight color references with the color
   use 'kyazdani42/nvim-tree.lua'     -- file explorer
   use 'kyazdani42/nvim-web-devicons'
-  -- use 'renerocksai/telekasten.nvim'
-  use '~/git-home/telekasten.nvim'
+  use 'renerocksai/telekasten.nvim'
+  -- use '~/git-home/telekasten.nvim'
   use 'renerocksai/calendar-vim'
   use 'christoomey/vim-tmux-navigator'
   use 'jremmen/vim-ripgrep'
@@ -48,6 +51,7 @@ return require('packer').startup(function()
   use 'ThePrimeagen/harpoon'
   use 'nvim-neorg/neorg'
   use 'nvim-neorg/neorg-telescope'
+  use 'AckslD/nvim-neoclip.lua'
 
   -- Telescope and prereqs
   use 'nvim-lua/popup.nvim'
@@ -61,15 +65,21 @@ return require('packer').startup(function()
   use 'hashivim/vim-terraform'
   use 'kmonad/kmonad-vim' -- lisp, really, I guess
   use 'tjdevries/nlua.nvim'
+  use 'L3MON4D3/LuaSnip'
+  use 'rafamadriz/friendly-snippets'
   use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-path'
+  use 'onsails/lspkind-nvim'
+  use { 'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-path',
+      'saadparwaiz1/cmp_luasnip',
+    },
+  }
   use { 'tami5/lspsaga.nvim' }
   -- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
-  use 'L3MON4D3/LuaSnip'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'nvim-treesitter/playground'}
   use 'folke/lua-dev.nvim'

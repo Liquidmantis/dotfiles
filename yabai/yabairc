@@ -68,7 +68,7 @@ yabai -m config top_padding                  12
 yabai -m config bottom_padding               12
 yabai -m config left_padding                 12
 yabai -m config right_padding                12
-yabai -m config window_gap                   12
+yabai -m config window_gap                   12 
 
 # events
 # Contexts' sidebar and the Teams notification process seem to jump to the top of the list when their

@@ -1,13 +1,16 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/opt/homebrew/bin:$PATH"
 
+brewprefix=$(brew --prefix)
+
 if [[ $(uname) == "Linux" ]] then
+  # TODO: find out if `brew --prefix` works properly on Linux.
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   brewshare="/home/linuxbrew/.linuxbrew/share"
   brewetc="/home/linuxbrew/.linuxbrew/etc"
-else 
-  brewshare="/opt/homebrew/share"
-  brewetc="/opt/homebrew/etc"
+else
+  brewshare="$brewprefix/share"
+  brewetc="$brewprefix/etc"
 fi
 
 
@@ -15,25 +18,20 @@ fi
 ZVM_INIT_MODE=sourcing
 
 source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $brewshare/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/.config/zsh/aliases
 source ~/.config/zsh/functions
 
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-fpath=(/usr/local/share/zsh/site-functions$fpath)
+fpath=($brewshare/zsh-completions $fpath)
+fpath=($brewshare/zsh/site-functions $fpath)
 
 autoload -Uz compinit && compinit -i
 # az-cli uses bash completion, this loads it in zsh
 autoload -U +X bashcompinit && bashcompinit
 source $brewetc/bash_completion.d/az
-
-
-# bindkey -M vicmd 'k' history-substring-search-up
-# bindkey -M vicmd 'j' history-substring-search-down
-# bindkey -v
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
