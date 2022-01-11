@@ -29,10 +29,11 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'     -- file explorer
   use 'kyazdani42/nvim-web-devicons'
   use 'renerocksai/telekasten.nvim'
-  -- use '~/git-home/telekasten.nvim'
+  use '~/git-home/telekasten.nvim'
   use 'renerocksai/calendar-vim'
   use 'christoomey/vim-tmux-navigator'
   use 'jremmen/vim-ripgrep'
+  use 'sunjon/Shade.nvim'
   use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use 'junegunn/fzf.vim'
   use 'junegunn/gv.vim'

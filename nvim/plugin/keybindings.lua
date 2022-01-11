@@ -164,10 +164,11 @@ nnoremap( '<leader>cp', ':cprev<CR>'  )
 nnoremap( '<leader>cf', ':cfdo '      )
 
 -- view toggles
-nnoremap( '<leader>tt', ':set relativenumber!<CR>'   )
-nnoremap( '<leader>tw', ':set list!<CR>'             )
-nnoremap( '<leader>ti', ':IndentBlanklineToggle<CR>' )
-nnoremap( '<leader>tm', ':MinimapToggle<CR>'         )
+nnoremap( '<localleader>tc', ':ColorizerToggle<CR>' )
+nnoremap( '<localleader>ti', ':IndentBlanklineToggle<CR>' )
+nnoremap( '<localleader>tm', ':MinimapToggle<CR>'         )
+nnoremap( '<localleader>tt', ':set relativenumber!<CR>'   )
+nnoremap( '<localleader>tw', ':set list!<CR>'             )
 nnoremap( '<leader>hl', ':noh<CR>' ) -- clear last search highlight
 
 -- Nvim Tree mappings

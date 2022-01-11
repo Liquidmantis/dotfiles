@@ -1,8 +1,9 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 brewprefix=$(brew --prefix)
-
 if [[ $(uname) == "Linux" ]] then
   # TODO: find out if `brew --prefix` works properly on Linux.
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -13,6 +14,8 @@ else
   brewetc="$brewprefix/etc"
 fi
 
+fpath=($brewshare/zsh-completions $fpath)
+fpath=($brewshare/zsh/site-functions $fpath)
 
 # Prevent zsh-vi-mode.plugin from lazy-loading as it overwrites fzf's C-r binding
 ZVM_INIT_MODE=sourcing
@@ -21,13 +24,10 @@ source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $brewshare/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source ~/.config/zsh/aliases
-source ~/.config/zsh/functions
+source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/functions.zsh
 
-
-fpath=($brewshare/zsh-completions $fpath)
-fpath=($brewshare/zsh/site-functions $fpath)
-
+export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 autoload -Uz compinit && compinit -i
 # az-cli uses bash completion, this loads it in zsh
 autoload -U +X bashcompinit && bashcompinit
@@ -36,11 +36,9 @@ source $brewetc/bash_completion.d/az
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
-# remove esc delay
+# remove esc delay to make vi-mode usable
 KEYTIMEOUT=1
 
-export HISTORY_SUBSTRING_SEARCH_FUZZY=true
-export PATH="/usr/local/sbin:$PATH"
 
 # "inspired" from https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh
 HISTFILE=~/.zsh_history
@@ -48,7 +46,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt INC_APPEND_HISTORY_TIME
 
-export PATH="$HOME/bin:$PATH"
+
+setopt autocd
+setopt cdablevars
 
 eval "$(zoxide init zsh)"
 
