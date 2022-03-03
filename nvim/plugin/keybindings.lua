@@ -137,7 +137,11 @@ nnoremap( '<localleader><localleader>', ':HopPattern<CR>' )
 -- delay to the gs command.  Revisit if lspsaga sig binding changes.
 nnoremap( '<leader>ggl', ':Gitsigns toggle_current_line_blame<CR>' )
 nnoremap( '<leader>ggw', ':Gitsigns toggle_current_word_diff<CR>'  )
-nnoremap( '<leader>ggh', ':Gitsigns preview_hunk<CR>'  )
+nnoremap( '<leader>gghh', ':Gitsigns preview_hunk<CR>' )
+nnoremap( '<leader>gghn', ':Gitsigns next_hunk<CR>'  )
+nnoremap( '<leader>gghp', ':Gitsigns prev_hunk<CR>'  )
+nnoremap( '<leader>gghr', ':Gitsigns reset_hunk<CR>' )
+nnoremap( '<leader>gghs', ':Gitsigns stage_hunk<CR>' )
 
 
 -- lspsaga commands

@@ -29,7 +29,7 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'     -- file explorer
   use 'kyazdani42/nvim-web-devicons'
   use 'renerocksai/telekasten.nvim'
-  use '~/git-home/telekasten.nvim'
+  -- use '~/git-home/telekasten.nvim'
   use 'renerocksai/calendar-vim'
   use 'christoomey/vim-tmux-navigator'
   use 'jremmen/vim-ripgrep'
@@ -88,7 +88,7 @@ return require('packer').startup(function()
   use 'ckipp01/stylua-nvim'
 
   -- Git utilities
-  use 'rhysd/git-messenger.vim' 
+  use 'rhysd/git-messenger.vim'
   use 'tpope/vim-fugitive'
   -- use 'mhinz/vim-signify'
   use 'lewis6991/gitsigns.nvim'
@@ -97,7 +97,7 @@ return require('packer').startup(function()
   require('telescope').load_extension('projects')
 
   -- Themes
-  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}} 
+  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
   use 'sainnhe/everforest'
 
 end)

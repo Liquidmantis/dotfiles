@@ -1,0 +1,1 @@
+/Users/liquid/.fig/shell/post.fish
