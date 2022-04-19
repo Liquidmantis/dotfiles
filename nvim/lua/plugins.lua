@@ -19,14 +19,16 @@ return require('packer').startup(function()
 
   -- Testing/Learning plugins
   use 'sindrets/diffview.nvim'
-  use 'akinsho/nvim-toggleterm.lua'
+  -- use 'akinsho/nvim-toggleterm.lua'
 
   -- Vim features add-ons
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
   use 'stevearc/dressing.nvim'
+  use 'MunifTanjim/nui.nvim'
   use 'rcarriga/nvim-notify'
   use 'norcalli/nvim-colorizer.lua'  -- highlight color references with the color
-  use 'kyazdani42/nvim-tree.lua'     -- file explorer
+  -- use 'kyazdani42/nvim-tree.lua'     -- file explorer
+  use 'nvim-neo-tree/neo-tree.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use 'renerocksai/telekasten.nvim'
   -- use '~/git-home/telekasten.nvim'
@@ -61,10 +63,11 @@ return require('packer').startup(function()
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Language add-ons
+  use 'fatih/vim-go'
+  use 'ray-x/go.nvim'
   use 'PProvost/vim-ps1'
   use 'JayDoubleu/vim-pwsh-formatter'
   use 'hashivim/vim-terraform'
-  use 'kmonad/kmonad-vim' -- lisp, really, I guess
   use 'tjdevries/nlua.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
@@ -90,13 +93,13 @@ return require('packer').startup(function()
   -- Git utilities
   use 'rhysd/git-messenger.vim'
   use 'tpope/vim-fugitive'
-  -- use 'mhinz/vim-signify'
+  use 'mhinz/vim-signify'
   use 'lewis6991/gitsigns.nvim'
-  -- use 'airblade/vim-rooter' -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
+  use 'airblade/vim-rooter' -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
   use { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end }
   require('telescope').load_extension('projects')
 
-  -- Themes
+  -- -- Themes
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
   use 'sainnhe/everforest'
 

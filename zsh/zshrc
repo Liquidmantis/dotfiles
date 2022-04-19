@@ -1,8 +1,4 @@
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -32,11 +28,16 @@ source $brewshare/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/functions.zsh
 
+# lots of good info on completion stuff here:
+# https://thevaluable.dev/zsh-completion-guide-examples/
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 autoload -Uz compinit && compinit -i
 # az-cli uses bash completion, this loads it in zsh
 autoload -U +X bashcompinit && bashcompinit
 source $brewetc/bash_completion.d/az
+# add tab expansion of aliases
+zstyle ':completion:*' completer _expand_alias _complete _ignored
+zstyle ':completion:*' regular true
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
@@ -44,13 +45,11 @@ eval "$(starship init zsh)"
 # remove esc delay to make vi-mode usable
 KEYTIMEOUT=1
 
-
 # "inspired" from https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt INC_APPEND_HISTORY_TIME
-
 
 setopt autocd
 setopt cdablevars
@@ -58,8 +57,3 @@ setopt cdablevars
 eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-# [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####

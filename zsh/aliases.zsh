@@ -4,13 +4,15 @@ hash -d gw=~/git-work
 hash -d df=~/git-home/dotfiles
 
 # app aliases
+alias b='bat'
+alias bp='bat -p'
 alias ci='code-insiders'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias edit='nvim'
 alias pp='pwsh-preview -nologo'
-alias ps='pwsh -nologo'
+alias pwsh='pwsh -nologo'
 
 # terraform aliases
 alias tf='terraform'
@@ -24,16 +26,27 @@ alias tfws='terraform workspace select'
 alias tfwl='terraform workspace list'
 
 # docker aliases
-alias doc='docker'
-alias docc='docker container'
-alias doci='docker image'
+alias d='docker'
+alias dc='docker container'
+alias dcl='docker container ls'
+alias dcla='docker container ls -a'
+alias dcp='docker container prune'
+alias dcr='docker container run'
+alias dcrm='docker container rm'
+alias dcrmf='docker container rm -f'
+alias dcs='docker container stop'
+alias di='docker image'
+alias dil='docker image ls'
 
 # git aliases
 alias g='git'
+alias gcm='git commit -am'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gl='git log --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%C(auto)%d %Creset%s" --date=short --graph --decorate'
 alias gp='git push'
 alias gpl='git pull'
-alias gc='git checkout'
-alias gb='git checkout -b'
+alias gs='git status'
  
 # dotfile edit aliases
 alias via='edit ~/.config/alacritty/alacritty.yml'
@@ -47,11 +60,12 @@ alias viy='edit ~/.yabairc'
 alias viz='edit ~/.zshrc'
 
 # terminal mojo aliases
-alias h=history
+alias h='history'
+alias l='ll'
 alias ls='exa'
 alias ll='exa -al'
 alias ld='exa -al --sort newest'
-alias soal='source ~/.config/zsh/aliases'
+alias soal='source ~/.config/zsh/aliases.zsh'
 alias soz='source ~/.zshrc'
 
 # command aliases

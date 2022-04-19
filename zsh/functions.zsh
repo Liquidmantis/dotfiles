@@ -1,6 +1,15 @@
+# make space autoexpand aliases
+# maybe consider https://github.com/simnalamburt/zsh-expand-all
+function expand-alias() {
+	zle _expand_alias
+	zle self-insert
+}
+zle -N expand-alias
+bindkey -M main ' ' expand-alias
+
 function notes() {
   pushd ~/notes > /dev/null
-  vi
+  vi $args
   popd > /dev/null
 }
 

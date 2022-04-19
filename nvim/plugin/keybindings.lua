@@ -176,7 +176,8 @@ nnoremap( '<localleader>tw', ':set list!<CR>'             )
 nnoremap( '<leader>hl', ':noh<CR>' ) -- clear last search highlight
 
 -- Nvim Tree mappings
-nnoremap( '<leader>.', ':NvimTreeToggle<CR>' )
+-- nnoremap( '<leader>.', ':NvimTreeToggle<CR>' )
+nnoremap( '<leader>.', ':NeoTreeFocusToggle<CR>' )
 nnoremap( '<leader>u', ':UndotreeToggle<CR>')
 
 -- Treesitter Mappings

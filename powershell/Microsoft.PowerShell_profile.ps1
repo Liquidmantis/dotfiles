@@ -1,3 +1,5 @@
+$env:MY_DEPLOY_DATA = "/Users/liquid/git-work/EmsDeployment/EmsDeploymentData/Source/Resources"
+
 Import-Module PSReadLine
 Import-Module az.tools.predictor
 . $(Join-Path $PSScriptRoot functions.ps1)
