@@ -40,7 +40,10 @@ alias dil='docker image ls'
 
 # git aliases
 alias g='git'
-alias gcm='git commit -am'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gca='git commit'
+
 alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gl='git log --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%C(auto)%d %Creset%s" --date=short --graph --decorate'
@@ -65,6 +68,7 @@ alias l='ll'
 alias ls='exa'
 alias ll='exa -al'
 alias ld='exa -al --sort newest'
+alias ldr='exa -al --sort oldest'
 alias soal='source ~/.config/zsh/aliases.zsh'
 alias soz='source ~/.zshrc'
 
