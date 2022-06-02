@@ -1,0 +1,3 @@
+[submodule "kitty/everforest-kitty"]
+	path = kitty/everforest-kitty
+	url = git@github.com:bgrnwd/everforest-kitty.git

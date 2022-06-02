@@ -1,5 +1,5 @@
-return require('packer').startup(function()
-
+return require('packer').startup(function(use)
+  use {'plugin'}
   -- Packer plugin manager self manages
   use 'wbthomason/packer.nvim'
 
@@ -35,6 +35,7 @@ return require('packer').startup(function()
   use 'renerocksai/calendar-vim'
   use 'christoomey/vim-tmux-navigator'
   use 'jremmen/vim-ripgrep'
+  use 'mickael-menu/zk-nvim'
   use 'sunjon/Shade.nvim'
   use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use 'junegunn/fzf.vim'

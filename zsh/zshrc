@@ -1,8 +1,8 @@
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export ZK_NOTEBOOK_DIR="$HOME/notes" # zk-nvim notebook root
 
 brewprefix=$(brew --prefix)
 if [[ $(uname) == "Linux" ]] then
