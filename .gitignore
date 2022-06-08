@@ -6,4 +6,4 @@ hammerspoon/stackline
 packer_compiled.lua
 
 lua-language-server
-tmux/plugins
+/* tmux/plugins */
