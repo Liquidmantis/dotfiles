@@ -1,5 +1,4 @@
 return require('packer').startup(function(use)
-  use {'plugin'}
   -- Packer plugin manager self manages
   use 'wbthomason/packer.nvim'
 
