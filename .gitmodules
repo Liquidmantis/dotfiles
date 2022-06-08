@@ -10,3 +10,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "kitty/--force"]
+	path = kitty/--force
+	url = https://github.com/bgrnwd/everforest-kitty.git
