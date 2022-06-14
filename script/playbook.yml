@@ -162,7 +162,6 @@
         package:
           - ansible
           - azure-cli
-          - bash-completion
           - bat
           - code-minimap
           - exa

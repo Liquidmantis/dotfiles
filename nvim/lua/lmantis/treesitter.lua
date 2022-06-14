@@ -21,6 +21,7 @@ require'nvim-treesitter.configs'.setup {
     "beancount",
     "clojure",
     "julia",
+    "phpdoc",
     "kotlin",
     "ruby",
   }, -- List of parsers to ignore installing

@@ -72,7 +72,9 @@ nnoremap( '<leader>m', ':MaximizerToggle<CR>' )
 
 -- harpoon mappings
 nnoremap( '<leader>hc', ':lua require("harpoon.ui").toggle_quick_menu()<CR>' )
-nnoremap( '<leader>hh', ':lua require("harpoon.mark").add_file()<CR>' )
+nnoremap( '<leader>hh', ':lua require("harpoon.mark").add_file()<CR>:lua print(string.format("Added %s to Harpoon list", vim.api.nvim_buf_get_name(0)))<CR>' )
+nnoremap( '<leader>hn', ':lua require("harpoon.ui").nav_next()<CR>' )
+nnoremap( '<leader>hp', ':lua require("harpoon.ui").nav_prev()<CR>' )
 nnoremap( '<leader>ha', ':lua require("harpoon.ui").nav_file(1)<CR>'  )
 nnoremap( '<leader>hs', ':lua require("harpoon.ui").nav_file(2)<CR>'  )
 nnoremap( '<leader>hd', ':lua require("harpoon.ui").nav_file(3)<CR>'  )
@@ -80,6 +82,7 @@ nnoremap( '<leader>hf', ':lua require("harpoon.ui").nav_file(4)<CR>'  )
 
 -- zk mappings
 nnoremap( '<leader>zb', ':ZkBacklinks<CR>' )
+nnoremap( '<leader>zj', ':ZkToday<CR>' )
 nnoremap( '<leader>zl', ':ZkLinks<CR>' )
 nnoremap( '<leader>zn', ':ZkNotes<CR>' )
 nnoremap( '<leader>zt', ':ZkTags<CR>' )
@@ -223,6 +226,7 @@ nnoremap( '<leader>fgb', ':Telescope git_branches<CR>' )
 nnoremap( '<leader>fgt', ':Telescope git_bcommits<CR>' )
 nnoremap( '<leader>fgs', ':Telescope git_status<CR>' )
 -- Telescope notes custom
-nnoremap( '<leader>nf', ":lua require('telescope-functions').find_notes()<CR>" )
-nnoremap( '<leader>ns', ":lua require('telescope-functions').grep_notes()<CR>" )
+nnoremap( '<leader>nf', ":lua require('lmantis.telescope-functions').find_notes()<CR>" )
+nnoremap( '<leader>ns', ":lua require('lmantis.telescope-functions').grep_notes()<CR>" )
+nnoremap( '<c-_>', "<cmd>lua require('lmantis.telescope-functions').search_in_buffer()<CR>" )
 

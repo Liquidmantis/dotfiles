@@ -70,6 +70,7 @@ alias ll='exa -al'
 alias ld='exa -al --sort newest'
 alias ldr='exa -al --sort oldest'
 alias soal='source ~/.config/zsh/aliases.zsh'
+alias sof='source ~/.config/zsh/functions.zsh'
 alias soz='source ~/.zshrc'
 
 # command aliases

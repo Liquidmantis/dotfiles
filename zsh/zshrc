@@ -3,6 +3,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export ZK_NOTEBOOK_DIR="$HOME/notes" # zk-nvim notebook root
+export EDITOR="nvim"
 
 brewprefix=$(brew --prefix)
 if [[ $(uname) == "Linux" ]] then

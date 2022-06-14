@@ -9,7 +9,7 @@ bindkey -M main ' ' expand-alias
 
 function notes() {
   pushd ~/notes > /dev/null
-  vi $args
+  vi index.md $args
   popd > /dev/null
 }
 
@@ -23,4 +23,17 @@ function proj() {
   _dir=$(fd --full-path --type d | fzf) 
 
   pushd ~/git-work/${_dir} > /dev/null
+}
+
+function daily-note() {
+  pushd ~/notes > /dev/null
+  timestamp=$(date +"%Y-%m-%d")
+  yesterday=$(date -v-1d +"%Y-%m-%d")
+  tomorrow=$(date -v+1d +"%Y-%m-%d")
+  zk new \
+    --group=daily \
+    --extra=yesterday=$yesterday,tomorrow=$tomorrow \
+    --no-input \
+    --print-path
+  popd > /dev/null
 }
