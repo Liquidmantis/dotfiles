@@ -85,9 +85,12 @@ nnoremap( '<leader>zb', ':ZkBacklinks<CR>' )
 nnoremap( '<leader>zj', ':ZkToday<CR>' )
 nnoremap( '<leader>zl', ':ZkLinks<CR>' )
 nnoremap( '<leader>zn', ':ZkNotes<CR>' )
+nnoremap( '<leader>zr', ':ZkRecents<CR>' )
 nnoremap( '<leader>zt', ':ZkTags<CR>' )
 nnoremap( '<leader>zcn', ":ZkNew { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>" )
 nnoremap( '<leader>zct', ":ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>" )
+nnoremap( '<leader>zcc', ":ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h') }<CR>" )
+
 nnoremap( 'K', ':lua vim.lsp.buf.hover()<CR>' ) -- TODO: move this to LSP bindings
 nnoremap( '<CR>', ':lua vim.lsp.buf.definition()<CR>' )
 

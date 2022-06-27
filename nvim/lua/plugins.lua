@@ -52,8 +52,6 @@ return require('packer').startup(function(use)
   use 'folke/todo-comments.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'ThePrimeagen/harpoon'
-  use 'nvim-neorg/neorg'
-  use 'nvim-neorg/neorg-telescope'
   use 'AckslD/nvim-neoclip.lua'
 
   -- Telescope and prereqs
