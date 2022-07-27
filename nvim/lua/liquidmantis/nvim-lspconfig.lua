@@ -1,6 +1,6 @@
 local lspconfig = require'lspconfig'
 local util = require'lspconfig/util'
-local configs = require'lspconfig/configs'    
+local configs = require'lspconfig/configs'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
@@ -11,7 +11,7 @@ lspconfig.cssls.setup{}
 lspconfig.terraformls.setup{
   cmd = { "terraform-ls", "serve" };
   filetypes =  { "terraform", "tf" };
-}    
+}
 
 local pid = vim.fn.getpid()
 
@@ -21,6 +21,8 @@ lspconfig.omnisharp.setup {
   end,
   cmd = { "/usr/local/bin/mono", "/usr/local/bin/omnisharp-manual/omnisharp/OmniSharp.exe", "--languageserver" , "--hostPID", tostring(pid) },
 }
+
+lspconfig.golangci_lint_ls.setup{}
 
 lspconfig.gopls.setup {
   cmd = {"gopls", "serve"},
@@ -39,19 +41,19 @@ lspconfig.gopls.setup {
 lspconfig.html.setup {
 }
 
-if not lspconfig.emmet_ls then    
-  configs.emmet_ls = {    
-    default_config = {    
+if not lspconfig.emmet_ls then
+  configs.emmet_ls = {
+    default_config = {
       cmd = {'emmet-ls', '--stdio'};
       filetypes = {'html', 'css', 'blade'};
       -- root_dir = function(fname)    
       --   return vim.loop.cwd()
       -- end;    
-      settings = {};    
-    };    
-  }    
-end    
-lspconfig.emmet_ls.setup{ capabilities = capabilities; } 
+      settings = {};
+    };
+  }
+end
+lspconfig.emmet_ls.setup{ capabilities = capabilities; }
 
 -- Python
 lspconfig.pyright.setup{}

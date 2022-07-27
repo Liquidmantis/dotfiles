@@ -9,7 +9,7 @@ bindkey -M main ' ' expand-alias
 
 function notes() {
   pushd ~/notes > /dev/null
-  vi index.md $args
+  vi index.md 
   popd > /dev/null
 }
 
@@ -37,3 +37,9 @@ function daily-note() {
     --print-path
   popd > /dev/null
 }
+
+function mk-and-cd() {
+  mkdir $1
+  cd $1
+}
+alias mc="mk-and-cd"

@@ -9,6 +9,7 @@
   ui = auto
 [push]
   default = simple
+	autoSetupRemote = true
 [alias]
   b = branch -a
   co = checkout

@@ -5,7 +5,7 @@ require('telekasten').setup({
     home         = home,
     dailies      = home .. '/' .. 'daily',
     weeklies     = home .. '/' .. 'weekly',
-    templates    = home .. '/' .. 'templates',
+    templates    = home .. '/' .. '.zk/templates',
     take_over_my_home = true,
 
     -- image subdir for pasting
@@ -23,15 +23,15 @@ require('telekasten').setup({
 
     -- template for new notes (new_note, follow_link)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_note = home .. '/' .. 'templates/new_note.md',
+    template_new_note = home .. '/' .. '.zk/templates/new_note.md',
 
     -- template for newly created daily notes (goto_today)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_daily = home .. '/' .. 'templates/daily.md',
+    template_new_daily = home .. '/' .. '.zk/templates/daily.md',
 
     -- template for nwly created weekly notes (goto_thisweek)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_weekly = home .. '/' .. 'templates/weekly.md',
+    template_new_weekly = home .. '/' .. '.zk/templates/weekly.md',
 
 	-- image link style
 	-- wiki:     ![[image name]]

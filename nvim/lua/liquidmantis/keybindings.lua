@@ -71,8 +71,8 @@ nnoremap( '<leader>sv', ':vsplit<CR>'   )
 nnoremap( '<leader>m', ':MaximizerToggle<CR>' )
 
 -- harpoon mappings
-nnoremap( '<leader>hc', ':lua require("harpoon.ui").toggle_quick_menu()<CR>' )
-nnoremap( '<leader>hh', ':lua require("harpoon.mark").add_file()<CR>:lua print(string.format("Added %s to Harpoon list", vim.api.nvim_buf_get_name(0)))<CR>' )
+nnoremap( '<leader>hh', ':lua require("harpoon.ui").toggle_quick_menu()<CR>' )
+nnoremap( '<leader>he', ':lua require("harpoon.mark").add_file()<CR>:lua print(string.format("Added %s to Harpoon list", vim.api.nvim_buf_get_name(0)))<CR>' )
 nnoremap( '<leader>hn', ':lua require("harpoon.ui").nav_next()<CR>' )
 nnoremap( '<leader>hp', ':lua require("harpoon.ui").nav_prev()<CR>' )
 nnoremap( '<leader>ha', ':lua require("harpoon.ui").nav_file(1)<CR>'  )
