@@ -42,14 +42,14 @@ alias dil='docker image ls'
 alias g='git'
 alias gc='git commit'
 alias gcm='git commit -m'
-alias gca='git commit'
+alias gca='git commit -am'
 
-alias gco='git checkout'
-alias gcb='git checkout -b'
+alias gs='git switch'
+alias gsb='git switch -b'
 alias gl='git log --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%C(auto)%d %Creset%s" --date=short --graph --decorate'
 alias gp='git push'
 alias gpl='git pull'
-alias gs='git status'
+alias gst='git status'
  
 # dotfile edit aliases
 alias via='edit ~/.config/alacritty/alacritty.yml'

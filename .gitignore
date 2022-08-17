@@ -4,6 +4,7 @@
 hammerspoon/stackline
 .netrwhist
 packer_compiled.lua
+private
 
 lua-language-server
 /* tmux/plugins */
