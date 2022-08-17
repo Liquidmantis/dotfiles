@@ -158,6 +158,24 @@ function yabaiMsg( scope, param, fallbackParam)
   os.execute(cmd)
 end
 
+function yabaiQuery( scope, param )
+  local cmd = string.format("%s -m query --%s", YabaiPath, scope)
+  if param~=nil then
+    cmd = string.format("%s --%s", cmd, param)
+  end
+  print(cmd)
+  local result = hs.execute(cmd)
+  return result
+end
+
+function GetCurrentWindowId()
+  local window = yabaiQuery('windows', 'window')
+  local cmd = string.format("echo '%s' | /usr/local/bin/jq .id", window)
+  local id = hs.execute(cmd)
+  print('Window ID: ', id)
+  return id
+end
+
 function showHideOrFocus( window )
   local targetWindow = hs.window.find( window )
   print('showHideOrFocus on window ' .. window )
