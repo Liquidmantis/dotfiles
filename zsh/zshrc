@@ -7,6 +7,7 @@ export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
 export PATH="$PATH:$(go env GOPATH)/bin"
 export ZK_NOTEBOOK_DIR="$HOME/notes" # zk-nvim notebook root
 export EDITOR="nvim"
+export LANG="en_US.UTF-8"
 
 brewprefix=$(brew --prefix)
 if [[ $(uname) == "Linux" ]] then

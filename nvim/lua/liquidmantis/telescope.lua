@@ -14,6 +14,14 @@ require('telescope').setup{
       '--column',
       '--smart-case'
     },
-  }
+    mappings = {
+      n = {
+        ['<C-S-d>'] = require('telescope.actions').delete_buffer
+      },
+      i = {
+        ['<C-S-d>'] = require('telescope.actions').delete_buffer
+      }
+    },
+  },
 }
 require('telescope').load_extension('fzf')

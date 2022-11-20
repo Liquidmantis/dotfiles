@@ -2,7 +2,7 @@ local lspconfig = require'lspconfig'
 local util = require'lspconfig/util'
 local configs = require'lspconfig/configs'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 lspconfig.html.setup {}
 lspconfig.cssls.setup{}

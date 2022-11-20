@@ -91,15 +91,12 @@ nnoremap( '<leader>zcn', ":ZkNew { dir = vim.fn.expand('%:p:h'), title = vim.fn.
 nnoremap( '<leader>zct', ":ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>" )
 nnoremap( '<leader>zcc', ":ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h') }<CR>" )
 
-nnoremap( 'K', ':lua vim.lsp.buf.hover()<CR>' ) -- TODO: move this to LSP bindings
-nnoremap( '<CR>', ':lua vim.lsp.buf.definition()<CR>' )
-
 -- telekasten mappings
 -- nnoremap( '<leader>zz', ':lua require("telekasten").follow_link()<CR>' )
 -- nnoremap( '<leader>zf', ':lua require("telekasten").find_notes()<CR>' )
 -- nnoremap( '<leader>zd', ':lua require("telekasten").find_daily_notes()<CR>' )
 -- nnoremap( '<leader>zw', ':lua require("telekasten").find_weekly_notes()<CR>' )
-nnoremap( '<leader>zg', ':lua require("telekasten").search_notes()<CR>' )
+-- nnoremap( '<leader>zg', ':lua require("telekasten").search_notes()<CR>' )
 -- nnoremap( '<leader>zT', ':lua require("telekasten").goto_today()<CR>' )
 -- nnoremap( '<leader>zW', ':lua require("telekasten").goto_thisweek()<CR>' )
 -- nnoremap( '<leader>zn', ':lua require("telekasten").new_note()<CR>' )
@@ -112,7 +109,7 @@ nnoremap( '<leader>zg', ':lua require("telekasten").search_notes()<CR>' )
 -- nnoremap( '<leader>zF', ':lua require("telekasten").find_friends()<CR>' )
 -- nnoremap( '<leader>za', ':lua require("telekasten").show_tags()<CR>' )
 -- -- on hesitation, bring up the panel
-nnoremap( '<leader>z', ':lua require("telekasten").panel()<CR>' )
+-- nnoremap( '<leader>z', ':lua require("telekasten").panel()<CR>' )
 
 -- window movement commands
 tnoremap( '<C-h>',  '<C-\\><C-n>:wincmd h<CR>' )
@@ -133,20 +130,21 @@ nnoremap( '<localleader>gl', ':G log<CR>'    )
 nnoremap( '<localleader>gd', ':G diff<CR>'   )
 nnoremap( '<localleader>gb', ':G blame<CR>'  )
 
--- hop motions
-nnoremap( '<leader><leader>w', ':HopWordAC<CR>'  )
-nnoremap( '<leader><leader>b', ':HopWordBC<CR>'  )
-nnoremap( '<leader><leader>j', ':HopLineAC<CR>'  )
-nnoremap( '<leader><leader>k', ':HopLineBC<CR>'  )
-nnoremap( '<localleader>w',    ':HopWordAC<CR>'  )
-nnoremap( '<localleader>b',    ':HopWordBC<CR>'  )
-nnoremap( '<localleader>j',    ':HopLineAC<CR>'  )
-nnoremap( '<localleader>k',    ':HopLineBC<CR>'  )
-nnoremap( '<localleader>f',    ':HopChar1AC<CR>' )
-nnoremap( '<localleader>F',    ':HopChar1BC<CR>' )
-nnoremap( '<localleader>s',    ':HopChar2AC<CR>' )
-nnoremap( '<localleader>S',    ':HopChar2BC<CR>' )
-nnoremap( '<localleader><localleader>', ':HopPattern<CR>' )
+-- UndotreeToggle
+-- -- hop motions
+-- nnoremap( '<leader><leader>w', ':HopWordAC<CR>'  )
+-- nnoremap( '<leader><leader>b', ':HopWordBC<CR>'  )
+-- nnoremap( '<leader><leader>j', ':HopLineAC<CR>'  )
+-- nnoremap( '<leader><leader>k', ':HopLineBC<CR>'  )
+-- nnoremap( '<localleader>w',    ':HopWordAC<CR>'  )
+-- nnoremap( '<localleader>b',    ':HopWordBC<CR>'  )
+-- nnoremap( '<localleader>j',    ':HopLineAC<CR>'  )
+-- nnoremap( '<localleader>k',    ':HopLineBC<CR>'  )
+-- nnoremap( '<localleader>f',    ':HopChar1AC<CR>' )
+-- nnoremap( '<localleader>F',    ':HopChar1BC<CR>' )
+-- nnoremap( '<localleader>s',    ':HopChar2AC<CR>' )
+-- nnoremap( '<localleader>S',    ':HopChar2BC<CR>' )
+-- nnoremap( '<localleader><localleader>', ':HopPattern<CR>' )
 
 -- gitsigns commands
 -- prefix logic is "[g]it [g]utter [c]ommand to use 'gg' namespace and not add
@@ -159,18 +157,19 @@ nnoremap( '<leader>gghp', ':Gitsigns prev_hunk<CR>'  )
 nnoremap( '<leader>gghr', ':Gitsigns reset_hunk<CR>' )
 nnoremap( '<leader>gghs', ':Gitsigns stage_hunk<CR>' )
 
+nnoremap( '<CR>', ':lua vim.lsp.buf.definition()<CR>' )
 
 -- lspsaga commands
-remap('n', 'gh', ':lua require("lspsaga.provider").lsp_finder()<CR>',                 opts)
-remap('n', 'gr', ':lua require("lspsaga.rename").rename()<CR>',                       opts)
-remap('n', 'gd', ':lua require("lspsaga.provider").preview_definition()<CR>',         opts)
-remap('n', 'gs', ':lua require("lspsaga.signaturehelp").signature_help()<CR>',        opts)
-remap('n', 'cd', ':lua require("lspsaga.diagnostic").show_line_diagnostics()<CR>',    opts)
-remap('n', 'cc', ':lua require("lspsaga.diagnostic").show_cursor_diagnostics()<CR>',  opts)
-remap('n', '[e', ':lua require("lspsaga.diagnostic").lsp_jump_diagnostic_prev()<CR>', opts)
-remap('n', ']e', ':lua require("lspsaga.diagnostic").lsp_jump_diagnostic_next()<CR>', opts)
-remap('n', '<leader>ca', ':lua require("lspsaga.codeaction").code_action()<CR>',      opts)
-remap('n', '<leader>k',  ':lua require("lspsaga.hover").render_hover_doc()<CR>',      opts)
+remap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>',               opts)
+remap('n', 'gr', '<cmd>Lspsaga rename<CR>',                   opts)
+remap('n', 'gd', '<cmd>Lspsaga peek_definition<CR>',          opts)
+remap('n', 'gs', '<cmd>Lspsaga signature_help<CR>',           opts)
+remap('n', 'cd', '<cmd>Lspsaga show_line_diagnostics<CR>',    opts)
+remap('n', 'cc', '<cmd>Lspsaga show_cursor_diagnostics<CR>',  opts)
+remap('n', '[e', '<cmd>Lspsaga lsp_jump_diagnostic_prev<CR>', opts)
+remap('n', ']e', '<cmd>Lspsaga lsp_jump_diagnostic_next<CR>', opts)
+remap('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>',      opts)
+remap('n', 'K',  '<cmd>Lspsaga hover_doc<CR>',        opts)
 
 -- vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
 -- remap('n', '<C-f>', ':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>',  opts)
@@ -192,8 +191,8 @@ nnoremap( '<localleader>tw', ':set list!<CR>'             )
 nnoremap( '<leader>hl', ':noh<CR>' ) -- clear last search highlight
 
 -- Nvim Tree mappings
--- nnoremap( '<leader>.', ':NvimTreeToggle<CR>' )
-nnoremap( '<leader>.', ':NeoTreeFocusToggle<CR>' )
+nnoremap( '<leader>.', ':NvimTreeToggle<CR>' )
+-- nnoremap( '<leader>.', ':NeoTreeFocusToggle<CR>' )
 nnoremap( '<leader>u', ':UndotreeToggle<CR>')
 
 -- Treesitter Mappings

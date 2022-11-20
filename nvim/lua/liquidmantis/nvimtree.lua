@@ -8,8 +8,7 @@ require('nvim-tree').setup {
   update_focused_file = {
     enable      = true,
     update_cwd  = true,
-    ingore_list = {},
-    gitignore = true
+    ignore_list = {}
   },
 }
 vim.g.nvim_tree_highlight_opened_files = 1

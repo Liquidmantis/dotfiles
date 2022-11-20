@@ -12,7 +12,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias edit='nvim'
 alias pp='pwsh-preview -nologo'
-alias pwsh='pwsh -nologo'
+alias ps='pwsh -nologo'
 
 # terraform aliases
 alias tf='terraform'
@@ -50,6 +50,8 @@ alias gl='git log --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%C(auto)%d %Cr
 alias gp='git push'
 alias gpl='git pull'
 alias gst='git status'
+
+alias ghcs='gh cs ssh'
  
 # dotfile edit aliases
 alias via='edit ~/.config/alacritty/alacritty.yml'
@@ -76,6 +78,6 @@ alias soz='source ~/.zshrc'
 # command aliases
 alias brewup='brew update; brew upgrade --fetch-HEAD; brew upgrade --cask; brew cleanup'
 alias yabres='brew services stop yabai && brew services start yabai'
-alias yabrestart='brew services stop yabai && brew services start yabai'
+alias yabup='brew services stop yabai; codesign -fs 'yabai-cert' $(which yabai); brew services start yabai; sudo yabai --load-sa'
 
 # any aliases below here were added via echo append and need sorting

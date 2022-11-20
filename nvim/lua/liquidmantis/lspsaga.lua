@@ -1,1 +1,1 @@
-require('lspsaga').setup()
+require('lspsaga').init_lsp_saga()
