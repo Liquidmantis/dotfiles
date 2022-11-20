@@ -25,8 +25,9 @@ local function make_edit_fn(defaults, picker_options)
   end
 end
 
+commands.add("ZkDailies", make_edit_fn({ tags = { "daily" }, sort = {"created"} }, { title = "Zk Daily Notes" }))
 commands.add("ZkOrphans", make_edit_fn({ orphan = true }, { title = "Zk Orphans" }))
-commands.add("ZkRecents", make_edit_fn({ createdAfter = "2 weeks ago" }, { title = "Zk Recents" }))
+commands.add("ZkRecents", make_edit_fn({ modifiedAfter = "4 weeks ago" }, { title = "Zk Recents" }))
 commands.add("ZkToday", function()
   local timestamp = os.time(os.date('*t'))
   local day_before = os.date('%Y-%m-%d', timestamp - 86400)

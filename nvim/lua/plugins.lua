@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'ggandor/leap.nvim'
+  use 'ggandor/flit.nvim'
 
   -- Testing/Learning plugins
   use 'sindrets/diffview.nvim'

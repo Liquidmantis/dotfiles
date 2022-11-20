@@ -33,7 +33,6 @@ nnoremap( 'N', 'Nzz' ) -- find prev and recenter
 nnoremap( '<leader>o', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>' )
 nnoremap( '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>' )
 
--- nnoremap( 'gs', ':lua vim.lsp.buf.signature_help()' )
 -- extend undo checkpoints
 inoremap( ',', ',<C-g>u' )
 inoremap( '.', '.<C-g>u' )
@@ -83,6 +82,7 @@ nnoremap( '<leader>hf', ':lua require("harpoon.ui").nav_file(4)<CR>'  )
 -- zk mappings
 nnoremap( '<leader>zb', ':ZkBacklinks<CR>' )
 nnoremap( '<leader>zj', ':ZkToday<CR>' )
+nnoremap( '<leader>zd', ':ZkDailies<CR>' )
 nnoremap( '<leader>zl', ':ZkLinks<CR>' )
 nnoremap( '<leader>zn', ':ZkNotes<CR>' )
 nnoremap( '<leader>zr', ':ZkRecents<CR>' )
@@ -130,8 +130,7 @@ nnoremap( '<localleader>gl', ':G log<CR>'    )
 nnoremap( '<localleader>gd', ':G diff<CR>'   )
 nnoremap( '<localleader>gb', ':G blame<CR>'  )
 
--- UndotreeToggle
--- -- hop motions
+-- hop motions
 -- nnoremap( '<leader><leader>w', ':HopWordAC<CR>'  )
 -- nnoremap( '<leader><leader>b', ':HopWordBC<CR>'  )
 -- nnoremap( '<leader><leader>j', ':HopLineAC<CR>'  )
@@ -158,12 +157,13 @@ nnoremap( '<leader>gghr', ':Gitsigns reset_hunk<CR>' )
 nnoremap( '<leader>gghs', ':Gitsigns stage_hunk<CR>' )
 
 nnoremap( '<CR>', ':lua vim.lsp.buf.definition()<CR>' )
+nnoremap( 'gs', ':lua vim.lsp.buf.signature_help()<CR>' )
 
 -- lspsaga commands
 remap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>',               opts)
 remap('n', 'gr', '<cmd>Lspsaga rename<CR>',                   opts)
 remap('n', 'gd', '<cmd>Lspsaga peek_definition<CR>',          opts)
-remap('n', 'gs', '<cmd>Lspsaga signature_help<CR>',           opts)
+-- remap('n', 'gs', '<cmd>Lspsaga signature_help<CR>',           opts)
 remap('n', 'cd', '<cmd>Lspsaga show_line_diagnostics<CR>',    opts)
 remap('n', 'cc', '<cmd>Lspsaga show_cursor_diagnostics<CR>',  opts)
 remap('n', '[e', '<cmd>Lspsaga lsp_jump_diagnostic_prev<CR>', opts)
