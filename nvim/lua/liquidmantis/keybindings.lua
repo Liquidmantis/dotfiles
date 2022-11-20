@@ -130,21 +130,6 @@ nnoremap( '<localleader>gl', ':G log<CR>'    )
 nnoremap( '<localleader>gd', ':G diff<CR>'   )
 nnoremap( '<localleader>gb', ':G blame<CR>'  )
 
--- hop motions
--- nnoremap( '<leader><leader>w', ':HopWordAC<CR>'  )
--- nnoremap( '<leader><leader>b', ':HopWordBC<CR>'  )
--- nnoremap( '<leader><leader>j', ':HopLineAC<CR>'  )
--- nnoremap( '<leader><leader>k', ':HopLineBC<CR>'  )
--- nnoremap( '<localleader>w',    ':HopWordAC<CR>'  )
--- nnoremap( '<localleader>b',    ':HopWordBC<CR>'  )
--- nnoremap( '<localleader>j',    ':HopLineAC<CR>'  )
--- nnoremap( '<localleader>k',    ':HopLineBC<CR>'  )
--- nnoremap( '<localleader>f',    ':HopChar1AC<CR>' )
--- nnoremap( '<localleader>F',    ':HopChar1BC<CR>' )
--- nnoremap( '<localleader>s',    ':HopChar2AC<CR>' )
--- nnoremap( '<localleader>S',    ':HopChar2BC<CR>' )
--- nnoremap( '<localleader><localleader>', ':HopPattern<CR>' )
-
 -- gitsigns commands
 -- prefix logic is "[g]it [g]utter [c]ommand to use 'gg' namespace and not add
 -- delay to the gs command.  Revisit if lspsaga sig binding changes.
