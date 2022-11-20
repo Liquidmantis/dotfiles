@@ -13,7 +13,7 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
@@ -41,14 +41,14 @@ cmp.setup({
     format = lspkind.cmp_format({
       with_text = true,
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      
+
       -- The function below will be called before any actual modifications from lspkind
       -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
       before = function (entry, vim_item)
-        return vim_item
-      end
-    })
-  },
+      return vim_item
+    end
+  })
+},
 
   sources = cmp.config.sources({
     { name = 'luasnip' },
@@ -61,11 +61,6 @@ cmp.setup({
 
   experimental = {
     ghost_text = true,
-    native_menu = false,
+    -- native_menu = false,
   }
 })
-
--- Setup lspconfig.
--- require('lspconfig')[%YOUR_LSP_SERVER%].setup {
-  -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.mke_client_capabilities())
--- }

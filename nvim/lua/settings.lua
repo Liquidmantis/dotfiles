@@ -1,11 +1,12 @@
 -- global settings
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.splitkeep = 'screen'
 vim.o.undofile = true
 vim.g.nobackup = true
 vim.g.nowritebackup = true
 
-vim.o.cmdheight = 2
+-- vim.o.cmdheight = 2
 
 vim.o.completeopt = 'menuone,noselect'
 

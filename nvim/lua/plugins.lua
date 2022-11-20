@@ -3,8 +3,8 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Extra movements and objects
-  use 'chaoren/vim-wordmotion'  -- adds CamelCase wordmotions
-  use 'numToStr/Comment.nvim'
+  use 'chaoren/vim-wordmotion'          -- adds CamelCase wordmotions
+  use 'numToStr/Comment.nvim'           -- comment toggling 
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'ggandor/leap.nvim'
@@ -30,16 +30,14 @@ return require('packer').startup(function(use)
   use 'mickael-menu/zk-nvim'
   use 'sunjon/Shade.nvim'
   use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-  use 'junegunn/fzf.vim'
-  use 'junegunn/gv.vim'
+  use 'junegunn/fzf.vim'                -- support for fzf
+  use 'junegunn/gv.vim'                 -- git commit browser
   use 'mbbill/undotree'                 -- the awesome undo history explorer
   use 'nvim-lualine/lualine.nvim'       -- statusbar
   -- use 'vim-utils/vim-man'
   use 'szw/vim-maximizer'               -- zoom/maximize current pane
   use 'famiu/bufdelete.nvim'            -- close buffer without messing up windows
   use 'gorbit99/codewindow.nvim'        -- minimap
-  use 'luukvbaal/stabilize.nvim'
-  require("stabilize").setup()
   use 'folke/zen-mode.nvim'
   use 'folke/trouble.nvim'
   use 'folke/todo-comments.nvim'
@@ -54,37 +52,37 @@ return require('packer').startup(function(use)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Language add-ons
-  use 'fatih/vim-go'
+  -- use 'fatih/vim-go'
   use 'ray-x/go.nvim'
   use 'PProvost/vim-ps1'
   use 'JayDoubleu/vim-pwsh-formatter'
   use 'hashivim/vim-terraform'
-  -- use 'tjdevries/nlua.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
   use 'neovim/nvim-lspconfig'
-  use 'onsails/lspkind-nvim'
   use { 'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-path',
       'saadparwaiz1/cmp_luasnip',
+      'onsails/lspkind.nvim'
     },
   }
   use { 'glepnir/lspsaga.nvim' }
   -- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'nvim-treesitter/playground'}
-  use 'folke/lua-dev.nvim'
+  use 'folke/neodev.nvim'
   use 'lepture/vim-jinja'
   use 'ckipp01/stylua-nvim'
 
   -- Git utilities
   use 'rhysd/git-messenger.vim'
   use 'tpope/vim-fugitive'
-  use 'mhinz/vim-signify'
+  -- use 'mhinz/vim-signify'
   use 'lewis6991/gitsigns.nvim'
   use 'airblade/vim-rooter' -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
   use { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end }
