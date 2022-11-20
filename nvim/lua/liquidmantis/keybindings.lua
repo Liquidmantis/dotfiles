@@ -91,26 +91,6 @@ nnoremap( '<leader>zcn', ":ZkNew { dir = vim.fn.expand('%:p:h'), title = vim.fn.
 nnoremap( '<leader>zct', ":ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>" )
 nnoremap( '<leader>zcc', ":ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h') }<CR>" )
 
--- telekasten mappings
--- nnoremap( '<leader>zz', ':lua require("telekasten").follow_link()<CR>' )
--- nnoremap( '<leader>zf', ':lua require("telekasten").find_notes()<CR>' )
--- nnoremap( '<leader>zd', ':lua require("telekasten").find_daily_notes()<CR>' )
--- nnoremap( '<leader>zw', ':lua require("telekasten").find_weekly_notes()<CR>' )
--- nnoremap( '<leader>zg', ':lua require("telekasten").search_notes()<CR>' )
--- nnoremap( '<leader>zT', ':lua require("telekasten").goto_today()<CR>' )
--- nnoremap( '<leader>zW', ':lua require("telekasten").goto_thisweek()<CR>' )
--- nnoremap( '<leader>zn', ':lua require("telekasten").new_note()<CR>' )
--- nnoremap( '<leader>zN', ':lua require("telekasten").new_templated_note()<CR>' )
--- nnoremap( '<leader>zy', ':lua require("telekasten").yank_notelink()<CR>' )
--- nnoremap( '<leader>zc', ':lua require("telekasten").show_calendar()<CR>' )
--- nnoremap( '<leader>zC', ':CalendarT<CR>' )
--- -- nnoremap( '<leader>zt', ':lua require("telekasten").toggle_todo()<CR>' )
--- nnoremap( '<leader>zb', ':lua require("telekasten").show_backlinks()<CR>' )
--- nnoremap( '<leader>zF', ':lua require("telekasten").find_friends()<CR>' )
--- nnoremap( '<leader>za', ':lua require("telekasten").show_tags()<CR>' )
--- -- on hesitation, bring up the panel
--- nnoremap( '<leader>z', ':lua require("telekasten").panel()<CR>' )
-
 -- window movement commands
 tnoremap( '<C-h>',  '<C-\\><C-n>:wincmd h<CR>' )
 tnoremap( '<C-l>',  '<C-\\><C-n>:wincmd l<CR>' )
