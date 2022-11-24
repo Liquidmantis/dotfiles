@@ -58,6 +58,7 @@ nnoremap( '<M-S-tab>', ':bp<CR>' )         -- buffer prev
 nnoremap( '<localleader>q', ':Bdelete<CR>' ) -- buffer close using BufDelete plugin
 nnoremap( '<leader><tab>', 'gt' )
 nnoremap( '<leader><S-tab>', 'gT' )
+nnoremap( '<localleader>sf', '<cmd>source %<CR> | <cmd>lua vim.notify("Reloaded " .. vim.fn.expand(\'%\'))<CR>' )
 
 -- window control commands
 nnoremap( '<leader>!',  ':wincmd |<CR>' )  -- make a window as large as possible

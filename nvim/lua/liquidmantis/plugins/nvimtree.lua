@@ -1,4 +1,12 @@
-require('nvim-tree').setup {
+local installed, nvimtree = pcall(require, 'nvim-tree')
+if not installed then
+  vim.notify('nvimtree not installed', 'error')
+  return
+end
+
+nvimtree.setup({
+  auto_reload_on_write = true,
+  create_in_closed_folder = true,
   -- disable_netrw   = true,
   hijack_netrw    = true,
 
@@ -10,7 +18,27 @@ require('nvim-tree').setup {
     update_cwd  = true,
     ignore_list = {}
   },
-}
-vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_create_in_closed_folder = 1
 
+  renderer = {
+    highlight_opened_files = "all",
+    icons = {
+      git_placement = "signcolumn",
+    },
+  },
+
+  view = {
+    number = true,
+    relativenumber = true,
+    signcolumn = "yes",
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+      },
+    },
+  },
+
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true
+  }
+})

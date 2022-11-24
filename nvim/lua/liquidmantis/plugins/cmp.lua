@@ -1,7 +1,20 @@
-local cmp = require'cmp'
-local luasnip = require'luasnip'
-local lspkind = require'lspkind'
+local cmp_installed, cmp = pcall(require, 'cmp')
+if not cmp_installed then
+  vim.notify('cmp not installed', 'error')
+  return
+end
 
+local luasnip_installed, luasnip = pcall(require, 'luasnip')
+if not luasnip_installed then
+  vim.notify('luasnip not installed', 'error')
+  return
+end
+
+local lspkind_installed, lspkind = pcall(require, 'lspkind')
+if not lspkind_installed then
+  vim.notify('lspkind not installed', 'error')
+  return
+end
 
 cmp.setup({
   snippet = {
@@ -9,7 +22,7 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body)
     end,
   },
-    
+
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
