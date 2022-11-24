@@ -46,11 +46,12 @@ return require('packer').startup(function(use)
   use 'ThePrimeagen/harpoon'
   use 'AckslD/nvim-neoclip.lua'
 
-  -- Telescope and prereqs
+  -- Telescope, prereqs, and extensions
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'axieax/urlview.nvim'             -- sophisticated picker for links in page
 
   -- Language add-ons
   -- use 'fatih/vim-go'
