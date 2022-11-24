@@ -1,4 +1,10 @@
-require('telescope').setup{
+local installed, telescope = pcall(require, 'telescope')
+if not installed then
+  vim.notify('Telescope not installed', 'error')
+  return
+end
+
+telescope.setup{
   extensions = {
     fzf = {
     }
