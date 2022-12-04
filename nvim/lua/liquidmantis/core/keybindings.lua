@@ -189,7 +189,6 @@ nnoremap( '<leader>fgb', ':Telescope git_branches<CR>' )
 nnoremap( '<leader>fgt', ':Telescope git_bcommits<CR>' )
 nnoremap( '<leader>fgs', ':Telescope git_status<CR>' )
 -- Telescope notes custom
-nnoremap( '<leader>nf', ":lua require('lmantis.telescope-functions').find_notes()<CR>" )
-nnoremap( '<leader>ns', ":lua require('lmantis.telescope-functions').grep_notes()<CR>" )
-nnoremap( '<c-_>', "<cmd>lua require('lmantis.telescope-functions').search_in_buffer()<CR>" )
-
+nnoremap( '<leader>nf', ":lua require('liquidmantis.plugins.telescope-functions').find_notes()<CR>" )
+nnoremap( '<leader>ns', ":lua require('liquidmantis.plugins.telescope-functions').grep_notes()<CR>" )
+nnoremap( '<c-_>', "<cmd>lua require('liquidmantis.plugins.telescope-functions').search_in_buffer()<CR>" )
