@@ -6,10 +6,6 @@ require('liquidmantis.core.globals')
 
 require('liquidmantis.core.theme')
 
-
--- vim.cmd('source $HOME/.config/nvim/plugin/vim-terraform.vim')
--- vim.cmd('source $HOME/.config/nvim/plugin/vimwiki.vim')
-
 require('liquidmantis.plugins.cmp')
 require('liquidmantis.plugins.codewindow')
 require('liquidmantis.plugins.colorizer')

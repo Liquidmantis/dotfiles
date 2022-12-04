@@ -51,7 +51,10 @@ alias gp='git push'
 alias gpl='git pull'
 alias gst='git status'
 
+# gh cli aliases
 alias ghcs='gh cs ssh'
+alias ghmcmi='gh issue list --repo github/maccloud --assignee "@me"'
+alias ghmci='gh issue view --repo github/maccloud '
  
 # dotfile edit aliases
 alias via='edit ~/.config/alacritty/alacritty.yml'
