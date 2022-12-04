@@ -43,6 +43,7 @@ inoremap( '?', '?<C-g>u' )
 -- extend jumplist add triggers
 remap('n', 'k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', eopts)
 remap('n', 'j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', eopts)
+
 -- move lines up and down
 vnoremap( 'J', ':m \'>+1<CR>gv=gv' )
 vnoremap( 'K', ':m \'<-2<CR>gv=gv' )
@@ -169,6 +170,7 @@ nnoremap( '<leader>tp', ':TSPlaygroundToggle<CR>')
 nnoremap( '<leader>ff', ':lua require("telescope.builtin").find_files({ hidden = true })<CR>' )
 nnoremap( '<leader>fs', ':Telescope live_grep<CR>'    )
 nnoremap( '<leader>fp', ':Telescope projects<CR>'     )
+nnoremap( '<leader><leader>ft', ':Telescope colorscheme<CR>'     )
 nnoremap( '<leader>fu', ':Telescope lsp_references<CR>'  )
 nnoremap( '<leader>fd', ':Telescope lsp_definitions<CR>' )
 nnoremap( '<leader>fe', ':Telescope diagnostics bufnr=0<CR>' )

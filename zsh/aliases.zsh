@@ -82,5 +82,6 @@ alias soz='source ~/.zshrc'
 alias brewup='brew update; brew upgrade --fetch-HEAD; brew upgrade --cask; brew cleanup'
 alias yabres='brew services stop yabai && brew services start yabai'
 alias yabup='brew services stop yabai; codesign -fs 'yabai-cert' $(which yabai); brew services start yabai; sudo yabai --load-sa'
+alias gsubup='git submodule update --recursive --remote'
 
 # any aliases below here were added via echo append and need sorting

@@ -13,3 +13,9 @@
 [submodule "kitty/--force"]
 	path = kitty/--force
 	url = https://github.com/bgrnwd/everforest-kitty.git
+[submodule "kitty/kitty"]
+	path = kitty/kitty
+	url = https://github.com/catppuccin/kitty
+[submodule "tmux/plugins/catppuccin"]
+	path = tmux/plugins/catppuccin
+	url = https://github.com/catppuccin/tmux
