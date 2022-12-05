@@ -1,25 +1,24 @@
 require('neorg').setup {
   load = {
     ["core.defaults"] = {}, -- Load all the defaults
-    ["core.keybinds"] = { 
-      config = {
-        default_keybinds = true
-      }
-    },
-    ["core.integrations.telescope"] = {}, -- Enable the telescope module
-    ["core.norg.completion"] = {
-      config = {
-        engine = "nvim-cmp" -- We current support nvim-compe and nvim-cmp only
-      }
-    },
     ["core.norg.concealer"] = {}, -- Allows for use of icons
+    ["core.export"] = {},
+    ["core.gtd.base"] = {
+      config = {
+        workspace = "org"
+      }
+    },
+    ["core.integrations.telescope"] = {},
+    ["core.export.markdown"] = {},
     ["core.norg.dirman"] = { -- Manage your directories with Neorg
       config = {
         workspaces = {
-          notes = "~/notes"
-        }
+          notes = "~/notes",
+          org = "~/org",
+          gtd = "~/gtd"
+        },
+        default_workspace = "org",
       }
     }
-  },
-
+  }
 }

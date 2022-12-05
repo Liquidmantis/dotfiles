@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
 
   -- Testing/Learning plugins
   use 'sindrets/diffview.nvim'
+  use 'nvim-neorg/neorg'
   -- use 'akinsho/nvim-toggleterm.lua'
 
   -- Vim features add-ons
@@ -54,6 +55,7 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope.nvim'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'axieax/urlview.nvim'             -- sophisticated picker for links in page
+  use 'nvim-neorg/neorg-telescope'
 
   -- Language add-ons
   -- use 'fatih/vim-go'
