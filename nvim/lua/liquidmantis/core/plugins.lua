@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
 
   -- Testing/Learning plugins
   use 'sindrets/diffview.nvim'
-  use 'nvim-neorg/neorg'
+  use { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
   -- use 'akinsho/nvim-toggleterm.lua'
 
   -- Vim features add-ons
@@ -43,7 +43,7 @@ return require('packer').startup(function(use)
   use 'gorbit99/codewindow.nvim'        -- minimap
   use 'pocco81/true-zen.nvim'
   use 'folke/trouble.nvim'
-  use 'folke/twilight.nvim'
+  use 'folke/twilight.nvim'             -- highlight focused code blocks
   use 'folke/todo-comments.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'ThePrimeagen/harpoon'
@@ -78,9 +78,9 @@ return require('packer').startup(function(use)
       'onsails/lspkind.nvim'
     },
   }
-  use { 'glepnir/lspsaga.nvim' }
+  use 'glepnir/lspsaga.nvim'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'nvim-treesitter/playground'}
+  use 'nvim-treesitter/playground'
   use 'folke/neodev.nvim'
   use 'lepture/vim-jinja'
   use 'ckipp01/stylua-nvim'
@@ -89,7 +89,7 @@ return require('packer').startup(function(use)
   use 'rhysd/git-messenger.vim'
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
-  use 'airblade/vim-rooter' -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
+  -- use 'airblade/vim-rooter' -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
   use { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end }
   require('telescope').load_extension('projects')
 

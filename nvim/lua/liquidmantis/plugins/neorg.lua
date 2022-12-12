@@ -1,3 +1,4 @@
+
 require('neorg').setup {
   load = {
     ["core.defaults"] = {}, -- Load all the defaults
@@ -15,7 +16,6 @@ require('neorg').setup {
         workspaces = {
           notes = "~/notes",
           org = "~/org",
-          gtd = "~/gtd"
         },
         default_workspace = "org",
       }

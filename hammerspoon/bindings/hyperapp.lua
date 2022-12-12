@@ -9,13 +9,13 @@ hyperApp:bind('', 'r', function()
 end)
 
 hyperApp:bind('', 'n', function()
-	exitHyperApp() 
+	exitHyperApp()
   local result = showHideOrFocus( 'LiquidNote' )
   print( result )
   if result == 'nil' then
     hs.execute('alacritty')
   end
-  
+
 end)
 
 hyperApp:bind('', 'm', function()
@@ -23,3 +23,9 @@ hyperApp:bind('', 'm', function()
 	hs.eventtap.keyStroke('ctrl', 'F2') -- toggle menu bar
 end)
 
+hyperApp:bind('', '.', function()
+  exitHyperApp()
+  print( "shof kitty" )
+  local app = hs.application.find( 'kitty' )
+  app:activate()
+end)

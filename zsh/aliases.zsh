@@ -39,6 +39,7 @@ alias di='docker image'
 alias dil='docker image ls'
 
 # git aliases
+alias lg='lazygit'
 alias g='git'
 alias gc='git commit'
 alias gcm='git commit -m'
@@ -83,5 +84,6 @@ alias brewup='brew update; brew upgrade --fetch-HEAD; brew upgrade --cask; brew 
 alias yabres='brew services stop yabai && brew services start yabai'
 alias yabup='brew services stop yabai; codesign -fs 'yabai-cert' $(which yabai); brew services start yabai; sudo yabai --load-sa'
 alias gsubup='git submodule update --recursive --remote'
+alias vimup='nvim -c PackerSync'
 
 # any aliases below here were added via echo append and need sorting

@@ -2,10 +2,6 @@ require('functions')
 require('modes')
 require('hs.ipc')
 
--- local stackline = require('stackline')
--- stackline:init()
--- stackline.config:toggle("appearance.showIcons")
-
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
 
 -- Environmental goodies

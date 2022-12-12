@@ -69,7 +69,7 @@ nnoremap( '<leader>-',  ':split<CR>'    )
 nnoremap( '<leader>\\', ':vsplit<CR>'   )
 nnoremap( '<leader>sh', ':split<CR>'    )
 nnoremap( '<leader>sv', ':vsplit<CR>'   )
-nnoremap( '<leader>m', ':MaximizerToggle<CR>' )
+nnoremap( '<leader><leader>z', ':MaximizerToggle<CR>' )
 
 -- harpoon mappings
 nnoremap( '<leader>hh', ':lua require("harpoon.ui").toggle_quick_menu()<CR>' )
