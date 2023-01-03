@@ -57,6 +57,7 @@ hyperSpaceZen:bind('', 'escape', exitHyperSpaceZen)
 hyperSpaceZen:bind('', 'z', function() toggleZenMode('zen') exitHyperSpaceZen() end)
 hyperSpaceZen:bind('', 'n', function() toggleZenMode('narrow') exitHyperSpaceZen() end)
 hyperSpaceZen:bind('', 'w', function() toggleZenMode('wide') exitHyperSpaceZen() end)
+hyperSpaceZen:bind('', 'f', function() toggleZenMode('full') exitHyperSpaceZen() end)
 hyperSpaceZen:bind('', 'x', function() toggleZenMode('exit') exitHyperSpaceZen() end)
 
 

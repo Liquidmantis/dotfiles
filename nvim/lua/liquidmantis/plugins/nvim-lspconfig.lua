@@ -4,6 +4,8 @@ local configs = require'lspconfig/configs'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+require('mason').setup()
+
 lspconfig.html.setup {}
 lspconfig.cssls.setup{}
 
@@ -13,13 +15,12 @@ lspconfig.terraformls.setup{
   filetypes =  { "terraform", "tf" };
 }
 
-local pid = vim.fn.getpid()
-
 lspconfig.omnisharp.setup {
   on_attach = function(_, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   end,
-  cmd = { "/usr/local/bin/mono", "/usr/local/bin/omnisharp-manual/omnisharp/OmniSharp.exe", "--languageserver" , "--hostPID", tostring(pid) },
+  -- root_dir = util.root_pattern(".cs"),
+  cmd = { "/usr/local/bin/mono", "/usr/local/bin/omnisharp-manual/omnisharp/OmniSharp.exe", "--languageserver" },
 }
 
 lspconfig.golangci_lint_ls.setup{}
@@ -90,6 +91,7 @@ require'lspconfig'.sumneko_lua.setup {
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {

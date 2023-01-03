@@ -65,7 +65,7 @@ hyper:bind('', 'm', function()
 end)
 
 function MoveCurrentWindowToDisplay(display)
-  windowId = GetCurrentWindowId()
+  local windowId = GetCurrentWindowId()
   yabaiMsg( 'window', string.format('display %s', display) )
   yabaiMsg( 'window', string.format('focus %s', windowId) )
 end

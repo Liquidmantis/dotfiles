@@ -219,7 +219,6 @@ function setPadding( x_val, y_val )
     else
       y_pad = y_val * 20
     end
-
     gap = x_pad
   end
 
@@ -244,6 +243,8 @@ function toggleZenMode( mode )
     if mode == 'zen' then
       zen_pad.x = 25
       zen_pad.y = 3 
+    elseif mode == 'full' then
+      zen_pad = { x = 3, y = 3 }
     elseif mode == 'wide' then
       zen_pad = { x = 15, y = 3 }
     elseif mode == 'narrow' then

@@ -1,76 +1,54 @@
 #! /usr/bin/env sh
 
-# save this as a file somewhere, then run:
-#     chmod +x path/to/this/script
-# now execute this file from your yabairc:
-#    ./path/to/this/script
-
-# if [ $# -ne 0 ]; then 
-# 	for event in window_destroyed space_changed; do
-# 		yabai -m signal --add label="${0}_${event}" \
-# 			event="${event}" action="${0}"
-# 	done
-# 	exit
-# fi
-
-# { 
-# 	yabai -m query --windows --window \
-# 		|| yabai -m window --focus mouse 
-# } > /dev/null 2>&1
-
 sudo yabai --load-sa
 
 # global settings
-yabai -m config mouse_follows_focus          off
-yabai -m config focus_follows_mouse          off
-yabai -m config window_placement             second_child
-yabai -m config window_topmost               off
-yabai -m config window_shadow                on
-yabai -m config window_opacity               on
-yabai -m config window_opacity_duration		   0.0
-yabai -m config active_window_opacity        1.0
-yabai -m config normal_window_opacity        0.95
-yabai -m config window_border                off
-yabai -m config window_border_width          6
-yabai -m config active_window_border_color   0xaaf8cc18
-yabai -m config normal_window_border_color   0xff555555
-yabai -m config insert_feedback_color        0xffd75f5f
-yabai -m config split_ratio                  0.50
-yabai -m config auto_balance                 off
-yabai -m config mouse_modifier               ctrl
-yabai -m config mouse_action1                move
-yabai -m config mouse_action2                resize
-yabai -m config window_animation_duration    0.1
+yabai -m config \
+  mouse_follows_focus                 off \
+  focus_follows_mouse          off \
+  window_placement             second_child \
+  window_topmost               off \
+  window_shadow                on \
+  window_opacity               on \
+  window_opacity_duration		   0.0 \
+  active_window_opacity        1.0 \
+  normal_window_opacity        0.95 \
+  window_border                on \
+  window_border_width          2 \
+  active_window_border_color   0xfff38ba8 \
+  normal_window_border_color   0xff555555 \
+  insert_feedback_color        0xffd75f5f \
+  split_ratio                  0.50 \
+  auto_balance                 off \
+  mouse_modifier               ctrl \
+  mouse_action1                move \
+  mouse_action2                resize \
+  # window_animation_duration    0.1 \
+  layout                       bsp \
+  top_padding                  12 \
+  bottom_padding               12 \
+  left_padding                 12 \
+  right_padding                12 \
+  window_gap                   12
 
 # app ignores
-yabai -m rule --add app="^Contexts$" manage=off
-yabai -m rule --add app="^System Information$" manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="Preferences$" manage=off
-yabai -m rule --add app="^Activity Monitor" manage=off
-yabai -m rule --add app="^Quicken" manage=off
-yabai -m rule --add app="^Stickies" manage=off
-yabai -m rule --add title="Preferences$" manage=off
-yabai -m rule --add title="^Tyme" manage=off
-yabai -m rule --add title="^Hammerspoon" manage=off
-yabai -m rule --add title="^Wally" manage=off
-yabai -m rule --add title="^Options" manage=off
-yabai -m rule --add title="^Settings$" manage=off
-yabai -m rule --add title="Tabs Outliner" manage=off
-yabai -m rule --add title="Tabli" manage=off
-yabai -m rule --add title="FloatShell" manage=off layer=above
+yabai -m rule --add app="^System Information$"  manage=off
+yabai -m rule --add app="^System Preferences$"  manage=off
+yabai -m rule --add app="^System Settings$"     manage=off
+yabai -m rule --add app="Preferences$"          manage=off
+yabai -m rule --add app="^Activity Monitor"     manage=off
+yabai -m rule --add title="Preferences$"        manage=off
+yabai -m rule --add title="^Hammerspoon"        manage=off
+yabai -m rule --add title="^Wally"              manage=off
+yabai -m rule --add title="^Options"            manage=off
+yabai -m rule --add title="^Settings$"          manage=off
+yabai -m rule --add title="^Bookmark saved$"    manage=off # disable Raindrop popup in Sarafi
+yabai -m rule --add title="FloatShell"          manage=off layer=above
+yabai -m rule --add title="-lmf$"               manage=off
+
 
 # app special handlers
-yabai -m rule --add title="Picture in Picture" manage=off
-
-# general space settings
-yabai -m config layout                       bsp
-yabai -m config top_padding                  12
-yabai -m config bottom_padding               12
-yabai -m config left_padding                 12
-yabai -m config right_padding                12
-yabai -m config window_gap                   12 
+yabai -m rule --add title="Picture in Picture"  manage=off
 
 # events
 # Contexts' sidebar and the Teams notification process seem to jump to the top of the list when their
@@ -78,8 +56,10 @@ yabai -m config window_gap                   12
 # focus window after active space changes
 # yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq '. | map(select(.title != \"Sidebar\" and .title != \"Microsoft Teams Notification\")) | .[0].id' )"
 
+# this makes non-resizable windows float by default.
+yabai -m signal --add event=window_created action="yabai -m query --windows --window $YABAI_WINDOW_ID | /usr/local/bin/jq -er '.\"can-resize\" or .\"is-floating\"' || yabai -m window $YABAI_WINDOW_ID --toggle float"
+
 # focus window after active display changes
 # yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq '. | map(select(.title != \"Sidebar\" and .title != \"Microsoft Teams Notification\")) | .[0].id' )"
-
 
 echo "yabai configuration loaded.."

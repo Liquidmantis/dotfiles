@@ -88,6 +88,7 @@
         "/Users/liquid/.local/share/nvim/site/pack/packer/start/Comment.nvim/after",
         "/Users/liquid/.local/share/nvim/site/pack/packer/start/playground/after",
         "/Users/liquid/.config/nvim/after",
-        "${3rd}/lfs/library"
+        "${3rd}/lfs/library",
+        "${3rd}/luassert/library"
     ]
 }

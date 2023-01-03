@@ -12,7 +12,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias edit='nvim'
 alias pp='pwsh-preview -nologo'
-alias ps='pwsh -nologo'
+alias psh='pwsh -nologo'
 
 # terraform aliases
 alias tf='terraform'

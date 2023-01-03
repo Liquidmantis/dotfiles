@@ -1,73 +1,71 @@
-return require('packer').startup(function(use)
-  -- Packer plugin manager self manages
-  use 'wbthomason/packer.nvim'
-
+return {
   -- Extra movements and objects
-  use 'chaoren/vim-wordmotion'          -- adds CamelCase wordmotions
-  use 'numToStr/Comment.nvim'           -- comment toggling 
-  use 'tpope/vim-surround'
-  use 'tpope/vim-repeat'
-  use 'ggandor/leap.nvim'
-  use 'ggandor/flit.nvim'
+    'chaoren/vim-wordmotion',          -- adds CamelCase wordmotions
+    'numToStr/Comment.nvim',           -- comment toggling 
+    'tpope/vim-surround',
+    'tpope/vim-repeat',
+    'ggandor/leap.nvim',
+    'ggandor/flit.nvim',
 
   -- Testing/Learning plugins
-  use 'sindrets/diffview.nvim'
-  use { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
-  -- use 'akinsho/nvim-toggleterm.lua'
+    'sindrets/diffview.nvim',
+  --   { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
+
+  --  UI add-ons
+    'stevearc/dressing.nvim',
+    'MunifTanjim/nui.nvim',            -- UI components
+    'rcarriga/nvim-notify',            -- Notifications UI 
 
   -- Vim features add-ons
-  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
-  use 'stevearc/dressing.nvim'          -- UI improvements
-  use 'MunifTanjim/nui.nvim'            -- UI components
-  use 'rcarriga/nvim-notify'            -- Notifications UI 
-  use 'norcalli/nvim-colorizer.lua'     -- highlight color references with the color
-  use 'nyngwang/murmur.lua'             -- cursor word highlighting
-  -- use 'glacambre/firenvim'              -- FireNvim browser add-on
-  use 'kyazdani42/nvim-tree.lua'        -- file explorer
-  -- use 'nvim-neo-tree/neo-tree.nvim'
-  use 'kyazdani42/nvim-web-devicons'
-  -- use 'renerocksai/telekasten.nvim'
-  -- use 'renerocksai/calendar-vim'
-  use 'christoomey/vim-tmux-navigator'
-  use 'jremmen/vim-ripgrep'
-  use 'mickael-menu/zk-nvim'
-  use 'sunjon/Shade.nvim'
-  use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-  use 'junegunn/fzf.vim'                -- support for fzf
-  use 'junegunn/gv.vim'                 -- git commit browser
-  use 'mbbill/undotree'                 -- the awesome undo history explorer
-  use 'nvim-lualine/lualine.nvim'       -- statusbar
-  -- use 'vim-utils/vim-man'
-  use 'szw/vim-maximizer'               -- zoom/maximize current pane
-  use 'famiu/bufdelete.nvim'            -- close buffer without messing up windows
-  use 'gorbit99/codewindow.nvim'        -- minimap
-  use 'pocco81/true-zen.nvim'
-  use 'folke/trouble.nvim'
-  use 'folke/twilight.nvim'             -- highlight focused code blocks
-  use 'folke/todo-comments.nvim'
-  use 'lukas-reineke/indent-blankline.nvim'
-  use 'ThePrimeagen/harpoon'
-  use 'AckslD/nvim-neoclip.lua'
+    {'kevinhwang91/nvim-bqf', ft = 'qf'},  -- better quickfix
+    'NvChad/nvim-colorizer.lua',       -- highlight color references with the color
+    'nyngwang/murmur.lua',             -- cursor word highlighting
+    'kyazdani42/nvim-tree.lua',        -- file explorer
+    'kyazdani42/nvim-web-devicons',
+    'christoomey/vim-tmux-navigator',
+    'jremmen/vim-ripgrep',
+    'mickael-menu/zk-nvim',
+    'sunjon/Shade.nvim',
+    'junegunn/fzf',
+    'junegunn/fzf.vim',                -- support for fzf
+    'junegunn/gv.vim',                 -- git commit browser
+    'mbbill/undotree',                 -- the awesome undo history explorer
+    'nvim-lualine/lualine.nvim',       -- statusbar
+  --   'vim-utils/vim-man',
+    'szw/vim-maximizer',               -- zoom/maximize current pane
+    'famiu/bufdelete.nvim',            -- close buffer without messing up windows
+    'gorbit99/codewindow.nvim',        -- minimap
+    'pocco81/true-zen.nvim',
+    'folke/trouble.nvim',
+    'folke/twilight.nvim',             -- highlight focused code blocks
+    'folke/todo-comments.nvim',
+    'lukas-reineke/indent-blankline.nvim',
+    'ThePrimeagen/harpoon',
+    'AckslD/nvim-neoclip.lua',
 
   -- Telescope, prereqs, and extensions
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'axieax/urlview.nvim'             -- sophisticated picker for links in page
-  use 'nvim-neorg/neorg-telescope'
+    'nvim-lua/popup.nvim',
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
+    { 'nvim-telescope/telescope-fzf-native.nvim', dependencies = {
+      'junegunn/fzf',
+      'junegunn/fzf.vim',
+    }, build = 'make' },
+    'axieax/urlview.nvim',             -- sophisticated picker for links in page
+    'nvim-neorg/neorg-telescope',
 
   -- Language add-ons
-  -- use 'fatih/vim-go'
-  use 'ray-x/go.nvim'
-  use 'PProvost/vim-ps1'
-  use 'JayDoubleu/vim-pwsh-formatter'
-  use 'hashivim/vim-terraform'
-  use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
-  use 'neovim/nvim-lspconfig'
-  use { 'hrsh7th/nvim-cmp',
-    requires = {
+    'ray-x/go.nvim',
+    'PProvost/vim-ps1',
+    'JayDoubleu/vim-pwsh-formatter',
+    'hashivim/vim-terraform',
+    'L3MON4D3/LuaSnip',
+    'rafamadriz/friendly-snippets',
+    'williamboman/mason.nvim',
+    'j-hui/fidget.nvim',
+    'neovim/nvim-lspconfig',
+    { 'hrsh7th/nvim-cmp',
+    dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lsp',
@@ -75,27 +73,26 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-path',
       'saadparwaiz1/cmp_luasnip',
-      'onsails/lspkind.nvim'
+      'onsails/lspkind.nvim',
     },
-  }
-  use 'glepnir/lspsaga.nvim'
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use 'nvim-treesitter/playground'
-  use 'folke/neodev.nvim'
-  use 'lepture/vim-jinja'
-  use 'ckipp01/stylua-nvim'
+  },
+    'glepnir/lspsaga.nvim',
+    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+    'nvim-treesitter/playground',
+    'folke/neodev.nvim',
+    'lepture/vim-jinja',
+    'ckipp01/stylua-nvim',
 
   -- Git utilities
-  use 'rhysd/git-messenger.vim'
-  use 'tpope/vim-fugitive'
-  use 'lewis6991/gitsigns.nvim'
-  -- use 'airblade/vim-rooter' -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
-  use { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end }
-  require('telescope').load_extension('projects')
+    -- 'rhysd/git-messenger.vim',
+    'tpope/vim-fugitive',
+    'lewis6991/gitsigns.nvim',
+  --   'airblade/vim-rooter', -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
+    { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end },
 
   -- -- Themes
-  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
-  use 'sainnhe/everforest'
-  use { "catppuccin/nvim", as = "catppuccin" }
+    {'npxbr/gruvbox.nvim', dependencies = {'rktjmp/lush.nvim'}},
+    'sainnhe/everforest',
+    { "catppuccin/nvim", name = "catppuccin" }
 
-end)
+}

@@ -42,13 +42,13 @@ end)
 commands.add("ZkMeetingAkvelon", function()
   zk.new({ group = "meeting-akvelon",
            dir = "meeting",
-           title = "Akvelon Meeting {{date now}}"
+           title = "Akvelon Meeting {{format-date now}}"
          })
 end)
 
 commands.add("ZkMeetingMacCloud", function()
   zk.new({ group = "meeting-maccloud",
            dir = "meeting",
-           title = "MacCloud Meeting {{date now}}"
+           title = "MacCloud Meeting {{format-date now}}"
          })
 end)

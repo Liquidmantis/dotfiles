@@ -23,14 +23,14 @@ vim.o.colorcolumn = '80'                       -- set EOL indicator
 vim.o.signcolumn = 'yes'                       -- make gutter persistent
 vim.o.showmode = false                         -- mode display now on status line
 
-vim.o.tabstop = 2 
+vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.smartindent = true
 
 vim.o.foldmethod = 'expr'
-vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 9
 -- vim.o.showmatch = true                     -- flash matching brackets
 vim.o.hidden = true                           -- allow backgrounding unsaved buffers
