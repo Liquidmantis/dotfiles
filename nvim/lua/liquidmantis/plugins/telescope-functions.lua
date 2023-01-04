@@ -1,6 +1,6 @@
-local my = {}
+local M = {}
 
-function my.grep_notes()
+M.grep_notes = function()
   require('telescope.builtin').live_grep {
     search_dirs = {'~/notes/'},
     prompt_prefix = 'Grep notes: ',
@@ -8,22 +8,17 @@ function my.grep_notes()
   }
 end
 
-function my.find_notes()
+M.find_notes = function()
   require('telescope.builtin').file_browser {
     prompt_title = 'Search notes',
     prompt_prefix = '?: ',
     path_display = {'tail'},
     cwd = '~/notes/',
-
-    -- layout_strategy = 'horizontal',
-      -- layout_config = {
-        -- width = 0.5,
-      -- preview_width = 0.65,
-      -- }
   }
 end
 
-function my.search_in_buffer()
+M.search_in_buffer = function()
+  
   local opt = require('telescope.themes').get_ivy({
     sorting_strategy = "ascending",
     prompt_position = "top",
@@ -32,6 +27,4 @@ function my.search_in_buffer()
   require('telescope.builtin').current_buffer_fuzzy_find(opt)
 end
 
-return my
-
-
+return M

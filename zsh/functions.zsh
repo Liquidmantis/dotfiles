@@ -39,7 +39,7 @@ function daily-note() {
 }
 
 function mk-and-cd() {
-  mkdir $1
+  mkdir -p $1
   cd $1
 }
 alias mc="mk-and-cd"

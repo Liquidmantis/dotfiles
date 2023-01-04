@@ -89,9 +89,9 @@ nnoremap( '<leader>zl', ':ZkLinks<CR>' )
 nnoremap( '<leader>zn', ':ZkNotes<CR>' )
 nnoremap( '<leader>zr', ':ZkRecents<CR>' )
 nnoremap( '<leader>zt', ':ZkTags<CR>' )
-nnoremap( '<leader>zcn', ":ZkNew { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>" )
-nnoremap( '<leader>zct', ":ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>" )
-nnoremap( '<leader>zcc', ":ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h') }<CR>" )
+nnoremap( '<leader>zcn', ':LmNewNote<CR>' )
+vnoremap( '<leader>zct', ':ZkNewFromTitleSelection<CR>' )
+vnoremap( '<leader>zcc', ':ZkNewFromContentSelection { title = vim.fn.input("Title:") }<CR>' )
 
 -- window movement commands
 tnoremap( '<C-h>',  '<C-\\><C-n>:wincmd h<CR>' )
