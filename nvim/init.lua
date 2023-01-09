@@ -11,6 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+--  pulled out here because it needs to be set before lazy loads
 vim.g.mapleader = " "
 
 require('lazy').setup('liquidmantis.core.plugins', {
