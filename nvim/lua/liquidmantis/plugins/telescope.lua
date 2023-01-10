@@ -17,6 +17,11 @@ telescope.setup({
       '--smart-case'
     },
   },
+  extensions = {
+    frecency = {
+      default_workspace = 'CWD',
+    }
+  },
   pickers = {
     buffers = {
       mappings = {
@@ -35,9 +40,13 @@ telescope.setup({
         },
       },
     },
+    oldfiles = {
+      only_cwd = true,
+    },
   },
 })
 
+require('telescope').load_extension('frecency')
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('notify')
 require('telescope').load_extension('projects')
