@@ -13,7 +13,7 @@ yabai -m config \
   window_opacity_duration		   0.0 \
   active_window_opacity        1.0 \
   normal_window_opacity        0.95 \
-  window_border                on \
+  window_border                off \
   window_border_width          2 \
   active_window_border_color   0xfff38ba8 \
   normal_window_border_color   0xff555555 \
@@ -29,7 +29,7 @@ yabai -m config \
   left_padding                 12 \
   right_padding                12 \
   window_gap                   12
-  # window_animation_duration    0.1 \
+  window_animation_duration    0.1 \
 
 # app ignores
 yabai -m rule --add app="^System Information$"  manage=off
