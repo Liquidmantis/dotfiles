@@ -5,10 +5,6 @@ if not installed then
 end
 
 telescope.setup({
-  extensions = {
-    fzf = {
-    }
-  },
   defaults = {
     vimgrep_arguments = {
       'rg',
@@ -20,16 +16,28 @@ telescope.setup({
       '--column',
       '--smart-case'
     },
-    mappings = {
-      n = {
-        ['<C-S-d>'] = require('telescope.actions').delete_buffer
+  },
+  pickers = {
+    buffers = {
+      mappings = {
+        n = {
+          ['<C-S-d>'] = require('telescope.actions').delete_buffer
+        },
+        i = {
+          ['<C-S-d>'] = require('telescope.actions').delete_buffer
+        }
       },
-      i = {
-        ['<C-S-d>'] = require('telescope.actions').delete_buffer
-      }
+    },
+    live_grep = {
+      mappings = {
+        i = {
+          ['<C-f>'] = require('telescope.actions').to_fuzzy_refine
+        },
+      },
     },
   },
 })
+
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('notify')
 require('telescope').load_extension('projects')
