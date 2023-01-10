@@ -45,6 +45,8 @@ alias gap='git add --patch'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gca='git commit -am'
+alias gcam='git commit --amend'
+alias gcan='git commit --amend --no-edit'
 
 alias gs='git switch'
 alias gsc='git switch -c'
