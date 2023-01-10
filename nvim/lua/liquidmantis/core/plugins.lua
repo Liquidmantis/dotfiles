@@ -48,6 +48,8 @@ return {
     'nvim-lua/popup.nvim',
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',
+    { 'nvim-telescope/telescope-frecency.nvim', dependencies = {
+      'kkharji/sqlite.lua' }},
     { 'nvim-telescope/telescope-fzf-native.nvim', dependencies = {
       'junegunn/fzf',
       'junegunn/fzf.vim',
