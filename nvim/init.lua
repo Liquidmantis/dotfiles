@@ -26,6 +26,7 @@ require('liquidmantis.core.globals')
 
 require('liquidmantis.core.theme')
 
+require('liquidmantis.plugins.aerial')
 require('liquidmantis.plugins.cmp')
 require('liquidmantis.plugins.codewindow')
 require('liquidmantis.plugins.colorizer')

@@ -12,6 +12,7 @@ return {
   --   { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
 
   --  UI add-ons
+    'stevearc/aerial.nvim',
     'stevearc/dressing.nvim',
     'MunifTanjim/nui.nvim',            -- UI components
     'rcarriga/nvim-notify',            -- Notifications UI 

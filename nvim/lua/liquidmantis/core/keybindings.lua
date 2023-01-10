@@ -151,6 +151,7 @@ nnoremap( '<localleader>cp', ':cprev<CR>'  )
 nnoremap( '<localleader>cf', ':cfdo '      )
 
 -- view toggles
+nnoremap( '<localleader>ta', ':AerialToggle<CR>' )
 nnoremap( '<localleader>tc', ':ColorizerToggle<CR>' )
 nnoremap( '<localleader>ti', ':IndentBlanklineToggle<CR>' )
 nnoremap( '<localleader>tt', ':set relativenumber!<CR>'   )
