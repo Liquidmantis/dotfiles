@@ -53,15 +53,13 @@ hyper:bind('alt', 'z', function()
 end)
 
 hyper:bind('', 'return', function()
-	yabaiMsg( 'space', 'focus 1' )
-	hs.application.launchOrFocus('kitty')
-	exitHyper()
+  exitHyper()
+  hs.application.open( 'kitty' )
 end)
 
--- Trigger KeyMou
-hyper:bind('', 'm', function()
-	hs.eventtap.keyStroke({'shift', 'ctrl'}, 'tab')
-	exitHyper()
+hyper:bind('', '.', function()
+  exitHyper()
+  hs.application.open( 'finder' )
 end)
 
 function MoveCurrentWindowToDisplay(display)

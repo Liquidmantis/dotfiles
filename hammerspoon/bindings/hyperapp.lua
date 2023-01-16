@@ -3,6 +3,7 @@
 -- ****************************************
 
 hyperApp:bind('', 'escape', exitHyperApp)
+ 
 hyperApp:bind('', 'r', function()
 	exitHyperApp() -- not strictly needed since HS is reloading
 	hs.reload()
@@ -21,11 +22,4 @@ end)
 hyperApp:bind('', 'm', function()
 	exitHyperApp()
 	hs.eventtap.keyStroke('ctrl', 'F2') -- toggle menu bar
-end)
-
-hyperApp:bind('', '.', function()
-  exitHyperApp()
-  print( "shof kitty" )
-  local app = hs.application.find( 'kitty' )
-  app:activate()
 end)
