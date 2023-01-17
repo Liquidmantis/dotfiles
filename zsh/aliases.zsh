@@ -83,7 +83,7 @@ alias sof='source ~/.config/zsh/functions.zsh'
 alias soz='source ~/.zshrc'
 
 # command aliases
-alias brewup='brew update; brew upgrade --fetch-HEAD; brew upgrade --cask; brew cleanup'
+alias brewup='brew update; brew upgrade --fetch-HEAD; brew upgrade --cask; brew cleanup; brew autoremove'
 alias yabres='brew services stop yabai && brew services start yabai'
 alias yabup='brew services stop yabai; codesign -fs 'yabai-cert' $(which yabai); brew services start yabai; sudo yabai --load-sa'
 alias gsubup='git submodule update --recursive --remote'
