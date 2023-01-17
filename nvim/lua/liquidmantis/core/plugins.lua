@@ -1,7 +1,7 @@
 return {
   -- Extra movements and objects
-    'chaoren/vim-wordmotion',          -- adds CamelCase wordmotions
-    'numToStr/Comment.nvim',           -- comment toggling 
+    'chaoren/vim-wordmotion',            -- adds CamelCase wordmotions
+    'numToStr/Comment.nvim',             -- comment toggling 
     'tpope/vim-surround',
     'tpope/vim-repeat',
     'ggandor/leap.nvim',
@@ -14,31 +14,32 @@ return {
   --  UI add-ons
     'stevearc/aerial.nvim',
     'stevearc/dressing.nvim',
-    'MunifTanjim/nui.nvim',            -- UI components
-    'rcarriga/nvim-notify',            -- Notifications UI 
+    'MunifTanjim/nui.nvim',             -- UI components
+    'rcarriga/nvim-notify',             -- Notifications UI 
 
   -- Vim features add-ons
-    {'kevinhwang91/nvim-bqf', ft = 'qf'},  -- better quickfix
-    'NvChad/nvim-colorizer.lua',       -- highlight color references with the color
-    'nyngwang/murmur.lua',             -- cursor word highlighting
-    'kyazdani42/nvim-tree.lua',        -- file explorer
+    {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
+    'NvChad/nvim-colorizer.lua',        -- highlight color references with the color
+    'nyngwang/murmur.lua',              -- cursor word highlighting
+    'kyazdani42/nvim-tree.lua',         -- file explorer
     'kyazdani42/nvim-web-devicons',
     'christoomey/vim-tmux-navigator',
+    'mattdibi/incolla.nvim',            -- paste images into markdown
     'jremmen/vim-ripgrep',
     'mickael-menu/zk-nvim',
     'sunjon/Shade.nvim',
     'junegunn/fzf',
-    'junegunn/fzf.vim',                -- support for fzf
-    'junegunn/gv.vim',                 -- git commit browser
-    'mbbill/undotree',                 -- the awesome undo history explorer
-    'nvim-lualine/lualine.nvim',       -- statusbar
+    'junegunn/fzf.vim',                 -- support for fzf
+    'junegunn/gv.vim',                  -- git commit browser
+    'mbbill/undotree',                  -- the awesome undo history explorer
+    'nvim-lualine/lualine.nvim',        -- statusbar
   --   'vim-utils/vim-man',
-    'szw/vim-maximizer',               -- zoom/maximize current pane
-    'famiu/bufdelete.nvim',            -- close buffer without messing up windows
-    'gorbit99/codewindow.nvim',        -- minimap
+    'szw/vim-maximizer',                -- zoom/maximize current pane
+    'famiu/bufdelete.nvim',             -- close buffer without messing up windows
+    'gorbit99/codewindow.nvim',         -- minimap
     'pocco81/true-zen.nvim',
     'folke/trouble.nvim',
-    'folke/twilight.nvim',             -- highlight focused code blocks
+    'folke/twilight.nvim',              -- highlight focused code blocks
     'folke/todo-comments.nvim',
     'lukas-reineke/indent-blankline.nvim',
     'ThePrimeagen/harpoon',
