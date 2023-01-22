@@ -8,6 +8,7 @@ require('mason').setup()
 
 lspconfig.html.setup {}
 lspconfig.cssls.setup{}
+lspconfig.asm_lsp.setup{}
 
 -- Terraform
 lspconfig.terraformls.setup{
