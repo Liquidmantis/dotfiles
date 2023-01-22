@@ -9,7 +9,7 @@ M.grep_notes = function()
 end
 
 M.find_notes = function()
-  require('telescope.builtin').file_browser {
+  require('telescope.builtin').find_files {
     prompt_title = 'Search notes',
     prompt_prefix = '?: ',
     path_display = {'tail'},
