@@ -4,7 +4,7 @@ sudo yabai --load-sa
 
 # global settings
 yabai -m config \
-  mouse_follows_focus                 off \
+  mouse_follows_focus          off \
   focus_follows_mouse          off \
   window_placement             second_child \
   window_topmost               off \
@@ -28,7 +28,7 @@ yabai -m config \
   bottom_padding               12 \
   left_padding                 12 \
   right_padding                12 \
-  window_gap                   12
+  window_gap                   12 \
   window_animation_duration    0.1 \
 
 # app ignores
@@ -45,6 +45,7 @@ yabai -m rule --add title="^Settings$"          manage=off
 yabai -m rule --add title="^Bookmark saved$"    manage=off # disable Raindrop popup in Sarafi
 yabai -m rule --add title="FloatShell"          manage=off layer=above
 yabai -m rule --add title="-lmf$"               manage=off
+yabai -m rule --add title="(DEBUG)"             manage=off
 
 
 # app special handlers
