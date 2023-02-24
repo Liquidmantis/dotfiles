@@ -63,6 +63,7 @@ alias ghmci='gh issue view --repo github/maccloud '
 # dotfile edit aliases
 alias via='edit ~/.config/alacritty/alacritty.yml'
 alias vial='edit ~/.config/zsh/aliases.zsh'
+alias vid='edit $(daily-note)'
 alias vif='edit ~/.config/zsh/functions.zsh'
 alias vih='edit ~/.hammerspoon/init.lua'
 alias vik='edit ~/.config/kitty/kitty.conf'

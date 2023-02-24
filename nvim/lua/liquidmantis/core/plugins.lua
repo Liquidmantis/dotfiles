@@ -87,6 +87,8 @@ return {
     'lepture/vim-jinja',
     'ckipp01/stylua-nvim',
 
+    'habamax/vim-godot',
+
   -- Git utilities
     -- 'rhysd/git-messenger.vim',
     'tpope/vim-fugitive',

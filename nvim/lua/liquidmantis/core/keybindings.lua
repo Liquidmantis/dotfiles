@@ -191,6 +191,7 @@ nnoremap( '<leader>fm', ':Telescope marks<CR>' )
 nnoremap( '<leader>fk', ':Telescope keymaps<CR>' )
 nnoremap( '<leader>fr', ':Telescope registers<CR>' )
 nnoremap( '<leader>fo', ':Telescope oldfiles<CR>' )
+nnoremap( '<leader>ft', ':TodoTelescope<CR>' )
 -- Telescope git
 nnoremap( '<leader>fgc', ':Telescope git_commits<CR>' )
 nnoremap( '<leader>fgb', ':Telescope git_branches<CR>' )

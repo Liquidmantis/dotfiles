@@ -30,8 +30,7 @@ function daily-note() {
   timestamp=$(date +"%Y-%m-%d")
   yesterday=$(date -v-1d +"%Y-%m-%d")
   tomorrow=$(date -v+1d +"%Y-%m-%d")
-  zk new \
-    --group=daily \
+  zk new daily \
     --extra=yesterday=$yesterday,tomorrow=$tomorrow \
     --no-input \
     --print-path
