@@ -50,6 +50,7 @@ alias gcan='git commit --amend --no-edit'
 
 alias gs='git switch'
 alias gsc='git switch -c'
+alias gsm='git switch main'
 alias gl='git log --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%C(auto)%d %Creset%s" --date=short --graph --decorate'
 alias gp='git push'
 alias gpl='git pull'
