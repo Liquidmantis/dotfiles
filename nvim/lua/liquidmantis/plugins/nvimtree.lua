@@ -29,11 +29,6 @@ nvimtree.setup({
     number = true,
     relativenumber = true,
     signcolumn = "yes",
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-      },
-    },
   },
 
   diagnostics = {
