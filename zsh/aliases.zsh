@@ -58,8 +58,8 @@ alias gst='git status'
 
 # gh cli aliases
 alias ghcs='gh cs ssh'
-alias ghmcmi='gh issue list --repo github/maccloud --assignee "@me"'
-alias ghmci='gh issue view --repo github/maccloud '
+alias ghmcim='gh issue list --repo github/maccloud --assignee "@me"'
+alias ghmci='gh issue list --repo github/maccloud '
  
 # dotfile edit aliases
 alias via='edit ~/.config/alacritty/alacritty.yml'
@@ -86,8 +86,8 @@ alias soz='source ~/.zshrc'
 
 # command aliases
 alias brewup='brew update; brew upgrade --fetch-HEAD; brew upgrade --cask; brew cleanup; brew autoremove'
-alias yabres='brew services stop yabai && brew services start yabai'
-alias yabup='brew services stop yabai; codesign -fs 'yabai-cert' $(which yabai); brew services start yabai; sudo yabai --load-sa'
+alias yabres='yabai --stop-service && yabai --start-service'
+alias yabup='yabai --stop-service; yabai --uninstall-service; codesign -fs 'yabai-cert' $(which yabai); yabai --install-service; yabai --start-service; sudo yabai --load-sa'
 alias gsubup='git submodule update --recursive --remote'
 alias vimup='nvim -c PackerSync'
 
