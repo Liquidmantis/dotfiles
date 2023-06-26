@@ -41,3 +41,39 @@ function mkdir-and-cd() {
   mkdir -p $1
   cd $1
 }
+
+function git-switch-search() {
+  case $1 in
+    "all")
+      git switch "$(git branch --all | fzf | tr -d '[:space:]')"
+      return
+      ;;
+    *)
+      git switch "$(git branch | fzf | tr -d '[:space:]')"
+      return
+  esac
+}
+
+function git-delete-merged() {
+  case $1 in
+    "remote")
+      git branch --remote --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -dr
+      return
+      ;;
+    *)
+      git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d
+      return
+  esac
+}
+
+function git-delete-orphans() {
+  case $1 in
+    "list-only")
+      git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}'
+      return
+      ;;
+    *)
+      git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
+      return
+  esac
+}
