@@ -47,8 +47,10 @@ alias gcm='git commit -m'
 alias gca='git commit -am'
 alias gcam='git commit --amend'
 alias gcan='git commit --amend --no-edit'
+alias gcd='cd $(git rev-parse --show-toplevel)'
 
-alias gs='git switch'
+# alias gs='git switch'
+alias gs='git-switch-search'
 alias gsc='git switch -c'
 alias gsm='git switch main'
 alias gl='git log --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%C(auto)%d %Creset%s" --date=short --graph --decorate'
@@ -90,5 +92,6 @@ alias yabres='yabai --stop-service && yabai --start-service'
 alias yabup='yabai --stop-service; yabai --uninstall-service; codesign -fs 'yabai-cert' $(which yabai); yabai --install-service; yabai --start-service; sudo yabai --load-sa'
 alias gsubup='git submodule update --recursive --remote'
 alias vimup='nvim -c PackerSync'
+alias mc='mkdir-and-cd'
 
 # any aliases below here were added via echo append and need sorting

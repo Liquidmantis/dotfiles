@@ -1,11 +1,11 @@
 # make space autoexpand aliases
 # maybe consider https://github.com/simnalamburt/zsh-expand-all
-function expand-alias() {
-	zle _expand_alias
-	zle self-insert
-}
-zle -N expand-alias
-bindkey -M main ' ' expand-alias
+# function expand-alias() {
+# 	zle _expand_alias
+# 	zle self-insert
+# }
+# zle -N expand-alias
+# bindkey -M main ' ' expand-alias
 
 function notes() {
   pushd ~/notes > /dev/null
@@ -37,8 +37,7 @@ function daily-note() {
   popd > /dev/null
 }
 
-function mk-and-cd() {
+function mkdir-and-cd() {
   mkdir -p $1
   cd $1
 }
-alias mc="mk-and-cd"

@@ -40,12 +40,14 @@ source ~/.config/zsh/functions.zsh
 # https://thevaluable.dev/zsh-completion-guide-examples/
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 autoload -Uz compinit && compinit -i
+
 # az-cli uses bash completion, this loads it in zsh
 autoload -U +X bashcompinit && bashcompinit
 source $brewetc/bash_completion.d/az
+
 # add tab expansion of aliases
-zstyle ':completion:*' completer _expand_alias _complete _ignored
-zstyle ':completion:*' regular true
+# zstyle ':completion:*' completer _complete _ignored z
+# zstyle ':completion:*' regular true
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
@@ -66,3 +68,4 @@ eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/opt/homebrew/sbin:$PATH"
+source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
