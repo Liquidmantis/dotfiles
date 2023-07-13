@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
 sudo yabai --load-sa
-jqPath="/homebrew/bin/jq"
+jqPath="/opt/homebrew/bin/jq"
 
 # global settings
 yabai -m config \
