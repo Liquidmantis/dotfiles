@@ -7,6 +7,10 @@
 # zle -N expand-alias
 # bindkey -M main ' ' expand-alias
 
+function search-abbreviations() {
+  $(abbr | fzf | awk '{split($0,a,"\""); print a[4]}')
+}
+
 function notes() {
   pushd ~/notes > /dev/null
   vi index.md 
@@ -42,14 +46,19 @@ function mkdir-and-cd() {
   cd $1
 }
 
+function git-log() {
+git log --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph --decorate $2
+}
+
 function git-switch-search() {
   case $1 in
     "all")
-      git switch "$(git branch --all | fzf | tr -d '[:space:]')"
+      git switch "$(git branch --all | egrep -v "(dependabot)" | fzf | tr -d '[:space:]')"
       return
       ;;
     *)
-      git switch "$(git branch | fzf | tr -d '[:space:]')"
+      git switch "$(git branch | fzf --ansi --preview \
+        'git log --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph --decorate {1}' | tr -d '[:space:]')"
       return
   esac
 }
