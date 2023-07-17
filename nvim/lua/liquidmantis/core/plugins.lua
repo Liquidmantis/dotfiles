@@ -46,6 +46,13 @@ return {
     'ThePrimeagen/harpoon',
     'AckslD/nvim-neoclip.lua',
 
+  -- Debugging
+    'mfussenegger/nvim-dap',
+    'leoluz/nvim-dap-go', -- not needed with ray-x/go.nvim
+    'rcarriga/nvim-dap-ui',
+    'theHamsta/nvim-dap-virtual-text',
+    'nvim-telescope/telescope-dap.nvim',
+
   -- Telescope, prereqs, and extensions
     'nvim-lua/popup.nvim',
     'nvim-lua/plenary.nvim',

@@ -169,6 +169,21 @@ nnoremap( '<leader>u', ':UndotreeToggle<CR>')
 -- Treesitter Mappings
 nnoremap( '<leader>tp', ':TSPlaygroundToggle<CR>')
 
+-- Debugging mappings
+nnoremap( '<leader>dt', ':DapUiToggle<CR>')
+nnoremap( '<leader>dr', ':lua require("dapui").open({reset = true})<CR>')
+nnoremap( '<leader>db', ':lua require("dap").toggle_breakpoint()<CR>')
+nnoremap( '<leader>dB', ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
+nnoremap( '<leader>dfb', ':Telescope dap list_breakpoints<CR>')
+nnoremap( '<leader>dfc', ':Telescope dap commands<CR>')
+nnoremap( '<leader>dfv', ':Telescope dap variables<CR>')
+nnoremap( '<F9>', ':lua require("dap").toggle_breakpoint()<CR>')
+nnoremap( '<F5>', ':lua require("dap").continue()<CR>')
+nnoremap( '<F1>', ':lua require("dap").step_over()<CR>')
+nnoremap( '<F2>', ':lua require("dap").step_into()<CR>')
+nnoremap( '<F3>', ':lua require("dap").step_out()<CR>')
+
+
 -- Telescope mappings
 -- defaults: https://github.com/nvim-telescope/telescope.nvim/blob/618e0e6075b4215e43c6a848daa37ef4e354b5dc/lua/telescope/mappings.lua
 nnoremap( '<leader>ff', ':lua require("telescope.builtin").find_files({ hidden = true })<CR>' )

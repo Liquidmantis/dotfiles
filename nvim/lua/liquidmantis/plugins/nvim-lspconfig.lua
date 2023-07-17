@@ -37,7 +37,9 @@ lspconfig.gopls.setup {
       analyses = {
         unusedparams = true,
       },
+      completeUnimported = true,
       staticcheck = true,
+      usePlaceholders = true,
     },
   },
 }
