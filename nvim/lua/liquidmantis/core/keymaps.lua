@@ -19,11 +19,12 @@ local function tnoremap( lhs, rhs )
 end
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = "|"
 
 nnoremap( '<leader>viv', ':tabedit $MYVIMRC<CR>' )
 -- TODO. make this work with lua-based config
 nnoremap( '<leader>sov', ':source $MYVIMRC<CR> | echo "Reloaded neovim config."' )
+nnoremap( '<leader>sok', ':source %:p:h/lua/liquidmantis/core/keymaps.lua<CR> | vim.notify "Reloaded keymaps."' )
 -- quality of life mappings
 nnoremap( 'Y', 'y$'  ) -- make Y act like other capital, rest of line ops.
 nnoremap( 'n', 'nzz' ) -- find next and recenter
