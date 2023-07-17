@@ -47,6 +47,8 @@ remap('n', 'j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', eopts)
 -- move lines up and down
 vnoremap( 'J', ':m \'>+1<CR>gv=gv' )
 vnoremap( 'K', ':m \'<-2<CR>gv=gv' )
+-- the terminal catches alt keycodes, so these bindings use the resultant character
+-- in order to map the command
 inoremap( '∆', '<esc>:m .+1<CR>==i' )           -- map Alt-J to move line down
 inoremap( '˚', '<esc>:m .-2<CR>==i' )           -- map Alt-K to move line up
 nnoremap( '∆', ':m .+1<CR>=='  )                -- map Alt-J to move line down
@@ -180,7 +182,8 @@ nnoremap( '<leader>flS', ':Telescope lsp_workspace_symbols<CR>' )
 nnoremap( '<leader>fe', ':Telescope diagnostics bufnr=0<CR>' )
 nnoremap( '<leader>fE', ':Telescope diagnostics<CR>' )
 nnoremap( '<leader>ts', ':Telescope treesitter<CR>' )
-nnoremap( '<leader>fb', ':Telescope buffers<CR>' )
+nnoremap( '<leader>fbb', ':Telescope buffers<CR>' )
+nnoremap( '<leader>fbs', ':Telescope current_buffer_fuzzy_find<CR>' )
 nnoremap( '<leader>fu', ':UrlView<CR>' )
 nnoremap( '<leader>fqf', ':Telescope quickfix<CR>' )
 nnoremap( '<leader>fqh', ':Telescope quickfixhistory<CR>' )

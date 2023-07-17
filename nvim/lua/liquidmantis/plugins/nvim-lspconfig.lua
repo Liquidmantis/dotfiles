@@ -26,7 +26,7 @@ lspconfig.omnisharp.setup {
   cmd = { "/usr/local/bin/mono", "/usr/local/bin/omnisharp-manual/omnisharp/OmniSharp.exe", "--languageserver" },
 }
 
-lspconfig.golangci_lint_ls.setup{}
+-- lspconfig.golangci_lint_ls.setup{}
 
 lspconfig.gopls.setup {
   cmd = {"gopls", "serve"},

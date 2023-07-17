@@ -38,6 +38,7 @@ return {
     'famiu/bufdelete.nvim',             -- close buffer without messing up windows
     'gorbit99/codewindow.nvim',         -- minimap
     'pocco81/true-zen.nvim',
+    'folke/noice.nvim',
     'folke/trouble.nvim',
     'folke/twilight.nvim',              -- highlight focused code blocks
     'folke/todo-comments.nvim',

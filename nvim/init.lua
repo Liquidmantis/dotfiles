@@ -21,7 +21,7 @@ require('lazy').setup('liquidmantis.core.plugins', {
 
 require('liquidmantis.core.autocommands')
 require('liquidmantis.core.settings')
-require('liquidmantis.core.keybindings')
+require('liquidmantis.core.keymaps')
 require('liquidmantis.core.globals')
 
 require('liquidmantis.core.theme')
