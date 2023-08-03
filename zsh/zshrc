@@ -7,6 +7,7 @@ export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
 export PATH="$PATH:/Users/liquid/.cargo/bin" 
 export PATH="$PATH:$(go env GOPATH)/bin"
 export CPATH="/opt/homebrew/include"
+export GOBIN="$HOME/go/bin"
 export LIBRARY_PATH="/opt/homebrew/lib"
 export ZK_NOTEBOOK_DIR="$HOME/notes" # zk-nvim notebook root
 export EDITOR="nvim"
