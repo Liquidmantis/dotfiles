@@ -14,7 +14,7 @@ disabled = true
 
 [shell]
 powershell_indicator = "\uf489"
-zsh_indicator = "\uf5a6"
+zsh_indicator = "󰂧"
 fish_indicator = "\uf739"
 
 disabled = false
