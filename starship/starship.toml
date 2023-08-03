@@ -7,6 +7,9 @@ disabled = true
 [lua]
 disabled = true
 
+[battery]
+disabled = true
+
 [character]
 
 [shell]
