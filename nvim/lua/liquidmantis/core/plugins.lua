@@ -48,6 +48,7 @@ return {
 
   -- Debugging
     'mfussenegger/nvim-dap',
+    'mfussenegger/nvim-dap-python',
     'leoluz/nvim-dap-go', -- not needed with ray-x/go.nvim
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',

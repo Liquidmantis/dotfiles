@@ -173,6 +173,8 @@ nnoremap( '<leader>tp', ':TSPlaygroundToggle<CR>')
 -- Debugging mappings
 nnoremap( '<leader>dt', ':DapUiToggle<CR>')
 nnoremap( '<leader>dr', ':lua require("dapui").open({reset = true})<CR>')
+nnoremap( '<leader>djs', ':lua jump_to_element("dapui_scopes")<CR>')
+nnoremap( '<leader>djw', ':lua jump_to_element("dapui_watches")<CR>')
 nnoremap( '<leader>db', ':lua require("dap").toggle_breakpoint()<CR>')
 nnoremap( '<leader>dB', ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
 nnoremap( '<leader>dfb', ':Telescope dap list_breakpoints<CR>')
