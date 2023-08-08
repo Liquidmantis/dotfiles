@@ -69,10 +69,11 @@ nnoremap( '<leader>!',  ':wincmd |<CR>' )  -- make a window as large as possible
 nnoremap( '<leader>=',  ':wincmd =<CR>' )  -- rebalance windows
 nnoremap( '<leader>q',  ':q<CR>'        )  -- close window
 nnoremap( '<leader>-',  ':split<CR>'    )
-nnoremap( '<leader>\\', ':vsplit<CR>'   )
+nnoremap( '<leader>|', ':vsplit<CR>'   )
 nnoremap( '<leader>sh', ':split<CR>'    )
 nnoremap( '<leader>sv', ':vsplit<CR>'   )
-nnoremap( '<leader><leader>z', ':MaximizerToggle<CR>' )
+nnoremap( '<leader>wz', ':lua require("maximizer").toggle()<CR>' )
+nnoremap( '<C-W>z', ':lua require("maximizer").toggle()<CR>' )
 
 -- harpoon mappings
 nnoremap( '<leader>hh', ':lua require("harpoon.ui").toggle_quick_menu()<CR>' )
