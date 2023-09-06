@@ -17,6 +17,9 @@ return {
     'MunifTanjim/nui.nvim',             -- UI components
     'rcarriga/nvim-notify',             -- Notifications UI 
 
+  -- release the robots
+    'github/copilot.vim',
+
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
     'NvChad/nvim-colorizer.lua',        -- highlight color references with the color
