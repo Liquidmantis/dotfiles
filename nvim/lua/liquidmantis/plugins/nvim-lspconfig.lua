@@ -10,6 +10,9 @@ lspconfig.html.setup {}
 lspconfig.cssls.setup{}
 lspconfig.asm_lsp.setup{}
 
+-- Bash
+require'lspconfig'.bashls.setup{}
+
 -- Terraform
 lspconfig.terraformls.setup{
   cmd = { "terraform-ls", "serve" };
@@ -17,6 +20,9 @@ lspconfig.terraformls.setup{
 }
 
 lspconfig.clangd.setup{}
+
+-- Markdown
+require'lspconfig'.marksman.setup{}
 
 lspconfig.omnisharp.setup {
   on_attach = function(_, bufnr)
