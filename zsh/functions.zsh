@@ -55,9 +55,14 @@ function git-log-preview() {
 }
 
 function git-file-history() {
-  fzf --bind 'enter:abort' --ansi --preview \
+  fzf --bind 'enter:execute(echo {2})+abort' --ansi --preview \
     'git log --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph {1}'
 }
+
+function git-stash-preview() {
+git stash list | fzf --bind 'enter:abort' --ansi --preview 'awk "{print substr({1},8,1)}" | git stash show -- -p --color=always'
+}
+
 
 function git-switch-search() {
   case $1 in
