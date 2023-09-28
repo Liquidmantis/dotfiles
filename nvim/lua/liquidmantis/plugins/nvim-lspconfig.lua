@@ -40,31 +40,37 @@ lspconfig.gopls.setup {
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
+      experimentalPostfixCompletions = true,
       analyses = {
         unusedparams = true,
+        shadow = true,
       },
       completeUnimported = true,
       staticcheck = true,
       usePlaceholders = true,
     },
   },
+  init_options = {
+    usePlaceholders = true,
+  },
 }
 
 lspconfig.gdscript.setup{capabilities = capabilities}
 
-if not lspconfig.emmet_ls then
-  configs.emmet_ls = {
-    default_config = {
-      cmd = {'emmet-ls', '--stdio'};
-      filetypes = {'html', 'css', 'blade'};
-      -- root_dir = function(fname)    
-      --   return vim.loop.cwd()
-      -- end;    
-      settings = {};
-    };
-  }
-end
-lspconfig.emmet_ls.setup{ capabilities = capabilities; }
+-- require'lspconfig'.emmet_language_server.setup{}
+-- if not lspconfig.emmet_ls then
+--   configs.emmet_ls = {
+--     default_config = {
+--       cmd = {'emmet-ls', '--stdio'};
+--       filetypes = {'html', 'css', 'blade'};
+--       -- root_dir = function(fname)    
+--       --   return vim.loop.cwd()
+--       -- end;    
+--       settings = {};
+--     };
+--   }
+-- end
+-- lspconfig.emmet_ls.setup{ capabilities = capabilities; }
 
 -- Python
 lspconfig.pyright.setup{}
