@@ -28,12 +28,12 @@ fpath=($brewshare/zsh-completions $fpath)
 fpath=($brewshare/zsh/site-functions $fpath)
 
 # Prevent zsh-vi-mode.plugin from lazy-loading as it overwrites fzf's C-r binding
-ZVM_INIT_MODE=sourcing
+# ZVM_INIT_MODE=sourcing
 
 source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $brewshare/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source $brewshare/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/functions.zsh
 
