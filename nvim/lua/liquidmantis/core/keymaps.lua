@@ -56,6 +56,8 @@ nnoremap( '∆', ':m .+1<CR>=='  )                -- map Alt-J to move line down
 nnoremap( '˚', ':m .-2<CR>=='  )                -- map Alt-K to move line up
 
 -- buffer and tab commands
+nnoremap( '<leader>bb', ':Telescope buffers<CR>' )
+nnoremap( '<leader>bq', ':Bdelete<CR>' ) -- buffer close using BufDelete plugin
 nnoremap( '<tab>', ':buf #<CR>' ) -- flip to alternate file
 nnoremap( '<M-tab>', ':bn<CR>' )           -- buffer next
 nnoremap( '<M-S-tab>', ':bp<CR>' )         -- buffer prev
