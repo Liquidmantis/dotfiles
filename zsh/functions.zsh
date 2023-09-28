@@ -46,6 +46,10 @@ function mkdir-and-cd() {
   cd $1
 }
 
+function push-with-zoxide() {
+  pushd $(zoxide query $1)
+}
+
 function git-log() {
   git log --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph
 }
