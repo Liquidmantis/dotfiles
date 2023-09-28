@@ -8,6 +8,8 @@ nvimtree.setup({
   auto_reload_on_write = true,
   -- disable_netrw   = true,
   hijack_netrw    = true,
+  respect_buf_cwd = true,
+  sync_root_with_cwd = false,
 
   filters = {
     custom = { '.git', '.gitattributes', '.node_modules' }
