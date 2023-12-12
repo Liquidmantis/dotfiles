@@ -24,6 +24,9 @@ return {
     'kyazdani42/nvim-tree.lua',         -- file explorer
     'kyazdani42/nvim-web-devicons',
     'christoomey/vim-tmux-navigator',
+    -- 'github/copilot.vim',
+    'zbirenbaum/copilot.lua',
+    'zbirenbaum/copilot-cmp',
     'mattdibi/incolla.nvim',            -- paste images into markdown
     'jremmen/vim-ripgrep',
     'mickael-menu/zk-nvim',
