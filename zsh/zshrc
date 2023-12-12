@@ -12,6 +12,8 @@ export LIBRARY_PATH="/opt/homebrew/lib"
 export ZK_NOTEBOOK_DIR="$HOME/notes" # zk-nvim notebook root
 export EDITOR="nvim"
 export LANG="en_US.UTF-8"
+export PATH="$HOME/git-work/cloud-sre/bin:$PATH"
+source $HOME/git-work/terraform-aws-cloud-bastion/tools/infra_tools.sh
 
 brewprefix=$(brew --prefix)
 if [[ $(uname) == "Linux" ]] then
@@ -67,6 +69,7 @@ setopt cdablevars
 
 eval "$(zoxide init zsh)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 export PATH="/opt/homebrew/sbin:$PATH"
 source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
+source /Users/will.ernst/.config/op/plugins.sh
