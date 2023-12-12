@@ -133,6 +133,7 @@ nnoremap( '<leader>gghs', ':Gitsigns stage_hunk<CR>'   )
 nnoremap( '<CR>', ':lua vim.lsp.buf.definition()<CR>'   )
 nnoremap( 'gs', ':lua vim.lsp.buf.signature_help()<CR>' )
 nnoremap( '<leader>rn', ':lua vim.lsp.buf.rename()<CR>' )
+nnoremap( '<leader>cl', '<cmd>GoCodeLenAct<CR>'      )
 
 -- lspsaga commands
 nnoremap( 'gh', '<cmd>Lspsaga lsp_finder<CR>' )
