@@ -1,3 +1,7 @@
+if [[ $(whoami) == "will.ernst" ]]; then
+  export WORK_COMPUTER=true
+fi
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -13,7 +17,9 @@ export ZK_NOTEBOOK_DIR="$HOME/notes" # zk-nvim notebook root
 export EDITOR="nvim"
 export LANG="en_US.UTF-8"
 export PATH="$HOME/git-work/cloud-sre/bin:$PATH"
-source $HOME/git-work/terraform-aws-cloud-bastion/tools/infra_tools.sh
+
+export HCLOUD_CONFIG_PATH="~/.config" ### config path
+export HCLOUD_CLOUD_SRE_PATH="~/git-work/cloud-sre"
 
 brewprefix=$(brew --prefix)
 if [[ $(uname) == "Linux" ]] then
@@ -72,4 +78,8 @@ eval "$(zoxide init zsh)"
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 export PATH="/opt/homebrew/sbin:$PATH"
 source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
-source /Users/will.ernst/.config/op/plugins.sh
+
+if [[ $WORK_COMPUTER ]]; then
+  source /Users/will.ernst/.config/op/plugins.sh
+  source $HOME/git-work/terraform-aws-cloud-bastion/tools/infra_tools.sh
+fi
