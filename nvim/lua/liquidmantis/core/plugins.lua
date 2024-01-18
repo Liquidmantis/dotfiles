@@ -27,6 +27,7 @@ return {
     -- 'github/copilot.vim',
     'zbirenbaum/copilot.lua',
     'zbirenbaum/copilot-cmp',
+    'gptlang/copilotchat.nvim',
     'mattdibi/incolla.nvim',            -- paste images into markdown
     'jremmen/vim-ripgrep',
     'mickael-menu/zk-nvim',

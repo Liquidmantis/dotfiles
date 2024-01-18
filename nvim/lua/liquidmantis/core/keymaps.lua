@@ -21,6 +21,9 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = "|"
 
+nnoremap( '<localleader>ai', ':lua CopilotChatPrompt()<CR>' )
+vnoremap( '<localleader>ai', ':lua CopilotChatPrompt()<CR>' )
+
 nnoremap( '<leader>viv', ':tabedit $MYVIMRC<CR>' )
 -- TODO. make this work with lua-based config
 nnoremap( '<leader>sov', ':source $MYVIMRC<CR> | echo "Reloaded neovim config."' )
