@@ -3,15 +3,15 @@
 --   this configuration is experimental and not working well
 -- ****************************************
 
-hyperDisplay:bind('', 'escape', exitHyperDisplay)
+HyperDisplay:bind('', 'escape', ExitHyperDisplay)
 
 -- quick toggle displays
-hyperDisplay:bind('', 'd', function() yabaiMsg( 'display', 'focus prev', 'focus next' ) exitHyperDisplay() end)
+HyperDisplay:bind('', 'd', function() YabaiMsg( 'display', 'focus prev', 'focus next' ) ExitHyperDisplay() end)
 
-hyperDisplay:bind('', 'h', function() yabaiMsg( 'display', 'focus prev' ) exitHyperDisplay() end)
-hyperDisplay:bind('', 'l', function() yabaiMsg( 'display', 'focus next' ) exitHyperDisplay() end)
-hyperDisplay:bind('', 'p', function() yabaiMsg( 'display', 'focus prev' ) exitHyperDisplay() end)
-hyperDisplay:bind('', 'n', function() yabaiMsg( 'display', 'focus next' ) exitHyperDisplay() end)
-hyperDisplay:bind('shift', 'l', function() yabaiMsg( 'space', 'display next' ) exitHyperDisplay() end)
-hyperDisplay:bind('shift', 'h', function() yabaiMsg( 'space', 'display prev' ) exitHyperDisplay() end)
+HyperDisplay:bind('', 'h', function() YabaiMsg( 'display', 'focus prev' ) ExitHyperDisplay() end)
+HyperDisplay:bind('', 'l', function() YabaiMsg( 'display', 'focus next' ) ExitHyperDisplay() end)
+HyperDisplay:bind('', 'p', function() YabaiMsg( 'display', 'focus prev' ) ExitHyperDisplay() end)
+HyperDisplay:bind('', 'n', function() YabaiMsg( 'display', 'focus next' ) ExitHyperDisplay() end)
+HyperDisplay:bind('shift', 'l', function() YabaiMsg( 'space', 'display next' ) ExitHyperDisplay() end)
+HyperDisplay:bind('shift', 'h', function() YabaiMsg( 'space', 'display prev' ) ExitHyperDisplay() end)
 

@@ -2,24 +2,24 @@
 -- Mode: HyperStack Keybindings
 -- ****************************************
 
-hyperStack:bind('', 'escape', exitHyperStack)
+HyperStack:bind('', 'escape', ExitHyperStack)
 
-hyperStack:bind('', 't', function() stackline.config:toggle("appearance.showIcons") exitHyperStack() end)
+HyperStack:bind('', 't', function() Stackline.config:toggle("appearance.showIcons") ExitHyperStack() end)
 
-hyperStack:bind('', 'h', function() yabaiMsg( 'window', 'stack west' ) exitHyperStack() end)
-hyperStack:bind('', 'l', function() yabaiMsg( 'window', 'stack east' ) exitHyperStack() end)
-hyperStack:bind('', 'j', function() yabaiMsg( 'window', 'stack south' ) exitHyperStack() end)
-hyperStack:bind('', 'k', function() yabaiMsg( 'window', 'stack north' ) exitHyperStack() end)
+HyperStack:bind('', 'h', function() YabaiMsg( 'window', 'stack west' ) ExitHyperStack() end)
+HyperStack:bind('', 'l', function() YabaiMsg( 'window', 'stack east' ) ExitHyperStack() end)
+HyperStack:bind('', 'j', function() YabaiMsg( 'window', 'stack south' ) ExitHyperStack() end)
+HyperStack:bind('', 'k', function() YabaiMsg( 'window', 'stack north' ) ExitHyperStack() end)
 
-hyperStack:bind('', 'n', function() yabaiMsg( 'window', 'focus stack.next', 'focus stack.first' ) exitHyperStack() end)
-hyperStack:bind('', 'p', function() yabaiMsg( 'window', 'focus stack.prev', 'focus stack.last' ) exitHyperStack() end)
+HyperStack:bind('', 'n', function() YabaiMsg( 'window', 'focus stack.next', 'focus stack.first' ) ExitHyperStack() end)
+HyperStack:bind('', 'p', function() YabaiMsg( 'window', 'focus stack.prev', 'focus stack.last' ) ExitHyperStack() end)
 
 -- Pop the current window off the stack
-hyperStack:bind('', 'o', function()
-  yabaiMsg( 'window', 'toggle float' )
-  yabaiMsg( 'window', 'toggle float' )
-exitHyperStack() end)
+HyperStack:bind('', 'o', function()
+  YabaiMsg( 'window', 'toggle float' )
+  YabaiMsg( 'window', 'toggle float' )
+ExitHyperStack() end)
 
 -- Exit the stack
-hyperStack:bind('', 'x', function() yabaiMsg( 'space', 'layout bsp' ) exitHyperStack() end)
+HyperStack:bind('', 'x', function() YabaiMsg( 'space', 'layout bsp' ) ExitHyperStack() end)
 

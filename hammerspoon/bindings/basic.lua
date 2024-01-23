@@ -1,3 +1,4 @@
-hs.hotkey.bind({}, 'F17', enterHyper, exitHyper)
-hs.hotkey.bind({}, 'F18', enterHyper2, exitHyper2)
+
+hs.hotkey.bind({}, 'F17', EnterHyper)
+hs.hotkey.bind({}, 'F18', EnterHyper2, ExitHyper2)
 

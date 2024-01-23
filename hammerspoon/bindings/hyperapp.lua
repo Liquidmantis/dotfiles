@@ -2,24 +2,24 @@
 -- Mode: HyperApp Keybindings
 -- ****************************************
 
-hyperApp:bind('', 'escape', exitHyperApp)
- 
-hyperApp:bind('', 'r', function()
-	exitHyperApp() -- not strictly needed since HS is reloading
+HyperApp:bind('', 'escape', ExitHyperApp)
+
+HyperApp:bind('', 'r', function()
+	ExitHyperApp() -- not strictly needed since HS is reloading
 	hs.reload()
 end)
 
-hyperApp:bind('', 'n', function()
-	exitHyperApp()
-  local result = showHideOrFocus( 'LiquidNote' )
+HyperApp:bind('', 'n', function()
+	ExitHyperApp()
+  local result = ShowHideOrFocus( 'Obsidian' )
   print( result )
   if result == 'nil' then
-    hs.execute('alacritty')
+    hs.execute('obsidian')
   end
 
 end)
 
-hyperApp:bind('', 'm', function()
-	exitHyperApp()
+HyperApp:bind('', 'm', function()
+	ExitHyperApp()
 	hs.eventtap.keyStroke('ctrl', 'F2') -- toggle menu bar
 end)

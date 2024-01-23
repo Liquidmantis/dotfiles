@@ -2,62 +2,62 @@
 -- Mode: HyperSpace  bindings
 -- *******************************
 
-hyperSpace:bind('', 'escape', exitHyperSpace)
+HyperSpace:bind('', 'escape', ExitHyperSpace)
 
-hyperSpace:bind('', 'z', function()
-  enterHyperSpaceZen()
-  exitHyperSpace()
+HyperSpace:bind('', 'z', function()
+  EnterHyperSpaceZen()
+  ExitHyperSpace()
 end)
 
 -- change space layouts
-hyperSpace:bind('', 'b', function() yabaiMsg( 'space', 'layout bsp' ) exitHyperSpace() end)
-hyperSpace:bind('', 'f', function() yabaiMsg( 'space', 'layout float' ) exitHyperSpace() end)
-hyperSpace:bind('', 't', function() yabaiMsg( 'space', 'layout stack' ) exitHyperSpace() end)
+HyperSpace:bind('', 'b', function() YabaiMsg( 'space', 'layout bsp' ) ExitHyperSpace() end)
+HyperSpace:bind('', 'f', function() YabaiMsg( 'space', 'layout float' ) ExitHyperSpace() end)
+HyperSpace:bind('', 't', function() YabaiMsg( 'space', 'layout stack' ) ExitHyperSpace() end)
 
-hyperSpace:bind('', '0', function() yabaiMsg( 'space', 'balance' ) exitHyperSpace() end)
+HyperSpace:bind('', '=', function() YabaiMsg( 'space', 'balance' ) ExitHyperSpace() end)
 
-hyperSpace:bind('', 'c', function() yabaiMsg( 'space', 'create' ) exitHyperSpace() end)
-hyperSpace:bind('', 'x', function() yabaiMsg( 'space', 'destroy' ) exitHyperSpace() end)
+HyperSpace:bind('', 'c', function() YabaiMsg( 'space', 'create' ) ExitHyperSpace() end)
+HyperSpace:bind('', 'x', function() YabaiMsg( 'space', 'destroy' ) ExitHyperSpace() end)
 
-hyperSpace:bind('', '1', function() yabaiMsg( 'space', 'focus 1' ) exitHyperSpace() end)
-hyperSpace:bind('', '2', function() yabaiMsg( 'space', 'focus 2' ) exitHyperSpace() end)
-hyperSpace:bind('', '3', function() yabaiMsg( 'space', 'focus 3' ) exitHyperSpace() end)
-hyperSpace:bind('', '4', function() yabaiMsg( 'space', 'focus 4' ) exitHyperSpace() end)
+HyperSpace:bind('', '1', function() YabaiMsg( 'space', 'focus 1' ) ExitHyperSpace() end)
+HyperSpace:bind('', '2', function() YabaiMsg( 'space', 'focus 2' ) ExitHyperSpace() end)
+HyperSpace:bind('', '3', function() YabaiMsg( 'space', 'focus 3' ) ExitHyperSpace() end)
+HyperSpace:bind('', '4', function() YabaiMsg( 'space', 'focus 4' ) ExitHyperSpace() end)
 
-hyperSpace:bind('shift', '1', function() yabaiMsg( 'window', 'space 1' ) exitHyperSpace() end)
-hyperSpace:bind('shift', '2', function() yabaiMsg( 'window', 'space 2' ) exitHyperSpace() end)
-hyperSpace:bind('shift', '3', function() yabaiMsg( 'window', 'space 3' ) exitHyperSpace() end)
-hyperSpace:bind('shift', '4', function() yabaiMsg( 'window', 'space 4' ) exitHyperSpace() end)
+HyperSpace:bind('shift', '1', function() YabaiMsg( 'window', 'space 1' ) ExitHyperSpace() end)
+HyperSpace:bind('shift', '2', function() YabaiMsg( 'window', 'space 2' ) ExitHyperSpace() end)
+HyperSpace:bind('shift', '3', function() YabaiMsg( 'window', 'space 3' ) ExitHyperSpace() end)
+HyperSpace:bind('shift', '4', function() YabaiMsg( 'window', 'space 4' ) ExitHyperSpace() end)
 
-hyperSpace:bind('', 'o', function() yabaiMsg( 'space', 'focus recent' ) exitHyperSpace() end)
-hyperSpace:bind('', 'h', function() yabaiMsg( 'space', 'focus prev' ) exitHyperSpace() end)
-hyperSpace:bind('', 'l', function() yabaiMsg( 'space', 'focus next' ) exitHyperSpace() end)
-hyperSpace:bind('', 'p', function() yabaiMsg( 'space', 'focus prev', 'focus last' ) exitHyperSpace() end)
-hyperSpace:bind('', 'n', function() yabaiMsg( 'space', 'focus next', 'focus first' ) exitHyperSpace() end)
+HyperSpace:bind('', 'o', function() YabaiMsg( 'space', 'focus recent' ) ExitHyperSpace() end)
+HyperSpace:bind('', 'h', function() YabaiMsg( 'space', 'focus prev' ) ExitHyperSpace() end)
+HyperSpace:bind('', 'l', function() YabaiMsg( 'space', 'focus next' ) ExitHyperSpace() end)
+HyperSpace:bind('', 'p', function() YabaiMsg( 'space', 'focus prev', 'focus last' ) ExitHyperSpace() end)
+HyperSpace:bind('', 'n', function() YabaiMsg( 'space', 'focus next', 'focus first' ) ExitHyperSpace() end)
 
-hyperSpace:bind('', 's', function() yabaiMsg( 'space', 'toggle mission-control' ) exitHyperSpace() end)
+HyperSpace:bind('', 's', function() YabaiMsg( 'space', 'toggle mission-control' ) ExitHyperSpace() end)
 
 -- TODO: refactor this to pass a function and parameter instead of this copy pasta
-hyperSpace:bind('alt', '1', function() setPadding(1,1) exitHyperSpace() end)
-hyperSpace:bind('alt', '2', function() setPadding(2,2) exitHyperSpace() end)
-hyperSpace:bind('alt', '3', function() setPadding(3,3) exitHyperSpace() end)
-hyperSpace:bind('alt', '4', function() setPadding(4,4) exitHyperSpace() end)
-hyperSpace:bind('alt', '5', function() setPadding(5,5) exitHyperSpace() end)
-hyperSpace:bind('alt', '6', function() setPadding(6,6) exitHyperSpace() end)
-hyperSpace:bind('alt', '7', function() setPadding(7,7) exitHyperSpace() end)
-hyperSpace:bind('alt', '8', function() setPadding(8,8) exitHyperSpace() end)
-hyperSpace:bind('alt', '9', function() setPadding(9,9) exitHyperSpace() end)
-hyperSpace:bind('alt', '0', function() setPadding(0,0) exitHyperSpace() end)
-hyperSpace:bind('alt', '=', function() setPadding('=','=') exitHyperSpace() end)
+HyperSpace:bind('alt', '1', function() SetPadding(1,1) ExitHyperSpace() end)
+HyperSpace:bind('alt', '2', function() SetPadding(2,2) ExitHyperSpace() end)
+HyperSpace:bind('alt', '3', function() SetPadding(3,3) ExitHyperSpace() end)
+HyperSpace:bind('alt', '4', function() SetPadding(4,4) ExitHyperSpace() end)
+HyperSpace:bind('alt', '5', function() SetPadding(5,5) ExitHyperSpace() end)
+HyperSpace:bind('alt', '6', function() SetPadding(6,6) ExitHyperSpace() end)
+HyperSpace:bind('alt', '7', function() SetPadding(7,7) ExitHyperSpace() end)
+HyperSpace:bind('alt', '8', function() SetPadding(8,8) ExitHyperSpace() end)
+HyperSpace:bind('alt', '9', function() SetPadding(9,9) ExitHyperSpace() end)
+HyperSpace:bind('alt', '0', function() SetPadding(0,0) ExitHyperSpace() end)
+HyperSpace:bind('alt', '=', function() SetPadding('=','=') ExitHyperSpace() end)
 
 -- SubMode: HyperSpaceZen Keybindings
 
-hyperSpaceZen:bind('', 'escape', exitHyperSpaceZen)
+HyperSpaceZen:bind('', 'escape', ExitHyperSpaceZen)
 
-hyperSpaceZen:bind('', 'z', function() toggleZenMode('zen') exitHyperSpaceZen() end)
-hyperSpaceZen:bind('', 'n', function() toggleZenMode('narrow') exitHyperSpaceZen() end)
-hyperSpaceZen:bind('', 'w', function() toggleZenMode('wide') exitHyperSpaceZen() end)
-hyperSpaceZen:bind('', 'f', function() toggleZenMode('full') exitHyperSpaceZen() end)
-hyperSpaceZen:bind('', 'x', function() toggleZenMode('exit') exitHyperSpaceZen() end)
+HyperSpaceZen:bind('', 'z', function() ToggleZenMode('zen') ExitHyperSpaceZen() end)
+HyperSpaceZen:bind('', 'n', function() ToggleZenMode('narrow') ExitHyperSpaceZen() end)
+HyperSpaceZen:bind('', 'w', function() ToggleZenMode('wide') ExitHyperSpaceZen() end)
+HyperSpaceZen:bind('', 'f', function() ToggleZenMode('full') ExitHyperSpaceZen() end)
+HyperSpaceZen:bind('', 'x', function() ToggleZenMode('exit') ExitHyperSpaceZen() end)
 
 

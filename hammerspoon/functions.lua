@@ -5,7 +5,7 @@
 -- When entering Hyper, clear all other modes.
 -- This is done when entering so that leaving Hyper
 -- after enabling another mode layer doesn't immediately leave that layer.
-alertStyle = {
+AlertStyle = {
   textSize = 25,
   atScreenEdge = 2,
   radius = 0,
@@ -16,136 +16,136 @@ alertStyle = {
   fadeOutDuration = 0.0
 }
 
-function enterHyper()
+function EnterHyper()
   print('[Mode] Hyper enabled')
-  hyper:enter()
-  exitHyper2()
-  exitHyperApp()
-  exitHyperDisplay()
-  exitHyperSpace()
-  exitHyperWindow()
-  exitHyperWindowResize()
+  Hyper:enter()
+  ExitHyper2()
+  ExitHyperApp()
+  ExitHyperDisplay()
+  ExitHyperSpace()
+  ExitHyperWindow()
+  ExitHyperWindowResize()
   -- hyperAlert = hs.alert('  Hyper', alertStyle, 'sticky')
 end
 
-function exitHyper()
+function ExitHyper()
   print('[Mode] Hyper disabled')
-  hyper:exit()
+  Hyper:exit()
   -- hs.alert.closeSpecific(hyperAlert)
 end
 
 -- Mode wrapper functions
 -- Hammerspoon wants a function passed and you can't seem to pass 'hyper:exit',
 -- for example.  These are deadwood wrappers so you can pass a function reference.
-function enterHyper2()
+function EnterHyper2()
   print('[Mode] Hyper2 enabled')
-  exitHyper()
-  hyper2:enter()
+  ExitHyper()
+  Hyper2:enter()
 end
-function exitHyper2()
+function ExitHyper2()
   print('[Mode] Hyper2 disabled')
-  hyper2:exit()
+  Hyper2:exit()
 end
 
-function enterHyperApp()
+function EnterHyperApp()
   print('[Mode] HyperApp enabled')
-  exitHyper()
-  hyperApp:enter()
+  ExitHyper()
+  HyperApp:enter()
   -- hyperAppAlert = hs.alert('  HyperApp', alertStyle, 'sticky')
 end
-function exitHyperApp()
+function ExitHyperApp()
   print('[Mode] HyperApp disabled')
-  hyperApp:exit()
+  HyperApp:exit()
   -- hs.alert.closeSpecific(hyperAppAlert)
 end
 
-function enterHyperDisplay()
+function EnterHyperDisplay()
   print('[Mode] HyperDisplay enabled')
-  exitHyper()
-  hyperDisplay:enter()
+  ExitHyper()
+  HyperDisplay:enter()
   -- hyperDisplayAlert = hs.alert('  HyperDisplay', alertStyle, 'sticky')
 end
-function exitHyperDisplay()
+function ExitHyperDisplay()
   print('[Mode] HyperDisplay disabled')
-  hyperDisplay:exit()
+  HyperDisplay:exit()
   -- hs.alert.closeSpecific(hyperDisplayAlert)
 end
 
-function enterHyperWindow()
+function EnterHyperWindow()
   print('[Mode] HyperWindow enabled')
-  exitHyper()
-  hyperWindow:enter()
+  ExitHyper()
+  HyperWindow:enter()
 end
-function exitHyperWindow()
+function ExitHyperWindow()
   print('[Mode] HyperWindow disabled')
-  hyperWindow:exit()
+  HyperWindow:exit()
 end
 
-function enterHyperWindowOpen()
+function EnterHyperWindowOpen()
   print('[Mode] HyperWindowOpen enabled')
-  exitHyperWindow()
-  hyperWindowOpen:enter()
+  ExitHyperWindow()
+  HyperWindowOpen:enter()
 end
-function exitHyperWindowOpen()
+function ExitHyperWindowOpen()
   print('[Mode] HyperWindowOpen disabled')
-  hyperWindowOpen:exit()
+  HyperWindowOpen:exit()
 end
 
-function enterHyperSpace()
+function EnterHyperSpace()
   print('[Mode] HyperSpace enabled')
-  exitHyper()
-  hyperSpace:enter()
+  ExitHyper()
+  HyperSpace:enter()
 end
-function exitHyperSpace()
+function ExitHyperSpace()
   print('[Mode] HyperSpace disabled')
-  hyperSpace:exit()
+  HyperSpace:exit()
 end
 
-function enterHyperSpaceZen()
+function EnterHyperSpaceZen()
   print('[Mode] HyperSpaceZen enabled')
-  exitHyper()
-  hyperSpaceZen:enter()
+  ExitHyper()
+  HyperSpaceZen:enter()
 end
-function exitHyperSpaceZen()
+function ExitHyperSpaceZen()
   print('[Mode] HyperSpaceZen disabled')
-  hyperSpaceZen:exit()
+  HyperSpaceZen:exit()
 end
 
-function enterHyperStack()
+function EnterHyperStack()
   print('[Mode] HyperStack enabled')
-  exitHyper()
-  hyperStack:enter()
+  ExitHyper()
+  HyperStack:enter()
 end
-function exitHyperStack()
+function ExitHyperStack()
   print('[Mode] HyperStack disabled')
-  hyperStack:exit()
+  HyperStack:exit()
 end
 
-function enterHyperWindowResize()
+function EnterHyperWindowResize()
   print('[Mode] HyperWindowResize enabled')
-  exitHyperWindow()
-  hyperWindowResize:enter()
+  ExitHyperWindow()
+  HyperWindowResize:enter()
 end
-function exitHyperWindowResize()
+function ExitHyperWindowResize()
   print('[Mode] HyperWindowResize disabled')
-  hyperWindowResize:exit()
+  HyperWindowResize:exit()
 end
 
-function enterHyperWindowTransparency()
+function EnterHyperWindowTransparency()
   print('[Mode] HyperWindowTransparency enabled')
-  exitHyperWindow()
-  hyperWindowTransparency:enter()
+  ExitHyperWindow()
+  HyperWindowTransparency:enter()
 end
-function exitHyperWindowTransparency()
+function ExitHyperWindowTransparency()
   print('[Mode] HyperWindowTransparency disabled')
-  hyperWindowTransparency:exit()
+  HyperWindowTransparency:exit()
 end
 
 -- **************************************
 -- Helper Functions
 -- **************************************
 
-function yabaiMsg( scope, param, fallbackParam)
+function YabaiMsg( scope, param, fallbackParam)
   local planA = string.format("%s -m %s --%s", YabaiPath, scope, param)
   local cmd = ''
   if fallbackParam==nil then
@@ -158,7 +158,7 @@ function yabaiMsg( scope, param, fallbackParam)
   os.execute(cmd)
 end
 
-function yabaiQuery( scope, param )
+function YabaiQuery( scope, param )
   local cmd = string.format("%s -m query --%s", YabaiPath, scope)
   if param~=nil then
     cmd = string.format("%s --%s", cmd, param)
@@ -169,14 +169,14 @@ function yabaiQuery( scope, param )
 end
 
 function GetCurrentWindowId()
-  local window = yabaiQuery('windows', 'window')
+  local window = YabaiQuery('windows', 'window')
   local cmd = string.format("echo '%s' | /usr/local/bin/jq .id", window)
   local id = hs.execute(cmd)
   print('Window ID: ', id)
   return id
 end
 
-function showHideOrFocus( window )
+function ShowHideOrFocus( window )
   local targetWindow = hs.window.find( window )
   print('showHideOrFocus on window ' .. window )
 
@@ -205,7 +205,7 @@ local gap = init_gap
 local last_y_pad = y_pad
 -- local last_gap = gap
 
-function setPadding( x_val, y_val )
+function SetPadding( x_val, y_val )
   if x_val == "=" then
     x_pad = init_x_pad
     y_pad = init_y_pad
@@ -224,8 +224,8 @@ function setPadding( x_val, y_val )
 
   local pad_change = string.format('padding abs:%i:%i:%i:%i', y_pad, y_pad, x_pad, x_pad)
   local gap_change = string.format('gap abs:%i', gap)
-  yabaiMsg( 'space', pad_change )
-  yabaiMsg( 'space', gap_change )
+  YabaiMsg( 'space', pad_change )
+  YabaiMsg( 'space', gap_change )
 end
 
 -- this whole function is due for an idiomatic Lua refactor.  
@@ -233,26 +233,26 @@ end
 -- programming practices (i.e. pass a state object rather than violating the function
 -- boundary by using outer scope variables.
 local current_mode = "no_zen"
-function toggleZenMode( mode )
+function ToggleZenMode( mode )
   local zen_pad = {}
   if mode == current_mode or mode == 'exit' then
-    setPadding('=','=')
-    yabaiMsg( 'space', 'layout bsp' )
+    SetPadding('=','=')
+    YabaiMsg( 'space', 'layout bsp' )
     current_mode = "no_zen"
   else
     if mode == 'zen' then
       zen_pad.x = 25
-      zen_pad.y = 3 
+      zen_pad.y = 3
     elseif mode == 'full' then
       zen_pad = { x = 3, y = 3 }
     elseif mode == 'wide' then
       zen_pad = { x = 15, y = 3 }
     elseif mode == 'narrow' then
       zen_pad = { x = 35, y = 3 }
-    end 
+    end
 
-    setPadding(zen_pad.x, zen_pad.y)
-    yabaiMsg( 'space', 'layout stack' )
+    SetPadding(zen_pad.x, zen_pad.y)
+    YabaiMsg( 'space', 'layout stack' )
     current_mode = mode
   end
 end

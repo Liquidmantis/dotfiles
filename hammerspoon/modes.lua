@@ -4,18 +4,18 @@
 -- [UPDATE] Hyper is currently sticky
 -- Using Karabiner Elements, L-Ctrl and R-Opt are remampped to F17 and F18 respectively
 -- these f-keys are bound to the initial hyper triggers so that they can be layered with mod keys
-hyper = hs.hotkey.modal.new()
-hyper2 = hs.hotkey.modal.new()
+Hyper = hs.hotkey.modal.new()
+Hyper2 = hs.hotkey.modal.new()
 
 -- Mode layers
 -- These modes are layered and toggled from Hyper.
 -- They "lock" and have exit triggers based on submodes and hotkey triggers.
-hyperApp = hs.hotkey.modal.new()
-hyperDisplay = hs.hotkey.modal.new()
-hyperSpace = hs.hotkey.modal.new()
-hyperSpaceZen = hs.hotkey.modal.new()
-hyperStack = hs.hotkey.modal.new()
-hyperWindow = hs.hotkey.modal.new()
-hyperWindowOpen = hs.hotkey.modal.new()
-hyperWindowResize = hs.hotkey.modal.new()
-hyperWindowTransparency = hs.hotkey.modal.new()
+HyperApp = hs.hotkey.modal.new()
+HyperDisplay = hs.hotkey.modal.new()
+HyperSpace = hs.hotkey.modal.new()
+HyperSpaceZen = hs.hotkey.modal.new()
+HyperStack = hs.hotkey.modal.new()
+HyperWindow = hs.hotkey.modal.new()
+HyperWindowOpen = hs.hotkey.modal.new()
+HyperWindowResize = hs.hotkey.modal.new()
+HyperWindowTransparency = hs.hotkey.modal.new()
