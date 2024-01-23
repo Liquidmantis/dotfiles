@@ -46,7 +46,8 @@ yabai -m rule --add title="(DEBUG)"             manage=off
 
 # app special handlers
 yabai -m rule --add title="Picture in Picture"  manage=off
-yabai -m rule --add title="Neovide"             manage=off layer=above
+yabai -m rule --add title="Neovide"             manage=off
+yabai -m rule --add app="BoltAI"                manage=off 
 
 # events
 # Contexts' sidebar and the Teams notification process seem to jump to the top of the list when their
