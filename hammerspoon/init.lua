@@ -17,5 +17,5 @@ require('bindings/hyperspace')
 require('bindings/hyperstack')
 require('bindings/hyperwindow')
 
-Stackline = require('stackline')
-Stackline:init()
+-- Stackline = require('stackline')
+-- Stackline:init()
