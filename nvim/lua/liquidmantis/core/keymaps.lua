@@ -21,9 +21,6 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = "|"
 
-nnoremap( '<localleader>ai', ':lua CopilotChatPrompt()<CR>' )
-vnoremap( '<localleader>ai', ':lua CopilotChatPrompt()<CR>' )
-
 nnoremap( '<leader>viv', ':tabedit $MYVIMRC<CR>' )
 -- TODO. make this work with lua-based config
 nnoremap( '<leader>sov', ':source $MYVIMRC<CR> | echo "Reloaded neovim config."' )
@@ -92,17 +89,34 @@ nnoremap( '<leader>hs', ':lua require("harpoon.ui").nav_file(2)<CR>'  )
 nnoremap( '<leader>hd', ':lua require("harpoon.ui").nav_file(3)<CR>'  )
 nnoremap( '<leader>hf', ':lua require("harpoon.ui").nav_file(4)<CR>'  )
 
+-- CopilotChat mappings ('a' prefix for 'ai')
+nnoremap( '<leader>aa', ':CopilotChatToggle<CR>' )
+nnoremap( '<leader>ac', ':CopilotChatCommit<CR>' )
+nnoremap( '<leader>afd', ':CopilotChatFixDiagnostics<CR>' )
+nnoremap( '<leader>ae', ':CopilotChatExplain<CR>' )
+nnoremap( '<leader>at', ':CopilotChatTests<CR>' )
+
+-- Obsidian mappings
+nnoremap( '<leader>ob', ':ObsidianBacklinks<CR>' )
+nnoremap( '<leader>od', ':ObsidianDailies<CR>' )
+nnoremap( '<leader>oe', ':ObsidianExtractNote<CR>' )
+nnoremap( '<leader>ol', ':ObsidianLinks<CR>' )
+nnoremap( '<leader>on', ':ObsidianNew<CR>' )
+nnoremap( '<leader>oq', ':ObsidianQuickSwitch<CR>' )
+nnoremap( '<leader>or', ':ObsidianRename<CR>' )
+nnoremap( '<leader>os', ':ObsidianSearch<CR>' )
+
 -- zk mappings
-nnoremap( '<leader>zb', ':ZkBacklinks<CR>' )
-nnoremap( '<leader>zj', ':ZkToday<CR>' )
-nnoremap( '<leader>zd', ':ZkDailies<CR>' )
-nnoremap( '<leader>zl', ':ZkLinks<CR>' )
-nnoremap( '<leader>zn', ':ZkNotes<CR>' )
-nnoremap( '<leader>zr', ':ZkRecents<CR>' )
-nnoremap( '<leader>zt', ':ZkTags<CR>' )
-nnoremap( '<leader>zcn', ':LmNewNote<CR>' )
-vnoremap( '<leader>zct', ':ZkNewFromTitleSelection<CR>' )
-vnoremap( '<leader>zcc', ':ZkNewFromContentSelection { title = vim.fn.input("Title:") }<CR>' )
+-- nnoremap( '<leader>zb', ':ZkBacklinks<CR>' )
+-- nnoremap( '<leader>zj', ':ZkToday<CR>' )
+-- nnoremap( '<leader>zd', ':ZkDailies<CR>' )
+-- nnoremap( '<leader>zl', ':ZkLinks<CR>' )
+-- nnoremap( '<leader>zn', ':ZkNotes<CR>' )
+-- nnoremap( '<leader>zr', ':ZkRecents<CR>' )
+-- nnoremap( '<leader>zt', ':ZkTags<CR>' )
+-- nnoremap( '<leader>zcn', ':LmNewNote<CR>' )
+-- vnoremap( '<leader>zct', ':ZkNewFromTitleSelection<CR>' )
+-- vnoremap( '<leader>zcc', ':ZkNewFromContentSelection { title = vim.fn.input("Title:") }<CR>' )
 
 -- window movement commands
 tnoremap( '<C-h>',  '<C-\\><C-n>:wincmd h<CR>' )
@@ -124,15 +138,13 @@ nnoremap( '<localleader>gd', ':G diff<CR>'   )
 nnoremap( '<localleader>gb', ':G blame<CR>'  )
 
 -- gitsigns commands
--- prefix logic is "[g]it [g]utter [c]ommand to use 'gg' namespace and not add
--- delay to the gs command.  Revisit if lspsaga sig binding changes.
-nnoremap( '<leader>ggl', ':Gitsigns toggle_current_line_blame<CR>' )
-nnoremap( '<leader>ggw', ':Gitsigns toggle_current_word_diff<CR>'  )
-nnoremap( '<leader>gghh', ':Gitsigns preview_hunk<CR>' )
-nnoremap( '<leader>gghn', ':Gitsigns next_hunk<CR>'    )
-nnoremap( '<leader>gghp', ':Gitsigns prev_hunk<CR>'    )
-nnoremap( '<leader>gghr', ':Gitsigns reset_hunk<CR>'   )
-nnoremap( '<leader>gghs', ':Gitsigns stage_hunk<CR>'   )
+nnoremap( '<leader>gb', ':Gitsigns toggle_current_line_blame<CR>' )
+nnoremap( '<leader>gw', ':Gitsigns toggle_current_word_diff<CR>'  )
+nnoremap( '<leader>ghh', ':Gitsigns preview_hunk<CR>' )
+nnoremap( '<leader>ghn', ':Gitsigns next_hunk<CR>'    )
+nnoremap( '<leader>ghp', ':Gitsigns prev_hunk<CR>'    )
+nnoremap( '<leader>ghr', ':Gitsigns reset_hunk<CR>'   )
+nnoremap( '<leader>ghs', ':Gitsigns stage_hunk<CR>'   )
 
 -- general LSP commands
 nnoremap( '<CR>', ':lua vim.lsp.buf.definition()<CR>'   )
