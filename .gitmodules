@@ -4,9 +4,6 @@
 [submodule "tmux/tmux-fingers"]
 	path = tmux/tmux-fingers
 	url = https://git::@github.com/Morantron/tmux-fingers
-[submodule "tmux/plugins/tmux-fingers"]
-	path = tmux/plugins/tmux-fingers
-	url = https://git::@github.com/Morantron/tmux-fingers
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
