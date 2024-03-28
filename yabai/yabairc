@@ -25,7 +25,7 @@ yabai -m config \
   left_padding                 12 \
   right_padding                12 \
   window_gap                   12 \
-  # window_animation_duration    0.1 \
+  # window_animation_duration    1.1 \
 
 # app ignores
 yabai -m rule --add app="^System Information$"  manage=off
