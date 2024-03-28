@@ -4,4 +4,10 @@ if not lspsaga_installed then
   return
 end
 
-lspsaga.setup({})
+lspsaga.setup({
+  diagnostic = {
+    keys = {
+      quit = {'q', '<ESC>'}
+    }
+  },
+})

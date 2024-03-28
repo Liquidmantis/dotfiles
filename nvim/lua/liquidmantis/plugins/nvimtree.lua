@@ -14,11 +14,11 @@ nvimtree.setup({
   filters = {
     custom = { '.git', '.gitattributes', '.node_modules' }
   },
-  update_focused_file = {
-    enable      = true,
-    update_cwd  = true,
-    ignore_list = {}
-  },
+  -- update_focused_file = {
+  --   enable      = true,
+  --   update_cwd  = true,
+  --   ignore_list = {}
+  -- },
 
   renderer = {
     highlight_opened_files = "all",

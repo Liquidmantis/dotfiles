@@ -1,6 +1,6 @@
-require('lazy').setup({
-    'gptlang/CopilotChat.nvim',
-})
+-- require('lazy').setup({
+--     'gptlang/CopilotChat.nvim',
+-- })
 
 function CopilotChatPrompt()
   local Input = require("nui.input")
