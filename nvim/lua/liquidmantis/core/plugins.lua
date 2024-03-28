@@ -6,17 +6,17 @@ return {
     'tpope/vim-repeat',
     'ggandor/leap.nvim',
     'ggandor/flit.nvim',
-
+--
   -- Testing/Learning plugins
     'sindrets/diffview.nvim',
   --   { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
-
+--
   --  UI add-ons
     'stevearc/aerial.nvim',
     'stevearc/dressing.nvim',
     'MunifTanjim/nui.nvim',             -- UI components
     'rcarriga/nvim-notify',             -- Notifications UI 
-
+--
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
     'NvChad/nvim-colorizer.lua',        -- highlight color references with the color
@@ -27,17 +27,33 @@ return {
     -- 'github/copilot.vim',
     'zbirenbaum/copilot.lua',
     'zbirenbaum/copilot-cmp',
-    'gptlang/copilotchat.nvim',
+    -- 'gptlang/copilotchat.nvim',
+    -- { "jellydn/CopilotChat.nvim", branch = "canary", opts = { mode = "split" }, },
+    -- 'CopilotC-Nvim/CopilotChat.nvim',
+    {
+      "CopilotC-Nvim/CopilotChat.nvim",
+      branch = "canary",
+      dependencies = {
+        { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+        { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+      },
+      opts = {
+        debug = false, -- Enable debugging
+        -- See Configuration section for rest
+      },
+      -- See Commands section for default commands if you want to lazy load on them
+    },
     'mattdibi/incolla.nvim',            -- paste images into markdown
     'jremmen/vim-ripgrep',
-    'mickael-menu/zk-nvim',
+    -- 'mickael-menu/zk-nvim',
+    'epwalsh/obsidian.nvim',
     'sunjon/Shade.nvim',
     'junegunn/fzf',
     'junegunn/fzf.vim',                 -- support for fzf
     'junegunn/gv.vim',                  -- git commit browser
     'mbbill/undotree',                  -- the awesome undo history explorer
     'nvim-lualine/lualine.nvim',        -- statusbar
-  --   'vim-utils/vim-man',
+--   'vim-utils/vim-man',
     '0x00-ketsu/maximizer.nvim',                -- zoom/maximize current pane
     'famiu/bufdelete.nvim',             -- close buffer without messing up windows
     'gorbit99/codewindow.nvim',         -- minimap
@@ -47,10 +63,11 @@ return {
     'folke/twilight.nvim',              -- highlight focused code blocks
     'folke/todo-comments.nvim',
     'lukas-reineke/indent-blankline.nvim',
-    'ThePrimeagen/harpoon',
+    {'ThePrimeagen/harpoon', branch = 'harpoon2'},
     'AckslD/nvim-neoclip.lua',
 
   -- Debugging
+    'nvim-neotest/nvim-nio',
     'mfussenegger/nvim-dap',
     'mfussenegger/nvim-dap-python',
     'leoluz/nvim-dap-go', -- not needed with ray-x/go.nvim
@@ -70,7 +87,7 @@ return {
     }, build = 'make' },
     'axieax/urlview.nvim',             -- sophisticated picker for links in page
     'nvim-neorg/neorg-telescope',
-
+--
   -- Language add-ons
     { 'ray-x/go.nvim', dependencies = {  -- optional packages
       "ray-x/guihua.lua",
@@ -110,19 +127,19 @@ return {
     'folke/neodev.nvim',
     'lepture/vim-jinja',
     'ckipp01/stylua-nvim',
-
+--
     'habamax/vim-godot',
-
+--
   -- Git utilities
     -- 'rhysd/git-messenger.vim',
     'tpope/vim-fugitive',
     'lewis6991/gitsigns.nvim',
   --   'airblade/vim-rooter', -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
     { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end },
-
+--
   -- -- Themes
     {'npxbr/gruvbox.nvim', dependencies = {'rktjmp/lush.nvim'}},
     'sainnhe/everforest',
     { "catppuccin/nvim", name = "catppuccin" }
-
+--
 }
