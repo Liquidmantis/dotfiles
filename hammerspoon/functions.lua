@@ -2,29 +2,23 @@
 -- Modal Functions
 -- **************************************
 
--- When entering Hyper, clear all other modes.
--- This is done when entering so that leaving Hyper
--- after enabling another mode layer doesn't immediately leave that layer.
-AlertStyle = {
-  textSize = 25,
-  atScreenEdge = 2,
-  radius = 0,
-  fillColor = {white = 0.0, alpha = 0.50},
-  strokeColor = {white = 0.0, alpha = 0.50},
-  strokeWidth = 5,
-  fadeInDuration = 0.0,
-  fadeOutDuration = 0.0
-}
+function ClearModes()
+  ExitHyper()
+  ExitHyper2()
+  ExitHyperApp()
+  ExitHyperConfig()
+  ExitHyperConfigPadding()
+  ExitHyperDisplay()
+  ExitHyperSpace()
+  ExitHyperSpaceZen()
+  ExitHyperWindow()
+  ExitHyperWindowResize()
+  ExitHyperWindowTransparency()
+end
 
 function EnterHyper()
   print('[Mode] Hyper enabled')
   Hyper:enter()
-  ExitHyper2()
-  ExitHyperApp()
-  ExitHyperDisplay()
-  ExitHyperSpace()
-  ExitHyperWindow()
-  ExitHyperWindowResize()
   -- hyperAlert = hs.alert('  Hyper', alertStyle, 'sticky')
 end
 
@@ -35,8 +29,6 @@ function ExitHyper()
 end
 
 -- Mode wrapper functions
--- Hammerspoon wants a function passed and you can't seem to pass 'hyper:exit',
--- for example.  These are deadwood wrappers so you can pass a function reference.
 function EnterHyper2()
   print('[Mode] Hyper2 enabled')
   ExitHyper()
@@ -57,6 +49,26 @@ function ExitHyperApp()
   print('[Mode] HyperApp disabled')
   HyperApp:exit()
   -- hs.alert.closeSpecific(hyperAppAlert)
+end
+
+function EnterHyperConfig()
+  print('[Mode] HyperConfig enabled')
+  ExitHyper()
+  HyperConfig:enter()
+end
+function ExitHyperConfig()
+  print('[Mode] HyperConfig disabled')
+  HyperConfig:exit()
+end
+
+function EnterHyperConfigPadding()
+  print('[Mode] HyperConfigPadding enabled')
+  ExitHyper()
+  HyperConfigPadding:enter()
+end
+function ExitHyperConfigPadding()
+  print('[Mode] HyperConfigPadding disabled')
+  HyperConfigPadding:exit()
 end
 
 function EnterHyperDisplay()
@@ -188,72 +200,56 @@ function ShowHideOrFocus( window )
     print('minimizing ' .. window )
     targetWindow:minimize()
   else
+
     print('focusing ' .. window )
     targetWindow:focus()
 
   end
 end
 
+function SetPadding( xScale, yScale )
+  local xPad
+  local yPad
+  local gap
 
-local init_x_pad = 12
-local init_y_pad = 12
-local init_gap = 6
-local x_pad = init_x_pad
-local y_pad = init_y_pad
-local gap = init_gap
--- local last_x_pad = x_pad
-local last_y_pad = y_pad
--- local last_gap = gap
-
-function SetPadding( x_val, y_val )
-  if x_val == "=" then
-    x_pad = init_x_pad
-    y_pad = init_y_pad
-    gap = init_gap
+  if xScale == "=" then
+    xPad = State.initial.xPad
+    yPad = State.initial.yPad
+    gap = State.initial.gap
   else
-    x_pad = x_val * 20
-    -- last_x_pad = x_pad
-
-    if y_val == nil then
-      y_pad = last_y_pad
-    else
-      y_pad = y_val * 20
-    end
-    gap = x_pad
+    xPad = xScale * 20
+    yPad = yScale * 20
+    gap = xPad
   end
 
-  local pad_change = string.format('padding abs:%i:%i:%i:%i', y_pad, y_pad, x_pad, x_pad)
-  local gap_change = string.format('gap abs:%i', gap)
-  YabaiMsg( 'space', pad_change )
-  YabaiMsg( 'space', gap_change )
+  local padChange = string.format('padding abs:%i:%i:%i:%i', yPad, yPad, xPad, xPad)
+  local gapChange = string.format('gap abs:%i', gap)
+  YabaiMsg( 'space', padChange )
+  YabaiMsg( 'space', gapChange )
 end
 
 -- this whole function is due for an idiomatic Lua refactor.  
 -- TODO: figure out how to better handle state in Lua to maintain proper functional 
 -- programming practices (i.e. pass a state object rather than violating the function
 -- boundary by using outer scope variables.
-local current_mode = "no_zen"
 function ToggleZenMode( mode )
-  local zen_pad = {}
-  if mode == current_mode or mode == 'exit' then
+  if mode == State.zenMode or mode == 'exit' then
     SetPadding('=','=')
     YabaiMsg( 'space', 'layout bsp' )
-    current_mode = "no_zen"
+    State.zenMode = false
   else
     if mode == 'zen' then
-      zen_pad.x = 25
-      zen_pad.y = 3
+      SetPadding(25 , 3)
     elseif mode == 'full' then
-      zen_pad = { x = 3, y = 3 }
+      SetPadding(3, 2)
     elseif mode == 'wide' then
-      zen_pad = { x = 15, y = 3 }
+      SetPadding(15, 3)
     elseif mode == 'narrow' then
-      zen_pad = { x = 35, y = 3 }
+      SetPadding(35, 3)
     end
 
-    SetPadding(zen_pad.x, zen_pad.y)
     YabaiMsg( 'space', 'layout stack' )
-    current_mode = mode
+    State.zenMode = mode
   end
 end
 

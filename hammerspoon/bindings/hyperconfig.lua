@@ -1,0 +1,26 @@
+HyperConfig:bind('', 'p', function()
+  EnterHyperConfigPadding()
+  ExitHyperConfig()
+end)
+
+HyperConfig:bind('cmd', 'r', function()
+	hs.reload()
+end)
+
+HyperConfig:bind('cmd', 'y', function()
+  print('Restarting Yabai.')
+  os.execute('yabai --stop-service && yabai --start-service')
+end)
+
+-- TODO: refactor this to pass a function and parameter instead of this copy pasta
+HyperConfigPadding:bind('', '1', function() SetPadding(1,1) end)
+HyperConfigPadding:bind('', '2', function() SetPadding(2,2) end)
+HyperConfigPadding:bind('', '3', function() SetPadding(3,3) end)
+HyperConfigPadding:bind('', '4', function() SetPadding(4,4) end)
+HyperConfigPadding:bind('', '5', function() SetPadding(5,5) end)
+HyperConfigPadding:bind('', '6', function() SetPadding(6,6) end)
+HyperConfigPadding:bind('', '7', function() SetPadding(7,7) end)
+HyperConfigPadding:bind('', '8', function() SetPadding(8,8) end)
+HyperConfigPadding:bind('', '9', function() SetPadding(9,9) end)
+HyperConfigPadding:bind('', '0', function() SetPadding(0,0) end)
+HyperConfigPadding:bind('', '=', function() SetPadding('=','=') end)

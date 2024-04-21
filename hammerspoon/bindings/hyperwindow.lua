@@ -2,8 +2,6 @@
 -- Mode: HyperWindow Keybindings
 -- ****************************************
 
-HyperWindow:bind('', 'escape', ExitHyperWindow)
-
 HyperWindow:bind('alt', 'o', function()
 	EnterHyperWindowOpen()
 	ExitHyperWindow()
@@ -20,34 +18,30 @@ HyperWindow:bind('', 't', function()
 	ExitHyperWindow()
 end)
 
-HyperWindow:bind('', '/', function()
-	YabaiMsg( 'window', 'toggle split' )
-	ExitHyperWindow()
-end)
+HyperWindow:bind('', '/', function() YabaiMsg( 'window', 'toggle split' ) end)
 
-HyperWindow:bind('', 'f', function() YabaiMsg( 'window', 'toggle float' ) ExitHyperWindow() end)
-HyperWindow:bind('', 's', function() YabaiMsg( 'window', 'toggle sticky' ) ExitHyperWindow() end)
+HyperWindow:bind('', 'f', function() YabaiMsg( 'window', 'toggle float' ) end)
+HyperWindow:bind('', 's', function() YabaiMsg( 'window', 'toggle sticky' ) end)
 
-HyperWindow:bind('', '=', function() YabaiMsg( 'window', 'ratio rel:0.05' ) end)
-HyperWindow:bind('', '-', function() YabaiMsg( 'window', 'ratio rel:-0.05' ) end)
-HyperWindow:bind('', 'h', function() YabaiMsg( 'window', 'ratio abs:0.30' ) ExitHyperWindow() end)
-HyperWindow:bind('', 'l', function() YabaiMsg( 'window', 'ratio abs:0.70' ) ExitHyperWindow() end)
+HyperWindow:bind('alt', 'l', function() YabaiMsg( 'window', 'ratio rel:0.05' ) end)
+HyperWindow:bind('alt', 'h', function() YabaiMsg( 'window', 'ratio rel:-0.05' ) end)
+HyperWindow:bind('', 'h', function() YabaiMsg( 'window', 'ratio abs:0.30' ) end)
+HyperWindow:bind('', 'l', function() YabaiMsg( 'window', 'ratio abs:0.70' ) end)
+HyperWindow:bind('', '=', function() YabaiMsg( 'space', 'balance' ) end)
 
-HyperWindow:bind('', '0', function() YabaiMsg( 'space', 'balance' ) ExitHyperWindow() end)
+HyperWindow:bind('', '0', function() YabaiMsg( 'space', 'balance' ) end)
 
-HyperWindow:bind('', '\\', function() YabaiMsg( 'space', 'mirror y-axis' ) ExitHyperWindow() end)
-HyperWindow:bind('shift', '-', function() YabaiMsg( 'space', 'mirror x-axis' ) ExitHyperWindow() end)
-HyperWindow:bind('', 'o', function() YabaiMsg( 'space', 'rotate 90' ) ExitHyperWindow() end)
-HyperWindow:bind('shift', 'o', function() YabaiMsg( 'space', 'rotate 270' ) ExitHyperWindow() end)
+HyperWindow:bind('', '\\', function() YabaiMsg( 'space', 'mirror y-axis' ) end)
+HyperWindow:bind('shift', '-', function() YabaiMsg( 'space', 'mirror x-axis' ) end)
+HyperWindow:bind('', 'o', function() YabaiMsg( 'space', 'rotate 90' ) end)
+HyperWindow:bind('shift', 'o', function() YabaiMsg( 'space', 'rotate 270' ) end)
 
-HyperWindow:bind('shift', 'h', function() YabaiMsg( 'window', 'stack west' ) ExitHyperWindow() end)
-HyperWindow:bind('shift', 'l', function() YabaiMsg( 'window', 'stack east' ) ExitHyperWindow() end)
-HyperWindow:bind('shift', 'j', function() YabaiMsg( 'window', 'stack south' ) ExitHyperWindow() end)
-HyperWindow:bind('shift', 'k', function() YabaiMsg( 'window', 'stack north' ) ExitHyperWindow() end)
+HyperWindow:bind('shift', 'h', function() YabaiMsg( 'window', 'stack west' ) end)
+HyperWindow:bind('shift', 'l', function() YabaiMsg( 'window', 'stack east' ) end)
+HyperWindow:bind('shift', 'j', function() YabaiMsg( 'window', 'stack south' ) end)
+HyperWindow:bind('shift', 'k', function() YabaiMsg( 'window', 'stack north' ) end)
 
 -- SubMode: HyperWindowResize Keybindings
-
-HyperWindowResize:bind('', 'escape', ExitHyperWindowResize)
 
 -- Yabai window resizing targets an edge that is adjacent to other windows
 -- Using the OR operator allows thinking in terms of the window division
@@ -60,8 +54,6 @@ HyperWindowResize:bind('', 'k', function() YabaiMsg( 'window', 'resize top:0:-30
 
 -- SubMode: HyperWindowOpen Keybindings
 
-HyperWindowOpen:bind('', 'escape', ExitHyperWindowOpen)
-
 HyperWindowOpen:bind('', 'h', function() YabaiMsg( 'window', 'insert west' ) ExitHyperWindowOpen() end)
 HyperWindowOpen:bind('', 'l', function() YabaiMsg( 'window', 'insert east' ) ExitHyperWindowOpen() end)
 HyperWindowOpen:bind('', 'j', function() YabaiMsg( 'window', 'insert south' ) ExitHyperWindowOpen() end)
@@ -69,13 +61,14 @@ HyperWindowOpen:bind('', 'k', function() YabaiMsg( 'window', 'insert north' ) Ex
 
 -- SubMode: HyperWindowTransparency Keybindings
 
-HyperWindowTransparency:bind('', 'escape', ExitHyperWindowTransparency)
-
-HyperWindowTransparency:bind('', '0', function() YabaiMsg( 'window', 'opacity 1.0') ExitHyperWindowTransparency() end)
-HyperWindowTransparency:bind('', '9', function() YabaiMsg( 'window', 'opacity 0.9') ExitHyperWindowTransparency() end)
-HyperWindowTransparency:bind('', '8', function() YabaiMsg( 'window', 'opacity 0.8') ExitHyperWindowTransparency() end)
-HyperWindowTransparency:bind('', '7', function() YabaiMsg( 'window', 'opacity 0.7') ExitHyperWindowTransparency() end)
-HyperWindowTransparency:bind('', '6', function() YabaiMsg( 'window', 'opacity 0.6') ExitHyperWindowTransparency() end)
-HyperWindowTransparency:bind('', '5', function() YabaiMsg( 'window', 'opacity 0.5') ExitHyperWindowTransparency() end)
-HyperWindowTransparency:bind('', '4', function() YabaiMsg( 'window', 'opacity 0.4') ExitHyperWindowTransparency() end)
-HyperWindowTransparency:bind('', '=', function() YabaiMsg( 'window', 'opacity 0.0') ExitHyperWindowTransparency() end)
+HyperWindowTransparency:bind('', '0', function() YabaiMsg( 'window', 'opacity 1.0') end)
+HyperWindowTransparency:bind('', '9', function() YabaiMsg( 'window', 'opacity 0.9') end)
+HyperWindowTransparency:bind('', '8', function() YabaiMsg( 'window', 'opacity 0.8') end)
+HyperWindowTransparency:bind('', '7', function() YabaiMsg( 'window', 'opacity 0.7') end)
+HyperWindowTransparency:bind('', '6', function() YabaiMsg( 'window', 'opacity 0.6') end)
+HyperWindowTransparency:bind('', '5', function() YabaiMsg( 'window', 'opacity 0.5') end)
+HyperWindowTransparency:bind('', '4', function() YabaiMsg( 'window', 'opacity 0.4') end)
+HyperWindowTransparency:bind('', '3', function() YabaiMsg( 'window', 'opacity 0.3') end)
+HyperWindowTransparency:bind('', '2', function() YabaiMsg( 'window', 'opacity 0.2') end)
+HyperWindowTransparency:bind('', '1', function() YabaiMsg( 'window', 'opacity 0.1') end)
+HyperWindowTransparency:bind('', '=', function() YabaiMsg( 'window', 'opacity 0.0') end)

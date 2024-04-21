@@ -1,0 +1,57 @@
+{
+  :profiles {
+    :Default {
+      :default true
+      :held 100
+      :delay 200
+    }
+  }
+  :main [
+  ; {:des "Change LCMD to F17 (Hammerspoon Hyper)"
+   ; :rules [[:left_command :f17] [:right_command :f17]]}
+
+  {:des "Homerow Mods"
+   :rules [
+     ; [:d nil nil {:!held [:d] :held [:left_command]}]
+     [:d nil nil {:alone {:key :d :halt true} :delayed {:canceled {:key :d}} :held {:key :left_command :halt true}}]
+     ; [:d nil nil {:alone {:key :d :halt true} :canceled {:key :d} :held :left_command}]
+     [:f nil nil {:alone {:key :f :halt true} :delayed {:canceled {:key :f}} :held :left_shift}]
+       ; [:S :right_command nil {:alone [:right_command]}]
+       ; [:S :left_control nil {:alone [:left_control]}]
+       ; [:S :right_control nil {:alone [:right_control]}]
+       ; [:S :left_option nil {:alone [:left_option]}]
+       ; [:S :right_option nil {:alone [:right_option]}]
+       ; [:S :left_shift nil {:alone [:left_shift]}]
+       ; [:S :right_shift nil {:alone [:right_shift]}]
+   ]
+  }
+
+  {:des "Change CAPS to ESC"
+   :rules [
+       [:##caps_lock :right_control nil {:alone [:escape]}]
+   ]
+  }
+
+  ; {:des "caps lock: alone: escape; held: ctrl"
+  ;  :rules[
+  ;    [:##caps_lock nil nil {:alone :escape :held :left_control} ]
+  ;  ]
+  ; }
+
+]}
+
+    ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; P  | caps_lock
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
+ 

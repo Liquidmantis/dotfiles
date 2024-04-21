@@ -2,24 +2,16 @@
 -- Mode: HyperApp Keybindings
 -- ****************************************
 
-HyperApp:bind('', 'escape', ExitHyperApp)
-
-HyperApp:bind('', 'r', function()
-	ExitHyperApp() -- not strictly needed since HS is reloading
-	hs.reload()
+HyperApp:bind('', 'o', function()
+  hs.application.open( 'obsidian' )
 end)
 
-HyperApp:bind('', 'n', function()
-	ExitHyperApp()
-  local result = ShowHideOrFocus( 'Obsidian' )
-  print( result )
-  if result == 'nil' then
-    hs.execute('obsidian')
-  end
-
+HyperApp:bind('', 'k', function()
+  hs.application.open( 'kitty' )
+  local obs = hs.application.get('obsidian')
+  if State.zenMode ~= false then obs:hide() end
 end)
 
 HyperApp:bind('', 'm', function()
-	ExitHyperApp()
 	hs.eventtap.keyStroke('ctrl', 'F2') -- toggle menu bar
 end)

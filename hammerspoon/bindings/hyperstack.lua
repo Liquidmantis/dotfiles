@@ -2,8 +2,6 @@
 -- Mode: HyperStack Keybindings
 -- ****************************************
 
-HyperStack:bind('', 'escape', ExitHyperStack)
-
 HyperStack:bind('', 't', function() Stackline.config:toggle("appearance.showIcons") ExitHyperStack() end)
 
 HyperStack:bind('', 'h', function() YabaiMsg( 'window', 'stack west' ) ExitHyperStack() end)

@@ -6,6 +6,7 @@ Hyper:bind('', 'escape', ExitHyper)
 -- hyper:bind('', 'F17', exitHyper)
 
 Hyper:bind('', 'a', EnterHyperApp)
+Hyper:bind('', 'c', EnterHyperConfig)
 Hyper:bind('', 'd', EnterHyperDisplay)
 Hyper:bind('', 's', EnterHyperSpace)
 Hyper:bind('', 't', EnterHyperStack)
@@ -15,7 +16,6 @@ Hyper:bind('', 'w', EnterHyperWindow)
 -- Mode: Hyper Keybindings
 -- ****************************************
 
-Hyper:bind('', 'c', function() YabaiMsg( 'space', 'create' ) end)
 Hyper:bind('', 'o', function() YabaiMsg( 'window', 'focus recent' ) end)
 Hyper:bind('', 'h', function() YabaiMsg( 'window', 'focus west' ) end)
 Hyper:bind('', 'l', function() YabaiMsg( 'window', 'focus east' ) end)

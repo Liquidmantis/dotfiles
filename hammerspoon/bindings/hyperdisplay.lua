@@ -3,8 +3,6 @@
 --   this configuration is experimental and not working well
 -- ****************************************
 
-HyperDisplay:bind('', 'escape', ExitHyperDisplay)
-
 -- quick toggle displays
 HyperDisplay:bind('', 'd', function() YabaiMsg( 'display', 'focus prev', 'focus next' ) ExitHyperDisplay() end)
 
