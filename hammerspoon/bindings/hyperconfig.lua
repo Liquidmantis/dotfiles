@@ -12,7 +12,6 @@ HyperConfig:bind('cmd', 'y', function()
   os.execute('yabai --stop-service && yabai --start-service')
 end)
 
--- TODO: refactor this to pass a function and parameter instead of this copy pasta
 HyperConfigPadding:bind('', '1', function() SetPadding(1,1) end)
 HyperConfigPadding:bind('', '2', function() SetPadding(2,2) end)
 HyperConfigPadding:bind('', '3', function() SetPadding(3,3) end)

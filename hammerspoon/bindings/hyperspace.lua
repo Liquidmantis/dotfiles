@@ -35,7 +35,6 @@ HyperSpace:bind('', 'n', function() YabaiMsg( 'space', 'focus next', 'focus firs
 
 HyperSpace:bind('', 's', function() YabaiMsg( 'space', 'toggle mission-control' ) end)
 
--- TODO: refactor this to pass a function and parameter instead of this copy pasta
 HyperSpace:bind('alt', '1', function() SetPadding(1,1) end)
 HyperSpace:bind('alt', '2', function() SetPadding(2,2) end)
 HyperSpace:bind('alt', '3', function() SetPadding(3,3) end)

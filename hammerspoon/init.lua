@@ -25,10 +25,9 @@ require('bindings/hyperwindow')
 State = {
   initial = {
     -- These are values that are configured in Yabai's settings
-    -- TODO: find out if they can be queried from Yabai rather than duplicated.
     xPad = 12,
     yPad = 12,
-    gap = 6
+    gap = 12
   },
   zenMode = false
 }

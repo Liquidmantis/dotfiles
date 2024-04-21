@@ -228,10 +228,6 @@ function SetPadding( xScale, yScale )
   YabaiMsg( 'space', gapChange )
 end
 
--- this whole function is due for an idiomatic Lua refactor.  
--- TODO: figure out how to better handle state in Lua to maintain proper functional 
--- programming practices (i.e. pass a state object rather than violating the function
--- boundary by using outer scope variables.
 function ToggleZenMode( mode )
   if mode == State.zenMode or mode == 'exit' then
     SetPadding('=','=')
