@@ -63,7 +63,7 @@ end
 
 function EnterHyperConfigPadding()
   print('[Mode] HyperConfigPadding enabled')
-  ExitHyper()
+  ExitHyperConfig()
   HyperConfigPadding:enter()
 end
 function ExitHyperConfigPadding()
