@@ -1,4 +1,4 @@
-local remap = vim.api.nvim_set_keymap
+local remap = vim.keymap.set
 local opts =  {noremap = true, silent = true}
 local eopts = {noremap = true, silent = true, expr = true}
 
@@ -78,10 +78,13 @@ nnoremap( '<leader>wz', ':lua require("maximizer").toggle()<CR>' )
 nnoremap( '<C-W>z',     ':lua require("maximizer").toggle()<CR>' )
 nnoremap( '<leader><Esc>', ':NoiceDismiss<CR>' )
 inoremap( '<C-Esc>',       ':NoiceDismiss<CR>' )
+nnoremap( '<C-Esc>',       ':NoiceDismiss<CR>' )
 
 -- harpoon mappings
-nnoremap( '<leader>hh', ':lua require("harpoon.ui").toggle_quick_menu()<CR>' )
-nnoremap( '<leader>he', ':lua require("harpoon.mark").add_file()<CR>:lua print(string.format("Added %s to Harpoon list", vim.api.nvim_buf_get_name(0)))<CR>' )
+local harpoon = require("harpoon")
+nnoremap( '<leader>he', function() harpoon:list():append(); print(string.format("Added %s to Harpoon list", vim.api.nvim_buf_get_name(0))) end)
+nnoremap( '<leader>hh', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+-- nnoremap( '<leader>he', ':lua require("harpoon.mark").add_file()<CR>:lua print(string.format("Added %s to Harpoon list", vim.api.nvim_buf_get_name(0)))<CR>' )
 nnoremap( '<leader>hn', ':lua require("harpoon.ui").nav_next()<CR>' )
 nnoremap( '<leader>hp', ':lua require("harpoon.ui").nav_prev()<CR>' )
 nnoremap( '<leader>ha', ':lua require("harpoon.ui").nav_file(1)<CR>'  )
@@ -206,6 +209,17 @@ nnoremap( '<F5>', ':lua require("dap").continue()<CR>')
 nnoremap( '<F1>', ':lua require("dap").step_over()<CR>')
 nnoremap( '<F2>', ':lua require("dap").step_into()<CR>')
 nnoremap( '<F3>', ':lua require("dap").step_out()<CR>')
+
+-- Testing mappings
+-- nnoremap( '<leader>tt', ':TestNearest<CR>')
+-- nnoremap( '<leader>tf', ':TestFile<CR>')
+-- nnoremap( '<leader>ta', ':TestSuite<CR>')
+-- nnoremap( '<leader>tl', ':TestLast<CR>')
+-- nnoremap( '<leader>tv', ':TestVisit<CR>')
+nnoremap( '<leader>tt', ':lua require("neotest").run.run()<CR>')
+nnoremap( '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
+nnoremap( '<leader>tT', ':lua require("neotest").run.run(vim.uv.cwd())<CR>')
+nnoremap( '<leader>ta', ':lua require("neotest").run.attach()<CR>')
 
 
 -- Telescope mappings

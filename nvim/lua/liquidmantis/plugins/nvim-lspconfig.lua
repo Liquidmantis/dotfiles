@@ -1,3 +1,6 @@
+-- load neodev before lspconfig
+require('neodev').setup()
+
 local lspconfig = require'lspconfig'
 local util = require'lspconfig/util'
 local configs = require'lspconfig/configs'
@@ -9,6 +12,8 @@ require('mason').setup()
 lspconfig.html.setup {}
 lspconfig.cssls.setup{}
 lspconfig.asm_lsp.setup{}
+lspconfig.docker_compose_language_service.setup{}
+lspconfig.dockerls.setup{}
 
 -- Bash
 require'lspconfig'.bashls.setup{}

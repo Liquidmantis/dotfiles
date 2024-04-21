@@ -74,6 +74,16 @@ return {
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',
     'nvim-telescope/telescope-dap.nvim',
+    {
+      'nvim-neotest/neotest',
+      dependencies = {
+        'nvim-neotest/nvim-nio',
+        'nvim-neotest/neotest-go',
+        'nvim-lua/plenary.nvim',
+        'antoinemadec/FixCursorHold.nvim',
+        'nvim-treesitter/nvim-treesitter'
+      }
+    },
 
   -- Telescope, prereqs, and extensions
     'nvim-lua/popup.nvim',
@@ -89,6 +99,7 @@ return {
     'nvim-neorg/neorg-telescope',
 --
   -- Language add-ons
+    'kmonad/kmonad-vim',
     { 'ray-x/go.nvim', dependencies = {  -- optional packages
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
