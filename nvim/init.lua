@@ -25,7 +25,7 @@ require('liquidmantis.core.settings')
 require('liquidmantis.core.keymaps')
 require('liquidmantis.core.globals')
 
--- require('liquidmantis.core.theme')
+require('liquidmantis.core.theme')
 
 require('liquidmantis.plugins.aerial')
 require('liquidmantis.plugins.catppuccin')
