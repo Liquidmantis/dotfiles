@@ -6,17 +6,16 @@ return {
     'tpope/vim-repeat',
     'ggandor/leap.nvim',
     'ggandor/flit.nvim',
---
+
   -- Testing/Learning plugins
     'sindrets/diffview.nvim',
-  --   { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
---
+
   --  UI add-ons
     'stevearc/aerial.nvim',
     'stevearc/dressing.nvim',
     'MunifTanjim/nui.nvim',             -- UI components
     'rcarriga/nvim-notify',             -- Notifications UI 
---
+
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
     'NvChad/nvim-colorizer.lua',        -- highlight color references with the color
@@ -24,12 +23,8 @@ return {
     'kyazdani42/nvim-tree.lua',         -- file explorer
     'kyazdani42/nvim-web-devicons',
     'christoomey/vim-tmux-navigator',
-    -- 'github/copilot.vim',
     'zbirenbaum/copilot.lua',
     'zbirenbaum/copilot-cmp',
-    -- 'gptlang/copilotchat.nvim',
-    -- { "jellydn/CopilotChat.nvim", branch = "canary", opts = { mode = "split" }, },
-    -- 'CopilotC-Nvim/CopilotChat.nvim',
     {
       "CopilotC-Nvim/CopilotChat.nvim",
       branch = "canary",
@@ -45,7 +40,6 @@ return {
     },
     'mattdibi/incolla.nvim',            -- paste images into markdown
     'jremmen/vim-ripgrep',
-    -- 'mickael-menu/zk-nvim',
     'epwalsh/obsidian.nvim',
     'sunjon/Shade.nvim',
     'junegunn/fzf',
@@ -53,7 +47,6 @@ return {
     'junegunn/gv.vim',                  -- git commit browser
     'mbbill/undotree',                  -- the awesome undo history explorer
     'nvim-lualine/lualine.nvim',        -- statusbar
---   'vim-utils/vim-man',
     '0x00-ketsu/maximizer.nvim',                -- zoom/maximize current pane
     'famiu/bufdelete.nvim',             -- close buffer without messing up windows
     'gorbit99/codewindow.nvim',         -- minimap
@@ -138,19 +131,18 @@ return {
     'folke/neodev.nvim',
     'lepture/vim-jinja',
     'ckipp01/stylua-nvim',
---
     'habamax/vim-godot',
---
+
   -- Git utilities
     -- 'rhysd/git-messenger.vim',
-    'tpope/vim-fugitive',
+    -- 'tpope/vim-fugitive',
     'lewis6991/gitsigns.nvim',
+    { "FabijanZulj/blame.nvim", config = function() require("blame").setup() end },
   --   'airblade/vim-rooter', -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
     { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end },
---
-  -- -- Themes
+
+  -- Themes
     {'npxbr/gruvbox.nvim', dependencies = {'rktjmp/lush.nvim'}},
     'sainnhe/everforest',
     { "catppuccin/nvim", name = "catppuccin" }
---
 }
