@@ -2,6 +2,10 @@
 -- Mode: HyperApp Keybindings
 -- ****************************************
 
+HyperApp:bind('', 'c', function()
+  hs.application.open( 'google chrome' )
+end)
+
 HyperApp:bind('', 'o', function()
   hs.application.open( 'obsidian' )
 end)
