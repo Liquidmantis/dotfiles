@@ -10,6 +10,10 @@ HyperApp:bind('', 'o', function()
   hs.application.open( 'obsidian' )
 end)
 
+HyperApp:bind('', 'f', function()
+  hs.application.open( 'finder' )
+end)
+
 HyperApp:bind('', 'k', function()
   hs.application.open( 'kitty' )
   local obs = hs.application.get('obsidian')
