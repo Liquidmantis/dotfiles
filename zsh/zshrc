@@ -62,7 +62,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
 # remove esc delay to make vi-mode usable
-KEYTIMEOUT=1
+# KEYTIMEOUT=1
 
 # "inspired" from https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh
 HISTFILE=~/.zsh_history
@@ -76,10 +76,14 @@ setopt cdablevars
 eval "$(zoxide init zsh)"
 
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+source ~/bin/fzf-git.sh/fzf-git.sh
+
 export PATH="/opt/homebrew/sbin:$PATH"
 source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 
 if [[ $WORK_COMPUTER ]]; then
   source /Users/will.ernst/.config/op/plugins.sh
-  source $HOME/git-work/terraform-aws-cloud-bastion/tools/infra_tools.sh
 fi
+
+[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+source ~/bin/fzf-git.sh/fzf-git.sh

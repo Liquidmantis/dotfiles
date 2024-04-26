@@ -125,7 +125,7 @@ return {
       'onsails/lspkind.nvim',
     },
   },
-    'glepnir/lspsaga.nvim',
+    'nvimdev/lspsaga.nvim',
     {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
     'nvim-treesitter/playground',
     'folke/neodev.nvim',
