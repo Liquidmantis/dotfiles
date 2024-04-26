@@ -4,6 +4,7 @@
 -- vim.cmd([[ colorscheme everforest ]])
 vim.cmd([[ colorscheme catppuccin ]])
 
+vim.opt.showcmdloc='statusline'
 
 require('lualine').setup {
   options = {
