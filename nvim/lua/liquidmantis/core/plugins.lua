@@ -134,8 +134,7 @@ return {
     'habamax/vim-godot',
 
   -- Git utilities
-    -- 'rhysd/git-messenger.vim',
-    -- 'tpope/vim-fugitive',
+    'rhysd/git-messenger.vim',
     'lewis6991/gitsigns.nvim',
     { "FabijanZulj/blame.nvim", config = function() require("blame").setup() end },
   --   'airblade/vim-rooter', -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
