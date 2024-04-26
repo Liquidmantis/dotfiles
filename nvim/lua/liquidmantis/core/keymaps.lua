@@ -180,7 +180,7 @@ nnoremap( '<localleader>cf', ':cfdo '      )
 -- view toggles
 nnoremap( '<localleader>ta', ':AerialToggle<CR>' )
 nnoremap( '<localleader>tc', ':ColorizerToggle<CR>' )
-nnoremap( '<localleader>ti', ':IndentBlanklineToggle<CR>' )
+nnoremap( '<localleader>ti', ':IBLToggle<CR>' )
 nnoremap( '<localleader>tm', ':lua require("codewindow").toggle_minimap()<CR>' )
 nnoremap( '<localleader>tt', ':set relativenumber!<CR>'   )
 nnoremap( '<localleader>tw', ':set list!<CR>'             )
