@@ -132,13 +132,18 @@ nnoremap( '<C-T>', ':ToggleTerm<CR>'            )
 tnoremap( '<C-T>', '<C-\\><C-n>:ToggleTerm<CR>' )
 tnoremap( '<C-e>',     '<C-\\><C-n>'            )
 
+-- various git extension commands
+
 -- fugitive commands
-nnoremap( '<localleader>gs', ':G<CR>'        )
-nnoremap( '<localleader>gc', ':G commit<CR>' )
-nnoremap( '<localleader>gp', ':G push<CR>'   )
-nnoremap( '<localleader>gl', ':G log<CR>'    )
-nnoremap( '<localleader>gd', ':G diff<CR>'   )
-nnoremap( '<localleader>gb', ':G blame<CR>'  )
+-- nnoremap( '<localleader>gs', ':G<CR>'        )
+-- nnoremap( '<localleader>gc', ':G commit<CR>' )
+-- nnoremap( '<localleader>gp', ':G push<CR>'   )
+-- nnoremap( '<localleader>gl', ':G log<CR>'    )
+-- nnoremap( '<localleader>gd', ':G diff<CR>'   )
+-- nnoremap( '<localleader>gb', ':G blame<CR>'  )
+
+nnoremap( '<localleader>gb', ':BlameToggle<CR>' )
+nnoremap( '<localleader>gm', ':GitMessenger<CR>' )
 
 -- gitsigns commands
 nnoremap( '<leader>gb', ':Gitsigns toggle_current_line_blame<CR>' )
