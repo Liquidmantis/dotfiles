@@ -35,3 +35,8 @@ s:bind('', 'l', function()
   hs.application.open( 'slack' )
   s:exit()
 end)
+
+s:bind('', 'p', function()
+  hs.application.open( 'spotify' )
+  s:exit()
+end)
