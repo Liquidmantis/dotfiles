@@ -75,15 +75,8 @@ setopt cdablevars
 
 eval "$(zoxide init zsh)"
 
-[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-source ~/bin/fzf-git.sh/fzf-git.sh
-
 export PATH="/opt/homebrew/sbin:$PATH"
 source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
-
-if [[ $WORK_COMPUTER ]]; then
-  source /Users/will.ernst/.config/op/plugins.sh
-fi
 
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 source ~/bin/fzf-git.sh/fzf-git.sh
