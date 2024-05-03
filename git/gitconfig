@@ -30,15 +30,21 @@
 [init]
 	defaultBranch = main
 [diff]
-	tool = bc3
+	tool = Kaleidoscope
 	mnemonicPrefix = true
-[difftool "bc3"]
-	trustExitCode = true
 [merge]
-	tool = bc3
-[mergetool "bc3"]
-	trustExitCode = true
+	tool = Kaleidoscope
 [url "git@github.com:"]
         insteadOf = https://github.com/
 [url "ssh://git@github.com/"]
         insteadOf = https://github.com/
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+	trustExitCode = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
