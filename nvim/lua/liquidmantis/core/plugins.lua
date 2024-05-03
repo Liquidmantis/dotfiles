@@ -1,12 +1,5 @@
 return {
   -- Extra movements and objects
-    'chaoren/vim-wordmotion',            -- adds CamelCase wordmotions
-    'numToStr/Comment.nvim',             -- comment toggling 
-    'tpope/vim-surround',
-    'tpope/vim-repeat',
-    'ggandor/leap.nvim',
-    'ggandor/flit.nvim',
-
   -- Testing/Learning plugins
     'sindrets/diffview.nvim',
 
@@ -21,7 +14,6 @@ return {
     'nyngwang/murmur.lua',              -- cursor word highlighting
     'kyazdani42/nvim-tree.lua',         -- file explorer
     'kyazdani42/nvim-web-devicons',
-    'christoomey/vim-tmux-navigator',
     'zbirenbaum/copilot.lua',
     'zbirenbaum/copilot-cmp',
     {
