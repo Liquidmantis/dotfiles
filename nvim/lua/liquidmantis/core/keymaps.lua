@@ -145,6 +145,11 @@ tnoremap( '<C-e>',     '<C-\\><C-n>'            )
 nnoremap( '<localleader>gb', ':BlameToggle<CR>' )
 nnoremap( '<localleader>gm', ':GitMessenger<CR>' )
 
+-- diffview commands
+nnoremap( '<leader>gdd', ':DiffviewOpen<CR>' )
+nnoremap( '<leader>gdf', ':DiffviewFileHistory<CR>' )
+nnoremap( '<leader>gdt', ':!git difftool<CR>' )
+
 -- gitsigns commands
 nnoremap( '<leader>gb', ':Gitsigns toggle_current_line_blame<CR>' )
 nnoremap( '<leader>gw', ':Gitsigns toggle_current_word_diff<CR>'  )
