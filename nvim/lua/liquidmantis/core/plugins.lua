@@ -1,7 +1,6 @@
 return {
   -- Extra movements and objects
   -- Testing/Learning plugins
-    'sindrets/diffview.nvim',
 
   --  UI add-ons
     'stevearc/dressing.nvim',
