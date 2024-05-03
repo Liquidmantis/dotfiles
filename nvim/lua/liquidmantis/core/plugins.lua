@@ -107,8 +107,6 @@ return {
     },
   },
     'nvimdev/lspsaga.nvim',
-    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-    'nvim-treesitter/playground',
     'folke/neodev.nvim',
     'lepture/vim-jinja',
     'ckipp01/stylua-nvim',
