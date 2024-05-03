@@ -31,8 +31,8 @@ nnoremap( 'n', 'nzz' ) -- find next and recenter
 nnoremap( 'N', 'Nzz' ) -- find prev and recenter
 -- stolen from https://github.com/ibhagwan/nvim-lua/blob/main/lua/keymaps.lua
 -- Map <leader>o & <leader>O to newline without insert mode
-nnoremap( '<leader>o', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>' )
-nnoremap( '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>' )
+nnoremap( 'go', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>' )
+nnoremap( 'gO', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>' )
 
 -- extend undo checkpoints
 inoremap( ',', ',<C-g>u' )
