@@ -11,8 +11,6 @@ return {
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
     'NvChad/nvim-colorizer.lua',        -- highlight color references with the color
     'nyngwang/murmur.lua',              -- cursor word highlighting
-    'kyazdani42/nvim-tree.lua',         -- file explorer
-    'kyazdani42/nvim-web-devicons',
     'zbirenbaum/copilot.lua',
     'zbirenbaum/copilot-cmp',
     {
