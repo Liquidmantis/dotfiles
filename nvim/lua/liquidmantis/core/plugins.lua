@@ -36,7 +36,6 @@ return {
     'junegunn/fzf.vim',                 -- support for fzf
     'junegunn/gv.vim',                  -- git commit browser
     'mbbill/undotree',                  -- the awesome undo history explorer
-    'nvim-lualine/lualine.nvim',        -- statusbar
     '0x00-ketsu/maximizer.nvim',                -- zoom/maximize current pane
     'famiu/bufdelete.nvim',             -- close buffer without messing up windows
     'gorbit99/codewindow.nvim',         -- minimap
