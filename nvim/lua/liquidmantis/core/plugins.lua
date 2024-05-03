@@ -11,7 +11,6 @@ return {
     'sindrets/diffview.nvim',
 
   --  UI add-ons
-    'stevearc/aerial.nvim',
     'stevearc/dressing.nvim',
     'MunifTanjim/nui.nvim',             -- UI components
     'rcarriga/nvim-notify',             -- Notifications UI 

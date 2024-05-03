@@ -20,4 +20,8 @@ require('lazy').setup('liquidmantis.plugins', {
   checker = { enabled = true },
 })
 
-require('liquidmantis.core')
+require('liquidmantis.core.autocommands')
+require('liquidmantis.core.settings')
+require('liquidmantis.core.keymaps')
+require('liquidmantis.core.globals')
+require('liquidmantis.core.theme')
