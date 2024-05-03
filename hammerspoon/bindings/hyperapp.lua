@@ -20,6 +20,14 @@ HyperApp:bind('', 'k', function()
   if State.zenMode ~= false then obs:hide() end
 end)
 
+HyperApp:bind('', 'z', function()
+  hs.application.open( 'zoom.us' )
+  print('opening zoom...')
+end)
+
+-- ****************************************
+-- S apps
+-- ****************************************
 local s = hs.hotkey.modal.new()
 HyperApp:bind('', 's', function()
   ExitHyperApp()
