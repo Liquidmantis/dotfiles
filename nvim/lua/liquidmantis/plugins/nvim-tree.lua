@@ -1,7 +1,7 @@
 return {
   'nvim-tree/nvim-tree.lua',
   config = function()
-    require('nvimtree').setup({
+    require('nvim-tree').setup({
       auto_reload_on_write = true,
       -- disable_netrw   = true,
       hijack_netrw    = true,
