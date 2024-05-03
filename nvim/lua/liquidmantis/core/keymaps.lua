@@ -105,7 +105,7 @@ nnoremap( '<leader>od', ':ObsidianDailies<CR>' )
 nnoremap( '<leader>oe', ':ObsidianExtractNote<CR>' )
 nnoremap( '<leader>ol', ':ObsidianLinks<CR>' )
 nnoremap( '<leader>on', ':ObsidianNew<CR>' )
-nnoremap( '<leader>oq', ':ObsidianQuickSwitch<CR>' )
+nnoremap( '<leader>oo', ':ObsidianQuickSwitch<CR>' )
 nnoremap( '<leader>or', ':ObsidianRename<CR>' )
 nnoremap( '<leader>os', ':ObsidianSearch<CR>' )
 
