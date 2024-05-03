@@ -1,10 +1,10 @@
-local harpoon = require("harpoon")
+local harpoon_installed, harpoon = pcall(require, 'harpoon')
+if not harpoon_installed then
+  vim.notify('harpoon not installed', 'error')
+  return
+end
 
-harpoon:setup({
-  settings = {
-    save_on_toggle = true,
-  }
-})
+harpoon:setup()
 
 local conf = require("telescope.config").values
 local function toggle_telescope(harpoon_files)
