@@ -93,7 +93,6 @@ return {
     'rafamadriz/friendly-snippets',
     'williamboman/mason.nvim',
     'j-hui/fidget.nvim',
-    'neovim/nvim-lspconfig',
     { 'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-buffer',
