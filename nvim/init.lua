@@ -15,13 +15,14 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "|"
 
+require('liquidmantis.core.settings')
+require('liquidmantis.core.globals')
+
 require('lazy').setup('liquidmantis.plugins', {
   defaults = { lazy = false },
   checker = { enabled = true },
 })
 
 require('liquidmantis.core.autocommands')
-require('liquidmantis.core.settings')
 require('liquidmantis.core.keymaps')
-require('liquidmantis.core.globals')
 require('liquidmantis.core.theme')
