@@ -3,10 +3,10 @@ return {
   build = ':TSUpdate',
   dependencies = {
     'nvim-treesitter/playground'
-  }
+  },
 
   config = function()
-    local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+    -- local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
     require'nvim-treesitter.configs'.setup {
       ensure_installed = { 
