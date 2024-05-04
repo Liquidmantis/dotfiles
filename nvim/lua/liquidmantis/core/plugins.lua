@@ -36,7 +36,6 @@ return {
     'mbbill/undotree',                  -- the awesome undo history explorer
     '0x00-ketsu/maximizer.nvim',                -- zoom/maximize current pane
     'famiu/bufdelete.nvim',             -- close buffer without messing up windows
-    'gorbit99/codewindow.nvim',         -- minimap
     'pocco81/true-zen.nvim',
     'folke/noice.nvim',
     'folke/trouble.nvim',
