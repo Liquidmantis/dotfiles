@@ -5,7 +5,6 @@ return {
   --  UI add-ons
     'stevearc/dressing.nvim',
     'MunifTanjim/nui.nvim',             -- UI components
-    'rcarriga/nvim-notify',             -- Notifications UI 
 
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
