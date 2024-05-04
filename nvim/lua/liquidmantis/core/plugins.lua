@@ -8,7 +8,6 @@ return {
 
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
-    'NvChad/nvim-colorizer.lua',        -- highlight color references with the color
     'nyngwang/murmur.lua',              -- cursor word highlighting
     'zbirenbaum/copilot.lua',
     'zbirenbaum/copilot-cmp',
