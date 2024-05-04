@@ -93,7 +93,6 @@ return {
     'rafamadriz/friendly-snippets',
     'williamboman/mason.nvim',
     'j-hui/fidget.nvim',
-    'nvimdev/lspsaga.nvim',
     'folke/neodev.nvim',
     'lepture/vim-jinja',
     'ckipp01/stylua-nvim',
