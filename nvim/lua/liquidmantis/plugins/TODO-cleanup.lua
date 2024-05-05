@@ -1,4 +1,5 @@
 return {
+  -- TODO: Figure out which of these plugins to keep
   -- Vim features add-ons
     'mattdibi/incolla.nvim',            -- paste images into markdown
     'junegunn/gv.vim',                  -- git commit browser
@@ -16,4 +17,5 @@ return {
 
   -- Git utilities
     { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end },
+  event = "VeryLazy",
 }
