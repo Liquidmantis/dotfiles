@@ -11,7 +11,6 @@ return {
     'pocco81/true-zen.nvim',
     'folke/trouble.nvim',
     'folke/twilight.nvim',              -- highlight focused code blocks
-    'folke/todo-comments.nvim',
     {'ThePrimeagen/harpoon', branch = 'harpoon2'},
 
   -- Language add-ons
