@@ -27,9 +27,6 @@ return {
 
   -- Telescope, prereqs, and extensions
     'nvim-lua/popup.nvim',
-    'nvim-lua/plenary.nvim',
-    'kkharji/sqlite.lua',
-    'nvim-neorg/neorg-telescope',
 --
   -- Language add-ons
     'kmonad/kmonad-vim',
