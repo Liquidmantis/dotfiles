@@ -1,12 +1,19 @@
--- vim.opt.listchars = {
---     space = "⋅",
---     eol = "↴",
--- }
+return {
+  'lukas-reineke/indent-blankline.nvim',
 
-require("ibl").setup(
-  -- config = {
-  --   indent = {
-  --     space = "⋅",
-  --   },
-  -- }
-)
+  config = function()
+    -- vim.opt.listchars = {
+
+    --     space = "⋅",
+    --     eol = "↴",
+    -- }
+
+    require("ibl").setup(
+      -- config = {
+      --   indent = {
+      --     space = "⋅",
+      --   },
+      -- }
+    )
+  end
+}

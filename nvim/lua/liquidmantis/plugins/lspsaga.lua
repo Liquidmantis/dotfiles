@@ -1,13 +1,13 @@
-local lspsaga_installed, lspsaga = pcall(require, 'lspsaga')
-if not lspsaga_installed then
-  vim.notify('lspsaga not installed', 'error')
-  return
-end
+return {
+  'nvimdev/lspsaga.nvim',
 
-lspsaga.setup({
-  diagnostic = {
-    keys = {
-      quit = {'q', '<ESC>'}
-    }
-  },
-})
+  config = function()
+    require('lspsaga').setup({
+      diagnostic = {
+        keys = {
+          quit = {'q', '<ESC>'}
+        }
+      },
+    })
+  end
+}

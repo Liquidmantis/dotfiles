@@ -1,9 +1,9 @@
-local murmur_installed, murmur = pcall( require, 'murmur' )
-if not murmur_installed then  
-  vim.notify( 'murmur not installed', 'error' )
-  return
-end
+return {
+  'nyngwang/murmur.lua',              -- cursor word highlighting
 
-murmur.setup({
-  max_len = 80,
-})
+  config = function()
+    require('murmur').setup({
+      max_len = 80,
+    })
+  end
+}

@@ -1,1 +1,6 @@
-require('aerial').setup({ })
+return {
+  'stevearc/aerial.nvim',
+  config = function()
+    require('aerial').setup()
+  end
+}

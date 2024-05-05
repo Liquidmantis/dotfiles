@@ -1,123 +1,134 @@
--- load neodev before lspconfig
-require('neodev').setup()
-
-local lspconfig = require'lspconfig'
-local util = require'lspconfig/util'
-local configs = require'lspconfig/configs'
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-require('mason').setup()
-
-lspconfig.html.setup {}
-lspconfig.cssls.setup{}
-lspconfig.asm_lsp.setup{}
-lspconfig.docker_compose_language_service.setup{}
-lspconfig.dockerls.setup{}
-
--- Bash
-require'lspconfig'.bashls.setup{}
-
--- Terraform
-lspconfig.terraformls.setup{
-  cmd = { "terraform-ls", "serve" };
-  filetypes =  { "terraform", "tf" };
-}
-
-lspconfig.clangd.setup{}
-
--- Markdown
-require'lspconfig'.marksman.setup{}
-
-lspconfig.omnisharp.setup {
-  on_attach = function(_, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  end,
-  -- root_dir = util.root_pattern(".cs"),
-  cmd = { "/usr/local/bin/mono", "/usr/local/bin/omnisharp-manual/omnisharp/OmniSharp.exe", "--languageserver" },
-}
-
--- lspconfig.golangci_lint_ls.setup{}
-
-lspconfig.gopls.setup {
-  cmd = {"gopls", "serve"},
-  filetypes = {"go", "gomod"},
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  settings = {
-    gopls = {
-      experimentalPostfixCompletions = true,
-      analyses = {
-        unusedparams = true,
-        shadow = true,
-      },
-      completeUnimported = true,
-      staticcheck = true,
-      usePlaceholders = true,
-    },
+return {
+  'neovim/nvim-lspconfig',
+  dependencies = {
+    'folke/neodev.nvim',
+    'hrsh7th/cmp-nvim-lsp',
+    'williamboman/mason.nvim',
   },
-  init_options = {
-    usePlaceholders = true,
-  },
-}
 
-lspconfig.gdscript.setup{capabilities = capabilities}
+  config = function() 
+  -- load neodev before lspconfig
+    require('neodev').setup()
 
--- require'lspconfig'.emmet_language_server.setup{}
--- if not lspconfig.emmet_ls then
---   configs.emmet_ls = {
---     default_config = {
---       cmd = {'emmet-ls', '--stdio'};
---       filetypes = {'html', 'css', 'blade'};
---       -- root_dir = function(fname)    
---       --   return vim.loop.cwd()
---       -- end;    
---       settings = {};
---     };
---   }
--- end
--- lspconfig.emmet_ls.setup{ capabilities = capabilities; }
+    local lspconfig = require'lspconfig'
+    local util = require'lspconfig/util'
+    local configs = require'lspconfig/configs'
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Python
-lspconfig.pyright.setup{}
+    require('mason').setup()
 
--- TypeScript
-lspconfig.tsserver.setup{
-  root_dir = require'lspconfig'.util.root_pattern("sketch.js", "index.html")
-}
+    lspconfig.html.setup {}
+    lspconfig.cssls.setup{}
+    lspconfig.asm_lsp.setup{}
+    lspconfig.docker_compose_language_service.setup{}
+    lspconfig.dockerls.setup{}
 
--- PowerShell
-lspconfig.powershell_es.setup{
-  bundle_path = '/usr/local/share/powershell_es';
-  filetypes = { "powershell", "ps1" };
-}
+    -- Bash
+    require'lspconfig'.bashls.setup{}
 
--- Lua
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
+    -- Terraform
+    lspconfig.terraformls.setup{
+      cmd = { "terraform-ls", "serve" };
+      filetypes =  { "terraform", "tf" };
+    }
 
-require'lspconfig'.lua_ls.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = runtime_path,
+    lspconfig.clangd.setup{}
+
+    -- Markdown
+    require'lspconfig'.marksman.setup{}
+
+    lspconfig.omnisharp.setup {
+      on_attach = function(_, bufnr)
+        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+      end,
+      -- root_dir = util.root_pattern(".cs"),
+      cmd = { "/usr/local/bin/mono", "/usr/local/bin/omnisharp-manual/omnisharp/OmniSharp.exe", "--languageserver" },
+    }
+
+    -- lspconfig.golangci_lint_ls.setup{}
+
+    lspconfig.gopls.setup {
+      cmd = {"gopls", "serve"},
+      filetypes = {"go", "gomod"},
+      root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+      settings = {
+        gopls = {
+          experimentalPostfixCompletions = true,
+          analyses = {
+            unusedparams = true,
+            shadow = true,
+          },
+          completeUnimported = true,
+          staticcheck = true,
+          usePlaceholders = true,
+        },
       },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+      init_options = {
+        usePlaceholders = true,
       },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false,
+    }
+
+    lspconfig.gdscript.setup{capabilities = capabilities}
+
+    -- require'lspconfig'.emmet_language_server.setup{}
+    -- if not lspconfig.emmet_ls then
+    --   configs.emmet_ls = {
+    --     default_config = {
+    --       cmd = {'emmet-ls', '--stdio'};
+    --       filetypes = {'html', 'css', 'blade'};
+    --       -- root_dir = function(fname)    
+    --       --   return vim.loop.cwd()
+    --       -- end;    
+    --       settings = {};
+    --     };
+    --   }
+    -- end
+    -- lspconfig.emmet_ls.setup{ capabilities = capabilities; }
+
+    -- Python
+    lspconfig.pyright.setup{}
+
+    -- TypeScript
+    lspconfig.tsserver.setup{
+      root_dir = require'lspconfig'.util.root_pattern("sketch.js", "index.html")
+    }
+
+    -- PowerShell
+    lspconfig.powershell_es.setup{
+      bundle_path = '/usr/local/share/powershell_es';
+      filetypes = { "powershell", "ps1" };
+    }
+
+    -- Lua
+    local runtime_path = vim.split(package.path, ';')
+    table.insert(runtime_path, "lua/?.lua")
+    table.insert(runtime_path, "lua/?/init.lua")
+
+    require'lspconfig'.lua_ls.setup {
+      settings = {
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = 'LuaJIT',
+            -- Setup your lua path
+            path = runtime_path,
+          },
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = {'vim'},
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty = false,
+          },
+          -- Do not send telemetry data containing a randomized but unique identifier
+          telemetry = {
+            enable = false,
+          },
+        },
       },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
+    }
+  end
 }
