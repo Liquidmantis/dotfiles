@@ -9,21 +9,6 @@ return {
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
     'nyngwang/murmur.lua',              -- cursor word highlighting
-    'zbirenbaum/copilot.lua',
-    'zbirenbaum/copilot-cmp',
-    {
-      "CopilotC-Nvim/CopilotChat.nvim",
-      branch = "canary",
-      dependencies = {
-        { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-        { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-      },
-      opts = {
-        debug = false, -- Enable debugging
-        -- See Configuration section for rest
-      },
-      -- See Commands section for default commands if you want to lazy load on them
-    },
     'mattdibi/incolla.nvim',            -- paste images into markdown
     'jremmen/vim-ripgrep',
     'epwalsh/obsidian.nvim',
