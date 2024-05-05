@@ -9,6 +9,7 @@ return {
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-path',
     'saadparwaiz1/cmp_luasnip',
+    'zbirenbaum/copilot-cmp',
     'onsails/lspkind.nvim',
     'L3MON4D3/LuaSnip',
   },
@@ -19,6 +20,7 @@ return {
     local lspkind = require('lspkind')
 
     require'luasnip/loaders/from_vscode'.lazy_load()
+    require("copilot_cmp").setup()
 
     cmp.setup({
       snippet = {
