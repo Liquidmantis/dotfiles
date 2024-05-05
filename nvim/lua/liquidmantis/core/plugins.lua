@@ -3,8 +3,6 @@ return {
   -- Testing/Learning plugins
 
   --  UI add-ons
-    'stevearc/dressing.nvim',
-    'MunifTanjim/nui.nvim',             -- UI components
 
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
@@ -20,7 +18,6 @@ return {
     '0x00-ketsu/maximizer.nvim',                -- zoom/maximize current pane
     'famiu/bufdelete.nvim',             -- close buffer without messing up windows
     'pocco81/true-zen.nvim',
-    'folke/noice.nvim',
     'folke/trouble.nvim',
     'folke/twilight.nvim',              -- highlight focused code blocks
     'folke/todo-comments.nvim',
