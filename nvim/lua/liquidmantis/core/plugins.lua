@@ -15,12 +15,6 @@ return {
     'folke/todo-comments.nvim',
     {'ThePrimeagen/harpoon', branch = 'harpoon2'},
 
-  -- Debugging
-    'nvim-neotest/nvim-nio',
-
-  -- Telescope, prereqs, and extensions
-    'nvim-lua/popup.nvim',
---
   -- Language add-ons
     'kmonad/kmonad-vim',
     'PProvost/vim-ps1',
@@ -40,9 +34,4 @@ return {
     { "FabijanZulj/blame.nvim", config = function() require("blame").setup() end },
   --   'airblade/vim-rooter', -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
     { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end },
-
-  -- Themes
-    {'npxbr/gruvbox.nvim', dependencies = {'rktjmp/lush.nvim'}},
-    'sainnhe/everforest',
-    { "catppuccin/nvim", name = "catppuccin" }
 }
