@@ -1,4 +1,4 @@
-teturn {
+return {
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
     'mattdibi/incolla.nvim',            -- paste images into markdown
@@ -31,6 +31,5 @@ teturn {
     'rhysd/git-messenger.vim',
     'lewis6991/gitsigns.nvim',
     { "FabijanZulj/blame.nvim", config = function() require("blame").setup() end },
-  --   'airblade/vim-rooter', -- makes fzf search from the git project root rather than local dir.  Honors .gitignore
     { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end },
 }
