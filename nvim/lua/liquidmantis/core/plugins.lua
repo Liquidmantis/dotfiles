@@ -13,7 +13,6 @@ return {
     'folke/trouble.nvim',
     'folke/twilight.nvim',              -- highlight focused code blocks
     'folke/todo-comments.nvim',
-    'lukas-reineke/indent-blankline.nvim',
     {'ThePrimeagen/harpoon', branch = 'harpoon2'},
     'AckslD/nvim-neoclip.lua',
 
