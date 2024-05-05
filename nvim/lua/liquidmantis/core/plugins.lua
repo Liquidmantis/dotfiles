@@ -7,10 +7,8 @@ return {
     'junegunn/fzf.vim',                 -- support for fzf
     'junegunn/gv.vim',                  -- git commit browser
     'famiu/bufdelete.nvim',             -- close buffer without messing up windows
-    'pocco81/true-zen.nvim',
     'folke/trouble.nvim',
     'folke/twilight.nvim',              -- highlight focused code blocks
-    {'ThePrimeagen/harpoon', branch = 'harpoon2'},
 
   -- Language add-ons
     'kmonad/kmonad-vim',
