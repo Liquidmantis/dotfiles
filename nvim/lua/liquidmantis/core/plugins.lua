@@ -51,7 +51,6 @@ return {
     'nvim-lua/popup.nvim',
     'nvim-lua/plenary.nvim',
       'kkharji/sqlite.lua' }},
-    'axieax/urlview.nvim',             -- sophisticated picker for links in page
     'nvim-neorg/neorg-telescope',
 --
   -- Language add-ons
