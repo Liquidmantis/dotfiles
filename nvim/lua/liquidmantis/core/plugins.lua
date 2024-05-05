@@ -17,7 +17,6 @@ return {
     'kmonad/kmonad-vim',
     'PProvost/vim-ps1',
     'JayDoubleu/vim-pwsh-formatter',
-    'hashivim/vim-terraform',
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
     'williamboman/mason.nvim',
