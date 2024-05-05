@@ -1,15 +1,9 @@
 return {
-  -- Extra movements and objects
-  -- Testing/Learning plugins
-
-  --  UI add-ons
-
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
     'mattdibi/incolla.nvim',            -- paste images into markdown
     'jremmen/vim-ripgrep',
     'epwalsh/obsidian.nvim',
-    'sunjon/Shade.nvim',
     'junegunn/fzf',
     'junegunn/fzf.vim',                 -- support for fzf
     'junegunn/gv.vim',                  -- git commit browser
