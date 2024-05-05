@@ -24,7 +24,6 @@ return {
 
   -- Git utilities
     'rhysd/git-messenger.vim',
-    'lewis6991/gitsigns.nvim',
     { "FabijanZulj/blame.nvim", config = function() require("blame").setup() end },
     { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end },
 }
