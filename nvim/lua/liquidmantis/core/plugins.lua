@@ -6,7 +6,6 @@ return {
     'junegunn/fzf',
     'junegunn/fzf.vim',                 -- support for fzf
     'junegunn/gv.vim',                  -- git commit browser
-    '0x00-ketsu/maximizer.nvim',                -- zoom/maximize current pane
     'famiu/bufdelete.nvim',             -- close buffer without messing up windows
     'pocco81/true-zen.nvim',
     'folke/trouble.nvim',
