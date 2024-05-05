@@ -6,7 +6,6 @@ return {
 
   -- Vim features add-ons
     {'kevinhwang91/nvim-bqf', ft = 'qf'}, -- better quickfix
-    'nyngwang/murmur.lua',              -- cursor word highlighting
     'mattdibi/incolla.nvim',            -- paste images into markdown
     'jremmen/vim-ripgrep',
     'epwalsh/obsidian.nvim',
