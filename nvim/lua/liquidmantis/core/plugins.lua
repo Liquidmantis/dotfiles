@@ -1,7 +1,6 @@
 return {
   -- Vim features add-ons
     'mattdibi/incolla.nvim',            -- paste images into markdown
-    'jremmen/vim-ripgrep',
     'junegunn/gv.vim',                  -- git commit browser
     'famiu/bufdelete.nvim',             -- close buffer without messing up windows
     'folke/trouble.nvim',
