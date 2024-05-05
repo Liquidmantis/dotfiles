@@ -14,4 +14,13 @@ return {
     },
     -- See Commands section for default commands if you want to lazy load on them
   },
+
+  config = function()
+    require('copilot').setup({
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    })
+
+    require("copilot_cmp").setup()
+  end
 }
