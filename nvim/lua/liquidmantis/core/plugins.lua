@@ -17,6 +17,5 @@ return {
     'habamax/vim-godot',
 
   -- Git utilities
-    'rhysd/git-messenger.vim',
     { "ahmedkhalf/project.nvim", config = function() require("project_nvim").setup { } end },
 }
