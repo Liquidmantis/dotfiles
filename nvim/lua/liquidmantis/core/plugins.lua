@@ -17,12 +17,6 @@ return {
 
   -- Debugging
     'nvim-neotest/nvim-nio',
-    'mfussenegger/nvim-dap',
-    'mfussenegger/nvim-dap-python',
-    'leoluz/nvim-dap-go', -- not needed with ray-x/go.nvim
-    'rcarriga/nvim-dap-ui',
-    'theHamsta/nvim-dap-virtual-text',
-    'nvim-telescope/telescope-dap.nvim',
 
   -- Telescope, prereqs, and extensions
     'nvim-lua/popup.nvim',
