@@ -10,8 +10,6 @@ return {
     'kmonad/kmonad-vim',
     'PProvost/vim-ps1',
     'JayDoubleu/vim-pwsh-formatter',
-    'L3MON4D3/LuaSnip',
-    'rafamadriz/friendly-snippets',
     'lepture/vim-jinja',
     'ckipp01/stylua-nvim',
     'habamax/vim-godot',
