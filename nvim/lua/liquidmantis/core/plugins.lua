@@ -13,7 +13,6 @@ return {
     'JayDoubleu/vim-pwsh-formatter',
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
-    'j-hui/fidget.nvim',
     'lepture/vim-jinja',
     'ckipp01/stylua-nvim',
     'habamax/vim-godot',
