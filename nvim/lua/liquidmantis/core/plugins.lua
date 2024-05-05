@@ -50,7 +50,6 @@ return {
     'rafamadriz/friendly-snippets',
     'williamboman/mason.nvim',
     'j-hui/fidget.nvim',
-    'folke/neodev.nvim',
     'lepture/vim-jinja',
     'ckipp01/stylua-nvim',
     'habamax/vim-godot',
