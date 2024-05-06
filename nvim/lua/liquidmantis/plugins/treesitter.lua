@@ -26,7 +26,7 @@ return {
         "terraform",
         "tmux",
         "vim",
-        "yaml',
+        "yaml",
       }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 
       ignore_install = {}, -- List of parsers to ignore installing
