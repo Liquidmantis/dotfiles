@@ -12,23 +12,24 @@ return {
       ensure_installed = { 
         "bash",
         "go",
+        "hcl",
         "http",
         "html",
         "javascript",
+        "jq",
+        "json",
+        "json5",
         "lua",
+        "luadoc",
         "python",
+        "ssh_config",
         "terraform",
+        "tmux",
+        "vim",
+        "yaml',
       }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 
-      ignore_install = {
-        "astro",
-        "beancount",
-        "clojure",
-        "julia",
-        "phpdoc",
-        "kotlin",
-        "ruby",
-      }, -- List of parsers to ignore installing
+      ignore_install = {}, -- List of parsers to ignore installing
       highlight = {
         enable = true,              -- false will disable the whole extension
       },
