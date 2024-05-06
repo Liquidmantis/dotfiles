@@ -1,17 +1,7 @@
 return {
-  'stevearc/dressing.nvim',
-  'MunifTanjim/nui.nvim',             -- UI components
   'folke/noice.nvim',
 
   config = function()
-    require('dressing').setup({
-      input = {
-        get_config = function(opts)
-          return opts
-        end
-      },
-    })
-
     require("noice").setup({
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
