@@ -4,6 +4,8 @@ return {
   dependencies = {
     { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
     { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    { "AndreM222/copilot-lualine" },
+
   },
   opts = {
     debug = false, -- Enable debugging
