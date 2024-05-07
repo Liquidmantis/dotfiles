@@ -52,15 +52,18 @@ Hyper:bind('alt', 'z', function()
 	hs.eventtap.keyStroke({'ctrl', 'cmd'}, 'f')
 end)
 
+-- ****************************************
+-- Mode: Hyper Global App Keybindings
+-- ****************************************
+
 Hyper:bind('', 'return', function()
-  ExitHyper()
   hs.application.open( 'kitty' )
 end)
 
 Hyper:bind('', '.', function()
-  ExitHyper()
   hs.application.open( 'finder' )
 end)
+
 
 function MoveCurrentWindowToDisplay(display)
   local windowId = GetCurrentWindowId()
