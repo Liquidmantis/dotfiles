@@ -9,6 +9,7 @@ function ClearModes()
   ExitHyperConfig()
   ExitHyperConfigPadding()
   ExitHyperDisplay()
+  ExitHyperOpen()
   ExitHyperSpace()
   ExitHyperSpaceZen()
   ExitHyperWindow()
@@ -81,6 +82,16 @@ function ExitHyperDisplay()
   print('[Mode] HyperDisplay disabled')
   HyperDisplay:exit()
   -- hs.alert.closeSpecific(hyperDisplayAlert)
+end
+
+function EnterHyperOpen()
+  print('[Mode] HyperOpen enabled')
+  ExitHyper()
+  HyperOpen:enter()
+end
+function ExitHyperOpen()
+  print('[Mode] HyperOpen disabled')
+  HyperOpen:exit()
 end
 
 function EnterHyperWindow()

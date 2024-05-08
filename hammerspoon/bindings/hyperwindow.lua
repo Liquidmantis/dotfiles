@@ -52,13 +52,6 @@ HyperWindowResize:bind('', 'l', function() YabaiMsg( 'window', 'resize right:30:
 HyperWindowResize:bind('', 'j', function() YabaiMsg( 'window', 'resize top:0:30', 'resize bottom:0:30' ) end)
 HyperWindowResize:bind('', 'k', function() YabaiMsg( 'window', 'resize top:0:-30', 'resize bottom:0:-30' ) end)
 
--- SubMode: HyperWindowOpen Keybindings
-
-HyperWindowOpen:bind('', 'h', function() YabaiMsg( 'window', 'insert west' ) ExitHyperWindowOpen() end)
-HyperWindowOpen:bind('', 'l', function() YabaiMsg( 'window', 'insert east' ) ExitHyperWindowOpen() end)
-HyperWindowOpen:bind('', 'j', function() YabaiMsg( 'window', 'insert south' ) ExitHyperWindowOpen() end)
-HyperWindowOpen:bind('', 'k', function() YabaiMsg( 'window', 'insert north' ) ExitHyperWindowOpen() end)
-
 -- SubMode: HyperWindowTransparency Keybindings
 
 HyperWindowTransparency:bind('', '0', function() YabaiMsg( 'window', 'opacity 1.0') end)
