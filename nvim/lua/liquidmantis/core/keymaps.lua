@@ -80,18 +80,6 @@ nnoremap( '<leader><Esc>', ':NoiceDismiss<CR>' )
 inoremap( '<C-Esc>',       ':NoiceDismiss<CR>' )
 nnoremap( '<C-Esc>',       ':NoiceDismiss<CR>' )
 
--- harpoon mappings
--- local harpoon = require("harpoon")
--- nnoremap( '<leader>he', function() harpoon:list():add(); print(string.format("Added %s to Harpoon list", vim.api.nvim_buf_get_name(0))) end)
-nnoremap( '<leader>he', function() require('harpoon'):list():add(); print(string.format("Added %s to Harpoon list", vim.api.nvim_buf_get_name(0))) end)
--- nnoremap( '<leader>hh', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
--- nnoremap( '<leader>hp', function() harpoon.list():prev() end)
--- nnoremap( '<leader>hn', function() harpoon.list():next() end)
--- nnoremap( '<leader>ha', function() harpoon.list():select(1) end)
--- nnoremap( '<leader>hs', function() harpoon.list():select(2) end)
--- nnoremap( '<leader>hd', function() harpoon.list():select(3) end)
--- nnoremap( '<leader>hf', function() harpoon.list():select(4) end)
-
 -- CopilotChat mappings ('a' prefix for 'ai')
 nnoremap( '<leader>aa', ':CopilotChatToggle<CR>' )
 nnoremap( '<leader>ac', ':CopilotChatCommit<CR>' )
