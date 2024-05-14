@@ -79,7 +79,9 @@ function git-switch-search() {
       return
       ;;
     *)
-      git switch "$(git branch | fzf --ansi --preview  'git-log {1}' | tr -d '[:space:]')"
+      git switch "$(git branch | fzf --ansi --preview  \
+        'git log --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph {1}' |
+        tr -d '[:space:]')"
       return
   esac
 }
