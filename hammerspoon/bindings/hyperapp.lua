@@ -20,6 +20,10 @@ HyperApp:bind('', 'k', function()
   if State.zenMode ~= false then obs:hide() end
 end)
 
+HyperApp:bind('', 'm', function()
+  hs.application.open( 'mimestream' )
+end)
+
 HyperApp:bind('', 'z', function()
   hs.application.open( 'zoom.us' )
   print('opening zoom...')
