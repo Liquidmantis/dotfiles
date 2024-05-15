@@ -9,8 +9,8 @@ HyperStack:bind('', 'l', function() YabaiMsg( 'window', 'stack east' ) ExitHyper
 HyperStack:bind('', 'j', function() YabaiMsg( 'window', 'stack south' ) ExitHyperStack() end)
 HyperStack:bind('', 'k', function() YabaiMsg( 'window', 'stack north' ) ExitHyperStack() end)
 
-HyperStack:bind('', 'n', function() YabaiMsg( 'window', 'focus stack.next', 'focus stack.first' ) ExitHyperStack() end)
-HyperStack:bind('', 'p', function() YabaiMsg( 'window', 'focus stack.prev', 'focus stack.last' ) ExitHyperStack() end)
+HyperStack:bind('', 'n', function() YabaiMsg( 'window', 'focus stack.next', 'focus stack.first' ) end)
+HyperStack:bind('', 'p', function() YabaiMsg( 'window', 'focus stack.prev', 'focus stack.last' ) end)
 
 -- Pop the current window off the stack
 HyperStack:bind('', 'o', function()
