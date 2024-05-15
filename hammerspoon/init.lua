@@ -1,6 +1,7 @@
 require('functions')
 require('modes')
 require('hs.ipc')
+hs.loadSpoon('EmmyLua')
 
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
 
