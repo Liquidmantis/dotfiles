@@ -13,7 +13,7 @@ return {
       -- sync_root_with_cwd = true,
 
       filters = {
-        custom = { '.git', '.gitattributes', '.node_modules' }
+        custom = { '\\.git$', '\\.gitattributes$', '\\.node_modules$' }
       },
       update_focused_file = {
         enable      = true,
