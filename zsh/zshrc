@@ -81,3 +81,6 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 source ~/bin/fzf-git.sh/fzf-git.sh
+
+# load asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
