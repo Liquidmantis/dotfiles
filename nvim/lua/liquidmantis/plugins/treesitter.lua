@@ -9,7 +9,7 @@ return {
     -- local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
     require'nvim-treesitter.configs'.setup {
-      ensure_installed = { 
+      ensure_installed = {
         "bash",
         "go",
         "hcl",
@@ -21,6 +21,8 @@ return {
         "json5",
         "lua",
         "luadoc",
+        "markdown",
+        "markdown_inline",
         "python",
         "ssh_config",
         "terraform",
