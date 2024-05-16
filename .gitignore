@@ -2,6 +2,7 @@
 */.DS_Store
 */automatic_backups/*
 hammerspoon/stackline
+hammerspoon/Spoons/**
 .netrwhist
 packer_compiled.lua
 private
