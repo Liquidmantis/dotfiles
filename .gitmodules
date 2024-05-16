@@ -7,12 +7,18 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "kitty/--force"]
-	path = kitty/--force
-	url = https://github.com/bgrnwd/everforest-kitty.git
 [submodule "kitty/kitty"]
 	path = kitty/kitty
 	url = https://github.com/catppuccin/kitty
 [submodule "tmux/plugins/catppuccin"]
 	path = tmux/plugins/catppuccin
 	url = https://github.com/catppuccin/tmux
+[submodule "delta/themes/delta"]
+	path = delta/themes/delta
+	url = git@github.com:catppuccin/delta.git
+[submodule "bat/--force"]
+	path = bat/--force
+	url = git@github.com:catppuccin/bat.git
+[submodule "bat/bat"]
+	path = bat/bat
+	url = git@github.com:catppuccin/bat.git
