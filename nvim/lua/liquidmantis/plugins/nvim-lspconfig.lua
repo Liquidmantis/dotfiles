@@ -1,14 +1,14 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'folke/neodev.nvim',
+    -- 'folke/neodev.nvim',
     'hrsh7th/cmp-nvim-lsp',
     'williamboman/mason.nvim',
   },
 
   config = function() 
   -- load neodev before lspconfig
-    require('neodev').setup()
+    -- require('neodev').setup()
 
     local lspconfig = require'lspconfig'
     local util = require'lspconfig/util'
