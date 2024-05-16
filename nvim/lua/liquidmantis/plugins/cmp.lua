@@ -56,6 +56,11 @@ return {
         end,
       }),
 
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+
       formatting = {
         format = lspkind.cmp_format({
           mode = 'symbol_text',
