@@ -54,6 +54,13 @@
 
 [interactive]
     diffFilter = delta --color-only
+ 
+# Add delta theme location
+[include]
+	path = ~/.config/delta/themes/delta/catppuccin.gitconfig
+
+[delta]
+	features = catppuccin-mocha
 
 [delta]
     navigate = true    # use n and N to move between diff sections
