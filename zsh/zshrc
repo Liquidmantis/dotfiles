@@ -2,6 +2,7 @@ if [[ $(whoami) == "will.ernst" ]]; then
   export WORK_COMPUTER=true
 fi
 
+export CPATH="/opt/homebrew/include"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -10,16 +11,18 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
 export PATH="$PATH:/Users/liquid/.cargo/bin" 
 export PATH="$PATH:$(go env GOPATH)/bin"
-export CPATH="/opt/homebrew/include"
 export GOBIN="$HOME/go/bin"
+export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 export LIBRARY_PATH="/opt/homebrew/lib"
 export ZK_NOTEBOOK_DIR="$HOME/notes" # zk-nvim notebook root
 export EDITOR="nvim"
 export LANG="en_US.UTF-8"
-export PATH="$HOME/git-work/cloud-sre/bin:$PATH"
 
-export HCLOUD_CONFIG_PATH="~/.config" ### config path
-export HCLOUD_CLOUD_SRE_PATH="~/git-work/cloud-sre"
+if [[ $WORK_COMPUTER ]] then
+  export HCLOUD_CONFIG_PATH="${HOME}/.config" ### config path
+  export HCLOUD_CLOUD_SRE_PATH="${HOME}/git-work/cloud-sre"
+  export PATH="$HOME/git-work/cloud-sre/bin:$PATH"
+fi
 
 brewprefix=$(brew --prefix)
 if [[ $(uname) == "Linux" ]] then
@@ -32,56 +35,54 @@ else
   brewetc="$brewprefix/etc"
 fi
 
-fpath=($brewshare/zsh-completions $fpath)
-fpath=($brewshare/zsh/site-functions $fpath)
-
-# Prevent zsh-vi-mode.plugin from lazy-loading as it overwrites fzf's C-r binding
-# ZVM_INIT_MODE=sourcing
-
-source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
-# source $brewshare/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/functions.zsh
-source ${HOME}/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+source $brewshare/zsh-abbr/zsh-abbr.zsh
+source ${HOME}/.config/zsh/aliases.zsh
+source ${HOME}/.config/zsh/functions.zsh
 
 # lots of good info on completion stuff here:
 # https://thevaluable.dev/zsh-completion-guide-examples/
-export HISTORY_SUBSTRING_SEARCH_FUZZY=true
+fpath=($brewshare/zsh-completions $fpath)
+fpath=($brewshare/zsh/site-functions $fpath)
+fpath=($brewshare/zsh-abbr $fpath)
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case-insensitive completion
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # add coloring to completion list
+zstyle ':completion:*' menu no # don't show completion menu
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 autoload -Uz compinit && compinit -i
 
-# az-cli uses bash completion, this loads it in zsh
-autoload -U +X bashcompinit && bashcompinit
-source $brewetc/bash_completion.d/az
+source ${HOME}/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # add tab expansion of aliases
 # zstyle ':completion:*' completer _complete _ignored z
 # zstyle ':completion:*' regular true
 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CONFIG=${HOME}/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
 # remove esc delay to make vi-mode usable
 # KEYTIMEOUT=1
 
 # "inspired" from https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh
-HISTFILE=~/.zsh_history
+HISTFILE=${HOME}/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-# write to history file immediately, but each session keeps their own history
-setopt INC_APPEND_HISTORY_TIME 
+setopt INC_APPEND_HISTORY_TIME # write to history file immediately, but each session keeps their own history
+setopt hist_ignore_all_dups # if a new command line being added to the history list duplicates an older one, the older command is removed from the list (even if it is not the previous event)
+setopt hist_ignore_dups # do not enter events in history if they are duplicates of the previous event
+setopt hist_find_no_dups # when searching for history entries in the line editor, do not display duplicates
 
-setopt autocd
-setopt cdablevars
+setopt auto_cd # change to directory without cd
+setopt cdable_vars # if the argument to cd is not a directory, and it is a variable that names a directory, then change to that directory
 
+# load zoxide
 eval "$(zoxide init zsh)"
 
-export PATH="/opt/homebrew/sbin:$PATH"
-source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
-
-[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-source ~/bin/fzf-git.sh/fzf-git.sh
+[ -f ${HOME}/.config/fzf/fzf.zsh ] && source ${HOME}/.config/fzf/fzf.zsh
+source ${HOME}/bin/fzf-git.sh/fzf-git.sh
 
 # load asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
