@@ -23,3 +23,6 @@
 [submodule "bat/bat"]
 	path = bat/bat
 	url = git@github.com:catppuccin/bat.git
+[submodule "zsh/plugins/fzf-tab"]
+	path = zsh/plugins/fzf-tab
+	url = git@github.com:Aloxaf/fzf-tab.git
