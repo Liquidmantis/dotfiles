@@ -44,6 +44,7 @@ source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
 # source $brewshare/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/functions.zsh
+source ${HOME}/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 # lots of good info on completion stuff here:
 # https://thevaluable.dev/zsh-completion-guide-examples/
