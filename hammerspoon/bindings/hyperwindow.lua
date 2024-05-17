@@ -7,7 +7,6 @@ HyperWindow:bind('alt', 'o', function()
 	ExitHyperWindow()
 end)
 
-
 HyperWindow:bind('', 'r', function()
 	EnterHyperWindowResize()
 	ExitHyperWindow()
