@@ -109,3 +109,7 @@ function git-delete-orphans() {
       return
   esac
 }
+
+function git-updatesubmodules() {
+  git submodule update --init --recursive --remote --rebase
+}
