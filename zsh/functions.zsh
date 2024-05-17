@@ -55,7 +55,8 @@ function push-with-zoxide() {
 }
 
 function git-log() {
-  git log --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph
+  git log --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph |
+    bat --decorations=never
 }
 
 function git-log-preview() {
