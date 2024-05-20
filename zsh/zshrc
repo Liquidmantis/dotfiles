@@ -47,7 +47,7 @@ fpath=($brewshare/zsh/site-functions $fpath)
 fpath=($brewshare/zsh-abbr $fpath)
 
 # make zsh-syntax-highlighting work with abbr
-# ZSH_HIGHLIGHT_HIGHLIGHTERS+=(regexp)
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(main regexp)
 typeset -A ZSH_HIGHLIGHT_REGEXP
 ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(Qk)ABBR_REGULAR_USER_ABBREVIATIONS}}')$' fg=blue,bold)
 ZSH_HIGHLIGHT_REGEXP+=('[[:<:]]('${(j:|:)${(Qk)ABBR_GLOBAL_USER_ABBREVIATIONS}}')$' fg=blue,bold)
