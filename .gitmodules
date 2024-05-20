@@ -17,9 +17,6 @@
 [submodule "delta/themes/delta"]
 	path = delta/themes/delta
 	url = git@github.com:catppuccin/delta.git
-[submodule "bat/--force"]
-	path = bat/--force
-	url = git@github.com:catppuccin/bat.git
 [submodule "bat/bat"]
 	path = bat/bat
 	url = git@github.com:catppuccin/bat.git
