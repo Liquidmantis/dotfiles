@@ -6,6 +6,7 @@ function ClearModes()
   ExitHyper()
   ExitHyper2()
   ExitHyperApp()
+  ExitHyperCleanshot()
   ExitHyperConfig()
   ExitHyperConfigPadding()
   ExitHyperDisplay()
@@ -51,6 +52,16 @@ function ExitHyperApp()
   print('[Mode] HyperApp disabled')
   HyperApp:exit()
   -- hs.alert.closeSpecific(hyperAppAlert)
+end
+
+function EnterHyperCleanshot()
+  print('[Mode] HyperCleanshot enabled')
+  ExitHyper()
+  HyperCleanshot:enter()
+end
+function ExitHyperCleanshot()
+  print('[Mode] HyperCleanshot disabled')
+  HyperCleanshot:exit()
 end
 
 function EnterHyperConfig()

@@ -8,6 +8,7 @@ Hyper2 = hs.hotkey.modal.new()
 -- These modes are layered and toggled from Hyper.
 -- They "lock" and have exit triggers based on submodes and hotkey triggers.
 HyperApp = hs.hotkey.modal.new()
+HyperCleanshot = hs.hotkey.modal.new()
 HyperConfig = hs.hotkey.modal.new()
 HyperConfigPadding = hs.hotkey.modal.new()
 HyperDisplay = hs.hotkey.modal.new()
