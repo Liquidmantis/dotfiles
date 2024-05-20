@@ -46,6 +46,12 @@ fpath=($brewshare/zsh-completions $fpath)
 fpath=($brewshare/zsh/site-functions $fpath)
 fpath=($brewshare/zsh-abbr $fpath)
 
+# make zsh-syntax-highlighting work with abbr
+# ZSH_HIGHLIGHT_HIGHLIGHTERS+=(regexp)
+typeset -A ZSH_HIGHLIGHT_REGEXP
+ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(Qk)ABBR_REGULAR_USER_ABBREVIATIONS}}')$' fg=blue,bold)
+ZSH_HIGHLIGHT_REGEXP+=('[[:<:]]('${(j:|:)${(Qk)ABBR_GLOBAL_USER_ABBREVIATIONS}}')$' fg=blue,bold)
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case-insensitive completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # add coloring to completion list
 zstyle ':completion:*' menu no # don't show completion menu
