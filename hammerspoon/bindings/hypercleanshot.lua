@@ -2,6 +2,8 @@ local urls = {
   allinone = "cleanshot://all-in-one",
   region = "cleanshot://capture-area",
   fullscreen = "cleanshot://capture-fullscreen",
+  scrolling = "cleanshot://scrolling-capture",
+  text = "cleanshot://capture-text",
   window = "cleanshot://capture-window",
 }
 
@@ -15,6 +17,14 @@ end)
 
 HyperCleanshot:bind('', 'f', function()
   hs.urlevent.openURL(urls.fullscreen)
+end)
+
+HyperCleanshot:bind('', 's', function()
+  hs.urlevent.openURL(urls.scrolling)
+end)
+
+HyperCleanshot:bind('', 't', function()
+  hs.urlevent.openURL(urls.text)
 end)
 
 HyperCleanshot:bind('', 'w', function()
