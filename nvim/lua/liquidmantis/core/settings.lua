@@ -34,7 +34,6 @@ vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 9
 -- vim.o.showmatch = true                     -- flash matching brackets
 vim.o.hidden = true                           -- allow backgrounding unsaved buffers
-vim.o.termguicolors = true
 vim.o.scrolloff = 8
 
 -- vim.opt_local.suffixesadd:prepend('.lua')
