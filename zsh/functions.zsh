@@ -87,7 +87,7 @@ function git-switch-search() {
   esac
 }
 
-function git-delete-merged() {
+function git-branch-merged-delete() {
   case $1 in
     "remote")
       git branch --remote --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -dr
@@ -99,18 +99,18 @@ function git-delete-merged() {
   esac
 }
 
-function git-delete-orphans() {
+function git-branch-orphans() {
   case $1 in
     "list-only")
       git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}'
       return
       ;;
-    *)
+    "delete")
       git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
       return
   esac
 }
 
-function git-updatesubmodules() {
+function git-update-submodules() {
   git submodule update --init --recursive --remote --rebase
 }
