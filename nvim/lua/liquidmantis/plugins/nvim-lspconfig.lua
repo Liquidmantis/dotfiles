@@ -1,7 +1,7 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    -- 'folke/neodev.nvim',
+    'folke/neodev.nvim',
     'hrsh7th/cmp-nvim-lsp',
     'williamboman/mason.nvim',
   },
