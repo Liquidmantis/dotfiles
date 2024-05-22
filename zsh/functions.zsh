@@ -13,18 +13,12 @@ function search-abbreviations() {
 
 function notes() {
   pushd ~/notes > /dev/null
-  vi index.md 
+  vi inbox.md 
   popd > /dev/null
 }
 
 function set-tokens() {
   export HOMEBREW_GITHUB_API_TOKEN="$(op item get p4lsb5z5hzr27t3v2afca5kvy4 --fields token)"
-}
-
-function wiki() {
-  pushd ~/notes > /dev/null
-  vi index.md
-  popd > /dev/null
 }
 
 function proj() {
