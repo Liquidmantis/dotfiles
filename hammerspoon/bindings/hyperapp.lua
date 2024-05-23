@@ -2,9 +2,25 @@
 -- Mode: HyperApp Keybindings
 -- ****************************************
 
+-- ****************************************
+-- C apps
+-- ****************************************
+local c = hs.hotkey.modal.new()
 HyperApp:bind('', 'c', function()
-  hs.application.open( 'google chrome' )
+  ExitHyperApp()
+  c:enter()
 end)
+
+c:bind('', 'a', function()
+  hs.application.open( 'busycal' )
+  c:exit()
+end)
+c:bind('', 'h', function()
+  hs.application.open( 'google chrome' )
+  print('open chrome')
+  c:exit()
+end)
+-- ****************************************
 
 HyperApp:bind('', 'o', function()
   hs.application.open( 'obsidian' )
@@ -12,6 +28,10 @@ end)
 
 HyperApp:bind('', 'f', function()
   hs.application.open( 'finder' )
+end)
+
+HyperApp:bind('', 'm', function()
+  hs.application.open( 'mimestream' )
 end)
 
 HyperApp:bind('', 'k', function()
@@ -52,3 +72,4 @@ s:bind('', 'p', function()
   hs.application.open( 'spotify' )
   s:exit()
 end)
+-- ****************************************+
