@@ -1,6 +1,3 @@
-[submodule "kitty/everforest-kitty"]
-	path = kitty/everforest-kitty
-	url = https://github.com/bgrnwd/everforest-kitty.git
 [submodule "tmux/tmux-fingers"]
 	path = tmux/tmux-fingers
 	url = https://git::@github.com/Morantron/tmux-fingers
