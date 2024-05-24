@@ -87,7 +87,9 @@ setopt cdable_vars # if the argument to cd is not a directory, and it is a varia
 # load zoxide
 eval "$(zoxide init zsh)"
 
-[ -f ${HOME}/.config/fzf/fzf.zsh ] && source ${HOME}/.config/fzf/fzf.zsh
+# [ -f ${HOME}/.config/fzf/fzf.zsh ] && source ${HOME}/.config/fzf/fzf.zsh
+source <(fzf --zsh)
+bindkey "ç" fzf-cd-widget # make alt-c open fzf-cd-widget
 source ${HOME}/bin/fzf-git.sh/fzf-git.sh
 
 # load asdf
