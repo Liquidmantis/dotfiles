@@ -91,7 +91,8 @@ eval "$(zoxide init zsh)"
 # [ -f ${HOME}/.config/fzf/fzf.zsh ] && source ${HOME}/.config/fzf/fzf.zsh
 source <(fzf --zsh)
 bindkey "ç" fzf-cd-widget # make alt-c open fzf-cd-widget
-source ${HOME}/bin/fzf-git.sh/fzf-git.sh
+source ${HOME}/.config/fzf/fzf-git.sh/fzf-git.sh
 
 # load asdf
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
+if [ -f "/Users/will.ernst/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/will.ernst/.config/fabric/fabric-bootstrap.inc"; fi
