@@ -20,3 +20,6 @@
 [submodule "zsh/plugins/fzf-tab"]
 	path = zsh/plugins/fzf-tab
 	url = git@github.com:Aloxaf/fzf-tab.git
+[submodule "fzf/fzf-git.sh"]
+	path = fzf/fzf-git.sh
+	url = git@github.com:junegunn/fzf-git.sh.git
