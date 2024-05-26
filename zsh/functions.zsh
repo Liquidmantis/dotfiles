@@ -108,3 +108,8 @@ function git-branch-orphans() {
 function git-update-submodules() {
   git submodule update --init --recursive --remote --rebase
 }
+
+function tmux-attach-main-session() {
+  tmux attach -t main || tmux new-session -s main
+}
+
