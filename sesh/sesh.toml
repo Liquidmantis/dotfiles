@@ -1,0 +1,4 @@
+[[session]]
+name = "Notes"
+path = "~/Dropbox/documents/notes/"
+startup_command = "nvim inbox.m"
