@@ -1,4 +1,9 @@
 [[session]]
 name = "Notes"
 path = "~/Dropbox/documents/notes/"
-startup_command = "nvim inbox.m"
+startup_command = "nvim inbox.md"
+
+[[session]]
+name = "Dotfiles"
+path = "~/git-home/dotfiles/"
+startup_command = "nvim +'Telescope find_files'"
