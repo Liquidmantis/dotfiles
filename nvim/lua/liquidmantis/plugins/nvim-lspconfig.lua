@@ -120,7 +120,9 @@ return {
           workspace = {
             -- Make the server aware of Neovim runtime files
             library = {
-              vim.api.nvim_get_runtime_file("", true),
+              -- vim.api.nvim_get_runtime_file("", true),
+              vim.env.VIMRUNTIME,
+              "${3rd}/luv/library",
               vim.fn.expand("$VIMRUNTIME/lua"),
               "~/.hammerspoon/Spoons/EmmyLua.spoon/annotations"
             },
