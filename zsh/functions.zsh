@@ -109,16 +109,19 @@ function git-update-submodules() {
   git submodule update --init --recursive --remote --rebase
 }
 
-function tmux-attach-main-session() {
+function tmux-attach-session() {
+  if [[ -z "$1" ]]; then
+    $1 = "main"
+  fi
   if [[ -n $TMUX ]]; then
-    if [[ $(tmux has-session -t main) ]]; then
-      tmux switch-client -t main
+    if [[ $(tmux has-session -t $1) ]]; then
+      tmux switch-client -t $1 
     else
-      tmux new-session -s main -d
-      tmux switch-client -t main
+      tmux new-session -s $1 -d
+      tmux switch-client -t $1
     fi
     return
   fi
-  tmux attach -t main || tmux new-session -s main
+  tmux attach -t $1 || tmux new-session -s $1
 }
 
