@@ -5,6 +5,7 @@ fi
 export CPATH="/opt/homebrew/include"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -12,6 +13,7 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
 export PATH="$PATH:/Users/liquid/.cargo/bin" 
 export PATH="$PATH:$(go env GOPATH)/bin"
+
 export GOBIN="$HOME/go/bin"
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 export LIBRARY_PATH="/opt/homebrew/lib"
