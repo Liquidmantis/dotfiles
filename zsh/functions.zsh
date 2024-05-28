@@ -110,6 +110,15 @@ function git-update-submodules() {
 }
 
 function tmux-attach-main-session() {
+  if [[ -n $TMUX ]]; then
+    if [[ $(tmux has-session -t main) ]]; then
+      tmux switch-client -t main
+    else
+      tmux new-session -s main -d
+      tmux switch-client -t main
+    fi
+    return
+  fi
   tmux attach -t main || tmux new-session -s main
 }
 
