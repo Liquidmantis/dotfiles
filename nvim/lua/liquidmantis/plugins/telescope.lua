@@ -41,7 +41,7 @@ return {
             },
           },
           oldfiles = {
-            -- only_cwd = true,
+            only_cwd = true,
           },
         },
       })
