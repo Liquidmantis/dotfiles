@@ -7,9 +7,11 @@
 
 [color]
   ui = auto
+
 [push]
   default = simple
 	autoSetupRemote = true
+
 [alias]
   b = branch -a
   co = checkout
@@ -25,35 +27,44 @@
   cm = commit -am
   l = log --oneline --graph
   ll = log --graph --pretty=format:\"%C(auto)%h%d%Creset %C(cyan)(%cr)%Creset %C(green)%cn <%ce>%Creset %s\"
+
 [pull]
 	rebase = true
+
 [init]
 	defaultBranch = main
+
 [diff]
 	tool = Kaleidoscope
 	mnemonicPrefix = true
+
 [merge]
 	tool = Kaleidoscope
+
 [url "git@github.com:"]
         insteadOf = https://github.com/
 [url "ssh://git@github.com/"]
         insteadOf = https://github.com/
+
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
 [difftool]
 	prompt = false
 	trustExitCode = true
+
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+
 [mergetool]
 	prompt = false
 
 [core]
-    pager = delta
+  pager = delta
 
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
  
 # Add delta theme location
 [include]
@@ -63,14 +74,10 @@
 	features = catppuccin-mocha
 
 [delta]
-    navigate = true    # use n and N to move between diff sections
-
-    # delta detects terminal colors automatically; set one of these to disable auto-detection
-    # dark = true
-    # light = true
+  navigate = true    # use n and N to move between diff sections
 
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 
 [diff]
-    colorMoved = default
+  colorMoved = default
