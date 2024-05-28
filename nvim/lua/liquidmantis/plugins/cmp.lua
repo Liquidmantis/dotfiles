@@ -40,14 +40,14 @@ return {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         },
-        ['<Tab>'] = function(fallback)
+        ['<C-j>'] = function(fallback)
           if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           else
             fallback()
           end
         end,
-        ['<S-Tab>'] = function(fallback)
+        ['<C-k>'] = function(fallback)
           if luasnip.jumpable(-1) then
             luasnip.jump(-1)
           else
