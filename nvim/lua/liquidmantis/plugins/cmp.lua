@@ -5,7 +5,7 @@ return {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
+    -- 'hrsh7th/cmp-nvim-lsp-signature-help', -- disabled as it competes with noice
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-path',
     'saadparwaiz1/cmp_luasnip',
