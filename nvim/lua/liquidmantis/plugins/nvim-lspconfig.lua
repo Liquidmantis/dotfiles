@@ -18,22 +18,24 @@ return {
 
     require('mason').setup()
 
-    lspconfig.html.setup {}
-    lspconfig.cssls.setup{}
     lspconfig.asm_lsp.setup{}
+    lspconfig.clangd.setup{}
+    lspconfig.cssls.setup{}
     lspconfig.docker_compose_language_service.setup{}
     lspconfig.dockerls.setup{}
+    lspconfig.html.setup {}
 
     -- Bash
-    require'lspconfig'.bashls.setup{}
+    lspconfig.bashls.setup{
+      filetypes = { "sh", "zsh" },
+      root_dir = util.root_pattern(".bashrc", ".zshrc"),
+    }
 
     -- Terraform
     lspconfig.terraformls.setup{
       cmd = { "terraform-ls", "serve" };
       filetypes =  { "terraform", "tf" };
     }
-
-    lspconfig.clangd.setup{}
 
     -- Markdown
     require'lspconfig'.marksman.setup{}
