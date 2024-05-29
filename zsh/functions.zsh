@@ -19,6 +19,7 @@ function notes() {
 
 function set-tokens() {
   export HOMEBREW_GITHUB_API_TOKEN="$(op item get p4lsb5z5hzr27t3v2afca5kvy4 --fields token)"
+  export GITHUB_TOKEN="$(op item get p4lsb5z5hzr27t3v2afca5kvy4 --fields token)"
 }
 
 function proj() {
@@ -122,6 +123,37 @@ function tmux-attach-session() {
     fi
     return
   fi
-  tmux attach -t $1 || tmux new-session -s $1
+  if [[ $(pgrep tmux) ]]; then
+    if [[ $(tmux list-session | grep ^$1) ]]; then
+      tmux attach -t $1
+    else
+      tmux new-session -s $1
+    fi
+  else
+    tmux new-session -s $1
+  fi
+}
+
+function hcloud-select-stack() {
+  stack="$(hcloud hashistack list --format=json | jq -r '.[].stack' | fzf-tmux -p)"
+  if [[ $1 == "setenv" ]]; then
+    export STACK=$stack
+  else
+    echo $stack
+  fi
+}
+
+function hcloud-connect-stack() {
+  if [[ -n $1 ]]; then
+    stack=$1
+  elif [[ -n $STACK ]]; then
+    stack=$STACK
+  else
+    stack=$(hcloud-select-stack)
+  fi
+  echo "Connecting to $stack..."
+  hcloud hashistack vpn $stack
+  echo "Setting environment variables..."
+  eval $(hcloud hashistack env $stack)
 }
 
