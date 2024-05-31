@@ -7,6 +7,7 @@ startup_command = "nvim inbox.md"
 name = "Downloads"
 path = "~/Downloads/"
 startup_command = "yazi"
+
 [[session]]
 name = "Dotfiles"
 path = "~/git-home/dotfiles/"
