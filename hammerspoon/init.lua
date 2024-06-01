@@ -1,8 +1,5 @@
-require('functions')
 require('hs.ipc')
 hs.loadSpoon('EmmyLua')
-
-hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
 
 -- Environmental goodies
 YabaiPath = '/opt/homebrew/bin/yabai'
@@ -36,3 +33,5 @@ State = {
   },
   zenMode = false
 }
+
+hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
