@@ -31,6 +31,7 @@ State = {
     yPad = 12,
     gap = 12
   },
+  SCREEN_WIDTH = hs.screen.primaryScreen():frame().w,
   zenMode = false
 }
 

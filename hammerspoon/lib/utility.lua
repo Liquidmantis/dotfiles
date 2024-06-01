@@ -80,11 +80,15 @@ function ToggleZenMode( mode )
     State.zenMode = false
   else
     if mode == 'zen' then
-      SetPadding(25 , 3)
+      -- set window to 65% of screen width
+      local xPad = math.floor((State.SCREEN_WIDTH * .35 / 2) / 20)
+      SetPadding(xPad , 3)
     elseif mode == 'full' then
       SetPadding(3, 2)
     elseif mode == 'wide' then
-      SetPadding(15, 3)
+      -- set window to 75% of screen width
+      local xPad = math.floor((State.SCREEN_WIDTH * .25 / 2) / 20)
+      SetPadding(xPad , 3)
     elseif mode == 'narrow' then
       SetPadding(35, 3)
     end
