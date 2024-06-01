@@ -1,5 +1,4 @@
 require('functions')
-require('modes')
 require('hs.ipc')
 hs.loadSpoon('EmmyLua')
 
@@ -8,7 +7,10 @@ hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration 
 -- Environmental goodies
 YabaiPath = '/opt/homebrew/bin/yabai'
 
--- source the keybinding files
+require('lib/modes')
+require('lib/mode-functions')
+require('lib/utility')
+
 require('bindings/basic')
 require('bindings/hyper')
 require('bindings/hyper2')
