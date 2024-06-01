@@ -66,9 +66,6 @@ Hyper:bind('', '.', function()
   hs.application.open( 'finder' )
 end)
 
-
-function MoveCurrentWindowToDisplay(display)
-  local windowId = GetCurrentWindowId()
-  YabaiMsg( 'window', string.format('display %s', display) )
-  YabaiMsg( 'window', string.format('focus %s', windowId) )
-end
+Hyper:bind('', '/', function()
+  hs.application.open( 'safari' )
+end)
