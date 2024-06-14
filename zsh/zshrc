@@ -26,6 +26,8 @@ if [[ $WORK_COMPUTER ]] then
   export HCLOUD_CLOUD_SRE_PATH="${HOME}/git-work/cloud-sre"
   export PATH="$HOME/git-work/cloud-sre/bin:$PATH"
 fi
+# Set zoxide interactive to use fuzzy matching
+export _ZO_FZF_OPTS="--scheme=path --tiebreak=end,chunk,index --bind=ctrl-z:ignore,btab:up,tab:down --cycle --keep-right --border=sharp --height=45% --info=inline --layout=reverse --tabstop=1 --exit-0 --select-1"
 
 brewprefix=$(brew --prefix)
 if [[ $(uname) == "Linux" ]] then
