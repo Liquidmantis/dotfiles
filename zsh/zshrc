@@ -101,4 +101,4 @@ source ${HOME}/.config/fzf/fzf-git.sh/fzf-git.sh
 
 # load asdf
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
-if [ -f "/Users/will.ernst/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/will.ernst/.config/fabric/fabric-bootstrap.inc"; fi
+if [ -f "${HOME}/.config/fabric/fabric-bootstrap.inc" ]; then source "${HOME}/.config/fabric/fabric-bootstrap.inc"; fi
