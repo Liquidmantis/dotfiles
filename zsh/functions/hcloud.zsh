@@ -20,7 +20,7 @@ function hcloud-select-stack() {
   done
 
   if $all_flag; then
-    stacks=$(cat "/Users/will.ernst/Library/Application Support/hcloud/hashistack/config.yaml" | yq '.environments | to_entries | .[].key')
+    stacks=$(cat "${HOME}/.config/hcloud/hashistack/config.yaml" | yq '.environments | to_entries | .[].key')
   else
     stacks="$(hcloud hashistack list --format=json | jq -r '.[].stack')" 
   fi
