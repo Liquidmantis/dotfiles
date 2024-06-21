@@ -39,7 +39,7 @@ yabai -m rule --add title="^Wally"              manage=off
 yabai -m rule --add title="^Options"            manage=off
 yabai -m rule --add title="^Settings$"          manage=off
 yabai -m rule --add title="^Bookmark saved$"    manage=off # disable Raindrop popup in Sarafi
-yabai -m rule --add title="FloatShell"          manage=off layer=above
+yabai -m rule --add title="^FloatShell"         manage=off
 yabai -m rule --add title="-lmf$"               manage=off
 yabai -m rule --add title="(DEBUG)"             manage=off
 
