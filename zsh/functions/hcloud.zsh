@@ -49,4 +49,40 @@ function hcloud-connect-stack() {
   hcloud hashistack vpn $stack
   echo "Setting environment variables..."
   eval $(hcloud hashistack env $stack)
+  echo "Setting Vault addresses..."
+  set-vault-addresses init
+}
+
+function set-vault-addresses() {
+  case "$1" in
+    "init") 
+      local vault_addr="$VAULT_ADDR"
+
+      export VAULT_ADDR_INITIAL="$vault_addr"
+      export VAULT_ADDR_APP="$vault_addr"
+
+      local protocol=$(echo "$vault_addr" | sed -E 's|^(https?)://.*|\1|')
+      local hostname=$(echo "$vault_addr" | sed -E 's|https?://([^/]+).*|\1|')
+      local infra_hostname="infra-$hostname"
+      local infra_vault_addr="$protocol://$infra_hostname"
+
+      export VAULT_ADDR_INFRA="$infra_vault_addr"
+    ;;
+
+    "app")
+      export VAULT_ADDR="$VAULT_ADDR_APP"
+    ;;
+
+    "infra")
+      export VAULT_ADDR="$VAULT_ADDR_INFRA"
+    ;;
+
+    "reset")
+      export VAULT_ADDR="$VAULT_ADDR_INITIAL"
+    ;;
+
+    *) 
+      echo "Invalid argument. Please use 'init', 'reset', 'app', or 'infra'."
+    ;;
+  esac
 }
