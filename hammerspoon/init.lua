@@ -4,6 +4,19 @@ hs.loadSpoon('EmmyLua')
 -- Environmental goodies
 YabaiPath = '/opt/homebrew/bin/yabai'
 
+-- Configure our initial state values
+State = {
+  initial = {
+    -- These are values that are configured in Yabai's settings
+    xPad = 12,
+    yPad = 12,
+    gap = 12
+  },
+  SCREEN_WIDTH = hs.screen.primaryScreen():frame().w,
+  zenMode = false,
+  IS_WORK_COMPUTER = (hs.host.localizedName() == 'hashimac') and true or false,
+}
+
 require('lib/modes')
 require('lib/mode-functions')
 require('lib/utility')
@@ -23,16 +36,5 @@ require('bindings/hyperwindow')
 -- Stackline = require('stackline')
 -- Stackline:init()
 
--- Configure our initial state values
-State = {
-  initial = {
-    -- These are values that are configured in Yabai's settings
-    xPad = 12,
-    yPad = 12,
-    gap = 12
-  },
-  SCREEN_WIDTH = hs.screen.primaryScreen():frame().w,
-  zenMode = false
-}
 
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')
