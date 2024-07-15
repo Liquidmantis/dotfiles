@@ -39,3 +39,7 @@ function mkdir-and-cd() {
 function push-with-zoxide() {
   pushd $(zoxide query $1)
 }
+
+function set-aws-profile() {
+  export AWS_PROFILE=$(aws configure list-profiles | fzf)
+}
