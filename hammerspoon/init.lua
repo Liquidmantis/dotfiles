@@ -3,6 +3,10 @@ hs.loadSpoon('EmmyLua')
 
 -- Environmental goodies
 YabaiPath = '/opt/homebrew/bin/yabai'
+JqPath = '/opt/homebrew/bin/jq'
+
+BordersRegularColor = '0xFF10a338'
+BordersZoomColor = '0xFFFF0000'
 
 -- Configure our initial state values
 State = {

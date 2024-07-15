@@ -27,7 +27,7 @@ end
 
 function GetCurrentWindowId()
   local window = YabaiQuery('windows', 'window')
-  local cmd = string.format("echo '%s' | /usr/local/bin/jq .id", window)
+  local cmd = string.format("echo '%s' | %s .id", window, JqPath)
   local id = hs.execute(cmd)
   print('Window ID: ', id)
   return id
@@ -103,3 +103,21 @@ function MoveCurrentWindowToDisplay(display)
   YabaiMsg( 'window', string.format('display %s', display) )
   YabaiMsg( 'window', string.format('focus %s', windowId) )
 end
+
+function ToggleWindowZoom()
+  YabaiMsg( 'window', 'toggle zoom-parent' )
+  local window = YabaiQuery('windows', 'window')
+  local cmd = string.format("echo '%s' | %s '.\"has-parent-zoom\"'", window, JqPath)
+  local isZoomed = hs.execute(cmd)
+  if isZoomed then
+    isZoomed = string.gsub(isZoomed, "[\n\r]","")
+  end
+
+  if isZoomed == "false" then
+    hs.execute(string.format("/opt/homebrew/bin/borders active_color=%s", BordersRegularColor))
+  else
+    hs.execute(string.format("/opt/homebrew/bin/borders active_color=%s", BordersZoomColor))
+  end
+end
+
+

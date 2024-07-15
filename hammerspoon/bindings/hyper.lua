@@ -47,11 +47,11 @@ Hyper:bind('ctrl', 'l', function() YabaiMsg( 'window', 'stack east' ) end)
 Hyper:bind('ctrl', 'j', function() YabaiMsg( 'window', 'stack south' ) end)
 Hyper:bind('ctrl', 'k', function() YabaiMsg( 'window', 'stack north' ) end)
 
-Hyper:bind('', 'z', function() YabaiMsg( 'window', 'toggle zoom-parent' ) end)
+Hyper:bind('', 'z', function() ToggleWindowZoom() end)
 Hyper:bind('shift', 'z', function() YabaiMsg( 'window', 'toggle zoom-fullscreen' ) end)
 Hyper:bind('alt', 'z', function()
 	-- native fullscreen
-	hs.eventtap.keyStroke({'ctrl', 'cmd'}, 'f')
+	hs.eventtap.keyStroke({'fn'}, 'f')
 end)
 
 -- ****************************************
