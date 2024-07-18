@@ -20,23 +20,21 @@ git stash list | fzf --bind 'enter:abort' --ansi --preview 'awk "{print substr({
 function git-switch-search() {
   case $1 in
     "all")
-      git switch "$(git branch --all | 
+      branches="$(git branch --all)"
+      ;;
+    *)
+      branches="$(git branch)"
+      ;;
+  esac
+  branch="$(echo $branches | 
         egrep -v "(dependabot)" | 
         fzf --ansi --preview  \
         'git log --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph {1}' | 
         sed 's|^*||' | 
         awk -F'/' '{print $NF}' | 
         tr -d '[:space:]')"
-      return
-      ;;
-    *)
-      git switch "$(git branch |
-        fzf --ansi --preview  \
-        'git log --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph {1}' | 
-        sed 's|^*||' | 
-        tr -d '[:space:]')"
-      return
-  esac
+
+  git switch $branch
 }
 
 function git-branch-merged-delete() {
