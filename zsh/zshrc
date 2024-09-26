@@ -2,6 +2,9 @@ if [[ $(whoami) == "will.ernst" ]]; then
   export WORK_COMPUTER=true
 fi
 
+export BORDERS_ACTIVE_NORMAL="0xFF10a338"
+export BORDERS_ACTIVE_ZOOMED="0xFFFF0000"
+
 export CPATH="/opt/homebrew/include"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/opt/homebrew/bin:$PATH"
