@@ -92,7 +92,7 @@ return {
     lspconfig.pyright.setup{}
 
     -- TypeScript
-    lspconfig.tsserver.setup{
+    lspconfig.ts_ls.setup{
       root_dir = require'lspconfig'.util.root_pattern("sketch.js", "index.html")
     }
 
