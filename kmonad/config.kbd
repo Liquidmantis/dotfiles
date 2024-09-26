@@ -10,21 +10,22 @@
   allow-cmd true
 )
 
-
 (defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet cmp  rctl
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft up
+  fn   lctl lalt lmet           spc            rmet ralt left down rght
 )
 
 (deflayer qwerty
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @ehy @act @sal @dcm @fsh g    h    @jsh @kcm @lal @;ct '    @rhy
-  lsft @syz x    c    @num b    n    m    ,    .    @sys rsft
-  f17  lmet lalt           @arr            ralt rmet cmp  rctl
+  @ehy @act @sal @dcm @fsh g    h    @jsh @kcm @lal @;ct @rhy @rhy
+  lsft @syz @vix @sxc @nuv b    n    m    @sxlt @vip @syfs rsft up
+  f17  lctl lalt lmet           @shy           rmet ralt left down rght
 )
 
 (defalias
@@ -39,39 +40,57 @@
   ;ct (tap-hold-next-release 200 ; rctl)
 
 ;; layer toggles
-  arr (tap-hold-next-release 200 spc (layer-toggle arrows))
-  num (tap-hold-next-release 200 v (layer-toggle numbers))
+  vix (tap-hold-next-release 200 x (layer-toggle vimmode))
+  vip (tap-hold-next-release 200 . (layer-toggle vimmode))
+  nuv (tap-hold-next-release 200 v (layer-toggle numbers))
   syz (tap-hold-next-release 200 z (layer-toggle symbols))
-  sys (tap-hold-next-release 200 / (layer-toggle symbols))
+  syfs (tap-hold-next-release 200 / (layer-toggle symbols))
+  sxc (tap-hold-next-release 200 c (layer-toggle syntax))
+  sxlt (tap-hold-next-release 200 , (layer-toggle syntax))
 
+
+;; esc/hyper on space
+  shy (tap-hold-next-release 200 spc f17)
 ;; esc/hyper on caps
   ehy (tap-hold-next-release 200 esc f17)
 ;; ret/hyper on return
   rhy (tap-hold-next-release 200 ret f17)
 )
 
-(deflayer symbols
+(deflayer syntax
+  _    _    _    _    _    _    _    _    _    _    _    _    _    
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    ~    &    @    !    _    _    {    }    _    _    _    _    _
-  _    `    #    $    -    <    >    \(   \)   _    _    _    _
-  _    %    ^    |    \_   _    _    [    ]    _    _    _
-  _    _    _              _              _    _    _    _
+  _    _    _    ~    \_   _    _    {    }    "    \    _    _    _
+  _    caps _    `    -    _    _    \(   \)   '    |    _    _
+  _    _    _    _    _    _    _    [    ]    _    _    _    _
+  _    _    _              _              _    _    _    _    _    _
+)
+
+(deflayer symbols
+  _    _    _    _    _    _    _    _    _    _    _    _    _    
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    {    }    _    _    _    _    _
+  _    !    @    #    $    %    ^    &    *    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _    _    _
 )
 
 (deflayer numbers
+  _    _    _    _    _    _    _    _    _    _    _    _    _    
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    XX   -    7    8    9    +    _    _    _
   _    _    _    _    _    XX   *    4    5    6    =    _    _
-  _    _    \(   \)   .    XX   0    1    2    3    _    _
-  _    _    _                        0    .    .    _    _
+  _    _    _    _    _    XX   %    1    2    3    /    _    _ 
+  _    _    _                        0    .    .    _    _    _    _
 )
 
-(deflayer arrows
+(deflayer vimmode
+  _    _    _    _    _    _    _    _    _    _    _    _    _    
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    XX   home XX   end  _    _    _    _
-  _    _    _    _    _    _    lft  down up   rght _    _    _
-  _    _    _    _    _    _    XX   pgup del  pgdn _    _
-  _    _    _              _              _    _    _    _
+  _    _    _    _    _    _    _    pgup home _    _    _    _    _
+  _    end  _    pgdn _    _    lft  down up   rght _    _    _
+  _    _    bspc _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _    _    _
 )
 
 
