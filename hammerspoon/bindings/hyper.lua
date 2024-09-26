@@ -18,6 +18,9 @@ Hyper:bind('', 'w', EnterHyperWindow)
 -- Mode: Hyper Keybindings
 -- ****************************************
 
+Hyper:bind('', 'space', function() 
+  hs.eventtap.keyStroke( 'cmd', 'tab' )
+  hs.eventtap.keyStroke( '', 'return' ) end)
 Hyper:bind('', 'tab', function() YabaiMsg( 'window', 'focus recent' ) end)
 Hyper:bind('', 'h', function() YabaiMsg( 'window', 'focus west' ) end)
 Hyper:bind('', 'l', function() YabaiMsg( 'window', 'focus east' ) end)
