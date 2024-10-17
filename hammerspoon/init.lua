@@ -18,7 +18,7 @@ State = {
   },
   SCREEN_WIDTH = hs.screen.primaryScreen():frame().w,
   zenMode = false,
-  IS_WORK_COMPUTER = (hs.host.localizedName() == 'hashimac') and true or false,
+  IS_WORK_COMPUTER = string.match(hs.host.localizedName(), 'will.ernst') and true or false,
 }
 
 require('lib/modes')

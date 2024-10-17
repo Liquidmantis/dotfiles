@@ -14,6 +14,8 @@ HyperSpace:bind('', 't', function() YabaiMsg( 'space', 'layout stack' ) end)
 
 HyperSpace:bind('', '=', function() YabaiMsg( 'space', 'balance' ) end)
 
+-- Use fallback keybindings for switching spaces on work computer since
+-- SIP can't be disabled and Yaba can't manage spaces
 if State.IS_WORK_COMPUTER then
   HyperSpace:bind('', '1', function()  hs.eventtap.keyStroke({'ctrl','alt','cmd'}, '1') end)
   HyperSpace:bind('', '2', function()  hs.eventtap.keyStroke({'ctrl','alt','cmd'}, '2') end)
