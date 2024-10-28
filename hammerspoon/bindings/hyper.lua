@@ -62,7 +62,7 @@ end)
 -- ****************************************
 
 Hyper:bind('', 'return', function()
-  hs.application.open( 'kitty' )
+  hs.application.open( 'ghostty' )
 end)
 
 Hyper:bind('', '.', function()
