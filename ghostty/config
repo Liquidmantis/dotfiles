@@ -4,3 +4,5 @@ macos-option-as-alt = true
 theme = catppuccin-mocha
 background-opacity = 0.90
 background-blur-radius = 20 
+
+keybind = global:ctrl+cmd+t=toggle_quick_terminal
