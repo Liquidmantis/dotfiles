@@ -7,10 +7,14 @@ HyperSpace:bind('', 'z', function()
   ExitHyperSpace()
 end)
 
+function SetSpaceLayout(layout)
+  YabaiMsg( 'space', string.format("layout %s", layout ))
+  SetBordersColor()
+end
 -- change space layouts
-HyperSpace:bind('', 'b', function() YabaiMsg( 'space', 'layout bsp' ) end)
-HyperSpace:bind('', 'f', function() YabaiMsg( 'space', 'layout float' ) end)
-HyperSpace:bind('', 't', function() YabaiMsg( 'space', 'layout stack' ) end)
+HyperSpace:bind('', 'b', function() SetSpaceLayout('bsp') end)
+HyperSpace:bind('', 'f', function() SetSpaceLayout('float') end)
+HyperSpace:bind('', 't', function() SetSpaceLayout('stack') end)
 
 HyperSpace:bind('', '=', function() YabaiMsg( 'space', 'balance' ) end)
 

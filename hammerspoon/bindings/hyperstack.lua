@@ -2,8 +2,6 @@
 -- Mode: HyperStack Keybindings
 -- ****************************************
 
-HyperStack:bind('', 't', function() Stackline.config:toggle("appearance.showIcons") ExitHyperStack() end)
-
 HyperStack:bind('', 'h', function() YabaiMsg( 'window', 'stack west' ) ExitHyperStack() end)
 HyperStack:bind('', 'l', function() YabaiMsg( 'window', 'stack east' ) ExitHyperStack() end)
 HyperStack:bind('', 'j', function() YabaiMsg( 'window', 'stack south' ) ExitHyperStack() end)
@@ -19,5 +17,5 @@ HyperStack:bind('', 'o', function()
 ExitHyperStack() end)
 
 -- Exit the stack
-HyperStack:bind('', 'x', function() YabaiMsg( 'space', 'layout bsp' ) ExitHyperStack() end)
+HyperStack:bind('', 'x', function() SetSpaceLayout('bsp') ExitHyperStack() end)
 

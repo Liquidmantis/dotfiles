@@ -1,5 +1,8 @@
 -- ****************************************
 -- Mode: HyperApp Keybindings
+--
+-- To support apps having a common first letter, the HyperApp mode uses a number 
+-- of submodes, like the `S` mode which has bindings for Safari, Slack, and Spotify. 
 -- ****************************************
 
 -- ****************************************

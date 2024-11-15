@@ -6,6 +6,7 @@ YabaiPath = '/opt/homebrew/bin/yabai'
 JqPath = '/opt/homebrew/bin/jq'
 
 BordersRegularColor = '0xFF10a338'
+BordersStackedColor = '0xFFE3F542'
 BordersZoomColor = '0xFFFF0000'
 
 -- Configure our initial state values
@@ -37,8 +38,6 @@ require('bindings/hyperspace')
 require('bindings/hyperstack')
 require('bindings/hyperwindow')
 
--- Stackline = require('stackline')
--- Stackline:init()
-
+hs.window.filter.default:subscribe(hs.window.filter.windowFocused, SetBordersColor)
 
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')

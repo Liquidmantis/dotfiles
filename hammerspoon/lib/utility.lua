@@ -25,30 +25,27 @@ function YabaiQuery( scope, param )
   return result
 end
 
-function GetCurrentWindowId()
+function GetCurrentWindowParameter( param )
   local window = YabaiQuery('windows', 'window')
-  local cmd = string.format("echo '%s' | %s .id", window, JqPath)
-  local id = hs.execute(cmd)
-  print('Window ID: ', id)
-  return id
+  local cmd = string.format("echo '%s' | %s '.\"%s\"'", window, JqPath, param)
+  print(cmd)
+  local result = hs.execute(cmd)
+  return result
+end
+
+function GetCurrentWindowId()
+  return GetCurrentWindowParameter('id')
+end
+
+function GetCurrentWindowName()
+  return GetCurrentWindowParameter('name')
 end
 
 function ShowHideOrFocus( window )
-  local targetWindow = hs.window.find( window )
-  print('showHideOrFocus on window ' .. window )
-
-  if targetWindow == nil then
-    print('did not find match for ' .. window )
-    return nil
-  end
-  if targetWindow == hs.window.focusedWindow() then
-    print('minimizing ' .. window )
-    targetWindow:minimize()
+  if string.lower(hs.application.frontmostApplication():title()) == string.lower(window) then
+    hs.application.frontmostApplication():hide()
   else
-
-    print('focusing ' .. window )
-    targetWindow:focus()
-
+    hs.application.launchOrFocus( window )
   end
 end
 
@@ -106,17 +103,33 @@ end
 
 function ToggleWindowZoom()
   YabaiMsg( 'window', 'toggle zoom-parent' )
-  local window = YabaiQuery('windows', 'window')
-  local cmd = string.format("echo '%s' | %s '.\"has-parent-zoom\"'", window, JqPath)
-  local isZoomed = hs.execute(cmd)
+  SetBordersColor()
+end
+
+local function setBordersColor(color)
+  hs.execute(string.format("/opt/homebrew/bin/borders active_color=%s", color))
+end
+
+function SetBordersColor()
+  local isStacked = GetCurrentWindowParameter('stack-index')
+  if isStacked then
+    isStacked = string.gsub(isStacked, "[\n\r]","")
+    if isStacked ~= "0" then
+      setBordersColor(BordersStackedColor)
+      return
+    end
+  end
+
+  local isZoomed = GetCurrentWindowParameter('has-parent-zoom')
+  print(string.format("Has Parent Zoom: %s", isZoomed))
   if isZoomed then
     isZoomed = string.gsub(isZoomed, "[\n\r]","")
   end
 
   if isZoomed == "false" then
-    hs.execute(string.format("/opt/homebrew/bin/borders active_color=%s", BordersRegularColor))
+    setBordersColor(BordersRegularColor)
   else
-    hs.execute(string.format("/opt/homebrew/bin/borders active_color=%s", BordersZoomColor))
+    setBordersColor(BordersZoomColor)
   end
 end
 

@@ -18,7 +18,7 @@ Hyper:bind('', 'w', EnterHyperWindow)
 -- Mode: Hyper Keybindings
 -- ****************************************
 
-Hyper:bind('', 'space', function() 
+Hyper:bind('', 'space', function()             -- quick alt-tab
   hs.eventtap.keyStroke( 'cmd', 'tab' )
   hs.eventtap.keyStroke( '', 'return' ) end)
 Hyper:bind('', 'tab', function() YabaiMsg( 'window', 'focus recent' ) end)
@@ -61,8 +61,23 @@ end)
 -- Mode: Hyper Global App Keybindings
 -- ****************************************
 
+-- These need to be used judiciously because they burn a key that can be used as
+-- a modal trigger key, like 's' to step into HyperSpace for Space related hotkeys.
+-- Prefer to put apps in the HyperApp mode, which only adds an `a` key to the sequence.
+-- These bindings should be used for apps that are used constantly.
+-- These bindings currently use special character keys that don't burn a potential
+-- modal layer key.
 Hyper:bind('', 'return', function()
   hs.application.open( 'ghostty' )
+  local obs = hs.application.get('obsidian')
+  if State.zenMode ~= false then obs:hide() end
+end)
+
+Hyper:bind('', ';', function()
+  ShowHideOrFocus('Obsidian')
+
+  -- hs.application.open( 'obsidian' )
+  -- GetCurrentApp()
 end)
 
 Hyper:bind('', '.', function()
