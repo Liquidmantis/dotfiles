@@ -56,7 +56,8 @@ yabai -m rule --add app="BoltAI"                manage=off
 # yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq '. | map(select(.title != \"Sidebar\" and .title != \"Microsoft Teams Notification\")) | .[0].id' )"
 
 # this makes non-resizable windows float by default.
-yabai -m signal --add event=window_created action="yabai -m query --windows --window $YABAI_WINDOW_ID | $jqPath -er '.\"can-resize\" or .\"is-floating\"' || yabai -m window $YABAI_WINDOW_ID --toggle float"
+yabai -m signal --add event=window_created \
+  action="yabai -m query --windows --window $YABAI_WINDOW_ID | $jqPath -er '.\"can-resize\" or .\"is-floating\"' || yabai -m window $YABAI_WINDOW_ID --toggle float"
 
 # focus window after active display changes
 # yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq '. | map(select(.title != \"Sidebar\" and .title != \"Microsoft Teams Notification\")) | .[0].id' )"
