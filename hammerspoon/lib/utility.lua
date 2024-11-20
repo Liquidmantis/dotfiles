@@ -5,7 +5,7 @@
 function YabaiMsg( scope, param, fallbackParam)
   local planA = string.format("%s -m %s --%s", YabaiPath, scope, param)
   local cmd = ''
-  if fallbackParam==nil then
+  if fallbackParam == nil then
     cmd = planA
   else
     local planB = string.format("%s -m %s --%s", YabaiPath, scope, fallbackParam)
@@ -17,7 +17,7 @@ end
 
 function YabaiQuery( scope, param )
   local cmd = string.format("%s -m query --%s", YabaiPath, scope)
-  if param~=nil then
+  if param ~= nil then
     cmd = string.format("%s --%s", cmd, param)
   end
   print(cmd)
