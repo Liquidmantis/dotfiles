@@ -1,6 +1,6 @@
 function tmux-attach-session() {
   if [[ -z "$1" ]]; then
-    $1 = "main"
+    1="main"
   fi
   if [[ -n $TMUX ]]; then
     if [[ $(tmux has-session -t $1) ]]; then
