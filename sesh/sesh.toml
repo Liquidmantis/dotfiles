@@ -1,15 +1,19 @@
 [[session]]
-name = "Notes"
+name = "main"
+path = "~"
+
+[[session]]
+name = "notes"
 path = "~/Dropbox/documents/notes/"
 startup_command = "nvim inbox.md"
 
 [[session]]
-name = "Downloads"
+name = "downloads"
 path = "~/Downloads/"
 startup_command = "yazi"
 
 [[session]]
-name = "Dotfiles"
+name = "dotfiles"
 path = "~/git-home/dotfiles/"
 startup_command = "nvim +'Telescope find_files'"
 
