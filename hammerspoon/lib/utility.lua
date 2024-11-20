@@ -25,14 +25,29 @@ function YabaiQuery( scope, param )
   return result
 end
 
-function GetCurrentWindowParameter( param )
-  local window = YabaiQuery('windows', 'window')
-  local cmd = string.format("echo '%s' | %s '.\"%s\"'", window, JqPath, param)
+function GetYabaiEntityParameter( entity, parameter )
+  local context = string.format("%ss", entity)
+  local e = YabaiQuery(context, entity)
+  local cmd = string.format("echo '%s' | %s '.\"%s\"'", e, JqPath, parameter)
   print(cmd)
   local result = hs.execute(cmd)
+  if result then
+    result = string.gsub(result, "[\n\r]","")
+  end
   return result
 end
 
+function GetCurrentSpaceParameter( param )
+  return GetYabaiEntityParameter('space', param)
+end
+
+function GetCurrentWindowParameter( param )
+  return GetYabaiEntityParameter('window', param)
+end
+
+function GetCurrentSpaceType()
+  return GetCurrentWindowParameter('type')
+end
 function GetCurrentWindowId()
   return GetCurrentWindowParameter('id')
 end
@@ -113,7 +128,6 @@ end
 function SetBordersColor()
   local isStacked = GetCurrentWindowParameter('stack-index')
   if isStacked then
-    isStacked = string.gsub(isStacked, "[\n\r]","")
     if isStacked ~= "0" then
       setBordersColor(BordersStackedColor)
       return
