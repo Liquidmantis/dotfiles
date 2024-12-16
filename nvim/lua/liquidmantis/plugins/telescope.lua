@@ -1,9 +1,11 @@
 return {
-  { 'nvim-telescope/telescope.nvim',
+  {
+    'nvim-telescope/telescope.nvim',
     dependencies = {
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
-    config = function() 
+    config = function()
       require('telescope').setup({
         defaults = {
           vimgrep_arguments = {
@@ -45,25 +47,18 @@ return {
           },
         },
       })
+      require('telescope').load_extension('fzf')
     end
   },
 
-  { 'nvim-telescope/telescope-frecency.nvim', 
-    dependencies = {
-      'kkharji/sqlite.lua'
-    }
+  {
+    'nvim-telescope/telescope-frecency.nvim',
+    config = function()
+      require("telescope").load_extension("frecency")
+    end,
   },
 
-  { 'nvim-telescope/telescope-fzf-native.nvim',
-    dependencies = {
-      'junegunn/fzf',
-      'junegunn/fzf.vim',
-    }, 
-    build = 'make'
-  }
 
-  -- require('telescope').load_extension('frecency')
-  -- require('telescope').load_extension('fzf')
   -- require('telescope').load_extension('notify')
   -- require('telescope').load_extension('projects')
 }

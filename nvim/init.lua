@@ -25,5 +25,6 @@ require('lazy').setup('liquidmantis.plugins', {
 
 require('liquidmantis.core.autocommands')
 require('liquidmantis.core.keymaps')
+require('liquidmantis.core.rooter')
 require('liquidmantis.core.theme')
 require('liquidmantis.core.telescope-functions')

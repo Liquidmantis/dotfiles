@@ -23,32 +23,31 @@ return {
       },
       sections = {
         lualine_a = {
-          { 'mode', separator = { left = '' }, right_padding = 2 },
+          -- { 'mode', separator = { left = '' }, right_padding = 2 },
         },
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename'},
-        lualine_x = {'%S', 'copilot', 'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        lualine_x = { '%S', 'copilot', 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
         lualine_z = {
-          {'location', separator = { right = '' }},
+          -- {'location', separator = { right = '' }},
         },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {}
       },
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {'nvim-tree', 'quickfix'}
+      extensions = { 'nvim-tree', 'quickfix' }
     })
 
-    vim.opt.showcmdloc='statusline'
+    vim.opt.showcmdloc = 'statusline'
   end
 
 }
-

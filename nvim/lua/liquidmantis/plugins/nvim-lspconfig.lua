@@ -1,44 +1,40 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'folke/neodev.nvim',
     'hrsh7th/cmp-nvim-lsp',
     'williamboman/mason.nvim',
   },
 
-  config = function() 
-  -- load neodev before lspconfig
-    -- require('neodev').setup()
-
-    local lspconfig = require'lspconfig'
-    local util = require'lspconfig/util'
-    local configs = require'lspconfig/configs'
+  config = function()
+    local lspconfig = require 'lspconfig'
+    local util = require 'lspconfig/util'
+    local configs = require 'lspconfig/configs'
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
     require('mason').setup()
 
-    lspconfig.asm_lsp.setup{}
-    lspconfig.clangd.setup{}
-    lspconfig.cssls.setup{}
-    lspconfig.docker_compose_language_service.setup{}
-    lspconfig.dockerls.setup{}
+    lspconfig.asm_lsp.setup {}
+    lspconfig.clangd.setup {}
+    lspconfig.cssls.setup {}
+    lspconfig.docker_compose_language_service.setup {}
+    lspconfig.dockerls.setup {}
     lspconfig.html.setup {}
 
     -- Bash
-    lspconfig.bashls.setup{
+    lspconfig.bashls.setup {
       filetypes = { "sh", "zsh" },
       root_dir = util.root_pattern(".bashrc", ".zshrc"),
     }
 
     -- Terraform
-    lspconfig.terraformls.setup{
-      cmd = { "terraform-ls", "serve" };
-      filetypes =  { "terraform", "tf" };
+    lspconfig.terraformls.setup {
+      cmd = { "terraform-ls", "serve" },
+      filetypes = { "terraform", "tf" },
     }
 
     -- Markdown
-    require'lspconfig'.marksman.setup{}
+    require 'lspconfig'.marksman.setup {}
 
     lspconfig.omnisharp.setup {
       on_attach = function(_, bufnr)
@@ -51,8 +47,8 @@ return {
     -- lspconfig.golangci_lint_ls.setup{}
 
     lspconfig.gopls.setup {
-      cmd = {"gopls", "serve"},
-      filetypes = {"go", "gomod"},
+      cmd = { "gopls", "serve" },
+      filetypes = { "go", "gomod" },
       root_dir = util.root_pattern("go.work", "go.mod", ".git"),
       settings = {
         gopls = {
@@ -71,7 +67,7 @@ return {
       },
     }
 
-    lspconfig.gdscript.setup{capabilities = capabilities}
+    lspconfig.gdscript.setup { capabilities = capabilities }
 
     -- require'lspconfig'.emmet_language_server.setup{}
     -- if not lspconfig.emmet_ls then
@@ -79,9 +75,9 @@ return {
     --     default_config = {
     --       cmd = {'emmet-ls', '--stdio'};
     --       filetypes = {'html', 'css', 'blade'};
-    --       -- root_dir = function(fname)    
+    --       -- root_dir = function(fname)
     --       --   return vim.loop.cwd()
-    --       -- end;    
+    --       -- end;
     --       settings = {};
     --     };
     --   }
@@ -89,17 +85,17 @@ return {
     -- lspconfig.emmet_ls.setup{ capabilities = capabilities; }
 
     -- Python
-    lspconfig.pyright.setup{}
+    lspconfig.pyright.setup {}
 
     -- TypeScript
-    lspconfig.ts_ls.setup{
-      root_dir = require'lspconfig'.util.root_pattern("sketch.js", "index.html")
+    lspconfig.ts_ls.setup {
+      root_dir = require 'lspconfig'.util.root_pattern("sketch.js", "index.html")
     }
 
     -- PowerShell
-    lspconfig.powershell_es.setup{
-      bundle_path = '/usr/local/share/powershell_es';
-      filetypes = { "powershell", "ps1" };
+    lspconfig.powershell_es.setup {
+      bundle_path = '/usr/local/share/powershell_es',
+      filetypes = { "powershell", "ps1" },
     }
 
     -- Lua
@@ -107,7 +103,7 @@ return {
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
 
-    require'lspconfig'.lua_ls.setup {
+    require 'lspconfig'.lua_ls.setup {
       settings = {
         Lua = {
           runtime = {
@@ -117,7 +113,7 @@ return {
             path = runtime_path,
           },
           diagnostics = {
-            globals = {'vim', 'hs'},
+            globals = { 'vim', 'hs' },
           },
           workspace = {
             -- Make the server aware of Neovim runtime files
