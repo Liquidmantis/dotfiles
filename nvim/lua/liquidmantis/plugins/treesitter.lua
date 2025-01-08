@@ -6,9 +6,7 @@ return {
   },
 
   config = function()
-    -- local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
-    require'nvim-treesitter.configs'.setup {
+    require 'nvim-treesitter.configs'.setup {
       ensure_installed = {
         "bash",
         "go",
@@ -29,17 +27,17 @@ return {
         "tmux",
         "vim",
         "yaml",
-      }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+      },                   -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 
       ignore_install = {}, -- List of parsers to ignore installing
       highlight = {
-        enable = true,              -- false will disable the whole extension
+        enable = true,     -- false will disable the whole extension
       },
 
       playground = {
         enable = true,
         disable = {},
-        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+        updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
         persist_queries = false, -- Whether the query persists across vim sessions
         keybindings = {
           toggle_query_editor = 'o',
@@ -55,5 +53,6 @@ return {
         },
       }
     }
+    vim.treesitter.language.register("hcl", "packer")
   end
 }

@@ -103,7 +103,7 @@ return {
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
 
-    require 'lspconfig'.lua_ls.setup {
+    lspconfig.lua_ls.setup {
       settings = {
         Lua = {
           runtime = {
@@ -132,6 +132,10 @@ return {
           },
         },
       },
+    }
+
+    lspconfig.yamlls.setup {
+      filetypes = { "yaml", "yml" },
     }
   end
 }

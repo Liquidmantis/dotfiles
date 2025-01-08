@@ -12,6 +12,8 @@ return {
 
       formatters_by_ft = {
         terraform = { "terraform_fmt" },
+        packer = { "packer_fmt" },
+        yaml = { "yamlfmt" },
       }
 
     })
