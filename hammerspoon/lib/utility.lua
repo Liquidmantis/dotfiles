@@ -2,7 +2,7 @@
 -- Helper Functions
 -- **************************************
 
-function YabaiMsg( scope, param, fallbackParam)
+function YabaiMsg(scope, param, fallbackParam)
   local planA = string.format("%s -m %s --%s", YabaiPath, scope, param)
   local cmd = ''
   if fallbackParam == nil then
@@ -11,43 +11,41 @@ function YabaiMsg( scope, param, fallbackParam)
     local planB = string.format("%s -m %s --%s", YabaiPath, scope, fallbackParam)
     cmd = string.format("%s || %s", planA, planB)
   end
-  print(cmd)
   os.execute(cmd)
 end
 
-function YabaiQuery( scope, param )
+function YabaiQuery(scope, param)
   local cmd = string.format("%s -m query --%s", YabaiPath, scope)
   if param ~= nil then
     cmd = string.format("%s --%s", cmd, param)
   end
-  print(cmd)
   local result = hs.execute(cmd)
   return result
 end
 
-function GetYabaiEntityParameter( entity, parameter )
+function GetYabaiEntityParameter(entity, parameter)
   local context = string.format("%ss", entity)
   local e = YabaiQuery(context, entity)
   local cmd = string.format("echo '%s' | %s '.\"%s\"'", e, JqPath, parameter)
-  print(cmd)
   local result = hs.execute(cmd)
   if result then
-    result = string.gsub(result, "[\n\r]","")
+    result = string.gsub(result, "[\n\r\"]", "")
   end
   return result
 end
 
-function GetCurrentSpaceParameter( param )
+function GetCurrentSpaceParameter(param)
   return GetYabaiEntityParameter('space', param)
 end
 
-function GetCurrentWindowParameter( param )
+function GetCurrentWindowParameter(param)
   return GetYabaiEntityParameter('window', param)
 end
 
 function GetCurrentSpaceType()
-  return GetCurrentWindowParameter('type')
+  return GetCurrentSpaceParameter('type')
 end
+
 function GetCurrentWindowId()
   return GetCurrentWindowParameter('id')
 end
@@ -56,15 +54,15 @@ function GetCurrentWindowName()
   return GetCurrentWindowParameter('name')
 end
 
-function ShowHideOrFocus( window )
+function ShowHideOrFocus(window)
   if string.lower(hs.application.frontmostApplication():title()) == string.lower(window) then
     hs.application.frontmostApplication():hide()
   else
-    hs.application.launchOrFocus( window )
+    hs.application.launchOrFocus(window)
   end
 end
 
-function SetPadding( xScale, yScale )
+function SetPadding(xScale, yScale)
   local xPad
   local yPad
   local gap
@@ -81,43 +79,43 @@ function SetPadding( xScale, yScale )
 
   local padChange = string.format('padding abs:%i:%i:%i:%i', yPad, yPad, xPad, xPad)
   local gapChange = string.format('gap abs:%i', gap)
-  YabaiMsg( 'space', padChange )
-  YabaiMsg( 'space', gapChange )
+  YabaiMsg('space', padChange)
+  YabaiMsg('space', gapChange)
 end
 
-function ToggleZenMode( mode )
+function ToggleZenMode(mode)
   if mode == State.zenMode or mode == 'exit' then
-    SetPadding('=','=')
-    YabaiMsg( 'space', 'layout bsp' )
+    SetPadding('=', '=')
+    YabaiMsg('space', 'layout bsp')
     State.zenMode = false
   else
     if mode == 'zen' then
       -- set window to 65% of screen width
       local xPad = math.floor((State.SCREEN_WIDTH * .35 / 2) / 20)
-      SetPadding(xPad , 3)
+      SetPadding(xPad, 3)
     elseif mode == 'full' then
       SetPadding(3, 2)
     elseif mode == 'wide' then
       -- set window to 75% of screen width
       local xPad = math.floor((State.SCREEN_WIDTH * .25 / 2) / 20)
-      SetPadding(xPad , 3)
+      SetPadding(xPad, 3)
     elseif mode == 'narrow' then
       SetPadding(35, 3)
     end
 
-    YabaiMsg( 'space', 'layout stack' )
+    YabaiMsg('space', 'layout stack')
     State.zenMode = mode
   end
 end
 
 function MoveCurrentWindowToDisplay(display)
   local windowId = GetCurrentWindowId()
-  YabaiMsg( 'window', string.format('display %s', display) )
-  YabaiMsg( 'window', string.format('focus %s', windowId) )
+  YabaiMsg('window', string.format('display %s', display))
+  YabaiMsg('window', string.format('focus %s', windowId))
 end
 
 function ToggleWindowZoom()
-  YabaiMsg( 'window', 'toggle zoom-parent' )
+  YabaiMsg('window', 'toggle zoom-parent')
   SetBordersColor()
 end
 
@@ -136,9 +134,6 @@ function SetBordersColor()
 
   local isZoomed = GetCurrentWindowParameter('has-parent-zoom')
   print(string.format("Has Parent Zoom: %s", isZoomed))
-  if isZoomed then
-    isZoomed = string.gsub(isZoomed, "[\n\r]","")
-  end
 
   if isZoomed == "false" then
     setBordersColor(BordersRegularColor)
@@ -146,5 +141,3 @@ function SetBordersColor()
     setBordersColor(BordersZoomColor)
   end
 end
-
-

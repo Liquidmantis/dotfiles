@@ -13,6 +13,7 @@ Hyper:bind('', 'p', EnterHyperCleanshot)
 Hyper:bind('', 's', EnterHyperSpace)
 Hyper:bind('', 't', EnterHyperStack)
 Hyper:bind('', 'w', EnterHyperWindow)
+Hyper:bind('', 'return', EnterHyperTerminal)
 
 -- ****************************************
 -- Mode: Hyper Keybindings
@@ -69,12 +70,6 @@ end)
 -- These bindings should be used for apps that are used constantly.
 -- These bindings currently use special character keys that don't burn a potential
 -- modal layer key.
-Hyper:bind('', 'return', function()
-  hs.application.open('ghostty')
-  local obs = hs.application.get('obsidian')
-  if State.zenMode ~= false then obs:hide() end
-end)
-
 Hyper:bind('', ';', function()
   ShowHideOrFocus('Obsidian')
 

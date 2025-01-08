@@ -36,6 +36,7 @@ require('bindings/hyperdisplay')
 require('bindings/hyperopen')
 require('bindings/hyperspace')
 require('bindings/hyperstack')
+require('bindings/hyperterminal')
 require('bindings/hyperwindow')
 
 hs.window.filter.default:subscribe(hs.window.filter.windowFocused, SetBordersColor)

@@ -14,6 +14,7 @@ function ClearModes()
   ExitHyperSpace()
   ExitHyperSpaceZen()
   ExitHyperStack()
+  ExitHyperTerminal()
   ExitHyperWindow()
   ExitHyperWindowResize()
   ExitHyperWindowTransparency()
@@ -37,6 +38,7 @@ function EnterHyper2()
   ExitHyper()
   Hyper2:enter()
 end
+
 function ExitHyper2()
   print('[Mode] Hyper2 disabled')
   Hyper2:exit()
@@ -48,6 +50,7 @@ function EnterHyperApp()
   HyperApp:enter()
   -- hyperAppAlert = hs.alert('  HyperApp', alertStyle, 'sticky')
 end
+
 function ExitHyperApp()
   print('[Mode] HyperApp disabled')
   HyperApp:exit()
@@ -59,6 +62,7 @@ function EnterHyperCleanshot()
   ExitHyper()
   HyperCleanshot:enter()
 end
+
 function ExitHyperCleanshot()
   print('[Mode] HyperCleanshot disabled')
   HyperCleanshot:exit()
@@ -69,6 +73,7 @@ function EnterHyperConfig()
   ExitHyper()
   HyperConfig:enter()
 end
+
 function ExitHyperConfig()
   print('[Mode] HyperConfig disabled')
   HyperConfig:exit()
@@ -79,6 +84,7 @@ function EnterHyperConfigPadding()
   ExitHyperConfig()
   HyperConfigPadding:enter()
 end
+
 function ExitHyperConfigPadding()
   print('[Mode] HyperConfigPadding disabled')
   HyperConfigPadding:exit()
@@ -90,6 +96,7 @@ function EnterHyperDisplay()
   HyperDisplay:enter()
   -- hyperDisplayAlert = hs.alert('  HyperDisplay', alertStyle, 'sticky')
 end
+
 function ExitHyperDisplay()
   print('[Mode] HyperDisplay disabled')
   HyperDisplay:exit()
@@ -101,6 +108,7 @@ function EnterHyperOpen()
   ExitHyper()
   HyperOpen:enter()
 end
+
 function ExitHyperOpen()
   print('[Mode] HyperOpen disabled')
   HyperOpen:exit()
@@ -111,6 +119,7 @@ function EnterHyperWindow()
   ExitHyper()
   HyperWindow:enter()
 end
+
 function ExitHyperWindow()
   print('[Mode] HyperWindow disabled')
   HyperWindow:exit()
@@ -121,6 +130,7 @@ function EnterHyperWindowOpen()
   ExitHyperWindow()
   HyperWindowOpen:enter()
 end
+
 function ExitHyperWindowOpen()
   print('[Mode] HyperWindowOpen disabled')
   HyperWindowOpen:exit()
@@ -131,6 +141,7 @@ function EnterHyperSpace()
   ExitHyper()
   HyperSpace:enter()
 end
+
 function ExitHyperSpace()
   print('[Mode] HyperSpace disabled')
   HyperSpace:exit()
@@ -141,6 +152,7 @@ function EnterHyperSpaceZen()
   ExitHyper()
   HyperSpaceZen:enter()
 end
+
 function ExitHyperSpaceZen()
   print('[Mode] HyperSpaceZen disabled')
   HyperSpaceZen:exit()
@@ -151,9 +163,22 @@ function EnterHyperStack()
   ExitHyper()
   HyperStack:enter()
 end
+
 function ExitHyperStack()
   print('[Mode] HyperStack disabled')
   HyperStack:exit()
+end
+
+function EnterHyperTerminal()
+  print('[Mode] HyperTerminal enabled')
+  FocusTerminal()
+  ExitHyper()
+  HyperTerminal:enter()
+end
+
+function ExitHyperTerminal()
+  print('[Mode] HyperTerminal disabled')
+  HyperTerminal:exit()
 end
 
 function EnterHyperWindowResize()
@@ -161,6 +186,7 @@ function EnterHyperWindowResize()
   ExitHyperWindow()
   HyperWindowResize:enter()
 end
+
 function ExitHyperWindowResize()
   print('[Mode] HyperWindowResize disabled')
   HyperWindowResize:exit()
@@ -171,6 +197,7 @@ function EnterHyperWindowTransparency()
   ExitHyperWindow()
   HyperWindowTransparency:enter()
 end
+
 function ExitHyperWindowTransparency()
   print('[Mode] HyperWindowTransparency disabled')
   HyperWindowTransparency:exit()
