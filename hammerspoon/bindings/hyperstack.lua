@@ -47,6 +47,7 @@ end)
 
 -- Exit the stack
 HyperStack:bind('', 'x', function()
+  ToggleZenMode('exit')
   SetSpaceLayout('bsp')
   ExitHyperStack()
 end)
