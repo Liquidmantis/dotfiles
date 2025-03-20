@@ -3,6 +3,9 @@ hash -d gh=~/git-home
 hash -d gw=~/git-work
 hash -d df=~/git-home/dotfiles
 
+# hashicorp aliases
+alias tfcenv='source ~/git-work/tfcenv/bin/tfcenv.sh'
+
 # app aliases
 alias b='bat'
 alias bp='bat -p'

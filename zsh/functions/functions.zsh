@@ -43,3 +43,21 @@ function push-with-zoxide() {
 function set-aws-profile() {
   export AWS_PROFILE=$(aws configure list-profiles | fzf)
 }
+
+function _workspace_select() {
+  tf_command=$1
+  workspace="$(eval $tf_command workspace list | fzf | sed 's/\*//' | tr -d ' ')"
+  if [[ -n "$workspace" ]]; then
+    eval $tf_command workspace select $workspace
+  fi
+}
+
+function asdf_terraform_workspace_select() {
+  _workspace_select "asdf exec terraform"
+}
+alias atws=asdf_terraform_workspace_select
+
+function terraform_workspace_select() {
+  _workspace_select "terraform"
+}
+alias tws=terraform_workspace_select

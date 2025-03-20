@@ -23,16 +23,16 @@ export LIBRARY_PATH="/opt/homebrew/lib"
 export ZK_NOTEBOOK_DIR="$HOME/notes" # zk-nvim notebook root
 export EDITOR="nvim"
 export LANG="en_US.UTF-8"
-
-# Set zoxide interactive to use fuzzy matching
+#
+# # Set zoxide interactive to use fuzzy matching
 export _ZO_FZF_OPTS="--scheme=path --tiebreak=end,chunk,index --bind=ctrl-z:ignore,btab:up,tab:down --cycle --keep-right --border=sharp --height=45% --info=inline --layout=reverse --tabstop=1 --exit-0 --select-1"
 
-if [[ $WORK_COMPUTER ]] then
+if [[ $WORK_COMPUTER ]]; then
   export HCLOUD_CONFIG_PATH="${HOME}/.config/hcloud"
 fi
 
 brewprefix=$(brew --prefix)
-if [[ $(uname) == "Linux" ]] then
+if [[ $(uname) == "Linux" ]]; then
   # TODO: find out if `brew --prefix` works properly on Linux.
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   brewshare="/home/linuxbrew/.linuxbrew/share"

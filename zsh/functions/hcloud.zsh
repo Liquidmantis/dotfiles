@@ -59,13 +59,14 @@ local function connect-hashistack() {
 }
 
 local function connect-pproxy() {
+  echo "Setting pproxy addresses..."
   set-pproxy-addresses
-  echo "Starting pproxy in the background..."
-  hcloud pproxy serve &
-  sleep 1
-  echo "-----------------------------------"
-  echo "pproxy running in the background.  Logs will stream to your terminal."
-  echo "To restore pproxy, run 'fg'."
+  # echo "Starting pproxy in the background..."
+  # hcloud pproxy serve &
+  # sleep 1
+  # echo "-----------------------------------"
+  # echo "pproxy running in the background.  Logs will stream to your terminal."
+  # echo "To restore pproxy, run 'fg'."
 }
 
 local function set-pproxy-addresses() {
