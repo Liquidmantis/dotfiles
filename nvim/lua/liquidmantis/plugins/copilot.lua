@@ -12,6 +12,7 @@ return {
   },
 
   config = function()
+    require("CopilotChat").setup {}
     require('copilot').setup({
       suggestion = { enabled = false },
       panel = { enabled = false },
