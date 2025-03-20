@@ -3,17 +3,19 @@ return {
 
   config = function()
     require('obsidian').setup({
+      -- disable UI changes in favor of Markdown Renderer
+      ui = { enable = false },
 
       workspaces = {
         {
           name = "notes",
-          path = "~/notes",
+          path = "~/notes"
         },
       },
 
       templates = {
-        subdir = "Templates",
-        date_format = "YYYY-MM-DD",
+        folder = "Templates",
+        date_format = "%Y-%m-%d",
         time_format = "HH:mm",
       },
 
@@ -24,6 +26,10 @@ return {
       },
 
       new_notes_location = "current_dir",
+
+      attachments = {
+        img_folder = "attachments",
+      },
 
       -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
       completion = {
