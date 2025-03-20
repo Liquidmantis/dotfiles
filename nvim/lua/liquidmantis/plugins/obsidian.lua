@@ -36,15 +36,17 @@ return {
         use_path_only = false,
       },
 
+      preferred_link_style = "wiki",
+
       -- override the default behavior of adding a timestamp prefix to new notes.
       note_id_func = function(title)
-          return title
-        end,
+        return title
+      end,
 
       ---@param url string
       follow_url_func = function(url)
         -- Open the URL in the default web browser.
-        vim.fn.jobstart({"open", url})  -- Mac OS
+        vim.fn.jobstart({ "open", url }) -- Mac OS
       end,
     })
   end

@@ -30,7 +30,7 @@ return {
     -- Terraform
     lspconfig.terraformls.setup {
       cmd = { "terraform-ls", "serve" },
-      filetypes = { "terraform", "tf" },
+      filetypes = { "terraform", "tf", "terraform-vars" },
     }
 
     -- Markdown

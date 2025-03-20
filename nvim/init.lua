@@ -28,3 +28,4 @@ require('liquidmantis.core.keymaps')
 require('liquidmantis.core.rooter')
 require('liquidmantis.core.theme')
 require('liquidmantis.core.telescope-functions')
+

@@ -3,9 +3,9 @@ function search-abbreviations() {
 }
 
 function notes() {
-  pushd ~/notes > /dev/null
-  vi inbox.md 
-  popd > /dev/null
+  pushd ~/notes >/dev/null
+  vi inbox.md
+  popd >/dev/null
 }
 
 function set-tokens() {
@@ -14,13 +14,13 @@ function set-tokens() {
 }
 
 function proj() {
-  _dir=$(fd --full-path --type d | fzf) 
+  _dir=$(fd --full-path --type d | fzf)
 
-  pushd ~/git-work/${_dir} > /dev/null
+  pushd ~/git-work/${_dir} >/dev/null
 }
 
 function daily-note() {
-  pushd ~/notes > /dev/null
+  pushd ~/notes >/dev/null
   timestamp=$(date +"%Y-%m-%d")
   yesterday=$(date -v-1d +"%Y-%m-%d")
   tomorrow=$(date -v+1d +"%Y-%m-%d")
@@ -28,7 +28,7 @@ function daily-note() {
     --extra=yesterday=$yesterday,tomorrow=$tomorrow \
     --no-input \
     --print-path
-  popd > /dev/null
+  popd >/dev/null
 }
 
 function mkdir-and-cd() {

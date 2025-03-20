@@ -63,7 +63,7 @@ alias gst='git status'
 alias ghcs='gh cs ssh'
 alias ghmcim='gh issue list --repo github/maccloud --assignee "@me"'
 alias ghmci='gh issue list --repo github/maccloud '
- 
+
 # dotfile edit aliases
 alias via='edit ~/.config/alacritty/alacritty.yml'
 alias vial='edit ~/.config/zsh/aliases.zsh'

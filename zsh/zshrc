@@ -14,7 +14,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
-export PATH="$PATH:/Users/liquid/.cargo/bin" 
+export PATH="$PATH:/Users/liquid/.cargo/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 export GOBIN="$HOME/go/bin"
@@ -82,29 +82,26 @@ eval "$(starship init zsh)"
 # remove esc delay to make vi-mode usable
 # KEYTIMEOUT=1
 
+eval "$(atuin init zsh)"
 # "inspired" from https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh
 HISTFILE=${HOME}/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt INC_APPEND_HISTORY_TIME # write to history file immediately, but each session keeps their own history
-setopt hist_ignore_all_dups # if a new command line being added to the history list duplicates an older one, the older command is removed from the list (even if it is not the previous event)
-setopt hist_ignore_dups # do not enter events in history if they are duplicates of the previous event
-setopt hist_find_no_dups # when searching for history entries in the line editor, do not display duplicates
+setopt hist_ignore_all_dups    # if a new command line being added to the history list duplicates an older one, the older command is removed from the list (even if it is not the previous event)
+setopt hist_ignore_dups        # do not enter events in history if they are duplicates of the previous event
+setopt hist_find_no_dups       # when searching for history entries in the line editor, do not display duplicates
 
-setopt auto_cd # change to directory without cd
+setopt auto_cd     # change to directory without cd
 setopt cdable_vars # if the argument to cd is not a directory, and it is a variable that names a directory, then change to that directory
 
 # load zoxide
 eval "$(zoxide init zsh)"
 
-# [ -f ${HOME}/.config/fzf/fzf.zsh ] && source ${HOME}/.config/fzf/fzf.zsh
-source <(fzf --zsh)
-bindkey "ç" fzf-cd-widget # make alt-c open fzf-cd-widget
-source ${HOME}/.config/fzf/fzf-git.sh/fzf-git.sh
+# source <(fzf --zsh)
+# bindkey "ç" fzf-cd-widget # make alt-c open fzf-cd-widget
+# source ${HOME}/.config/fzf/fzf-git.sh/fzf-git.sh
 
-# load asdf
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
-if [ -f "${HOME}/.config/fabric/fabric-bootstrap.inc" ]; then source "${HOME}/.config/fabric/fabric-bootstrap.inc"; fi
+# if [ -f "${HOME}/.config/fabric/fabric-bootstrap.inc" ]; then source "${HOME}/.config/fabric/fabric-bootstrap.inc"; fi
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/nomad nomad
+# autoload -U +X bashcompinit && bashcompinit

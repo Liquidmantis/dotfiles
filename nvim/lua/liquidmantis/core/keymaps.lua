@@ -22,9 +22,9 @@ nnoremap('<leader>viv', ':tabedit $MYVIMRC<CR>')
 nnoremap('<leader>sok', ':source %:p:h/lua/liquidmantis/core/keymaps.lua<CR> | vim.notify "Reloaded keymaps."')
 
 -- quality of life mappings
-nnoremap('Y', 'y$')    -- make Y act like other capital, rest of line ops.
-nnoremap('n', 'nzz')   -- find next and recenter
-nnoremap('N', 'Nzz')   -- find prev and recenter
+nnoremap('Y', 'y$')  -- make Y act like other capital, rest of line ops.
+nnoremap('n', 'nzz') -- find next and recenter
+nnoremap('N', 'Nzz') -- find prev and recenter
 -- stolen from https://github.com/ibhagwan/nvim-lua/blob/main/lua/keymaps.lua
 -- Map <leader>o & <leader>O to newline without insert mode
 nnoremap('go', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>')
@@ -53,24 +53,25 @@ nnoremap('˚', ':m .-2<CR>==') -- map Alt-K to move line up
 
 -- buffer and tab commands
 nnoremap('<leader>bb', ':Telescope buffers<CR>')
-nnoremap('<leader>bq', ':Bdelete<CR>')       -- buffer close using BufDelete plugin
-nnoremap('<tab>', ':buf #<CR>')              -- flip to alternate file
-nnoremap('<M-tab>', ':bn<CR>')               -- buffer next
-nnoremap('<M-S-tab>', ':bp<CR>')             -- buffer prev
-nnoremap('<localleader>q', ':Bdelete<CR>')   -- buffer close using BufDelete plugin
+nnoremap('<leader>bd', ':Bdelete<CR>')     -- buffer close using BufDelete plugin
+nnoremap('<leader>bq', ':Bdelete<CR>')     -- buffer close using BufDelete plugin
+nnoremap('<leader>bs', ':Telescope current_buffer_fuzzy_find<CR>')
+nnoremap('<tab>', ':buf #<CR>')            -- flip to alternate file
+nnoremap('<M-tab>', ':bn<CR>')             -- buffer next
+nnoremap('<M-S-tab>', ':bp<CR>')           -- buffer prev
+nnoremap('<localleader>q', ':Bdelete<CR>') -- buffer close using BufDelete plugin
 nnoremap('<leader><tab>', 'gt')
 nnoremap('<leader><S-tab>', 'gT')
 nnoremap('<localleader>sf', '<cmd>source %<CR> | <cmd>lua vim.notify("Reloaded " .. vim.fn.expand(\'%\'))<CR>')
 
 -- window control commands
-nnoremap('<leader>!', ':wincmd |<CR>')    -- make a window as large as possible
-nnoremap('<leader>=', ':wincmd =<CR>')    -- rebalance windows
-nnoremap('<leader>q', ':q<CR>')           -- close window
+nnoremap('<leader>!', ':wincmd |<CR>') -- make a window as large as possible
+nnoremap('<leader>=', ':wincmd =<CR>') -- rebalance windows
+nnoremap('<leader>q', ':q<CR>')        -- close window
 nnoremap('<leader>-', ':split<CR>')
 nnoremap('<leader>|', ':vsplit<CR>')
 nnoremap('<leader>sh', ':split<CR>')
 nnoremap('<leader>sv', ':vsplit<CR>')
-nnoremap('<leader>wz', ':lua require("maximizer").toggle()<CR>')
 nnoremap('<C-W>z', ':lua require("maximizer").toggle()<CR>')
 nnoremap('<leader><Esc>', ':NoiceDismiss<CR>')
 inoremap('<C-Esc>', ':NoiceDismiss<CR>')
@@ -92,6 +93,7 @@ nnoremap('<leader>on', ':ObsidianNew<CR>')
 nnoremap('<leader>oo', ':ObsidianQuickSwitch<CR>')
 nnoremap('<leader>or', ':ObsidianRename<CR>')
 nnoremap('<leader>os', ':ObsidianSearch<CR>')
+nnoremap('<leader>ot', ':ObsidianTags<CR>')
 
 -- zk mappings
 -- nnoremap( '<leader>zb', ':ZkBacklinks<CR>' )
@@ -178,7 +180,7 @@ nnoremap('<localleader>ti', ':IBLToggle<CR>')
 nnoremap('<localleader>tm', ':lua require("codewindow").toggle_minimap()<CR>')
 nnoremap('<localleader>tt', ':set relativenumber!<CR>')
 nnoremap('<localleader>tw', ':set list!<CR>')
-nnoremap('<leader>hl', ':noh<CR>')   -- clear last search highlight
+nnoremap('<leader>hl', ':noh<CR>') -- clear last search highlight
 
 -- Nvim Tree mappings
 nnoremap('<leader>.', ':NvimTreeToggle<CR>')
@@ -231,8 +233,7 @@ nnoremap('<leader>flS', ':Telescope lsp_workspace_symbols<CR>')
 nnoremap('<leader>fd', ':Telescope diagnostics bufnr=0<CR>')
 nnoremap('<leader>fD', ':Telescope diagnostics<CR>')
 nnoremap('<leader>ts', ':Telescope treesitter<CR>')
-nnoremap('<leader>fbb', ':Telescope buffers<CR>')
-nnoremap('<leader>fbs', ':Telescope current_buffer_fuzzy_find<CR>')
+nnoremap('<leader>fb', ':Telescope file_browser<CR>')
 nnoremap('<leader>fu', ':UrlView<CR>')
 nnoremap('<leader>fqf', ':Telescope quickfix<CR>')
 nnoremap('<leader>fqh', ':Telescope quickfixhistory<CR>')
