@@ -72,9 +72,6 @@ end)
 -- modal layer key.
 Hyper:bind('', ';', function()
   ShowHideOrFocus('Obsidian')
-
-  -- hs.application.open( 'obsidian' )
-  -- GetCurrentApp()
 end)
 
 Hyper:bind('', '.', function()
