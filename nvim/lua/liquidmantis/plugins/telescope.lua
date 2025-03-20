@@ -58,7 +58,14 @@ return {
     end,
   },
 
-
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    require("telescope").setup {},
+    config = function()
+      require("telescope").load_extension("file_browser")
+    end,
+  },
   -- require('telescope').load_extension('notify')
   -- require('telescope').load_extension('projects')
 }

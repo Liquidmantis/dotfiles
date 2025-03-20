@@ -4,7 +4,7 @@ path = "~"
 
 [[session]]
 name = "notes"
-path = "~/Dropbox/documents/notes/"
+path = "~/notes/"
 startup_command = "nvim +'ObsidianToday'"
 
 [[session]]
@@ -17,7 +17,6 @@ name = "dotfiles"
 path = "~/git-home/dotfiles/"
 startup_command = "nvim +'Telescope find_files'"
 
-[[homelab]]
+[[session]]
 name = "homelab"
 path = "~/git-home/homelab"
-
