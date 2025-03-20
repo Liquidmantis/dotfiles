@@ -5,49 +5,48 @@ jqPath=$(which jq)
 
 # global settings
 yabai -m config \
-  mouse_follows_focus          off \
-  focus_follows_mouse          off \
-  window_placement             second_child \
-  window_shadow                on \
-  window_opacity               on \
-  window_opacity_duration		   0.0 \
-  active_window_opacity        1.0 \
-  normal_window_opacity        0.95 \
-  insert_feedback_color        0xffd75f5f \
-  split_ratio                  0.50 \
-  auto_balance                 off \
-  mouse_modifier               ctrl \
-  mouse_action1                move \
-  mouse_action2                resize \
-  layout                       bsp \
-  top_padding                  12 \
-  bottom_padding               12 \
-  left_padding                 12 \
-  right_padding                12 \
-  window_gap                   12 \
-  # window_animation_duration    1.1 \
+  mouse_follows_focus off \
+  focus_follows_mouse off \
+  window_placement second_child \
+  window_shadow on \
+  window_opacity on \
+  window_opacity_duration 0.0 \
+  active_window_opacity 1.0 \
+  normal_window_opacity 0.95 \
+  insert_feedback_color 0xffd75f5f \
+  split_ratio 0.50 \
+  auto_balance off \
+  mouse_modifier ctrl \
+  mouse_action1 move \
+  mouse_action2 resize \
+  layout bsp \
+  top_padding 12 \
+  bottom_padding 12 \
+  left_padding 12 \
+  right_padding 12 \
+  window_gap 12 \
+  window_animation_duration 0.1
 
 # app ignores
-yabai -m rule --add app="^System Information$"  manage=off
-yabai -m rule --add app="^System Preferences$"  manage=off
-yabai -m rule --add app="^System Settings$"     manage=off
-yabai -m rule --add app="Preferences$"          manage=off
-yabai -m rule --add app="^Activity Monitor"     manage=off
-yabai -m rule --add title="Preferences$"        manage=off
-yabai -m rule --add title="^Hammerspoon"        manage=off
-yabai -m rule --add title="^Wally"              manage=off
-yabai -m rule --add title="^Options"            manage=off
-yabai -m rule --add title="^Settings$"          manage=off
-yabai -m rule --add title="^Bookmark saved$"    manage=off # disable Raindrop popup in Sarafi
-yabai -m rule --add title="^FloatShell"         manage=off
-yabai -m rule --add title="-lmf$"               manage=off
-yabai -m rule --add title="(DEBUG)"             manage=off
-
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="Preferences$" manage=off
+yabai -m rule --add app="^Activity Monitor" manage=off
+yabai -m rule --add title="Preferences$" manage=off
+yabai -m rule --add title="^Hammerspoon" manage=off
+yabai -m rule --add title="^Wally" manage=off
+yabai -m rule --add title="^Options" manage=off
+yabai -m rule --add title="^Settings$" manage=off
+yabai -m rule --add title="^Bookmark saved$" manage=off # disable Raindrop popup in Safari
+yabai -m rule --add title="^FloatShell" manage=off
+yabai -m rule --add title="-lmf$" manage=off
+yabai -m rule --add title="(DEBUG)" manage=off
 
 # app special handlers
-yabai -m rule --add title="Picture in Picture"  manage=off
-yabai -m rule --add title="Neovide"             manage=off
-yabai -m rule --add app="BoltAI"                manage=off 
+yabai -m rule --add title="Picture in Picture" manage=off
+yabai -m rule --add title="Neovide" manage=off
+yabai -m rule --add app="BoltAI" manage=off
 
 # events
 # Contexts' sidebar and the Teams notification process seem to jump to the top of the list when their
