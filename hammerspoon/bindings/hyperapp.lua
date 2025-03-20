@@ -1,8 +1,8 @@
 -- ****************************************
 -- Mode: HyperApp Keybindings
 --
--- To support apps having a common first letter, the HyperApp mode uses a number 
--- of submodes, like the `S` mode which has bindings for Safari, Slack, and Spotify. 
+-- To support apps having a common first letter, the HyperApp mode uses a number
+-- of submodes, like the `S` mode which has bindings for Safari, Slack, and Spotify.
 -- ****************************************
 
 -- ****************************************
@@ -15,40 +15,45 @@ HyperApp:bind('', 'c', function()
 end)
 
 c:bind('', 'a', function()
-  hs.application.open( 'busycal' )
+  hs.application.open('busycal')
   c:exit()
 end)
 c:bind('', 'h', function()
-  hs.application.open( 'google chrome' )
+  hs.application.open('google chrome')
   print('open chrome')
   c:exit()
 end)
 -- ****************************************
 
-HyperApp:bind('', 'o', function()
-  hs.application.open( 'obsidian' )
-end)
-
 HyperApp:bind('', 'f', function()
-  hs.application.open( 'finder' )
-end)
-
-HyperApp:bind('', 'm', function()
-  hs.application.open( 'mimestream' )
+  hs.application.open('finder')
 end)
 
 HyperApp:bind('', 'k', function()
-  hs.application.open( 'kitty' )
+  hs.application.open('kitty')
   local obs = hs.application.get('obsidian')
   if State.zenMode ~= false then obs:hide() end
 end)
 
+HyperApp:bind('', 'm', function()
+  hs.application.open('mimestream')
+end)
+
+HyperApp:bind('', 'n', function()
+  ShowHideOrFocus('neovide')
+  print('open liquidnote')
+end)
+
+HyperApp:bind('', 'o', function()
+  hs.application.open('obsidian')
+end)
+
 HyperApp:bind('', 'r', function()
-  hs.application.open( 'reminders' )
+  hs.application.open('reminders')
 end)
 
 HyperApp:bind('', 'z', function()
-  hs.application.open( 'zoom.us' )
+  hs.application.open('zoom.us')
   print('opening zoom...')
 end)
 
@@ -62,17 +67,17 @@ HyperApp:bind('', 's', function()
 end)
 
 s:bind('', 'a', function()
-  hs.application.open( 'safari' )
+  hs.application.open('safari')
   s:exit()
 end)
 
 s:bind('', 'l', function()
-  hs.application.open( 'slack' )
+  hs.application.open('slack')
   s:exit()
 end)
 
 s:bind('', 'p', function()
-  hs.application.open( 'spotify' )
+  hs.application.open('spotify')
   s:exit()
 end)
 -- ****************************************+
