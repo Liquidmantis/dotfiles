@@ -1,6 +1,6 @@
 (defcfg
-  input  (iokit-name "Apple Internal Keyboard / Trackpad")
-  ;; input  (iokit-name "Karabiner DriverKit VirtualHIDKeyboard 1.3.0")
+  ;; input  (iokit-name "Apple Internal Keyboard / Trackpad")
+  input  (iokit-name "Karabiner DriverKit VirtualHIDKeyboard 1.8.0")
   output (kext)
 
   ;; Comment this is you want unhandled events not to be emitted
