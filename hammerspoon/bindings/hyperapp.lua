@@ -31,8 +31,6 @@ end)
 
 HyperApp:bind('', 'k', function()
   hs.application.open('kitty')
-  local obs = hs.application.get('obsidian')
-  if State.zenMode ~= false then obs:hide() end
 end)
 
 HyperApp:bind('', 'm', function()
@@ -41,7 +39,6 @@ end)
 
 HyperApp:bind('', 'n', function()
   ShowHideOrFocus('neovide')
-  print('open liquidnote')
 end)
 
 HyperApp:bind('', 'o', function()
@@ -54,7 +51,6 @@ end)
 
 HyperApp:bind('', 'z', function()
   hs.application.open('zoom.us')
-  print('opening zoom...')
 end)
 
 -- ****************************************

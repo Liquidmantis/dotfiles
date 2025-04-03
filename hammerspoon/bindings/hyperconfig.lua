@@ -4,14 +4,34 @@ HyperConfig:bind('', 'p', function()
 end)
 
 HyperConfig:bind('cmd', 'r', function()
-  print('Reloading Hammerspoon configuration.')
   hs.reload()
 end)
 
 HyperConfig:bind('cmd', 'y', function()
-  print('Restarting Yabai.')
-  os.execute('yabai --stop-service && yabai --start-service')
+  hs.notify.show('Hammerspoon', 'Reload Notification', 'Restarting Yabai.')
+  Log.i(hs.execute('yabai --stop-service && yabai --start-service'))
 end)
+
+local h = hs.hotkey.modal.new()
+HyperConfig:bind('', 'h', function()
+  ExitHyperConfig()
+  h:enter()
+end)
+
+h:bind('', 'd', function()
+  Log.setLogLevel('debug')
+  h:exit()
+end)
+h:bind('', 'i', function()
+  Log.setLogLevel('info')
+  h:exit()
+end)
+h:bind('', 'w', function()
+  Log.setLogLevel('warning')
+  h:exit()
+end)
+
+
 
 HyperConfigPadding:bind('', '1', function() SetPadding(1, 1) end)
 HyperConfigPadding:bind('', '2', function() SetPadding(2, 2) end)

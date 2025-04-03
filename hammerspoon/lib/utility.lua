@@ -54,11 +54,29 @@ function GetCurrentWindowName()
   return GetCurrentWindowParameter('name')
 end
 
-function ShowHideOrFocus(window)
-  if string.lower(hs.application.frontmostApplication():title()) == string.lower(window) then
-    hs.application.frontmostApplication():hide()
+function ShowHideOrFocus(target, type, launchCommand)
+  type = type or 'app'
+
+  if type == 'app' then
+    if string.lower(hs.application.frontmostApplication():title()) == string.lower(target) then
+      hs.application.frontmostApplication():hide()
+    else
+      hs.application.launchOrFocus(target)
+    end
   else
-    hs.application.launchOrFocus(window)
+    if type == 'window' then
+      local window = hs.window.find(target)
+      if window then
+        local focusedWindow = hs.application.frontmostApplication():focusedWindow()
+        if focusedWindow == window then
+          hs.application.frontmostApplication():hide()
+        else
+          window:focus()
+        end
+      else
+        hs.execute(launchCommand, true)
+      end
+    end
   end
 end
 
@@ -133,7 +151,7 @@ function SetBordersColor()
   end
 
   local isZoomed = GetCurrentWindowParameter('has-parent-zoom')
-  print(string.format("Has Parent Zoom: %s", isZoomed))
+  Log.d(string.format("Has Parent Zoom: %s", isZoomed))
 
   if isZoomed == "false" then
     setBordersColor(BordersRegularColor)

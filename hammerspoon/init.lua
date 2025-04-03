@@ -1,6 +1,8 @@
 require('hs.ipc')
 hs.loadSpoon('EmmyLua')
 
+Log = hs.logger.new('hs-log', 'warning')
+
 -- Environmental goodies
 YabaiPath = '/opt/homebrew/bin/yabai'
 JqPath = '/opt/homebrew/bin/jq'
@@ -39,6 +41,6 @@ require('bindings/hyperstack')
 require('bindings/hyperterminal')
 require('bindings/hyperwindow')
 
-hs.window.filter.default:subscribe(hs.window.filter.windowFocused, SetBordersColor)
+-- hs.window.filter.default:subscribe(hs.window.filter.windowFocused, SetBordersColor)
 
 hs.notify.show('Hammerspoon', 'Reload Notification', 'Hammerspoon configuration reloaded.')

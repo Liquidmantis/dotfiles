@@ -71,7 +71,7 @@ end)
 -- These bindings currently use special character keys that don't burn a potential
 -- modal layer key.
 Hyper:bind('', ';', function()
-  ShowHideOrFocus('Obsidian')
+  ShowHideOrFocus('liquidnote', 'window', '~/git-home/utility-scripts/liquidnote')
 end)
 
 Hyper:bind('', '.', function()
