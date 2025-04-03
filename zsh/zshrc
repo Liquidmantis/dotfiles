@@ -1,5 +1,7 @@
 if [[ $(whoami) == "will.ernst" ]]; then
   export WORK_COMPUTER=true
+else
+  export WORK_COMPUTER=false
 fi
 
 export BORDERS_ACTIVE_NORMAL="0xFF10a338"
