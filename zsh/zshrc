@@ -47,6 +47,7 @@ fi
 source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $brewshare/zsh-abbr/zsh-abbr.zsh
 source ${HOME}/.config/zsh/aliases.zsh
+source ${HOME}/.config/zsh/functions/doormat.zsh
 source ${HOME}/.config/zsh/functions/functions.zsh
 source ${HOME}/.config/zsh/functions/git.zsh
 source ${HOME}/.config/zsh/functions/hcloud.zsh
