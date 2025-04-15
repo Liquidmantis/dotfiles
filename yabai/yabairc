@@ -33,6 +33,7 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="Preferences$" manage=off
 yabai -m rule --add app="^Activity Monitor" manage=off
+yabai -m rule --add title="^Cisco Secure Client$" manage=off
 yabai -m rule --add title="Preferences$" manage=off
 yabai -m rule --add title="^Hammerspoon" manage=off
 yabai -m rule --add title="^Wally" manage=off
