@@ -38,15 +38,17 @@ HyperApp:bind('', 'm', function()
 end)
 
 HyperApp:bind('', 'n', function()
-  ShowHideOrFocus('neovide')
+  LaunchHideOrFocus('neovide')
 end)
 
 HyperApp:bind('', 'o', function()
-  hs.application.open('obsidian')
+  -- hs.application.open('obsidian')
+  LaunchHideOrFocus('obsidian')
 end)
 
 HyperApp:bind('', 'r', function()
-  hs.application.open('reminders')
+  -- hs.application.open('reminders')
+  LaunchHideOrFocus('reminders')
 end)
 
 HyperApp:bind('', 'z', function()

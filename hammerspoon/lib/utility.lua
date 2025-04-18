@@ -54,7 +54,7 @@ function GetCurrentWindowName()
   return GetCurrentWindowParameter('name')
 end
 
-function ShowHideOrFocus(target, type, launchCommand)
+function LaunchHideOrFocus(target, type, launchCommand)
   type = type or 'app'
 
   if type == 'app' then
