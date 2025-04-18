@@ -48,6 +48,12 @@ Hyper:bind('alt', 'l', function() YabaiMsg('window', 'warp east') end)
 Hyper:bind('alt', 'j', function() YabaiMsg('window', 'warp south') end)
 Hyper:bind('alt', 'k', function() YabaiMsg('window', 'warp north') end)
 
+-- Hyper:bind('cmd', 'l', function() YabaiMsg('window', 'ratio rel:0.05') end)
+-- Hyper:bind('cmd', 'h', function() YabaiMsg('window', 'ratio rel:-0.05') end)
+Hyper:bind('cmd', 'h', function() YabaiMsg('window', 'ratio abs:0.30') end)
+Hyper:bind('cmd', 'l', function() YabaiMsg('window', 'ratio abs:0.70') end)
+Hyper:bind('cmd', ';', function() YabaiMsg('space', 'balance') end)
+
 Hyper:bind('ctrl', 'h', function() YabaiMsg('window', 'stack west') end)
 Hyper:bind('ctrl', 'l', function() YabaiMsg('window', 'stack east') end)
 Hyper:bind('ctrl', 'j', function() YabaiMsg('window', 'stack south') end)

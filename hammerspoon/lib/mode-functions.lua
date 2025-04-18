@@ -16,6 +16,7 @@ function ClearModes()
   ExitHyperStack()
   ExitHyperTerminal()
   ExitHyperWindow()
+  ExitHyperWindowMove()
   ExitHyperWindowResize()
   ExitHyperWindowTransparency()
 end
@@ -123,6 +124,17 @@ end
 function ExitHyperWindow()
   Log.i('[Mode] HyperWindow disabled')
   HyperWindow:exit()
+end
+
+function EnterHyperWindowMove()
+  Log.i('[Mode] HyperWindowMove enabled')
+  ExitHyper()
+  HyperWindowMove:enter()
+end
+
+function ExitHyperWindowMove()
+  Log.i('[Mode] HyperWindowMove disabled')
+  HyperWindowMove:exit()
 end
 
 function EnterHyperWindowOpen()
