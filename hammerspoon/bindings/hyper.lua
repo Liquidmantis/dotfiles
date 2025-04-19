@@ -2,9 +2,6 @@
 -- Mode: Hyper Meta and Modal Trigger Keybindings
 -- ****************************************
 
-Hyper:bind('', 'escape', ExitHyper)
--- hyper:bind('', 'F17', exitHyper)
-
 Hyper:bind('', 'a', EnterHyperApp)
 Hyper:bind('', 'c', EnterHyperConfig)
 Hyper:bind('', 'd', EnterHyperDisplay)
@@ -74,14 +71,19 @@ end)
 -- a modal trigger key, like 's' to step into HyperSpace for Space related hotkeys.
 -- Prefer to put apps in the HyperApp mode, which only adds an `a` key to the sequence.
 -- These bindings should be used for apps that are used constantly.
+
 -- These bindings currently use special character keys that don't burn a potential
 -- modal layer key.
+
+-- Not defined here as it's a special case mode and focus combo
+-- Hyper:bind('', 'Enter', FocusTerminal)
+
 Hyper:bind('', ';', function()
   LaunchHideOrFocus('liquidnote', 'window', '~/git-home/utility-scripts/liquidnote')
 end)
 
 Hyper:bind('', '.', function()
-  hs.application.open('finder')
+  LaunchHideOrFocus('finder')
 end)
 
 Hyper:bind('', '/', function()

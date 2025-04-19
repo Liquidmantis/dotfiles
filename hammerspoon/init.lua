@@ -25,7 +25,6 @@ State = {
 }
 
 require('lib/modes')
-require('lib/mode-functions')
 require('lib/utility')
 
 require('bindings/basic')
