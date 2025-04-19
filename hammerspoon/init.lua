@@ -16,11 +16,13 @@ State = {
   initial = {
     -- These are values that are configured in Yabai's settings
     -- TODO: read these in to keep them in sync
-    xPad = 12,
-    yPad = 12,
+    x_pad = 12,
+    y_pad = 12,
     gap = 12
   },
   SCREEN_WIDTH = hs.screen.primaryScreen():frame().w,
+  SCREEN_HEIGHT = hs.screen.primaryScreen():frame().h,
+  NOTCH_HEIGHT = hs.screen.primaryScreen():fullFrame().h - hs.screen.primaryScreen():frame().h,
   IS_WORK_COMPUTER = string.match(hs.host.localizedName(), 'will.ernst') and true or false,
 
   zen_mode = false,

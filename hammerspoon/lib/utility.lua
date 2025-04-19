@@ -83,27 +83,27 @@ function Utils.launch_hide_or_focus(target, type, launchCommand)
 end
 
 function Utils.set_padding(xScale, yScale)
-  local xPad
-  local yPad
+  local x_pad
+  local y_pad
   local gap
 
   if xScale == "=" then
-    xPad = State.initial.xPad
-    yPad = State.initial.yPad
+    x_pad = State.initial.x_pad
+    y_pad = State.initial.y_pad
     gap = State.initial.gap
   else
-    xPad = xScale * 20
-    yPad = yScale * 20
-    gap = xPad
+    x_pad = xScale * 20
+    y_pad = yScale * 20
+    gap = x_pad
   end
 
-  local padChange = string.format('padding abs:%i:%i:%i:%i', yPad, yPad, xPad, xPad)
-  local gapChange = string.format('gap abs:%i', gap)
-  Utils.yabai_msg('space', padChange)
-  Utils.yabai_msg('space', gapChange)
+  local pad_change = string.format('padding abs:%i:%i:%i:%i', y_pad, y_pad, x_pad, x_pad)
+  local gap_change = string.format('gap abs:%i', gap)
+  Utils.yabai_msg('space', pad_change)
+  Utils.yabai_msg('space', gap_change)
 end
 
-function ToggleZenMode(mode)
+function Utils.toggle_zen_mode(mode)
   if mode == State.zen_mode or mode == 'exit' then
     Utils.set_padding('=', '=')
     Utils.yabai_msg('space', 'layout bsp')
@@ -111,14 +111,14 @@ function ToggleZenMode(mode)
   else
     if mode == 'zen' then
       -- set window to 65% of screen width
-      local xPad = math.floor((State.SCREEN_WIDTH * .35 / 2) / 20)
-      Utils.set_padding(xPad, 3)
+      local x_pad = math.floor((State.SCREEN_WIDTH * .35 / 2) / 20)
+      Utils.set_padding(x_pad, 3)
     elseif mode == 'full' then
       Utils.set_padding(3, 2)
     elseif mode == 'wide' then
       -- set window to 75% of screen width
-      local xPad = math.floor((State.SCREEN_WIDTH * .25 / 2) / 20)
-      Utils.set_padding(xPad, 3)
+      local x_pad = math.floor((State.SCREEN_WIDTH * .25 / 2) / 20)
+      Utils.set_padding(x_pad, 3)
     elseif mode == 'narrow' then
       Utils.set_padding(35, 3)
     end

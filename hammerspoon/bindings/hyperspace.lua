@@ -68,8 +68,8 @@ Modes.HyperSpace:bind('alt', '=', function() Utils.set_padding('=', '=') end)
 
 -- SubMode: Modes.HyperSpaceZen Keybindings
 
-Modes.HyperSpaceZen:bind('', 'z', function() ToggleZenMode('zen') end)
-Modes.HyperSpaceZen:bind('', 'n', function() ToggleZenMode('narrow') end)
-Modes.HyperSpaceZen:bind('', 'w', function() ToggleZenMode('wide') end)
-Modes.HyperSpaceZen:bind('', 'f', function() ToggleZenMode('full') end)
-Modes.HyperSpaceZen:bind('', 'x', function() ToggleZenMode('exit') end)
+Modes.HyperSpaceZen:bind('', 'z', function() Utils.toggle_zen_mode('zen') end)
+Modes.HyperSpaceZen:bind('', 'n', function() Utils.toggle_zen_mode('narrow') end)
+Modes.HyperSpaceZen:bind('', 'w', function() Utils.toggle_zen_mode('wide') end)
+Modes.HyperSpaceZen:bind('', 'f', function() Utils.toggle_zen_mode('full') end)
+Modes.HyperSpaceZen:bind('', 'x', function() Utils.toggle_zen_mode('exit') end)
