@@ -4,22 +4,18 @@
 
 Modes.HyperWindow:bind('alt', 'o', function()
   Modes.EnterHyperWindowOpen()
-  Modes.ExitHyperWindow()
 end)
 
 Modes.HyperWindow:bind('', 'm', function()
   Modes.EnterHyperWindowMove()
-  Modes.ExitHyperWindow()
 end)
 
 Modes.HyperWindow:bind('', 'r', function()
   Modes.EnterHyperWindowResize()
-  Modes.ExitHyperWindow()
 end)
 
 Modes.HyperWindow:bind('', 't', function()
   Modes.EnterHyperWindowTransparency()
-  Modes.ExitHyperWindow()
 end)
 
 Modes.HyperWindow:bind('', '/', function() Utils.yabai_msg('window', 'toggle split') end)
