@@ -28,6 +28,7 @@ local modes = {
   { name = "HyperTerminal",           parent = "Hyper",      enter_extra_funcs = { function() FocusTerminal() end } },
   { name = "HyperWindow",             parent = "Hyper" },
   { name = "HyperWindowMove",         parent = "HyperWindow" },
+  { name = "HyperWindowPosition",     parent = "HyperWindow" },
   { name = "HyperWindowResize",       parent = "HyperWindow" },
   { name = "HyperWindowTransparency", parent = "HyperWindow" },
 }
