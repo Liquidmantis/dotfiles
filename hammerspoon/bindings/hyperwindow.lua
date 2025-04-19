@@ -1,23 +1,6 @@
 -- ****************************************
 -- Mode: HyperWindow Keybindings
 -- ****************************************
-local width = {
-  half = State.SCREEN_WIDTH / 2,
-  half_padded = State.SCREEN_WIDTH / 2 - State.initial.x_pad,
-  full = State.SCREEN_WIDTH,
-  full_padded = State.SCREEN_WIDTH - State.initial.x_pad * 2,
-  pad = State.initial.x_pad
-}
-
-local height = {
-  half = State.SCREEN_HEIGHT / 2,
-  half_padded = State.SCREEN_HEIGHT / 2 - State.initial.y_pad,
-  full = State.SCREEN_HEIGHT,
-  full_padded = State.SCREEN_HEIGHT - State.initial.y_pad * 2,
-  notch = State.NOTCH_HEIGHT,
-  top = State.NOTCH_HEIGHT + State.initial.y_pad,
-  pad = State.initial.y_pad
-}
 
 Modes.HyperWindow:bind('alt', 'o', function() Modes.EnterHyperWindowOpen() end)
 Modes.HyperWindow:bind('', 'm', function() Modes.EnterHyperWindowMove() end)
@@ -67,6 +50,24 @@ Modes.HyperWindowMove:bind('', 'w', function()
   Modes.EnterHyperWindowPosition()
 end)
 
+local width = {
+  half = State.SCREEN_WIDTH / 2,
+  half_padded = State.SCREEN_WIDTH / 2 - State.initial.x_pad,
+  full = State.SCREEN_WIDTH,
+  full_padded = State.SCREEN_WIDTH - State.initial.x_pad * 2,
+  pad = State.initial.x_pad
+}
+
+local height = {
+  half = State.SCREEN_HEIGHT / 2,
+  half_padded = State.SCREEN_HEIGHT / 2 - State.initial.y_pad,
+  full = State.SCREEN_HEIGHT,
+  full_padded = State.SCREEN_HEIGHT - State.initial.y_pad * 2,
+  notch = State.NOTCH_HEIGHT,
+  top = State.NOTCH_HEIGHT + State.initial.y_pad,
+  pad = State.initial.y_pad
+}
+
 Modes.HyperWindowPosition:bind('', 'u', function()
   Utils.yabai_msg('window', 'move abs:' .. width.pad .. ':' .. height.top)
   Utils.yabai_msg('window', 'resize abs:' .. width.half_padded .. ':' .. height.half)
@@ -78,6 +79,18 @@ end)
 Modes.HyperWindowPosition:bind('', 'm', function()
   Utils.yabai_msg('window', 'move abs:' .. width.pad .. ':' .. height.half + height.notch)
   Utils.yabai_msg('window', 'resize abs:' .. width.half_padded .. ':' .. height.half_padded)
+end)
+Modes.HyperWindowPosition:bind('', 'i', function()
+  Utils.yabai_msg('window', 'move abs:' .. width.pad .. ':' .. height.top)
+  Utils.yabai_msg('window', 'resize abs:' .. width.full_padded .. ':' .. height.half_padded)
+end)
+Modes.HyperWindowPosition:bind('', 'k', function()
+  Utils.yabai_msg('window', 'move abs:' .. width.pad .. ':' .. height.top)
+  Utils.yabai_msg('window', 'resize abs:' .. width.full_padded .. ':' .. height.full_padded)
+end)
+Modes.HyperWindowPosition:bind('', ',', function()
+  Utils.yabai_msg('window', 'move abs:' .. width.pad .. ':' .. height.half + height.notch)
+  Utils.yabai_msg('window', 'resize abs:' .. width.full_padded .. ':' .. height.half_padded)
 end)
 Modes.HyperWindowPosition:bind('', 'o', function()
   Utils.yabai_msg('window', 'move abs:' .. width.half .. ':' .. height.top)
