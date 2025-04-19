@@ -5,6 +5,9 @@
 -- of submodes, like the `S` mode which has bindings for Safari, Slack, and Spotify.
 -- ****************************************
 
+HyperApp:bind('', 'a', function()
+  LaunchHideOrFocus('boltai')
+end)
 -- ****************************************
 -- C apps
 -- ****************************************
@@ -42,12 +45,10 @@ HyperApp:bind('', 'n', function()
 end)
 
 HyperApp:bind('', 'o', function()
-  -- hs.application.open('obsidian')
   LaunchHideOrFocus('obsidian')
 end)
 
 HyperApp:bind('', 'r', function()
-  -- hs.application.open('reminders')
   LaunchHideOrFocus('reminders')
 end)
 
