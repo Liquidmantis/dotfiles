@@ -4,24 +4,26 @@ hs.loadSpoon('EmmyLua')
 Log = hs.logger.new('hs-log', 'warning')
 
 -- Environmental goodies
-YabaiPath = '/opt/homebrew/bin/yabai'
-JqPath = '/opt/homebrew/bin/jq'
+YABAI_PATH = '/opt/homebrew/bin/yabai'
+JQ_PATH = '/opt/homebrew/bin/jq'
 
-BordersRegularColor = '0xFF10a338'
-BordersStackedColor = '0xFFE3F542'
-BordersZoomColor = '0xFFFF0000'
+BORDERS_REGULAR_COLOR = '0xFF10a338'
+BORDERS_STACKED_COLOR = '0xFFE3F542'
+BORDERS_ZOOM_COLOR = '0xFFFF0000'
 
 -- Configure our initial state values
 State = {
   initial = {
     -- These are values that are configured in Yabai's settings
+    -- TODO: read these in to keep them in sync
     xPad = 12,
     yPad = 12,
     gap = 12
   },
   SCREEN_WIDTH = hs.screen.primaryScreen():frame().w,
-  zenMode = false,
   IS_WORK_COMPUTER = string.match(hs.host.localizedName(), 'will.ernst') and true or false,
+
+  zen_mode = false,
 }
 
 require('lib/modes')

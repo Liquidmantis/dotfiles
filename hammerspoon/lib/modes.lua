@@ -1,4 +1,3 @@
--- **************************************
 -- Modes
 -- Here there be modes.
 
@@ -12,6 +11,8 @@
 -- They "lock" and have exit triggers based on submodes and when the Hyper key is released.
 -- **************************************
 
+Modes = {}
+
 local modes = {
   { name = "Hyper" },
   { name = "Hyper2",                  parent = "Hyper" },
@@ -24,42 +25,42 @@ local modes = {
   { name = "HyperSpace",              parent = "Hyper" },
   { name = "HyperSpaceZen",           parent = "Hyper" },
   { name = "HyperStack",              parent = "Hyper" },
-  { name = "HyperTerminal",           parent = "Hyper",      enterExtraFuncs = { function() FocusTerminal() end } },
+  { name = "HyperTerminal",           parent = "Hyper",      enter_extra_funcs = { function() FocusTerminal() end } },
   { name = "HyperWindow",             parent = "Hyper" },
   { name = "HyperWindowMove",         parent = "HyperWindow" },
   { name = "HyperWindowResize",       parent = "HyperWindow" },
   { name = "HyperWindowTransparency", parent = "HyperWindow" },
 }
 
-local function buildModeFunctions(modeName, exitModeName, enterFuncs)
-  _G[modeName] = hs.hotkey.modal.new()
-  _G["Enter" .. modeName] = function()
-    Log.i(string.format('[Mode] %s enabled', modeName))
-    if enterFuncs and type(enterFuncs) == "table" then
-      for _, func in ipairs(enterFuncs) do
+local function build_mode_functions(mode_name, exit_mode_name, enter_funcs)
+  Modes[mode_name] = hs.hotkey.modal.new()
+  Modes["Enter" .. mode_name] = function()
+    Log.i(string.format('[Mode] %s enabled', mode_name))
+    if enter_funcs and type(enter_funcs) == "table" then
+      for _, func in ipairs(enter_funcs) do
         func()
       end
     end
-    if exitModeName then
-      _G["Exit" .. exitModeName]()
+    if exit_mode_name then
+      Modes["Exit" .. exit_mode_name]()
     end
-    _G[modeName]:enter()
+    Modes[mode_name]:enter()
   end
 
-  _G["Exit" .. modeName] = function()
-    Log.i(string.format('[Mode] %s disabled', modeName))
-    _G[modeName]:exit()
+  Modes["Exit" .. mode_name] = function()
+    Log.i(string.format('[Mode] %s disabled', mode_name))
+    Modes[mode_name]:exit()
   end
 end
 
 -- Build all mode functions
 for _, mode in ipairs(modes) do
-  buildModeFunctions(mode.name, mode.parent, mode.enterExtraFuncs)
+  build_mode_functions(mode.name, mode.parent, mode.enter_extra_funcs)
 end
 
-function ClearModes()
+function Modes.clear_modes()
   for _, mode in ipairs(modes) do
-    local exitFunc = _G["Exit" .. mode.name]
-    if exitFunc then exitFunc() end
+    local exit_func = Modes["Exit" .. mode.name]
+    if exit_func then exit_func() end
   end
 end

@@ -2,12 +2,13 @@
 -- Mode: HyperOpen Keybindings
 -- ****************************************
 
-HyperOpen:bind('', 'h', function() YabaiMsg( 'window', 'insert west' ) end)
-HyperOpen:bind('', 'l', function() YabaiMsg( 'window', 'insert east' ) end)
-HyperOpen:bind('', 'j', function() YabaiMsg( 'window', 'insert south' ) end)
-HyperOpen:bind('', 'k', function() YabaiMsg( 'window', 'insert north' ) end)
+Modes.HyperOpen:bind('', 'h', function() Utils.yabai_msg('window', 'insert west') end)
+Modes.HyperOpen:bind('', 'l', function() Utils.yabai_msg('window', 'insert east') end)
+Modes.HyperOpen:bind('', 'j', function() Utils.yabai_msg('window', 'insert south') end)
+Modes.HyperOpen:bind('', 'k', function() Utils.yabai_msg('window', 'insert north') end)
 
-HyperOpen:bind('', 's', function() hs.osascript.applescript([[
+Modes.HyperOpen:bind('', 's', function()
+  hs.osascript.applescript([[
   tell application "Safari"
     make new document
     activate

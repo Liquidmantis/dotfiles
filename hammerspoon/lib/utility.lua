@@ -2,20 +2,22 @@
 -- Helper Functions
 -- **************************************
 
-function YabaiMsg(scope, param, fallbackParam)
-  local planA = string.format("%s -m %s --%s", YabaiPath, scope, param)
+Utils = {}
+
+function Utils.yabai_msg(scope, param, fallbackParam)
+  local planA = string.format("%s -m %s --%s", YABAI_PATH, scope, param)
   local cmd = ''
   if fallbackParam == nil then
     cmd = planA
   else
-    local planB = string.format("%s -m %s --%s", YabaiPath, scope, fallbackParam)
+    local planB = string.format("%s -m %s --%s", YABAI_PATH, scope, fallbackParam)
     cmd = string.format("%s || %s", planA, planB)
   end
   os.execute(cmd)
 end
 
-function YabaiQuery(scope, param)
-  local cmd = string.format("%s -m query --%s", YabaiPath, scope)
+function Utils.yabai_query(scope, param)
+  local cmd = string.format("%s -m query --%s", YABAI_PATH, scope)
   if param ~= nil then
     cmd = string.format("%s --%s", cmd, param)
   end
@@ -23,10 +25,10 @@ function YabaiQuery(scope, param)
   return result
 end
 
-function GetYabaiEntityParameter(entity, parameter)
+function Utils.get_yabai_entity_parameter(entity, parameter)
   local context = string.format("%ss", entity)
-  local e = YabaiQuery(context, entity)
-  local cmd = string.format("echo '%s' | %s '.\"%s\"'", e, JqPath, parameter)
+  local e = Utils.yabai_query(context, entity)
+  local cmd = string.format("echo '%s' | %s '.\"%s\"'", e, JQ_PATH, parameter)
   local result = hs.execute(cmd)
   if result then
     result = string.gsub(result, "[\n\r\"]", "")
@@ -34,27 +36,27 @@ function GetYabaiEntityParameter(entity, parameter)
   return result
 end
 
-function GetCurrentSpaceParameter(param)
-  return GetYabaiEntityParameter('space', param)
+function Utils.get_current_space_parameter(param)
+  return Utils.get_yabai_entity_parameter('space', param)
 end
 
-function GetCurrentWindowParameter(param)
-  return GetYabaiEntityParameter('window', param)
+function Utils.get_current_window_parameter(param)
+  return Utils.get_yabai_entity_parameter('window', param)
 end
 
-function GetCurrentSpaceType()
-  return GetCurrentSpaceParameter('type')
+function Utils.get_current_space_type()
+  return Utils.get_current_space_parameter('type')
 end
 
-function GetCurrentWindowId()
-  return GetCurrentWindowParameter('id')
+function Utils.get_current_window_id()
+  return Utils.get_current_window_parameter('id')
 end
 
-function GetCurrentWindowName()
-  return GetCurrentWindowParameter('name')
+function Utils.get_current_window_name()
+  return Utils.get_current_window_parameter('name')
 end
 
-function LaunchHideOrFocus(target, type, launchCommand)
+function Utils.launch_hide_or_focus(target, type, launchCommand)
   type = type or 'app'
 
   if type == 'app' then
@@ -80,7 +82,7 @@ function LaunchHideOrFocus(target, type, launchCommand)
   end
 end
 
-function SetPadding(xScale, yScale)
+function Utils.set_padding(xScale, yScale)
   local xPad
   local yPad
   local gap
@@ -97,65 +99,65 @@ function SetPadding(xScale, yScale)
 
   local padChange = string.format('padding abs:%i:%i:%i:%i', yPad, yPad, xPad, xPad)
   local gapChange = string.format('gap abs:%i', gap)
-  YabaiMsg('space', padChange)
-  YabaiMsg('space', gapChange)
+  Utils.yabai_msg('space', padChange)
+  Utils.yabai_msg('space', gapChange)
 end
 
 function ToggleZenMode(mode)
-  if mode == State.zenMode or mode == 'exit' then
-    SetPadding('=', '=')
-    YabaiMsg('space', 'layout bsp')
-    State.zenMode = false
+  if mode == State.zen_mode or mode == 'exit' then
+    Utils.set_padding('=', '=')
+    Utils.yabai_msg('space', 'layout bsp')
+    State.zen_mode = false
   else
     if mode == 'zen' then
       -- set window to 65% of screen width
       local xPad = math.floor((State.SCREEN_WIDTH * .35 / 2) / 20)
-      SetPadding(xPad, 3)
+      Utils.set_padding(xPad, 3)
     elseif mode == 'full' then
-      SetPadding(3, 2)
+      Utils.set_padding(3, 2)
     elseif mode == 'wide' then
       -- set window to 75% of screen width
       local xPad = math.floor((State.SCREEN_WIDTH * .25 / 2) / 20)
-      SetPadding(xPad, 3)
+      Utils.set_padding(xPad, 3)
     elseif mode == 'narrow' then
-      SetPadding(35, 3)
+      Utils.set_padding(35, 3)
     end
 
-    YabaiMsg('space', 'layout stack')
-    State.zenMode = mode
+    Utils.yabai_msg('space', 'layout stack')
+    State.zen_mode = mode
   end
 end
 
-function MoveCurrentWindowToDisplay(display)
-  local windowId = GetCurrentWindowId()
-  YabaiMsg('window', string.format('display %s', display))
-  YabaiMsg('window', string.format('focus %s', windowId))
+function Utils.move_current_window_to_display(display)
+  local windowId = Utils.get_current_window_id()
+  Utils.yabai_msg('window', string.format('display %s', display))
+  Utils.yabai_msg('window', string.format('focus %s', windowId))
 end
 
-function ToggleWindowZoom()
-  YabaiMsg('window', 'toggle zoom-parent')
-  SetBordersColor()
+function Utils.toggle_window_zoom()
+  Utils.yabai_msg('window', 'toggle zoom-parent')
+  Utils.set_borders_color()
 end
 
-local function setBordersColor(color)
+local function set_borders_color(color)
   hs.execute(string.format("/opt/homebrew/bin/borders active_color=%s", color))
 end
 
-function SetBordersColor()
-  local isStacked = GetCurrentWindowParameter('stack-index')
-  if isStacked then
-    if isStacked ~= "0" then
-      setBordersColor(BordersStackedColor)
+function Utils.set_borders_color()
+  local is_stacked = Utils.get_current_window_parameter('stack-index')
+  if is_stacked then
+    if is_stacked ~= "0" then
+      set_borders_color(BORDERS_STACKED_COLOR)
       return
     end
   end
 
-  local isZoomed = GetCurrentWindowParameter('has-parent-zoom')
-  Log.d(string.format("Has Parent Zoom: %s", isZoomed))
+  local is_zoomed = Utils.get_current_window_parameter('has-parent-zoom')
+  Log.d(string.format("Has Parent Zoom: %s", is_zoomed))
 
-  if isZoomed == "false" then
-    setBordersColor(BordersRegularColor)
+  if is_zoomed == "false" then
+    set_borders_color(BORDERS_REGULAR_COLOR)
   else
-    setBordersColor(BordersZoomColor)
+    set_borders_color(BORDERS_ZOOM_COLOR)
   end
 end

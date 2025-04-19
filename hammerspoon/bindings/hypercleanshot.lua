@@ -8,30 +8,30 @@ local urls = {
   window = "cleanshot://capture-window",
 }
 
-HyperCleanshot:bind('', 'a', function()
+Modes.HyperCleanshot:bind('', 'a', function()
   hs.urlevent.openURL(urls.allinone)
 end)
 
-HyperCleanshot:bind('', 'p', function()
+Modes.HyperCleanshot:bind('', 'p', function()
   hs.urlevent.openURL(urls.region)
 end)
 
-HyperCleanshot:bind('', 'f', function()
+Modes.HyperCleanshot:bind('', 'f', function()
   hs.urlevent.openURL(urls.fullscreen)
 end)
 
-HyperCleanshot:bind('', 'h', function()
+Modes.HyperCleanshot:bind('', 'h', function()
   hs.urlevent.openURL(urls.history)
 end)
 
-HyperCleanshot:bind('', 's', function()
+Modes.HyperCleanshot:bind('', 's', function()
   hs.urlevent.openURL(urls.scrolling)
 end)
 
-HyperCleanshot:bind('', 't', function()
+Modes.HyperCleanshot:bind('', 't', function()
   hs.urlevent.openURL(urls.text)
 end)
 
-HyperCleanshot:bind('', 'w', function()
+Modes.HyperCleanshot:bind('', 'w', function()
   hs.urlevent.openURL(urls.window)
 end)

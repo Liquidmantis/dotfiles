@@ -5,15 +5,15 @@
 -- of submodes, like the `S` mode which has bindings for Safari, Slack, and Spotify.
 -- ****************************************
 
-HyperApp:bind('', 'a', function()
-  LaunchHideOrFocus('boltai')
+Modes.HyperApp:bind('', 'a', function()
+  Utils.launch_hide_or_focus('boltai')
 end)
 -- ****************************************
 -- C apps
 -- ****************************************
 local c = hs.hotkey.modal.new()
-HyperApp:bind('', 'c', function()
-  ExitHyperApp()
+Modes.HyperApp:bind('', 'c', function()
+  Modes.ExitHyperApp()
   c:enter()
 end)
 
@@ -28,31 +28,31 @@ c:bind('', 'h', function()
 end)
 -- ****************************************
 
-HyperApp:bind('', 'f', function()
+Modes.HyperApp:bind('', 'f', function()
   hs.application.open('finder')
 end)
 
-HyperApp:bind('', 'k', function()
+Modes.HyperApp:bind('', 'k', function()
   hs.application.open('kitty')
 end)
 
-HyperApp:bind('', 'm', function()
+Modes.HyperApp:bind('', 'm', function()
   hs.application.open('mimestream')
 end)
 
-HyperApp:bind('', 'n', function()
-  LaunchHideOrFocus('neovide')
+Modes.HyperApp:bind('', 'n', function()
+  Utils.launch_hide_or_focus('neovide')
 end)
 
-HyperApp:bind('', 'o', function()
-  LaunchHideOrFocus('obsidian')
+Modes.HyperApp:bind('', 'o', function()
+  Utils.launch_hide_or_focus('obsidian')
 end)
 
-HyperApp:bind('', 'r', function()
-  LaunchHideOrFocus('reminders')
+Modes.HyperApp:bind('', 'r', function()
+  Utils.launch_hide_or_focus('reminders')
 end)
 
-HyperApp:bind('', 'z', function()
+Modes.HyperApp:bind('', 'z', function()
   hs.application.open('zoom.us')
 end)
 
@@ -60,8 +60,8 @@ end)
 -- S apps
 -- ****************************************
 local s = hs.hotkey.modal.new()
-HyperApp:bind('', 's', function()
-  ExitHyperApp()
+Modes.HyperApp:bind('', 's', function()
+  Modes.ExitHyperApp()
   s:enter()
 end)
 
