@@ -28,6 +28,10 @@ c:bind('', 'h', function()
 end)
 -- ****************************************
 
+Modes.HyperApp:bind('', 'd', function()
+  Utils.launch_hide_or_focus('dash')
+end)
+
 Modes.HyperApp:bind('', 'f', function()
   hs.application.open('finder')
 end)

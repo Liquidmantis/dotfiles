@@ -89,3 +89,8 @@ end)
 Modes.Hyper:bind('', '/', function()
   hs.application.open('safari')
 end)
+
+-- this is question mark for help
+Modes.Hyper:bind('shift', '/', function()
+  Utils.launch_hide_or_focus('dash')
+end)
