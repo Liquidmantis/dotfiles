@@ -104,6 +104,19 @@ Modes.HyperWindowPosition:bind('', '.', function()
   Utils.yabai_msg('window', 'move abs:' .. width.half .. ':' .. height.half + height.notch)
   Utils.yabai_msg('window', 'resize abs:' .. width.half_padded .. ':' .. height.half_padded)
 end)
+
+local floating_width_small = width.half_padded * .75
+local floating_height = height.full_padded * .75
+local floating_right = width.full_padded - floating_width_small
+local floating_left = width.pad
+Modes.HyperWindowPosition:bind('', ';', function()
+  Utils.yabai_msg('window', 'move abs:' .. floating_right .. ':' .. height.top)
+  Utils.yabai_msg('window', 'resize abs:' .. floating_width_small .. ':' .. floating_height)
+end)
+Modes.HyperWindowPosition:bind('', 'h', function()
+  Utils.yabai_msg('window', 'move abs:' .. floating_left .. ':' .. height.top)
+  Utils.yabai_msg('window', 'resize abs:' .. floating_width_small .. ':' .. floating_height)
+end)
 Modes.HyperWindowPosition:bind('', 'r', function()
   Modes.ExitHyperWindowPosition()
   Modes.EnterHyperWindowResize()
