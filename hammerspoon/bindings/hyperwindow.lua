@@ -105,6 +105,12 @@ Modes.HyperWindowPosition:bind('', '.', function()
   Utils.yabai_msg('window', 'resize abs:' .. width.half_padded .. ':' .. height.half_padded)
 end)
 
+Modes.HyperWindowPosition:bind('alt', 'k', function()
+  Utils.yabai_msg('window', 'grid 1:3:0:0:3:1')
+  -- Utils.yabai_msg('window', 'move abs:' .. width.pad .. ':' .. height.top)
+  -- Utils.yabai_msg('window', 'resize abs:' .. width.full_padded * .8 .. ':' .. height.full_padded * .8)
+end)
+
 local floating_width_small = width.half_padded * .75
 local floating_height = height.full_padded * .75
 local floating_right = width.full_padded - floating_width_small
