@@ -139,6 +139,11 @@ function Utils.toggle_window_zoom()
   Utils.set_borders_color()
 end
 
+function Utils.window_split_flip()
+  State.win_split.amount = 100 - State.win_split.amount
+  Utils.yabai_msg('window', 'ratio abs:0.' .. State.win_split.amount)
+end
+
 local function set_borders_color(color)
   hs.execute(string.format("/opt/homebrew/bin/borders active_color=%s", color))
 end

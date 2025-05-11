@@ -15,7 +15,11 @@ Modes.HyperWindow:bind('', 's', function() Utils.yabai_msg('window', 'toggle sti
 
 Modes.HyperWindow:bind('alt', 'l', function() Utils.yabai_msg('window', 'ratio rel:0.05') end)
 Modes.HyperWindow:bind('alt', 'h', function() Utils.yabai_msg('window', 'ratio rel:-0.05') end)
-Modes.HyperWindow:bind('', 'h', function() Utils.yabai_msg('window', 'ratio abs:0.30') end)
+Modes.HyperWindow:bind('', 'h', function()
+  State.win_split.dynamic = true
+  State.win_split.amount = 30
+  Utils.yabai_msg('window', 'ratio abs:0.' .. State.win_split.amount)
+end)
 Modes.HyperWindow:bind('', 'l', function() Utils.yabai_msg('window', 'ratio abs:0.70') end)
 Modes.HyperWindow:bind('', '=', function() Utils.yabai_msg('space', 'balance') end)
 

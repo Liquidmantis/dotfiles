@@ -25,6 +25,11 @@ State = {
   NOTCH_HEIGHT = hs.screen.primaryScreen():fullFrame().h - hs.screen.primaryScreen():frame().h,
   IS_WORK_COMPUTER = string.match(hs.host.localizedName(), 'will.ernst') and true or false,
 
+  win_split = {
+    amount = 50,
+    dynamic = true,
+  },
+
   zen_mode = false,
 }
 
