@@ -134,6 +134,17 @@ return {
       },
     }
 
+    lspconfig.rust_analyzer.setup({
+      settings = {
+        ['rust-analyzer'] = {
+          cargo = { allFeatures = true },
+          checkOnSave = {
+            command = "clippy",
+          },
+        },
+      },
+    })
+
     lspconfig.yamlls.setup {
       filetypes = { "yaml", "yml" },
     }
