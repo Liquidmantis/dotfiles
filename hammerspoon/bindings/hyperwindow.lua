@@ -146,9 +146,12 @@ end)
 -- and letting "error handling" conduct the logical operation regardless of
 -- window focus and relative internal edge.
 -- This logic fails on resizing floating windows, however.  They are the exception, though.
+--
+-- Increase size
 Modes.HyperWindowResize:bind('', 'h',
-  function() Utils.yabai_msg('window', 'resize right:-300:0', 'resize left:-300:0') end)
-Modes.HyperWindowResize:bind('', 'l', function() Utils.yabai_msg('window', 'resize right:300:0', 'resize left:300:0') end)
+  function() Utils.yabai_msg('window', 'resize left:-300:0', 'resize right:-300:0') end)
+Modes.HyperWindowResize:bind('', 'l',
+  function() Utils.yabai_msg('window', 'resize left:300:0', 'resize right:300:0') end)
 Modes.HyperWindowResize:bind('', 'j',
   function() Utils.yabai_msg('window', 'resize height.top:0:300', 'resize bottom:0:300') end)
 Modes.HyperWindowResize:bind('', 'k',
@@ -161,6 +164,14 @@ Modes.HyperWindowResize:bind('shift', 'j',
   function() Utils.yabai_msg('window', 'resize height.top:0:30', 'resize bottom:0:30') end)
 Modes.HyperWindowResize:bind('shift', 'k',
   function() Utils.yabai_msg('window', 'resize height.top:0:-30', 'resize bottom:0:-30') end)
+Modes.HyperWindowResize:bind('alt', 'h',
+  function() Utils.yabai_msg('window', 'resize left:-300:0', 'resize left:-300:0') end)
+Modes.HyperWindowResize:bind('alt', 'l',
+  function() Utils.yabai_msg('window', 'resize right:300:0', 'resize left:300:0') end)
+Modes.HyperWindowResize:bind('alt', 'j',
+  function() Utils.yabai_msg('window', 'resize height.top:0:300', 'resize bottom:0:300') end)
+Modes.HyperWindowResize:bind('', 'k',
+  function() Utils.yabai_msg('window', 'resize height.top:0:-300', 'resize bottom:0:-300') end)
 Modes.HyperWindowResize:bind('', 'm', function()
   Modes.ExitHyperWindowResize()
   Modes.EnterHyperWindowMove()
