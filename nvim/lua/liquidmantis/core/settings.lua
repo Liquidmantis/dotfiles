@@ -30,6 +30,8 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.linebreak = true
 
+-- use system clipboard
+vim.o.clipboard = 'unnamedplus'
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 9
