@@ -7,6 +7,15 @@ func doormat_aws_export() {
     return 1
   fi
 
+  local tries=0
+  while [[ $tries -lt 3 ]]; do
+    if doormat aws export --account "${aws_profile}" --open-access-request; then
+      break
+    else
+      echo "Failed to export AWS credentials. Retrying..."
+      ((tries++))
+    fi
+  done
   echo "Starting doormat auth for AWS profile: ${aws_profile}"
   eval $(doormat aws export --account "${aws_profile}" --open-access-request)
 }
