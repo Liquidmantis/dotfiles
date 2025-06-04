@@ -84,6 +84,36 @@ nnoremap('<leader>afd', ':CopilotChatFixDiagnostics<CR>')
 nnoremap('<leader>ae', ':CopilotChatExplain<CR>')
 nnoremap('<leader>at', ':CopilotChatTests<CR>')
 
+-- nnoremap("<leader>jni", function()
+--     local venv = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
+--     if venv ~= nil then
+--       -- in the form of /home/benlubas/.virtualenvs/VENV_NAME
+--       venv = string.match(venv, "/.+/(.+)")
+--       vim.cmd(("MoltenInit %s"):format(venv))
+--     else
+--       vim.cmd("MoltenInit python")
+--     end
+--   end)
+nnoremap("<leader>ji", ":MoltenInit<CR>")
+nnoremap("<leader>je", ":MoltenEvaluateOperator<CR>")
+-- nnoremap("<leader>jrl", ":MoltenEvaluateLine<CR>")
+-- nnoremap("<leader>rr", ":MoltenReevaluateCell<CR>")
+-- nnoremap("<leader>r", ":<C-u>MoltenEvaluateVisual<CR>gv")
+-- nnoremap("<leader>rd", ":MoltenDelete<CR>")
+nnoremap("<leader>jip", ":MoltenImagePopup<CR>")
+nnoremap("<leader>joh", ":MoltenHideOutput<CR>")
+nnoremap("<leader>jos", ":noautocmd MoltenEnterOutput<CR>")
+
+local runner = require("quarto.runner")
+nnoremap("<leader>jrc", runner.run_cell)
+nnoremap("<leader>jra", runner.run_above)
+nnoremap("<leader>jrA", runner.run_all)
+nnoremap("<leader>jrl", runner.run_line)
+nnoremap("<leader>jr", runner.run_range)
+nnoremap("<leader>jRA", function()
+  runner.run_all(true)
+end)
+
 -- Obsidian mappings
 nnoremap('<leader>ob', ':ObsidianBacklinks<CR>')
 nnoremap('<leader>od', ':ObsidianDailies<CR>')
@@ -129,6 +159,7 @@ tnoremap('<C-e>', '<C-\\><C-n>')
 -- nnoremap( '<localleader>gd', ':G diff<CR>'   )
 -- nnoremap( '<localleader>gb', ':G blame<CR>'  )
 
+-- placeholder <leader>jn used as Jupyter Notebook prefix.  Keys defined in molten.lua
 nnoremap('<localleader>gb', ':BlameToggle<CR>')
 nnoremap('<localleader>gm', ':GitMessenger<CR>')
 

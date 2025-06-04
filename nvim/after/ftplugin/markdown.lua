@@ -4,8 +4,9 @@ vim.opt.conceallevel = 2
 
 local autosaver = vim.api.nvim_create_augroup("Autosaver", { clear = true })
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "FocusLost" }, {
-  pattern = "*",
-  command = "silent! w",
+  pattern = "*.md",
+  command = "silent! update",
   group = autosaver
 })
 
+require("quarto").activate()
