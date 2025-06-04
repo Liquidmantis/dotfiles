@@ -44,14 +44,18 @@ else
   brewetc="$brewprefix/etc"
 fi
 
-source $brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $brewshare/zsh-abbr/zsh-abbr.zsh
-source ${HOME}/.config/zsh/aliases.zsh
-source ${HOME}/.config/zsh/functions/doormat.zsh
-source ${HOME}/.config/zsh/functions/functions.zsh
-source ${HOME}/.config/zsh/functions/git.zsh
-source ${HOME}/.config/zsh/functions/hcloud.zsh
-source ${HOME}/.config/zsh/functions/tmux.zsh
+source "${HOME}/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh"
+source "$brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$brewshare/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$brewshare/zsh-abbr/zsh-abbr.zsh"
+source "${HOME}/.config/zsh/aliases.zsh"
+source "${HOME}/.config/zsh/functions/doormat.zsh"
+source "${HOME}/.config/zsh/functions/functions.zsh"
+source "${HOME}/.config/zsh/functions/git.zsh"
+source "${HOME}/.config/zsh/functions/hcloud.zsh"
+source "${HOME}/.config/zsh/functions/tmux.zsh"
+source "${HOME}/.config/zsh/functions/venv.zsh"
 
 # lots of good info on completion stuff here:
 # https://thevaluable.dev/zsh-completion-guide-examples/
@@ -71,9 +75,6 @@ zstyle ':completion:*' menu no # don't show completion menu
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 autoload -Uz compinit && compinit -i
 
-source ${HOME}/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
-source $brewshare/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $brewshare/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # add tab expansion of aliases
 # zstyle ':completion:*' completer _complete _ignored z
