@@ -10,7 +10,12 @@ return {
     require 'nvim-treesitter.configs'.setup {
       ensure_installed = {
         "bash",
+        "comment",
         "go",
+        "gomod",
+        "gosum",
+        "gotmpl",
+        "gowork",
         "hcl",
         "http",
         "html",
@@ -23,6 +28,7 @@ return {
         "markdown",
         "markdown_inline",
         "python",
+        "sql",
         "ssh_config",
         "terraform",
         "tmux",
