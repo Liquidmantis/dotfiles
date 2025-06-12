@@ -16,7 +16,12 @@ return {
             '--with-filename',
             '--line-number',
             '--column',
-            '--smart-case'
+            '--smart-case',
+            '-g', '!.git/',
+            '-g', '!.obsidian/',
+            '-g', '!.smart-env/',
+            '-g', '!node_modules/',
+            '-g', '!build/'
           },
         },
         extensions = {

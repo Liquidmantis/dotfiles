@@ -294,4 +294,5 @@ nnoremap('<leader>fgs', ':Telescope git_status<CR>')
 -- Telescope notes custom
 nnoremap('<leader>nf', ":lua require('liquidmantis.core.telescope-functions').find_notes()<CR>")
 nnoremap('<leader>ns', ":lua require('liquidmantis.core.telescope-functions').grep_notes()<CR>")
+nnoremap('<leader>fx', ":lua require('liquidmantis.core.telescope-functions').quickfix_grep()<CR>")
 nnoremap('<leader>/', ":lua require('liquidmantis.core.telescope-functions').search_in_buffer()<CR>")
