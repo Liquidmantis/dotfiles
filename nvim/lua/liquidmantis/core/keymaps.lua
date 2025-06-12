@@ -50,6 +50,13 @@ inoremap('∆', '<esc>:m .+1<CR>==i') -- map Alt-J to move line down
 inoremap('˚', '<esc>:m .-2<CR>==i') -- map Alt-K to move line up
 nnoremap('∆', ':m .+1<CR>==') -- map Alt-J to move line down
 nnoremap('˚', ':m .-2<CR>==') -- map Alt-K to move line up
+-- Ghostty translates Opt to Alt by  default, so here are natural mappings for Ghostty
+inoremap('<M-j>', ':m .+1<CR>==') -- map Alt-J to move line down
+inoremap('<M-k>', ':m .-2<CR>==') -- map Alt-K to move line up
+nnoremap('<M-j>', ':m .+1<CR>==') -- map Alt-J to move line down
+nnoremap('<M-k>', ':m .-2<CR>==') -- map Alt-K to move line up
+vnoremap('<M-j>', ':m .+1<CR>==') -- map Alt-J to move line down
+vnoremap('<M-k>', ':m .-2<CR>==') -- map Alt-K to move line up
 
 -- buffer and tab commands
 nnoremap('<leader>bb', ':Telescope buffers<CR>')
