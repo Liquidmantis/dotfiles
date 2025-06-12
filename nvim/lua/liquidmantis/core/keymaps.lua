@@ -22,6 +22,14 @@ nnoremap('<leader>viv', ':tabedit $MYVIMRC<CR>')
 nnoremap('<leader>sok', ':source %:p:h/lua/liquidmantis/core/keymaps.lua<CR> | vim.notify "Reloaded keymaps."')
 
 -- quality of life mappings
+-- alt+Y to yank to system clipboard
+vnoremap('<M-y>', '"+y')
+vnoremap('<M-Y>', '"+Y')
+nnoremap('<M-y>', '"+y')
+nnoremap('<M-Y>', '"+Y')
+nnoremap('<M-p>', '"+p')
+nnoremap('<M-P>', '"+P')
+inoremap('<M-p>', '<C-r>+')
 nnoremap('Y', 'y$')  -- make Y act like other capital, rest of line ops.
 nnoremap('n', 'nzz') -- find next and recenter
 nnoremap('N', 'Nzz') -- find prev and recenter
