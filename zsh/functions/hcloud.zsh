@@ -33,6 +33,30 @@ function hcloud-connect-stack() {
 
 }
 
+hcloud_letmein_select() {
+  local lines selected_stack aws_account
+  lines=$(hcloud hashistack list --format json | jq -r '.[] | "\(.stack)\t\(.aws_account)"')
+  selected_stack=$(echo "$lines" | cut -f1 | fzf --prompt="Select stack: ")
+  if [[ -z "$selected_stack" ]]; then
+    echo "No stack selected."
+    return 1
+  fi
+  aws_account=$(echo "$lines" | awk -F'\t' -v stack="$selected_stack" '$1 == stack {print $2}')
+  if [[ -z "$aws_account" ]]; then
+    echo "No AWS account found for stack: $selected_stack"
+    return 2
+  fi
+
+  echo -n "Enter justification: "
+  read justification < /dev/tty
+  if [[ -z "$justification" ]]; then
+    echo "Justification is required."
+    return 3
+  fi
+
+  hcloud letmein "$aws_account" --justification "$justification" --access-level "developer"
+}
+
 local function select-stack() {
   type=$1
   if [[ "$type" = "hashistack" ]]; then
