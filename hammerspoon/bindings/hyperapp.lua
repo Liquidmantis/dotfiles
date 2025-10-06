@@ -6,7 +6,11 @@
 -- ****************************************
 
 Modes.HyperApp:bind('', 'a', function()
-  Utils.launch_hide_or_focus('boltai')
+  -- Utils.launch_hide_or_focus('boltai')
+  local raycast_link =
+  'raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%2284E28514-4A3B-49F4-AF8C-492E5CF05FCF%22%7D'
+  local command = "open '" .. raycast_link .. "'"
+  Utils.launch_hide_or_focus('AI Chat', 'window', command)
 end)
 -- ****************************************
 -- C apps
