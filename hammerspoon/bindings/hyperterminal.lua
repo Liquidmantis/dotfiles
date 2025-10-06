@@ -1,6 +1,10 @@
 function FocusTerminal()
-  hs.application.open('ghostty')
+  -- hs.application.open('ghostty')
+  Utils.launch_hide_or_focus('ghostty')
+
   local obs = hs.application.get('obsidian')
+  -- State.zen_mode is not a strict boolean, so we need to check for "not false"
+  -- since lua doesn't have "truthiness".
   if State.zen_mode ~= false then obs:hide() end
 end
 
