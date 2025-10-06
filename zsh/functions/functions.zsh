@@ -9,8 +9,8 @@ function notes() {
 }
 
 function set-tokens() {
-  export HOMEBREW_GITHUB_API_TOKEN="$(op item get p4lsb5z5hzr27t3v2afca5kvy4 --reveal --fields token)"
-  export GITHUB_TOKEN="$(op item get p4lsb5z5hzr27t3v2afca5kvy4 --reveal --fields token)"
+  export HOMEBREW_GITHUB_API_TOKEN="$(op item get GitHub\ Personal\ Access\ Token --reveal --fields token)"
+  export GITHUB_TOKEN="$(op item get GitHub\ Personal\ Access\ Token --reveal --fields token)"
 }
 
 function proj() {
