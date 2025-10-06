@@ -32,6 +32,7 @@ return {
         number = true,
         relativenumber = true,
         signcolumn = "yes",
+        width = 60,
       },
 
       diagnostics          = {
