@@ -19,7 +19,6 @@ local function tnoremap(lhs, rhs)
 end
 
 nnoremap('<leader>viv', ':tabedit $MYVIMRC<CR>')
-nnoremap('<leader>sok', ':source %:p:h/lua/liquidmantis/core/keymaps.lua<CR> | vim.notify "Reloaded keymaps."')
 
 -- quality of life mappings
 -- alt+Y to yank to system clipboard
@@ -68,10 +67,11 @@ vnoremap('<M-k>', ':m .-2<CR>==') -- map Alt-K to move line up
 
 -- buffer and tab commands
 nnoremap('<leader>bb', ':Telescope buffers<CR>')
-nnoremap('<leader>bd', ':Bdelete<CR>')     -- buffer close using BufDelete plugin
-nnoremap('<leader>bq', ':Bdelete<CR>')     -- buffer close using BufDelete plugin
+nnoremap('<leader>bd', ':Bdelete<CR>') -- buffer close using BufDelete plugin
+nnoremap('<leader>bq', ':Bdelete<CR>') -- buffer close using BufDelete plugin
 nnoremap('<leader>bs', ':Telescope current_buffer_fuzzy_find<CR>')
-nnoremap('<tab>', ':buf #<CR>')            -- flip to alternate file
+-- nnoremap('<tab>', ':buf #<CR>')            -- flip to alternate file
+nnoremap('<tab>', ":lua require('liquidmantis.core.telescope-functions').buffer_list()<CR>")
 nnoremap('<M-tab>', ':bn<CR>')             -- buffer next
 nnoremap('<M-S-tab>', ':bp<CR>')           -- buffer prev
 nnoremap('<localleader>q', ':Bdelete<CR>') -- buffer close using BufDelete plugin
@@ -214,11 +214,13 @@ nnoremap('K', '<cmd>Lspsaga hover_doc<CR>')
 -- remap('n', '<C-b>', ':lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', opts)
 
 -- [c]uickfix commands (quickfix)
-nnoremap('<localleader>co', ':copen<CR>')
-nnoremap('<localleader>cc', ':cclose<CR>')
-nnoremap('<localleader>cn', ':cnext<CR>')
-nnoremap('<localleader>cp', ':cprev<CR>')
-nnoremap('<localleader>cf', ':cfdo ')
+nnoremap('<leader>co', ':copen<CR>')
+nnoremap('<leader>cc', ':cclose<CR>')
+nnoremap('<leader>cn', ':cnext<CR>')
+nnoremap('<leader>cp', ':cprev<CR>')
+nnoremap('<leader>cf', ':cfdo ')
+nnoremap('<leader>cs', ':Telescope quickfix<CR>')
+nnoremap('<leader>ch', ':Telescope quickfixhistory<CR>')
 
 -- view toggles
 nnoremap('<localleader>ta', ':AerialToggle<CR>')
@@ -282,8 +284,6 @@ nnoremap('<leader>fD', ':Telescope diagnostics<CR>')
 nnoremap('<leader>ts', ':Telescope treesitter<CR>')
 nnoremap('<leader>fb', ':Telescope file_browser<CR>')
 nnoremap('<leader>fu', ':UrlView<CR>')
-nnoremap('<leader>fqf', ':Telescope quickfix<CR>')
-nnoremap('<leader>fqh', ':Telescope quickfixhistory<CR>')
 nnoremap('<leader>fh', ':Telescope help_tags<CR>')
 nnoremap('<leader>fc', ':Telescope commands<CR>')
 nnoremap('<leader>f:', ':Telescope command_history<CR>')
