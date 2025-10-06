@@ -22,6 +22,9 @@ function git-stash-preview() {
 
 function git-switch-search() {
   case $1 in
+  "remote")
+    branches="$(git branch --remote)"
+    ;;
   "all")
     branches="$(git branch --all)"
     ;;
