@@ -15,11 +15,19 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
-local packer_ft = vim.api.nvim_create_augroup("Packer filetype", { clear = true })
+local detect_filetypes = vim.api.nvim_create_augroup("Detect filetype", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.pkr.hcl", "*.pkr*.hcl" },
   callback = function()
     vim.bo.filetype = "packer"
   end,
-  group = packer_ft
+  group = detect_filetypes,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.p8", "*.p8lua" },
+  callback = function()
+    vim.bo.filetype = "pico8"
+  end,
+  group = detect_filetypes,
 })
