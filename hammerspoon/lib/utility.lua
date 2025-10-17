@@ -36,6 +36,10 @@ function Utils.get_yabai_entity_parameter(entity, parameter)
   return result
 end
 
+function Utils.trigger_btt(trigger)
+  hs.urlevent.openURL("btt://trigger_named/?trigger_name=" .. trigger)
+end
+
 function Utils.get_current_space_parameter(param)
   return Utils.get_yabai_entity_parameter('space', param)
 end

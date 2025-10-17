@@ -14,7 +14,11 @@
 Modes = {}
 
 local modes = {
-  { name = "Hyper" },
+  {
+    name = "Hyper",
+    enter_extra_funcs = { function() Utils.trigger_btt("enable-mouse-slow") end },
+    exit_extra_funcs = { function() Utils.trigger_btt("disable-mouse-slow") end }
+  },
   { name = "Hyper2",                  parent = "Hyper" },
   { name = "HyperApp",                parent = "Hyper" },
   { name = "HyperCleanshot",          parent = "Hyper" },
@@ -33,30 +37,36 @@ local modes = {
   { name = "HyperWindowTransparency", parent = "HyperWindow" },
 }
 
-local function build_mode_functions(mode_name, exit_mode_name, enter_funcs)
+local function call_sub_functions(funcs)
+  if funcs and type(funcs) == "table" then
+    for _, func in ipairs(funcs) do
+      func()
+    end
+  end
+end
+
+local function build_mode_functions(mode_name, exit_mode_name, enter_funcs, exit_funcs)
   Modes[mode_name] = hs.hotkey.modal.new()
   Modes["Enter" .. mode_name] = function()
     Log.i(string.format('[Mode] %s enabled', mode_name))
-    if enter_funcs and type(enter_funcs) == "table" then
-      for _, func in ipairs(enter_funcs) do
-        func()
-      end
-    end
+    call_sub_functions(enter_funcs)
     if exit_mode_name then
       Modes["Exit" .. exit_mode_name]()
+      call_sub_functions(exit_funcs)
     end
     Modes[mode_name]:enter()
   end
 
   Modes["Exit" .. mode_name] = function()
     Log.i(string.format('[Mode] %s disabled', mode_name))
+    call_sub_functions(exit_funcs)
     Modes[mode_name]:exit()
   end
 end
 
 -- Build all mode functions
 for _, mode in ipairs(modes) do
-  build_mode_functions(mode.name, mode.parent, mode.enter_extra_funcs)
+  build_mode_functions(mode.name, mode.parent, mode.enter_extra_funcs, mode.exit_extra_funcs)
 end
 
 function Modes.clear_modes()
