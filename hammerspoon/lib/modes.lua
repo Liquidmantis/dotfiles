@@ -16,8 +16,8 @@ Modes = {}
 local modes = {
   {
     name = "Hyper",
-    enter_extra_funcs = { function() Utils.trigger_btt("enable-mouse-slow") end },
-    exit_extra_funcs = { function() Utils.trigger_btt("disable-mouse-slow") end }
+    -- enter_extra_funcs = { function() Utils.trigger_btt("enable-mouse-slow") end },
+    -- exit_extra_funcs = { function() Utils.trigger_btt("disable-mouse-slow") end }
   },
   { name = "Hyper2",                  parent = "Hyper" },
   { name = "HyperApp",                parent = "Hyper" },
