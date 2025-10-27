@@ -40,11 +40,7 @@ return {
     lsp.enable('pico8_ls')
 
     lsp.enable('pyright')
-
-    -- TypeScript
-    -- lspconfig.ts_ls.setup {
-    --   root_dir = require 'lspconfig'.util.root_pattern("sketch.js", "index.html")
-    -- }
+    lsp.enable('ts_ls')
 
     lsp.config('lua_ls', {
       on_init = function(client)
