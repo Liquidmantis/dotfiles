@@ -109,3 +109,4 @@ source ${HOME}/.config/fzf/fzf-git.sh/fzf-git.sh
 # if [ -f "${HOME}/.config/fabric/fabric-bootstrap.inc" ]; then source "${HOME}/.config/fabric/fabric-bootstrap.inc"; fi
 
 autoload -U +X bashcompinit && bashcompinit
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
