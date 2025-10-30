@@ -2,7 +2,7 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
   },
 
   config = function()
@@ -10,8 +10,11 @@ return {
     -- local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-    require('mason').setup()
+    require('mason').setup({
+      ensure_installed = { "copilot-language-server" }
+    })
 
+    lsp.enable('copilot')
     lsp.enable('docker_compose_language_service')
     lsp.enable('dockerls')
     lsp.enable('html')
