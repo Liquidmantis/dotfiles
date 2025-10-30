@@ -14,10 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
---  pulled out here because it needs to be set before lazy loads
-vim.g.mapleader = " "
-vim.g.maplocalleader = "|"
-
 require('liquidmantis.core.settings')
 require('liquidmantis.core.globals')
 
@@ -31,4 +27,3 @@ require('liquidmantis.core.keymaps')
 require('liquidmantis.core.rooter')
 require('liquidmantis.core.theme')
 require('liquidmantis.core.telescope-functions')
-

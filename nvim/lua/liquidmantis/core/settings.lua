@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = "|"
+
 -- global settings
 vim.o.splitright = true
 vim.o.splitbelow = true
