@@ -6,6 +6,7 @@ return {
     'leoluz/nvim-dap-go', -- not needed with ray-x/go.nvim
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',
+    'nvim-telescope/telescope.nvim',
     'nvim-telescope/telescope-dap.nvim',
   },
 

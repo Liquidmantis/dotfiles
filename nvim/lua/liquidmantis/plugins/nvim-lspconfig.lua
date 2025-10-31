@@ -1,7 +1,7 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'hrsh7th/cmp-nvim-lsp',
+    -- 'hrsh7th/cmp-nvim-lsp',
     'mason-org/mason.nvim',
   },
 
@@ -10,9 +10,7 @@ return {
     -- local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-    require('mason').setup({
-      ensure_installed = { "copilot-language-server" }
-    })
+    require('mason').setup()
 
     lsp.enable('copilot')
     lsp.enable('docker_compose_language_service')
@@ -40,7 +38,7 @@ return {
     lsp.config('pico8_ls', {
       filetypes = { "p8", 'pico8', 'lua' },
     })
-    lsp.enable('pico8_ls')
+    -- lsp.enable('pico8_ls')
 
     lsp.enable('pyright')
     lsp.enable('ts_ls')
@@ -72,8 +70,8 @@ return {
             checkThirdParty = false,
             library = {
               vim.env.VIMRUNTIME,
-              "${3rd}/luv/library",
-              --           vim.fn.expand("$VIMRUNTIME/lua"),
+              -- "${3rd}/luv/library",
+              -- vim.fn.expand("$VIMRUNTIME/lua"),
               "~/.hammerspoon/Spoons/EmmyLua.spoon/annotations"
             }
           }
