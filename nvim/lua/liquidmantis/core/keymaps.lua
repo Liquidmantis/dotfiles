@@ -66,7 +66,7 @@ vnoremap('<M-j>', ':m .+1<CR>==') -- map Alt-J to move line down
 vnoremap('<M-k>', ':m .-2<CR>==') -- map Alt-K to move line up
 
 -- buffer and tab commands
-nnoremap('<leader>bb', ':Telescope buffers<CR>')
+nnoremap('<leader>bb', function() Snacks.picker.buffers() end)
 nnoremap('<leader>bd', ':Bdelete<CR>') -- buffer close using BufDelete plugin
 nnoremap('<leader>bq', ':Bdelete<CR>') -- buffer close using BufDelete plugin
 nnoremap('<leader>bs', ':Telescope current_buffer_fuzzy_find<CR>')
@@ -219,7 +219,7 @@ nnoremap('<leader>cc', ':cclose<CR>')
 nnoremap('<leader>cn', ':cnext<CR>')
 nnoremap('<leader>cp', ':cprev<CR>')
 nnoremap('<leader>cf', ':cfdo ')
-nnoremap('<leader>cs', ':Telescope quickfix<CR>')
+nnoremap('<leader>cs', function() Snacks.picker.cflist() end)
 nnoremap('<leader>ch', ':Telescope quickfixhistory<CR>')
 
 -- view toggles
@@ -232,7 +232,8 @@ nnoremap('<localleader>tw', ':set list!<CR>')
 nnoremap('<leader>hl', ':noh<CR>') -- clear last search highlight
 
 -- Nvim Tree mappings
-nnoremap('<leader>.', ':NvimTreeToggle<CR>')
+-- nnoremap('<leader>.', ':NvimTreeToggle<CR>')
+nnoremap('<leader>.', function() Snacks.explorer() end)
 -- nnoremap( '<leader>.', ':NeoTreeFocusToggle<CR>' )
 nnoremap('<leader>u', ':UndotreeToggle<CR>')
 
