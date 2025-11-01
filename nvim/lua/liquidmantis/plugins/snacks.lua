@@ -4,6 +4,8 @@ return {
   opts = {
     explorer = {},
     image = {},
+    input = {},
     picker = {},
+    terminal = {},
   }
 }

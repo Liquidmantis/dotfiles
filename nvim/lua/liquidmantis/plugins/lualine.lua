@@ -27,7 +27,7 @@ return {
         },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { 'filename' },
-        lualine_x = { '%S', 'copilot', 'encoding', 'fileformat', 'filetype' },
+        -- lualine_x = { require("opencode").statusline, },
         lualine_y = { 'progress' },
         lualine_z = {
           -- {'location', separator = { right = '' }},
