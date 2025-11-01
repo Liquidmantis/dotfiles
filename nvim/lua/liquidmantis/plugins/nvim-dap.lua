@@ -17,8 +17,10 @@ return {
     require('telescope').load_extension('dap')
     require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 
-    vim.fn.sign_define('DapBreakpoint', { text='🔴', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
-    vim.fn.sign_define('DapStopped', { text='👉', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+    vim.fn.sign_define('DapBreakpoint',
+      { text = '🔴', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+    vim.fn.sign_define('DapStopped', { text = '👉', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl =
+    'DapBreakpoint' })
 
     local dap, dapui = require('dap'), require('dapui')
     dap.listeners.after.event_initialized['dapui_config'] = function()
