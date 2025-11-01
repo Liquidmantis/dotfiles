@@ -36,7 +36,7 @@ vim.o.linebreak = true
 -- use system clipboard
 -- vim.o.clipboard = 'unnamedplus'
 vim.o.foldmethod = 'expr'
-vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldlevel = 9
 -- vim.o.showmatch = true                     -- flash matching brackets
 vim.o.hidden = true -- allow backgrounding unsaved buffers
