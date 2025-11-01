@@ -1,10 +1,11 @@
 return {
-  'epwalsh/obsidian.nvim',
+  'obsidian-nvim/obsidian.nvim',
 
   config = function()
     require('obsidian').setup({
       -- disable UI changes in favor of Markdown Renderer
       ui = { enable = false },
+      legacy_commands = false,
 
       workspaces = {
         {
