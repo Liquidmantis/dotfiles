@@ -64,6 +64,10 @@ Modes.HyperApp:bind('', 'r', function()
   Utils.launch_hide_or_focus('reminders')
 end)
 
+Modes.HyperApp:bind('', 't', function()
+  Utils.launch_hide_or_focus('microsoft teams')
+end)
+
 Modes.HyperApp:bind('', 'z', function()
   hs.application.open('zoom.us')
 end)
