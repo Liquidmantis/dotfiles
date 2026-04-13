@@ -28,6 +28,9 @@ return {
     lsp.config('terraformls', {
       cmd = { "terraform-ls", "serve" },
       filetypes = { "terraform", "tf", "terraform-vars" },
+      on_attach = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+      end,
     })
     lsp.enable('terraformls')
 

@@ -37,6 +37,11 @@ return {
     lazy = false,
     build = ':TSUpdate',
     config = function()
+      local plugin_runtime = vim.fn.stdpath('data') .. '/lazy/nvim-treesitter/runtime'
+      if not vim.tbl_contains(vim.opt.runtimepath:get(), plugin_runtime) then
+        vim.opt.runtimepath:append(plugin_runtime)
+      end
+
       local treesitter = require('nvim-treesitter')
 
       treesitter.setup {}
