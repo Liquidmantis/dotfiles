@@ -238,7 +238,7 @@ nnoremap('<leader>.', ':NvimTreeToggle<CR>')
 nnoremap('<leader>u', ':UndotreeToggle<CR>')
 
 -- Treesitter Mappings
-nnoremap('<leader>tp', ':TSPlaygroundToggle<CR>')
+nnoremap('<leader>tp', ':InspectTree<CR>')
 
 -- Debugging mappings
 nnoremap('<leader>dt', ':DapUiToggle<CR>')

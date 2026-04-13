@@ -1,100 +1,98 @@
+local languages = {
+  'bash',
+  'comment',
+  'go',
+  'gomod',
+  'gosum',
+  'gotmpl',
+  'gowork',
+  'hcl',
+  'http',
+  'html',
+  'javascript',
+  'jq',
+  'json',
+  'json5',
+  'lua',
+  'luadoc',
+  'markdown',
+  'markdown_inline',
+  'python',
+  'query',
+  'sql',
+  'ssh_config',
+  'terraform',
+  'tmux',
+  'vim',
+  'yaml',
+}
+
+local textobject_modes = { 'n', 'x', 'o' }
+local select_modes = { 'x', 'o' }
+
 return {
-  'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate',
-  dependencies = {
-    'nvim-treesitter/playground',
-    'nvim-treesitter/nvim-treesitter-textobjects'
+  {
+    'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,
+    build = ':TSUpdate',
+    config = function()
+      local treesitter = require('nvim-treesitter')
+
+      treesitter.setup {}
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = languages,
+        callback = function(args)
+          local ok = pcall(vim.treesitter.start, args.buf)
+          if ok then
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
+
+      vim.treesitter.language.register('hcl', 'packer')
+    end,
   },
-
-  config = function()
-    require 'nvim-treesitter.configs'.setup {
-      ensure_installed = {
-        "bash",
-        "comment",
-        "go",
-        "gomod",
-        "gosum",
-        "gotmpl",
-        "gowork",
-        "hcl",
-        "http",
-        "html",
-        "javascript",
-        "jq",
-        "json",
-        "json5",
-        "lua",
-        "luadoc",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "sql",
-        "ssh_config",
-        "terraform",
-        "tmux",
-        "vim",
-        "yaml",
-      },                   -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-
-      ignore_install = {}, -- List of parsers to ignore installing
-      highlight = {
-        enable = true,     -- false will disable the whole extension
-      },
-
-      playground = {
-        enable = true,
-        disable = {},
-        updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
-        persist_queries = false, -- Whether the query persists across vim sessions
-        keybindings = {
-          toggle_query_editor = 'o',
-          toggle_hl_groups = 'i',
-          toggle_injected_languages = 't',
-          toggle_anonymous_nodes = 'a',
-          toggle_language_display = 'I',
-          focus_language = 'f',
-          unfocus_language = 'F',
-          update = 'R',
-          goto_node = '<cr>',
-          show_help = '?',
-        },
-      },
-      textobjects = {
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('nvim-treesitter-textobjects').setup {
         move = {
-          enable = true,
-          set_jumps = false, -- you can change this if you want.
-          goto_next_start = {
-            --- ... other keymaps
-            ["]b"] = { query = "@code_cell.inner", desc = "next code block" },
-          },
-          goto_previous_start = {
-            --- ... other keymaps
-            ["[b"] = { query = "@code_cell.inner", desc = "previous code block" },
-          },
+          set_jumps = false,
         },
         select = {
-          enable = true,
-          lookahead = true, -- you can change this if you want
-          keymaps = {
-            --- ... other keymaps
-            ["ib"] = { query = "@code_cell.inner", desc = "in block" },
-            ["ab"] = { query = "@code_cell.outer", desc = "around block" },
-          },
-        },
-        swap = { -- Swap only works with code blocks that are under the same
-          -- markdown header
-          enable = true,
-          swap_next = {
-            --- ... other keymap
-            ["<leader>sbl"] = "@code_cell.outer",
-          },
-          swap_previous = {
-            --- ... other keymap
-            ["<leader>sbh"] = "@code_cell.outer",
-          },
+          lookahead = true,
         },
       }
-    }
-    vim.treesitter.language.register("hcl", "packer")
-  end
+
+      vim.keymap.set(textobject_modes, ']b', function()
+        require('nvim-treesitter-textobjects.move').goto_next_start('@code_cell.inner', 'textobjects')
+      end, { desc = 'next code block' })
+
+      vim.keymap.set(textobject_modes, '[b', function()
+        require('nvim-treesitter-textobjects.move').goto_previous_start('@code_cell.inner', 'textobjects')
+      end, { desc = 'previous code block' })
+
+      vim.keymap.set(select_modes, 'ib', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@code_cell.inner', 'textobjects')
+      end, { desc = 'in block' })
+
+      vim.keymap.set(select_modes, 'ab', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@code_cell.outer', 'textobjects')
+      end, { desc = 'around block' })
+
+      vim.keymap.set('n', '<leader>sbl', function()
+        require('nvim-treesitter-textobjects.swap').swap_next('@code_cell.outer')
+      end, { desc = 'swap next code block' })
+
+      vim.keymap.set('n', '<leader>sbh', function()
+        require('nvim-treesitter-textobjects.swap').swap_previous('@code_cell.outer')
+      end, { desc = 'swap previous code block' })
+    end,
+  },
 }
