@@ -1,3 +1,4 @@
+# window-decoration = none
 macos-titlebar-style = hidden
 macos-option-as-alt = true
 

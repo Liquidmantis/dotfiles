@@ -49,12 +49,14 @@ hcloud_letmein_select() {
     return 2
   fi
 
-  echo -n "Enter justification: "
-  read justification < /dev/tty
-  if [[ -z "$justification" ]]; then
-    echo "Justification is required."
-    return 3
-  fi
+  # echo -n "Enter justification: "
+  # read justification < /dev/tty
+  # if [[ -z "$justification" ]]; then
+  #   echo "Justification is required."
+  #   return 3
+  # fi
+
+  justification="job responsibilities"
 
   hcloud letmein "$aws_account" --justification "$justification" --access-level "developer"
 }

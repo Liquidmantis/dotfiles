@@ -59,6 +59,7 @@ source "${HOME}/.config/zsh/functions/venv.zsh"
 
 # lots of good info on completion stuff here:
 # https://thevaluable.dev/zsh-completion-guide-examples/
+#
 fpath=($brewshare/zsh-completions $fpath)
 fpath=($brewshare/zsh/site-functions $fpath)
 fpath=($brewshare/zsh-abbr $fpath)
@@ -75,6 +76,11 @@ zstyle ':completion:*' menu no # don't show completion menu
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 autoload -Uz compinit && compinit -i
 
+# Enable run-help for builtin documentation
+autoload -Uz run-help
+unalias run-help 2>/dev/null
+alias help=run-help
+
 
 # add tab expansion of aliases
 # zstyle ':completion:*' completer _complete _ignored z
@@ -82,6 +88,8 @@ autoload -Uz compinit && compinit -i
 
 export STARSHIP_CONFIG=${HOME}/.config/starship/starship.toml
 eval "$(starship init zsh)"
+
+eval "$(hcloud hsctx hook zsh)"
 
 # remove esc delay to make vi-mode usable
 # KEYTIMEOUT=1

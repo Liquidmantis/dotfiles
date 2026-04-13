@@ -93,7 +93,7 @@ inoremap('<C-Esc>', ':NoiceDismiss<CR>')
 nnoremap('<C-Esc>', ':NoiceDismiss<CR>')
 
 -- CopilotChat mappings ('a' prefix for 'ai')
-nnoremap('<leader>aa', ':CopilotChatToggle<CR>')
+nnoremap('<leader>aa', function() require('opencode').toggle() end)
 nnoremap('<leader>ac', ':CopilotChatCommit<CR>')
 nnoremap('<leader>afd', ':CopilotChatFixDiagnostics<CR>')
 nnoremap('<leader>ae', ':CopilotChatExplain<CR>')
@@ -132,8 +132,8 @@ end)
 -- Obsidian mappings
 nnoremap('<leader>ob', ':Obsidian backlinks<CR>')
 nnoremap('<leader>od', ':Obsidian dailies<CR>')
-nnoremap('<leader>oe', ':Obsidian extractnote<CR>')
-vnoremap('<leader>oe', ':Obsidian extractnote<CR>')
+nnoremap('<leader>oe', ':Obsidian extract_note<CR>')
+vnoremap('<leader>oe', ':Obsidian extract_note<CR>')
 nnoremap('<leader>ol', ':Obsidian links<CR>')
 nnoremap('<leader>on', ':Obsidian new<CR>')
 nnoremap('<leader>oo', ':Obsidian quickswitch<CR>')
@@ -219,7 +219,7 @@ nnoremap('<leader>cc', ':cclose<CR>')
 nnoremap('<leader>cn', ':cnext<CR>')
 nnoremap('<leader>cp', ':cprev<CR>')
 nnoremap('<leader>cf', ':cfdo ')
-nnoremap('<leader>cs', function() Snacks.picker.cflist() end)
+nnoremap('<leader>cs', function() Snacks.picker.qflist() end)
 nnoremap('<leader>ch', ':Telescope quickfixhistory<CR>')
 
 -- view toggles
@@ -232,8 +232,8 @@ nnoremap('<localleader>tw', ':set list!<CR>')
 nnoremap('<leader>hl', ':noh<CR>') -- clear last search highlight
 
 -- Nvim Tree mappings
--- nnoremap('<leader>.', ':NvimTreeToggle<CR>')
-nnoremap('<leader>.', function() Snacks.explorer() end)
+nnoremap('<leader>.', ':NvimTreeToggle<CR>')
+-- nnoremap('<leader>.', function() Snacks.explorer() end)
 -- nnoremap( '<leader>.', ':NeoTreeFocusToggle<CR>' )
 nnoremap('<leader>u', ':UndotreeToggle<CR>')
 

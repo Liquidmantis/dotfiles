@@ -24,7 +24,7 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
       preset = 'default',
-      ['<Esc>'] = { 'cancel', 'fallback' }
+      -- ['<Esc>'] = { 'cancel', 'fallback' }
     },
 
     appearance = {

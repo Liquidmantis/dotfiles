@@ -5,7 +5,7 @@ path = "~"
 [[session]]
 name = "notes"
 path = "~/notes/"
-startup_command = "nvim +'ObsidianToday'"
+startup_command = "nvim +'Obsidian today'"
 
 [[session]]
 name = "downloads"

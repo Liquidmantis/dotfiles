@@ -25,6 +25,7 @@ vim.o.cursorline = true  -- highlight active line
 vim.o.colorcolumn = '80' -- set EOL indicator
 vim.o.signcolumn = 'yes' -- make gutter persistent
 vim.o.showmode = false   -- mode display now on status line
+vim.o.termguicolors = true
 
 vim.o.tabstop = 2
 vim.o.softtabstop = 2

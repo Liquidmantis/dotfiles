@@ -34,6 +34,7 @@ return {
     lsp.enable('marksman')
     lsp.enable('gopls')
     lsp.enable('gdscript')
+    lsp.enable('regal')
 
     lsp.config('pico8_ls', {
       filetypes = { "p8", 'pico8', 'lua' },
@@ -82,6 +83,8 @@ return {
       }
     })
     lsp.enable('lua_ls')
+
+    lsp.enable('sourcekit')
 
     lsp.config('yamlls', {
       filetypes = { "yaml", "yml" },
