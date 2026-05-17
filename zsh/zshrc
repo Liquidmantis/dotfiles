@@ -1,7 +1,5 @@
 if [[ $(whoami) == "will.ernst" ]]; then
-  export WORK_COMPUTER=true
-else
-  export WORK_COMPUTER=false
+  export WORK_COMPUTER="true"
 fi
 
 export BORDERS_ACTIVE_NORMAL="0xFF10a338"
@@ -19,7 +17,7 @@ export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
 export PATH="$PATH:/Users/liquid/.cargo/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
-export GOBIN="$HOME/go/bin"
+# export GOBIN="$HOME/go/bin"
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 export LIBRARY_PATH="/opt/homebrew/lib"
 export ZK_NOTEBOOK_DIR="$HOME/notes" # zk-nvim notebook root
@@ -29,8 +27,10 @@ export LANG="en_US.UTF-8"
 # # Set zoxide interactive to use fuzzy matching
 export _ZO_FZF_OPTS="--scheme=path --tiebreak=end,chunk,index --bind=ctrl-z:ignore,btab:up,tab:down --cycle --keep-right --border=sharp --height=45% --info=inline --layout=reverse --tabstop=1 --exit-0 --select-1"
 
-if [[ $WORK_COMPUTER ]]; then
+if [[ $WORK_COMPUTER == "true" ]]; then
   export HCLOUD_CONFIG_PATH="${HOME}/.config/hcloud"
+  eval "$(hcloud hsctx hook zsh)"
+  source "${HOME}/.config/zsh/functions/hcloud.zsh"
 fi
 
 brewprefix=$(brew --prefix)
@@ -53,7 +53,6 @@ source "${HOME}/.config/zsh/aliases.zsh"
 source "${HOME}/.config/zsh/functions/doormat.zsh"
 source "${HOME}/.config/zsh/functions/functions.zsh"
 source "${HOME}/.config/zsh/functions/git.zsh"
-source "${HOME}/.config/zsh/functions/hcloud.zsh"
 source "${HOME}/.config/zsh/functions/tmux.zsh"
 source "${HOME}/.config/zsh/functions/venv.zsh"
 
@@ -71,8 +70,8 @@ ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(Qk)ABBR_REGULAR_USER_
 ZSH_HIGHLIGHT_REGEXP+=('[[:<:]]('${(j:|:)${(Qk)ABBR_GLOBAL_USER_ABBREVIATIONS}}')$' fg=blue,bold)
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case-insensitive completion
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # add coloring to completion list
-zstyle ':completion:*' menu no # don't show completion menu
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}  # add coloring to completion list
+zstyle ':completion:*' menu no                         # don't show completion menu
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 autoload -Uz compinit && compinit -i
 
@@ -81,15 +80,12 @@ autoload -Uz run-help
 unalias run-help 2>/dev/null
 alias help=run-help
 
-
 # add tab expansion of aliases
 # zstyle ':completion:*' completer _complete _ignored z
 # zstyle ':completion:*' regular true
 
 export STARSHIP_CONFIG=${HOME}/.config/starship/starship.toml
 eval "$(starship init zsh)"
-
-eval "$(hcloud hsctx hook zsh)"
 
 # remove esc delay to make vi-mode usable
 # KEYTIMEOUT=1
