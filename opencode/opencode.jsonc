@@ -1,10 +1,37 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
-    "jira": {
-      "type": "remote",
-      "url": "https://mcp.atlassian.com/v1/mcp",
-      "oauth": {}
+    "basic-memory": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "basic-memory",
+        "mcp"
+      ],
+      "enabled": true
+    },
+    "engram": {
+      "command": [
+        "/opt/homebrew/Cellar/engram/1.15.12/bin/engram",
+        "mcp",
+        "--tools=agent"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
+    "ibm-slack-mcp": {
+      "type": "local",
+      "command": [
+        "ibm-slack-mcp"
+      ],
+      "environment": {
+        "SLACK_EXCLUDE_DMS": "false",
+        "SLACK_EXCLUDE_PRIVATE_CHANNELS": "false",
+        "SLACK_EXCLUDE_GROUP_DMS": "false",
+        "SLACK_EXCLUDE_CHANNELS": "",
+        "SLACK_EXCLUDE_USERS": ""
+      },
+      "enabled": true
     }
   }
 }
