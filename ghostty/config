@@ -6,4 +6,6 @@ theme = catppuccin mocha
 background-opacity = 0.90
 background-blur-radius = 20 
 
+# disable accidental fullscreening when trying to shift-enter in OpenCode, etc.
+keybind = cmd+enter=ignore
 keybind = global:ctrl+cmd+t=toggle_quick_terminal
