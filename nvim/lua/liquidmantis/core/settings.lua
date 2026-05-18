@@ -6,8 +6,9 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.splitkeep = 'screen'
 vim.o.undofile = true
-vim.g.nobackup = true
-vim.g.nowritebackup = true
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.autoread = true
 
 -- vim.o.cmdheight = 2
 
