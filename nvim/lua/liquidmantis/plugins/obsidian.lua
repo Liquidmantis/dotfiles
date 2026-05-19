@@ -32,11 +32,6 @@ return {
         folder = "attachments",
       },
 
-      link = {
-        style = "markdown"
-      },
-
-      -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
       completion = {
         -- Set to false to disable completion.
         nvim_cmp = false,
@@ -51,6 +46,20 @@ return {
       note_id_func = function(title)
         return title
       end,
+
+      frontmatter = {
+        func = function(note)
+          local out = { tags = note.tags }
+          if not (note.metadata and note.metadata.creation_date) then
+            out.creation_date = os.date("%Y-%m-%d")
+          end
+          if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+            for k, v in pairs(note.metadata) do out[k] = v end
+          end
+          return out
+        end,
+        sort = { "creation_date", "tags" },
+      },
     })
   end
 }
