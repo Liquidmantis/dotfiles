@@ -68,6 +68,10 @@ Modes.HyperApp:bind('', 't', function()
   Utils.launch_hide_or_focus('microsoft teams')
 end)
 
+Modes.HyperApp:bind('', 'v', function()
+  Utils.launch_hide_or_focus('vivaldi')
+end)
+
 Modes.HyperApp:bind('', 'z', function()
   hs.application.open('zoom.us')
 end)
