@@ -43,7 +43,7 @@ auto_sync = false
 ## which filter mode to use by default
 ## possible values: "global", "host", "session", "directory", "workspace"
 ## consider using search.filters to customize the enablement and order of filter modes
-filter_mode = "session"
+filter_mode = "global"
 
 ## With workspace filtering enabled, Atuin will filter for commands executed
 ## in any directory within a git repository tree (default: false).
@@ -265,11 +265,13 @@ autostart = true
 ## Boolean, true or false. If unset, left up to the theme manager.
 # debug = true
 
-[search]
-
 [ai]
 enabled = true
+
 ## The list of enabled filter modes, in order of priority.
 ## The "workspace" mode is skipped when not in a workspace or workspaces = false.
 ## Default filter mode can be overridden with the filter_mode setting.
-filters = [ "session", "global", "directory", "workspace", "host" ]
+
+[search]
+filters = [ "global", "session", "directory", "workspace" ]
+
