@@ -215,7 +215,7 @@ nnoremap('K', '<cmd>Lspsaga hover_doc<CR>')
 
 -- [c]uickfix commands (quickfix)
 nnoremap('<leader>co', ':copen<CR>')
-nnoremap('<leader>cc', ':cclose<CR>')
+nnoremap('<leader>cx', ':cclose<CR>')
 nnoremap('<leader>cn', ':cnext<CR>')
 nnoremap('<leader>cp', ':cprev<CR>')
 nnoremap('<leader>cf', ':cfdo ')
