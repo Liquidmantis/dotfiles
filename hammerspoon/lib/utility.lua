@@ -170,3 +170,15 @@ function Utils.set_borders_color()
     set_borders_color(BORDERS_ZOOM_COLOR)
   end
 end
+
+function Utils.plover_command(cmd)
+  hs.execute(string.format("/Applications/Plover.app/Contents/MacOS/Plover -s plover_send_command %s", cmd))
+end
+
+function Utils.plover_enable()
+  Utils.plover_command("resume")
+end
+
+function Utils.plover_disable()
+  Utils.plover_command("suspend")
+end

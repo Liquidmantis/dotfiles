@@ -22,3 +22,6 @@ disabled = false
 variable = "HSCTX_STACK_NAME"
 style = "bold red"
 format = "hsctx: [$env_value]($style)"
+
+[custom.hashistack]
+command = 'hcloud-show-stack'

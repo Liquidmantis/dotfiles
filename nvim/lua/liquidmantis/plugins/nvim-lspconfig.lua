@@ -12,7 +12,11 @@ return {
 
     require('mason').setup()
 
-    lsp.enable('copilot')
+    vim.diagnostic.config({
+      virtual_text = true,
+    })
+
+    -- lsp.enable('copilot')
     lsp.enable('docker_compose_language_service')
     lsp.enable('dockerls')
     lsp.enable('html')
@@ -25,13 +29,14 @@ return {
     lsp.enable('bashls')
 
     -- Terraform
-    lsp.config('terraformls', {
-      cmd = { "terraform-ls", "serve" },
-      filetypes = { "terraform", "tf", "terraform-vars" },
-      on_attach = function(client)
-        client.server_capabilities.semanticTokensProvider = nil
-      end,
-    })
+    -- lsp.config('terraformls', {
+    --   cmd = { "terraform-ls", "serve" },
+    --   filetypes = { "terraform", "tf", "terraform-vars" },
+    --   root_markers = { '.terraform', '.git' },
+    --   on_attach = function(client)
+    --     client.server_capabilities.semanticTokensProvider = nil
+    --   end,
+    -- })
     lsp.enable('terraformls')
 
     lsp.enable('marksman')

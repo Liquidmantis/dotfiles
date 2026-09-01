@@ -25,7 +25,7 @@
         "Authorization: Bearer 02916203b87c2761df0164daba5a58bca30517450e75be5d38b5a6cfccd988b5"
       ],
       "environment": {
-        "NODE_EXTRA_CA_CERTS": "/Users/will.ernst/.config/opencode/obsidian-local-rest-api.crt"
+        "NODE_EXTRA_CA_CERTS": "/Users/will.ernst/.config/opencode/obsidian-local-rest-api.pem"
       },
       "enabled": true
     },
@@ -38,5 +38,8 @@
       "enabled": true,
       "type": "local"
     }
-  }
+  },
+  "plugin": [
+    "@hashicorp/opencode-bob-gateway-plugin"
+  ]
 }

@@ -27,6 +27,7 @@ require('liquidmantis.core.keymaps')
 require('liquidmantis.core.rooter')
 require('liquidmantis.core.theme')
 require('liquidmantis.core.telescope-functions')
+require('liquidmantis.core.utility-functions')
 
 if vim.g.neovide then
   require('liquidmantis.core.neovide')

@@ -8,6 +8,10 @@ path = "~/notes/"
 startup_command = "nvim +'Obsidian today'"
 
 [[session]]
+name = "learning"
+path = "~/Documents/Learning/"
+
+[[session]]
 name = "downloads"
 path = "~/Downloads/"
 startup_command = "yazi"

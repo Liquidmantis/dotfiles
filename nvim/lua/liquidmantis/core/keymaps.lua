@@ -135,6 +135,7 @@ nnoremap('<leader>od', ':Obsidian dailies<CR>')
 nnoremap('<leader>oe', ':Obsidian extract_note<CR>')
 vnoremap('<leader>oe', ':Obsidian extract_note<CR>')
 nnoremap('<leader>ol', ':Obsidian links<CR>')
+nnoremap('<leader>omm', ":lua require('liquidmantis.core.utility-functions').update_moc()<CR>")
 nnoremap('<leader>on', ':Obsidian new<CR>')
 nnoremap('<leader>oo', ':Obsidian quickswitch<CR>')
 nnoremap('<leader>or', ':Obsidian rename<CR>')
@@ -226,9 +227,14 @@ nnoremap('<leader>ch', ':Telescope quickfixhistory<CR>')
 nnoremap('<localleader>ta', ':AerialToggle<CR>')
 nnoremap('<localleader>tc', ':ColorizerToggle<CR>')
 nnoremap('<localleader>ti', ':IBLToggle<CR>')
+nnoremap('<localleader>tx', ":lua require('liquidmantis.core.utility-functions').toggle_latex()<CR>")
 nnoremap('<localleader>tm', ':lua require("codewindow").toggle_minimap()<CR>')
 nnoremap('<localleader>tt', ':set relativenumber!<CR>')
 nnoremap('<localleader>tw', ':set list!<CR>')
+nnoremap('<localleader>tC', function()
+  vim.g.completion_enabled = not (vim.g.completion_enabled ~= false)
+  vim.notify('Completion ' .. (vim.g.completion_enabled and 'enabled' or 'disabled'))
+end)                               -- toggle blink.cmp (incl. copilot) on/off
 nnoremap('<leader>hl', ':noh<CR>') -- clear last search highlight
 
 -- Nvim Tree mappings

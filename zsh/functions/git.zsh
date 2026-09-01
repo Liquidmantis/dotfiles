@@ -12,8 +12,20 @@ function git-log-preview() {
 }
 
 function git-file-history() {
-  fzf --bind 'enter:execute(echo {2})+abort' --ansi --preview \
-    'git log --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short --graph {1}'
+  local file="$1"
+
+  if [[ -z "$file" ]]; then
+    file="$(git ls-files | fzf --ansi --preview \
+      'git log --follow --color=always --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(auto)%d %Creset%s" --date=short -- {}')"
+  fi
+
+  [[ -z "$file" ]] && return
+
+  local -x GIT_FILE_HISTORY_FILE="$file"
+
+  git log --follow --pretty=format:"%h %ad %an%d %s" --date=short -- "$file" |
+    fzf --preview 'git show --color=always {1} -- "$GIT_FILE_HISTORY_FILE" | delta ' |
+    awk '{print $1}'
 }
 
 function git-stash-preview() {

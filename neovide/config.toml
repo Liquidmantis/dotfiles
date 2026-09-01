@@ -1,0 +1,10 @@
+srgb = true
+frame = "none"
+
+[font]
+size = 14
+hinting = "full"
+edging = "antialias"
+
+[[font.normal]]
+family = "FiraCode Nerd Font Mono Med"

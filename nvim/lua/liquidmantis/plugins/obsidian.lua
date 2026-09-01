@@ -18,6 +18,7 @@ return {
         folder = "Templates",
         date_format = "%Y-%m-%d",
         time_format = "HH:mm",
+        default_tags = {},
       },
 
       daily_notes = {
@@ -33,8 +34,6 @@ return {
       },
 
       completion = {
-        -- Set to false to disable completion.
-        nvim_cmp = false,
 
         -- Trigger completion at 2 chars.
         min_chars = 2,
@@ -49,7 +48,7 @@ return {
 
       frontmatter = {
         func = function(note)
-          local out = { tags = note.tags }
+          local out = { title = note.note_id, tags = note.tags }
           if not (note.metadata and note.metadata.creation_date) then
             out.creation_date = os.date("%Y-%m-%d")
           end
@@ -58,7 +57,7 @@ return {
           end
           return out
         end,
-        sort = { "creation_date", "tags" },
+        sort = { "title", "creation_date", "tags" },
       },
     })
   end

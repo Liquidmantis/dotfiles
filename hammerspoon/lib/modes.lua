@@ -16,6 +16,7 @@ Modes = {}
 local modes = {
   {
     name = "Hyper",
+    -- commented these out as they end up changing focus.  Maybe I can background exec them?
     -- enter_extra_funcs = { function() Utils.trigger_btt("enable-mouse-slow") end },
     -- exit_extra_funcs = { function() Utils.trigger_btt("disable-mouse-slow") end }
   },

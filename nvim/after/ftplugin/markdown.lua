@@ -15,4 +15,5 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "FocusLost" }, {
   group = autosaver
 })
 
-require("quarto").activate()
+-- require("quarto").activate()
+

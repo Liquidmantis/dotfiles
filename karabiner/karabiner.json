@@ -166,6 +166,18 @@
                         "product_id": 6519,
                         "vendor_id": 12951
                     }
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 49,
+                        "vendor_id": 13807
+                    },
+                    "ignore": false,
+                    "ignore_vendor_events": true,
+                    "manipulate_caps_lock_led": false
                 }
             ],
             "fn_function_keys": [

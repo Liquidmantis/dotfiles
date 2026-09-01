@@ -2,7 +2,7 @@ return {
   'saghen/blink.cmp',
   dependencies = {
     'rafamadriz/friendly-snippets',
-    'fang2hou/blink-copilot',
+    -- 'fang2hou/blink-copilot',
   },
 
   version = '1.*',
@@ -26,6 +26,14 @@ return {
       preset = 'default',
       -- ['<Esc>'] = { 'cancel', 'fallback' }
     },
+
+    -- Global completion switch, toggled via <localleader>tC (see core/keymaps.lua).
+    -- Keeps blink's default per-buffer (vim.b.completion) and prompt exclusions.
+    enabled = function()
+      return vim.g.completion_enabled ~= false
+          and vim.bo.buftype ~= 'prompt'
+          and vim.b.completion ~= false
+    end,
 
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -74,14 +82,15 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
+      -- default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
       providers = {
-        copilot = {
-          name = "copilot",
-          module = "blink-copilot",
-          score_offset = 100,
-          async = true,
-        },
+        -- copilot = {
+        --   name = "copilot",
+        --   module = "blink-copilot",
+        --   score_offset = 100,
+        --   async = true,
+        -- },
         lsp = { fallbacks = { "lazydev" } },
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
       },

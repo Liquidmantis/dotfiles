@@ -1,6 +1,6 @@
 # window-decoration = none
 macos-titlebar-style = hidden
-macos-option-as-alt = true
+macos-option-as-alt = left
 
 theme = catppuccin mocha
 background-opacity = 0.90
