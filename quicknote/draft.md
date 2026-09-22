@@ -1,0 +1,1 @@
+!note "QuickNote.md" fix the issue with the draggable area.

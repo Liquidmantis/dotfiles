@@ -1,0 +1,76 @@
+# QuickNote configuration
+# This file is authoritative. Changes made in Preferences are written here.
+
+[hotkey]
+key = "n"
+modifiers = ["command", "control"]
+
+[capture]
+notes_root = "~/Documents/LiquidVault/"
+default_note_type = "inbox"
+add_note_type = "note"
+recent_notes_limit = 5
+open_command = ["/usr/bin/open", "-a", "Obsidian", "{{destination_path}}"]
+
+[window]
+opacity = 0.9
+width = 587.0
+height = 200.0
+
+[behavior]
+launch_at_login = true
+service_enabled = true
+service_behavior = "direct_save"
+
+[note_types.daily]
+write_behavior = "append"
+destination = "daily/{{date}}.md"
+template = "templates/daily.md"
+ensure_newline_before_entry = true
+insert_separator = false
+separator = ""
+section_header = "## Notes"
+initialize_command = ["/usr/local/bin/obsidian", "vault=LiquidVault", "daily"]
+
+[note_types.inbox]
+write_behavior = "prepend"
+destination = "inbox.md"
+template = "templates/inbox.md"
+ensure_newline_before_entry = true
+insert_separator = false
+separator = ""
+section_header = "## {{date}}"
+initialize_command = []
+
+[note_types.note]
+write_behavior = "append"
+destination = "{{title}}.md"
+template = "templates/note.md"
+ensure_newline_before_entry = true
+insert_separator = false
+separator = ""
+section_header = ""
+initialize_command = ["/usr/local/bin/obsidian", "vault=LiquidVault", "create", "path={{destination_relative_path}}", "template=note"]
+
+[note_types.reminders]
+delivery = "apple_reminders"
+
+[note_types.todo]
+write_behavior = "append"
+destination = "todo.md"
+template = "templates/todo.md"
+ensure_newline_before_entry = true
+insert_separator = false
+separator = ""
+section_header = "## Todo"
+initialize_command = []
+
+[note_types.zk]
+write_behavior = "create"
+destination = "inbox/{{timestamp}}-{{slug}}.md"
+template = "templates/zk.md"
+ensure_newline_before_entry = false
+insert_separator = false
+separator = ""
+section_header = ""
+initialize_command = []
