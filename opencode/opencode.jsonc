@@ -5,7 +5,10 @@
     "*": "allow",
     "edit": "allow",
     "webfetch": "allow",
-    "external_directory": "ask",
+    "external_directory": {
+      "*": "ask",
+      "~/.agents/skills/**": "allow"
+    },
     "bash": {
       "*": "allow",
       "rm *": "ask",

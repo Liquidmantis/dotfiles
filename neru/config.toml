@@ -105,6 +105,7 @@ clickable_roles = [
     "menu_item",
     "cell",
     "row",
+    "static_text",
     ## Native roles are addressed through their vocabulary prefix
     ## (`ax:` macOS, `atspi:` Linux, `uia:` Windows). Entries for other
     ## platforms are ignored rather than rejected.
