@@ -1,10 +1,10 @@
 {
   "paths" : [
+    "Instana Consul.md",
     "QuickNote.md",
     "todo.md",
     "daily\/2026-09-21.md",
-    "inbox.md",
-    "inbox\/20260921-125004-this-is-a-test-zk-note.md"
+    "inbox.md"
   ],
   "root" : "\/Users\/will.ernst\/Documents\/LiquidVault",
   "version" : 1
