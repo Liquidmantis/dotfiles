@@ -47,6 +47,7 @@ text = "#E8EEFF"
 "Primary+Shift+Space" = "hints"
 "Primary+Shift+G" = "grid"
 "Primary+Shift+C" = "recursive_grid"
+"Primary+Shift+B" = "bisect"
 "Primary+Shift+S" = "scroll"
 
 # Macros — named action sequences, reused from any binding.
@@ -186,6 +187,7 @@ generic_clickable_min_confidence = 0.5       # Minimum confidence for generic cl
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#grid
 [grid]
 enabled = true
+capture_scope = "screen"                    # Region the grid covers: "screen" or "window" (the focused window)
 characters = "abcdefghijklmnpqrstuvwxyz"    # Primary grid labels
 sublayer_keys = "abcdefghijklmnpqrstuvwxyz" # Subgrid labels, first 9 used (empty = infer from characters)
 row_labels = ""                             # Custom row labels (empty = infer from characters)
@@ -220,6 +222,7 @@ border_width = 1
 # keys = "uiojklm,."                          # Cell selection keys (must be grid_cols * grid_rows chars)
 [recursive_grid]
 enabled = true
+capture_scope = "screen"                    # Region the first level covers: "screen" or "window" (the focused window)
 grid_cols = 5                               # Number of columns (>= 1)
 grid_rows = 3                               # Number of rows (>= 1)
 keys = "yuiophjkl;nm,./"                    # Cell selection keys (must be grid_cols * grid_rows chars)
@@ -296,11 +299,103 @@ label_background_padding_y = -1
 label_background_border_radius = -1
 label_background_border_width = 1
 label_char = ""                             # Override cell labels with a single character (e.g. "·"); empty = use key
-label_autohide_multiplier = 1.5             # Hide labels when cell < fontSize × multiplier (0 = disable)
+min_font_size = 6                           # Labels shrink to fit their cell, down to this size, then hide (set to font_size to never shrink)
+label_autohide_multiplier = 1.5             # Keep cell >= fontSize × multiplier by shrinking the label (0 = disable)
 sub_key_preview = false                     # Draw miniature key grid inside each cell
 sub_key_preview_font_size = 8
-sub_key_preview_autohide_multiplier = 1.5   # Hide the preview when a sub-cell < fontSize × multiplier (0 = disable)
+sub_key_preview_autohide_multiplier = 1.5   # Keep sub-cell >= fontSize × multiplier by shrinking the preview (0 = disable)
 sub_key_preview_label_char = ""             # Override sub-key preview labels with a single character (e.g. "·"); empty = use key
+
+# Bisect mode: every press keeps half of the region, or a quadrant of it
+# See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#bisect
+# Launched with Primary+Shift+B by default (see [hotkeys]).
+[bisect]
+enabled = true
+capture_scope = "screen"                    # Region the session starts from: "screen" or "window" (the focused window)
+
+[bisect.animation]
+enabled = true                              # Opt out from the native transition between cuts on supported platforms
+duration_ms = 50                            # Bisect animation duration in milliseconds
+
+[bisect.hotkeys]
+"Escape" = "idle"
+"`" = "toggle-cursor-follow-selection"
+"h" = "action bisect --direction=left"
+"j" = "action bisect --direction=down"
+"k" = "action bisect --direction=up"
+"l" = "action bisect --direction=right"
+"u" = "action bisect --direction=up_left"
+"i" = "action bisect --direction=up_right"
+"m" = "action bisect --direction=down_left"
+"," = "action bisect --direction=down_right"
+"Space" = "action reset"
+"Backspace" = "action backspace"
+"Shift+L" = "action left_click"
+"Enter" = "action left_click"
+"Shift+R" = "action right_click"
+"Shift+M" = "action middle_click"
+"Shift+I" = "action left_click --state down"
+"Shift+U" = "action left_click --state up"
+# Mouse movement
+# West
+"Control+j" = "action move_mouse_relative --dx=-10 --dy=0"
+"Shift+Control+j" = "action move_mouse_relative --dx=-50 --dy=0"
+# SuperWest
+"Control+h" = "action move_mouse_relative --dx=-100 --dy=0"
+"Shift+Control+h" = "action move_mouse_relative --dx=-500 --dy=0"
+# WestNorthWest
+"Control+y" = "action move_mouse_relative --dx=-20 --dy=-10"
+"Shift+Control+y" = "action move_mouse_relative --dx=-100 --dy=-50"
+# NorthWest
+"Control+u" = "action move_mouse_relative --dx=-10 --dy=-10"
+"Shift+Control+u" = "action move_mouse_relative --dx=-50 --dy=-50"
+# North
+"Control+i" = "action move_mouse_relative --dx=0 --dy=-10"
+"Shift+Control+i" = "action move_mouse_relative --dx=0 --dy=-50"
+# NorthEast
+"Control+o" = "action move_mouse_relative --dx=10 --dy=-10"
+"Shift+Control+o" = "action move_mouse_relative --dx=50 --dy=-50"
+# EastNorthEast
+"Control+p" = "action move_mouse_relative --dx=20 --dy=-10"
+"Shift+Control+p" = "action move_mouse_relative --dx=100 --dy=-50"
+# East
+"Control+l" = "action move_mouse_relative --dx=10 --dy=0"
+"Shift+Control+l" = "action move_mouse_relative --dx=50 --dy=0"
+# SuperEast
+"Control+;" = "action move_mouse_relative --dx=100 --dy=0"
+"Shift+Control+;" = "action move_mouse_relative --dx=500 --dy=0"
+# EastSouthEast
+"Control+/" = "action move_mouse_relative --dx=20 --dy=10"
+"Shift+Control+/" = "action move_mouse_relative --dx=100 --dy=50"
+# SouthEast
+"Control+." = "action move_mouse_relative --dx=10 --dy=10"
+"Shift+Control+." = "action move_mouse_relative --dx=50 --dy=50"
+# South
+"Control+," = "action move_mouse_relative --dx=0 --dy=10"
+"Shift+Control+," = "action move_mouse_relative --dx=0 --dy=50"
+# SouthWest
+"Control+m" = "action move_mouse_relative --dx=-10 --dy=10"
+"Shift+Control+m" = "action move_mouse_relative --dx=-50 --dy=50"
+# WestSouthWest
+"Control+n" = "action move_mouse_relative --dx=-20 --dy=10"
+"Shift+Control+n" = "action move_mouse_relative --dx=-100 --dy=50"
+
+[bisect.ui]
+line_width = 1
+font_size = 10
+font_family = ""
+label_background = false                    # Add rounded backgrounds behind the quadrant labels
+label_background_padding_x = -1
+label_background_padding_y = -1
+label_background_border_radius = -1
+label_background_border_width = 1
+label_char = ""                             # Override the quadrant labels with a single character (e.g. "·"); empty = use key
+min_font_size = 6                           # Labels shrink to fit their quadrant, down to this size, then hide
+label_autohide_multiplier = 1.5             # Keep quadrant >= fontSize × multiplier by shrinking the label (0 = disable)
+sub_key_preview = false                     # Accepted for the shared shape; a bisect level has no next level to preview
+sub_key_preview_font_size = 8
+sub_key_preview_autohide_multiplier = 1.5
+sub_key_preview_label_char = ""
 
 # Virtual pointer
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#virtual_pointer
@@ -453,6 +548,10 @@ text = "Grid"
 [mode_indicator.recursive_grid]
 enabled = false
 text = "Recursive Grid"
+
+[mode_indicator.bisect]
+enabled = false
+text = "Bisect"
 
 [mode_indicator.monitor_select]
 enabled = false
