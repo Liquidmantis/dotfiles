@@ -1,10 +1,10 @@
 {
   "paths" : [
+    "Sqlite Exploration.md",
+    "daily\/2026-09-24.md",
+    "YouTube Videos.md",
     "Instana Consul.md",
-    "QuickNote.md",
-    "todo.md",
-    "daily\/2026-09-21.md",
-    "inbox.md"
+    "QuickNote.md"
   ],
   "root" : "\/Users\/will.ernst\/Documents\/LiquidVault",
   "version" : 1

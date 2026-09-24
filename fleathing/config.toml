@@ -30,7 +30,8 @@ ensure_newline_before_entry = true
 insert_separator = false
 separator = ""
 section_header = "## Notes"
-initialize_command = ["/usr/local/bin/obsidian", "vault=LiquidVault", "daily"]
+initialize_template = "templates/daily.md"
+initialize_command = []
 
 [note_types.inbox]
 write_behavior = "prepend"
@@ -50,7 +51,8 @@ ensure_newline_before_entry = true
 insert_separator = false
 separator = ""
 section_header = ""
-initialize_command = ["/usr/local/bin/obsidian", "vault=LiquidVault", "create", "path={{destination_relative_path}}", "template=note"]
+initialize_template = "templates/note.md"
+initialize_command = []
 
 [note_types.reminders]
 delivery = "apple_reminders"
@@ -73,4 +75,5 @@ ensure_newline_before_entry = false
 insert_separator = false
 separator = ""
 section_header = ""
+initialize_template = "templates/zk.md"
 initialize_command = []
