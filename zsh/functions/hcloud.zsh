@@ -1,106 +1,58 @@
 function hcloud-connect-stack() {
-  if [[ $# -eq 0 ]]; then
-    type="hashistack"
-  elif [[ "$1" = "hashistack" ]]; then
-    type="hashistack"
-  elif [[ "$1" = "pproxy" ]]; then
-    type="pproxy"
-  else
-    echo "Unknown connection type: $1.  Expected 'hashistack' or 'pproxy'."
+  select-stack
+  if [[ -z "$HCLOUD_STACK" ]]; then
+    log ERROR "No stack selected."
     return 1
   fi
+  letmein
 
-  if [[ "$type" = "hashistack" ]]; then
-    stack=$(select-stack hashistack)
-    if [[ -z "$stack" ]]; then
-      echo "No stack selected. Aborting."
-      return
-    fi
-    export HCLOUD_STACK=$stack
-    connect-hashistack $stack
-  elif [[ "$type" = "pproxy" ]]; then
-    stack=$(select-stack pproxy)
-    if [[ -z "$stack" ]]; then
-      echo "No stack selected. Aborting."
-      return
-    fi
-    export HCLOUD_STACK=$stack
-    connect-pproxy
-  else
-    echo "Unknown type: $type"
-    return 1
-  fi
-
+  connect-hashistack $stack
 }
 
-hcloud_letmein_select() {
-  echo "Refreshing Doormat credentials..."
-  doormat login
+local function select-stack() {
   local stack_list selected_stack aws_account
+  log INFO "Getting stacks..."
   stack_list=$(hcloud hashistack list --format json | jq -r '.[].[] | "\(.name)\t\(.aws_account)"')
   selected_stack=$(echo "$stack_list" | cut -f1 | fzf --prompt="Select stack: ")
   if [[ -z "$selected_stack" ]]; then
-    echo "No stack selected."
+    log ERROR "No stack selected."
     return 1
   fi
   aws_account=$(echo "$stack_list" | awk -F'\t' -v stack="$selected_stack" '$1 == stack {print $2}')
   if [[ -z "$aws_account" ]]; then
-    echo "No AWS account found for stack: $selected_stack"
+    log ERROR "No AWS account found for stack: $selected_stack"
     return 2
   fi
 
-  # echo -n "Enter justification: "
-  # read justification < /dev/tty
-  # if [[ -z "$justification" ]]; then
-  #   echo "Justification is required."
-  #   return 3
-  # fi
-
-  justification="job responsibilities"
-
-  hcloud letmein "$aws_account" --justification "$justification" --access-level "developer"
+  export HCLOUD_STACK=$selected_stack
+  export HCLOUD_AWS_ACCOUNT=$aws_account
 }
 
-local function select-stack() {
-  type=$1
-  if [[ "$type" = "hashistack" ]]; then
-    stacks=$(cat "${HOME}/.config/hcloud/hashistack/config.yaml" | yq '.environments | to_entries | .[].key')
-    # Currently not using the built in hashistack list because it is an incomplete list
-    # stacks="$(hcloud hashistack list --format=json | jq -r '.[].stack')"
-  elif [[ "$type" = "pproxy" ]]; then
-    stacks=$(cat "${HOME}/.config/hcloud/pproxy/config.yaml" | yq '.environments | to_entries | .[].key')
-  else
-    return 1
-  fi
+local function letmein() {
+  log INFO "Refreshing Doormat credentials..."
+  doormat login
 
-  stack="$(echo $stacks | fzf-tmux -p)"
-  echo $stack
+  echo -n "Enter justification: "
+  read justification < /dev/tty
+  if [[ -z "$justification" ]]; then
+    log ERROR "Justification is required."
+    return 3
+  fi
+  # alternatively comment out the block above and uncomment this fixed value.
+  # justification="job responsibilities"
+
+  hcloud letmein "$HCLOUD_AWS_ACCOUNT" --justification "$justification" --access-level "developer"
 }
 
 local function connect-hashistack() {
-  echo "Connecting to $stack..."
-  hcloud hashistack vpn $stack
-  echo "Setting environment variables..."
-  eval $(hcloud hashistack env $stack)
-  echo "Setting Vault addresses..."
+  log INFO "Connecting to $HCLOUD_STACK..."
+  hcloud hashistack connect $HCLOUD_STACK
+  log INFO "Setting environment variables..."
+  eval $(hcloud hashistack env $HCLOUD_STACK)
+  log INFO "Setting extra Vault addresses..."
   set-vault-addresses init
-}
-
-local function connect-pproxy() {
-  echo "Setting pproxy addresses..."
-  set-pproxy-addresses
-  # echo "Starting pproxy in the background..."
-  # hcloud pproxy serve &
-  # sleep 1
-  # echo "-----------------------------------"
-  # echo "pproxy running in the background.  Logs will stream to your terminal."
-  # echo "To restore pproxy, run 'fg'."
-}
-
-local function set-pproxy-addresses() {
-  export VAULT_ADDR="http://vault.${HCLOUD_STACK}.pproxy.local"
-  export CONSUL_ADDR="http://consul.${HCLOUD_STACK}.pproxy.local"
-  export NOMAD_ADDR="http://nomad.${HCLOUD_STACK}.pproxy.local"
+  log INFO "Getting access tokens"
+  get-tokens
 }
 
 function set-vault-addresses() {
@@ -135,4 +87,34 @@ function set-vault-addresses() {
     echo "Invalid argument. Please use 'init', 'reset', 'app', or 'infra'."
     ;;
   esac
+}
+
+local function get-tokens() {
+  local vault_role="cloud-infra-services"
+  local consul_role="cloud-admin"
+  local nomad_role="_cloud-super-admin"
+  eval $(hcloud hashistack tokens \
+  --vault-role $vault_role \
+  --consul-role $consul_role \
+  --nomad-role $nomad_role \
+  --format env_vars)
+}
+
+local function log() {
+  local level="${1:-INFO}"
+  shift
+
+  local color reset='\033[0m'
+
+  case "$level" in
+    INFO)  color='\033[36m' ;; # cyan
+    WARN)  color='\033[33m' ;; # yellow
+    ERROR) color='\033[31m' ;; # red
+    DEBUG) color='\033[90m' ;; # gray
+    *)     color='\033[0m'  ;;
+  esac
+
+  printf '[%s] %b%-5s%b %s\n' \
+    "$(date '+%H:%M:%S')" \
+    "$color" "$level" "$reset" "$*"
 }

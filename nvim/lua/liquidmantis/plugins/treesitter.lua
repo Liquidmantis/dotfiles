@@ -23,6 +23,7 @@ local languages = {
   'ssh_config',
   'terraform',
   'tmux',
+  'toml',
   'vim',
   'yaml',
 }

@@ -11,69 +11,145 @@ default_note_type = "inbox"
 add_note_type = "note"
 recent_notes_limit = 5
 open_command = ["/usr/bin/open", "-a", "Obsidian", "{{destination_path}}"]
+capture_only_variables = ["source_url", "url"]
+remembered_variables = ["source", "channel", "context", "platform"]
 
 [window]
 opacity = 0.9
-width = 587.0
-height = 200.0
+width = 625.0
+height = 210.0
+command_shelf_visibility = "destination_only"
+reveal_command_shelf_on_open = true
 
 [behavior]
 launch_at_login = true
 service_enabled = true
-service_behavior = "direct_save"
 
 [note_types.daily]
-write_behavior = "append"
+# static: resolve each time; log: continue active file; note: create a separate file.
+note_behavior = "static"
+# Entry placement within the selected section, or the whole note. Default: bottom.
+entry_position = "bottom"
 destination = "daily/{{date}}.md"
-template = "templates/daily.md"
+# Renders every Capture, including the first Entry in a new file.
+entry_template = "templates/daily_entry.md"
+# Prevent joined text: before appended Entries, after prepended Entries; not an extra blank line.
 ensure_newline_before_entry = true
+# Optional separator between the new Entry and existing content.
 insert_separator = false
 separator = ""
+# Optional heading; Entry position applies inside this section.
 section_header = "## Notes"
-initialize_template = "templates/daily.md"
+# Where to create a missing heading, independently of Entry position. Top follows YAML front matter.
+missing_section_position = "top"
+# Optional whole-note structure for a missing file, before inserting its first Entry.
+initial_template = "templates/daily_initial.md"
+# Alternative executable initializer; cannot be combined with initial_template.
 initialize_command = []
 
 [note_types.inbox]
-write_behavior = "prepend"
+note_behavior = "static"
+# Newest Entries first within the selected section.
+entry_position = "top"
 destination = "inbox.md"
-template = "templates/inbox.md"
+entry_template = "templates/inbox_entry.md"
 ensure_newline_before_entry = true
 insert_separator = false
 separator = ""
 section_header = "## {{date}}"
+missing_section_position = "top"
+initial_template = ""
 initialize_command = []
 
 [note_types.note]
-write_behavior = "append"
+note_behavior = "static"
+# Add Entries at the bottom of the note.
+entry_position = "bottom"
 destination = "{{title}}.md"
-template = "templates/note.md"
+entry_template = "templates/note_entry.md"
 ensure_newline_before_entry = true
 insert_separator = false
 separator = ""
 section_header = ""
-initialize_template = "templates/note.md"
+missing_section_position = "bottom"
+initial_template = "templates/note_initial.md"
 initialize_command = []
 
 [note_types.reminders]
 delivery = "apple_reminders"
 
 [note_types.todo]
-write_behavior = "append"
+note_behavior = "static"
+# Add Entries at the bottom of the selected section.
+entry_position = "bottom"
 destination = "todo.md"
-template = "templates/todo.md"
+entry_template = "templates/todo_entry.md"
 ensure_newline_before_entry = true
 insert_separator = false
 separator = ""
 section_header = "## Todo"
+missing_section_position = "top"
+initial_template = ""
 initialize_command = []
 
 [note_types.zk]
-write_behavior = "create"
+note_behavior = "note"
 destination = "inbox/{{timestamp}}-{{slug}}.md"
-template = "templates/zk.md"
-ensure_newline_before_entry = false
+entry_template = "templates/zk_entry.md"
+ensure_newline_before_entry = true
 insert_separator = false
 separator = ""
 section_header = ""
-initialize_template = "templates/zk.md"
+missing_section_position = "bottom"
+initial_template = "templates/zk_initial.md"
+initialize_command = []
+
+[note_types.bookmark]
+note_behavior = "note"
+destination = "bookmarks/{{slug}}.md"
+entry_template = "templates/bookmark_entry.md"
+default_title = "{{url}}"
+ensure_newline_before_entry = true
+insert_separator = false
+separator = ""
+initial_template = ""
+
+[note_types.watchlater]
+note_behavior = "note"
+destination = "watchlater/{{slug}}.md"
+entry_template = "templates/watchlater_entry.md"
+default_title = "{{title_json}}"
+ensure_newline_before_entry = true
+insert_separator = false
+separator = ""
+initial_template = ""
+
+[note_types.oncall]
+note_behavior = "log"
+# Add Entries at the bottom of the selected section.
+entry_position = "bottom"
+destination = "oncall/{{title}}.md"
+entry_template = "templates/oncall_entry.md"
+default_title = "On-Call {{date}}"
+ensure_newline_before_entry = true
+insert_separator = false
+separator = ""
+section_header = "## {{date}}"
+missing_section_position = "bottom"
+initial_template = "templates/oncall_initial.md"
+initialize_command = []
+
+[note_types.incident]
+note_behavior = "log"
+# Add Entries at the bottom of the selected section.
+entry_position = "bottom"
+destination = "incidents/{{title}}.md"
+entry_template = "templates/incident_entry.md"
+default_title = "Incident {{date}} {{time}}"
+ensure_newline_before_entry = true
+insert_separator = false
+separator = ""
+section_header = "## Log Entries"
+missing_section_position = "bottom"
+initial_template = "templates/incident_initial.md"
 initialize_command = []

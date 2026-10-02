@@ -18,10 +18,12 @@ zsh_indicator = "󰂧"
 fish_indicator = "\uf739"
 disabled = false
 
-[env_var]
+[env_var.hsctx]
 variable = "HSCTX_STACK_NAME"
 style = "bold red"
 format = "hsctx: [$env_value]($style)"
 
-[custom.hashistack]
-command = 'hcloud-show-stack'
+[env_var.hcloud]
+variable = "HCLOUD_STACK"
+style = "bold red"
+format = "hashistack: [$env_value]($style)"

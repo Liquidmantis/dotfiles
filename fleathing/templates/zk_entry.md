@@ -1,0 +1,4 @@
+{{body}}
+{{#tags}}
+{{tags}}
+{{/tags}}
