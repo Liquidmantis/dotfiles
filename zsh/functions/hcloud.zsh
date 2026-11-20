@@ -32,14 +32,14 @@ local function letmein() {
   log INFO "Refreshing Doormat credentials..."
   doormat login
 
-  echo -n "Enter justification: "
-  read justification < /dev/tty
-  if [[ -z "$justification" ]]; then
-    log ERROR "Justification is required."
-    return 3
-  fi
+#  echo -n "Enter justification: "
+#  read justification < /dev/tty
+#  if [[ -z "$justification" ]]; then
+#    log ERROR "Justification is required."
+#    return 3
+#  fi
   # alternatively comment out the block above and uncomment this fixed value.
-  # justification="job responsibilities"
+  justification="job responsibilities"
 
   hcloud letmein "$HCLOUD_AWS_ACCOUNT" --justification "$justification" --access-level "developer"
 }
